@@ -6,8 +6,12 @@
   </div>
 </h1>
 
-# 📜 Ontimize Web Templates
-A collection of examples and solutions for your OntimizeWeb applications.
+
+A collection of examples and solutions for build your OntimizeWeb applications.
+
+## 📜 Templates
+
+Multiple examples are being featured in [Ontimize Web's Templates](https://ontimize-web-template-manager.dev.ontimize.com/), visit that page for more advanced filtering options.
 
 ## 💡 Provide Feedback
 
