@@ -34,7 +34,7 @@
           </div>
 
           <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px" class="m-top-24">
-            <mat-checkbox (change)="rememberMe($event.checked)" class="text">Remember me</mat-checkbox>
+            <mat-checkbox #checkbox (change)="rememberMe($event.checked)" class="text">Remember me</mat-checkbox>
             <a href="" class="text link_text">Forgot your password?</a>
           </div>
 

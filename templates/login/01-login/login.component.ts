@@ -1,5 +1,6 @@
-import { Component, Inject, Injector, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Inject, Injector, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { MatCheckbox } from '@angular/material/checkbox';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService, LocalStorageService, NavigationService, SessionInfo, Util } from 'ontimize-web-ngx';
 import { Observable } from 'rxjs';
@@ -19,12 +20,14 @@ export class LoginComponent implements OnInit {
 
   router: Router;
 
+  @ViewChild ('checkbox', {static: true}) rememberChk: MatCheckbox;
+
   constructor(
     private actRoute: ActivatedRoute,
     router: Router,
     @Inject(NavigationService) public navigation: NavigationService,
     @Inject(AuthService) private authService: AuthService,
-    @Inject(LocalStorageService) private localStorageService,
+    @Inject(LocalStorageService) private localStorageService: LocalStorageService,
     public injector: Injector
   ) {
     this.router = router;
@@ -53,6 +56,10 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['../'], { relativeTo: this.actRoute });
     } else {
       this.authService.clearSessionData();
+      if (window.localStorage.getItem("rememberme") == "true") {
+        this.rememberChk.checked = true;
+      }
+      this.rememberMe(this.rememberChk.checked);
     }
   }
 
@@ -74,11 +81,10 @@ export class LoginComponent implements OnInit {
 
   rememberMe(remember){
     if (remember){
-      this.localStorageService.updateAppComponentStorage('rememberme', 'true');
+      this.localStorageService.setLocalStorage({'rememberme': 'true'});
     } else {
-      this.localStorageService.updateAppComponentStorage('rememberme', 'false');
+      this.localStorageService.setLocalStorage({'rememberme': 'false'});
     }
-    
   }
 
   login() {
