@@ -1,6 +1,6 @@
 import { Component, Inject, Injector, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService, NavigationService, OPasswordInputComponent, OTextInputComponent } from 'ontimize-web-ngx';
+import { AppearanceService, AuthService, NavigationService, OPasswordInputComponent, OTextInputComponent } from 'ontimize-web-ngx';
 import { Observable } from 'rxjs';
 
 
@@ -16,15 +16,18 @@ export class LoginComponent implements OnInit {
   router: Router;
   @ViewChild('user') userForm: OTextInputComponent;
   @ViewChild('password') passwordForm: OPasswordInputComponent;
+  public isDarkMode: boolean;
 
   constructor(
     private actRoute: ActivatedRoute,
     router: Router,
     @Inject(NavigationService) public navigation: NavigationService,
     @Inject(AuthService) private authService: AuthService,
-    public injector: Injector
+    public injector: Injector,
+    protected appeareanceService: AppearanceService
   ) {
     this.router = router;
+    this.isDarkMode = this.appeareanceService.isDarkMode();
 
     const qParamObs: Observable<any> = this.actRoute.queryParams;
     qParamObs.subscribe(params => {
@@ -66,4 +69,5 @@ export class LoginComponent implements OnInit {
         });
     }
   }
+
 }

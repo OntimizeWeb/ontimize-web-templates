@@ -5,7 +5,7 @@
     <o-form editable-detail="no" show-header="no">
 
       <div fxLayout="column" fxLayoutAlign="center center" class="logo-container mat-elevation-z4">
-        <img src="assets/images/logo.svg">
+        <img src="assets/images/logo{{isDarkMode?'_dark':''}}.svg">
       </div>
 
       <p class="session-expired" *ngIf="sessionExpired">{{ 'LOGIN.ERROR_SESSION_EXPIRED' | oTranslate }}</p>
