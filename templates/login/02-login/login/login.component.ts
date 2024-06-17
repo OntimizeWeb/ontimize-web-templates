@@ -57,11 +57,13 @@ export class LoginComponent implements OnInit {
     if (userName?.length > 0 && password?.length > 0) {
       const self = this;
       this.authService.login(userName, password)
-        .subscribe(() => {
-          self.sessionExpired = false;
-          self.router.navigate(['../'], { relativeTo: this.actRoute });
-        }, null);
+        .subscribe({
+          next: () => {
+            self.sessionExpired = false;
+            self.router.navigate(['../'], { relativeTo: this.actRoute });
+          },
+          error: (e) => console.error(e)
+        });
     }
   }
-
 }
