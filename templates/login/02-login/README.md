@@ -2,8 +2,8 @@
 
 ## How to use
 <ol>
-<li>Download in a directory in your app </li>
-```
+<li>Download and put **login** folder in src/app/, **images** into assets/images/   </li>
+<pre>
 ─src
     ├───app
     │   ├───login
@@ -19,7 +19,18 @@
     │
     └───..
 
+
+</pre>
+
+<li>Add the translations of the following values ​​to the en.json file of your project</li>
+
+```json
+  "LOGIN.LOGIN": "Login",
+  "LOGIN.ERROR_SESSION_EXPIRED": "Session expired",
+  "LOGIN.USERNAME": "Username",
+  "LOGIN.PASSWORKD": "Password"
 ```
+
 <li>Configure routing in app.module.ts</li>
 
 ```ts
