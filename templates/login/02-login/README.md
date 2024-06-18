@@ -3,6 +3,23 @@
 ## How to use
 <ol>
 <li>Download in a directory in your app </li>
+```
+─src
+    ├───app
+    │   ├───login
+    │   ├───...
+    │   │
+    ├───assets
+    │   ├───css
+    │   ├───i18n
+    │   └───images
+    │       └───BG-img.png
+    │       └───logo.svg
+    │       └───logo-dark.svg
+    │
+    └───..
+
+```
 <li>Configure routing in app.module.ts</li>
 
 ```ts
@@ -13,7 +30,7 @@ import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: 'login',
-    loadChildren: () => import('./login02/login.module').then(m => m.LoginModule)
+    loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
   },
   ...]
 
@@ -39,7 +56,7 @@ export class AppRoutingModule { }
 ...
 @include ontimize-style.ontimize-theme-styles(theme.$theme);
 
-+ @import '../../app/login02/login.theme.scss';
++ @import '../../app/login/login.theme.scss';
 
 
 @mixin app-themes($theme) {
