@@ -1,4 +1,4 @@
-import { Component, Inject, Injector, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, Inject, Injector, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatCheckbox } from '@angular/material/checkbox';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -20,8 +20,9 @@ export class LoginComponent implements OnInit {
 
   router: Router;
 
-  @ViewChild ('checkbox', {static: true}) rememberChk: MatCheckbox;
   currentLang: string;
+  @ViewChild ("usernameForm", {static: true}) usernameForm: ElementRef;
+  @ViewChild ("passwordForm", {static: true}) passwordForm: ElementRef;
 
   constructor(
     private actRoute: ActivatedRoute,
@@ -30,7 +31,6 @@ export class LoginComponent implements OnInit {
     @Inject(AuthService) private authService: AuthService,
     @Inject(LocalStorageService) private localStorageService: LocalStorageService,
     public injector: Injector,
-    private _appConfig: AppConfig,
     private _translateService: OTranslateService,
   ) {
     this.router = router;
@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): any {
     this.selectLang(this.currentLang);
-    
+
     this.navigation.setVisible(false);
 
     this.loginForm.addControl('username', this.userCtrl);
@@ -97,8 +97,11 @@ export class LoginComponent implements OnInit {
   login() {
     const userName = this.loginForm.value.username;
     const password = this.loginForm.value.password;
-
-    if (userName && userName.length > 0 && password && password.length > 0) {
+    console.log(this.usernameForm);
+    if (this.usernameForm.nativeElement.className == "" && userName && userName.length) {
+      this.usernameForm.nativeElement.classList.add("hide");
+      this.passwordForm.nativeElement.classList.remove("hide");
+    } else if (this.passwordForm.nativeElement.className == "" && password && password.length > 0) {
       const self = this;
       this.authService.login(userName, password)
         .subscribe(() => {
