@@ -1,8 +1,7 @@
-import { Component, ElementRef, Inject, Injector, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, Inject, Injector, OnInit, ViewEncapsulation } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
-import { MatCheckbox } from '@angular/material/checkbox';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AppConfig, AuthService, LocalStorageService, NavigationService, OTranslateService, SessionInfo, Util } from 'ontimize-web-ngx';
+import { AuthService, LocalStorageService, NavigationService, OTranslateService, SessionInfo, Util } from 'ontimize-web-ngx';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -20,9 +19,11 @@ export class LoginComponent implements OnInit {
 
   router: Router;
 
+  isSpanish: boolean;
+
   currentLang: string;
-  @ViewChild ("usernameForm", {static: true}) usernameForm: ElementRef;
-  @ViewChild ("passwordForm", {static: true}) passwordForm: ElementRef;
+
+  usernameHiden: boolean;
 
   constructor(
     private actRoute: ActivatedRoute,
@@ -50,8 +51,6 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): any {
-    this.selectLang(this.currentLang);
-
     this.navigation.setVisible(false);
 
     this.loginForm.addControl('username', this.userCtrl);
@@ -82,32 +81,27 @@ export class LoginComponent implements OnInit {
 
   changeLang(language): void {
     if (this._translateService && this._translateService.getCurrentLang() !== language) {
-      this.selectLang(language, this._translateService.getCurrentLang());
       this._translateService.use(language);
+      this.isSpanish = language == "es" ? true : false;
     }
-  }
-
-  selectLang(newLang, oldlang?) {
-    if (oldlang){
-      document.getElementById(oldlang).classList.remove("selected");
-    }
-    document.getElementById(newLang).classList.add("selected");
   }
 
   login() {
     const userName = this.loginForm.value.username;
     const password = this.loginForm.value.password;
-    console.log(this.usernameForm);
-    if (this.usernameForm.nativeElement.className == "" && userName && userName.length) {
-      this.usernameForm.nativeElement.classList.add("hide");
-      this.passwordForm.nativeElement.classList.remove("hide");
-    } else if (this.passwordForm.nativeElement.className == "" && password && password.length > 0) {
+
+    if (!this.usernameHiden && userName && userName.length) {
+      this.usernameHiden = true
+    } else if (this.usernameHiden && password && password.length > 0) {
       const self = this;
       this.authService.login(userName, password)
-        .subscribe(() => {
+      .subscribe({
+        next: () => {
           self.sessionExpired = false;
           self.router.navigate(['../'], { relativeTo: this.actRoute });
-        }, this.handleError);
+        },
+        error: (e) => console.error(e)
+      });
     }
   }
 
