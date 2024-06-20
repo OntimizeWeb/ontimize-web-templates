@@ -90,7 +90,7 @@ export class AppRoutingModule { }
 
 <li>To change the background image you must replace the file with the new background image in assets/images/background.png</li>
 
-<li>To change logo icon, you must replace assets/images/Imatia_logo_white.png and assets/images/Imatia_logo.png</li>
+<li>To change logo icon, you must replace assets/images/Imatia_logo_white.png and assets/images/Imatia_logo_white.png</li>
 </ol>
 
 ## LEARN MORE

@@ -2,9 +2,9 @@
   <div class="login-outer-container">
     <div class="header-language">
       <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="24px" class="language-selector">
-        <div (click)="changeLang('es')" class="language" id="es" [ngClass]="{'selected' : isSpanish}">Castellano</div>
+        <div (click)="changeLang('es')" class="language" [ngClass]="{'selected' : isSpanish}">Castellano</div>
         <div>|</div>
-        <div (click)="changeLang('en')" class="language" id="en" [ngClass]="{'selected' : !isSpanish}">English</div>
+        <div (click)="changeLang('en')" class="language" [ngClass]="{'selected' : !isSpanish}">English</div>
       </div>
     </div>
     <div class="header" fxLayoutAlign="flex-start center">
