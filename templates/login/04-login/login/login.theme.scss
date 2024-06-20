@@ -11,12 +11,9 @@
   .login-outer-container {
     background-color: mat.get-color-from-palette($background, background);
 
-    .wrapp-login {
-      background-color: mat.get-color-from-palette($background, dialog);
-
-      .session-expired {
-        color: #f44336;
-      }
+    .session-expired {
+      color: #f44336;
     }
+
   }
 }
