@@ -75,7 +75,7 @@ export class LoginComponent implements OnInit {
   }
 
   changeLang(language): void {
-    if (this._translateService && this._translateService.getCurrentLang() !== language) {
+    if (this._translateService.getCurrentLang() !== language) {
       this._translateService.use(language);
       this.isSpanish = language == "es" ? true : false;
     }
