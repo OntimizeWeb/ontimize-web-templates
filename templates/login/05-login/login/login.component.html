@@ -24,30 +24,30 @@
             </div>
 
             <div class="login-title-container" fxLayout="column">
-              <p class="session-expired text" *ngIf="sessionExpired">{{ 'ERROR_SESSION_EXPIRED' | oTranslate }}</p>
-              <span class="title_text">{{ 'LOGIN_TITLE' | oTranslate }}:</span>
+              <p class="session-expired text" *ngIf="sessionExpired">{{ 'LOGIN.ERROR_SESSION_EXPIRED' | oTranslate }}</p>
+              <span class="title_text">{{ 'LOGIN.LOGIN_TITLE' | oTranslate }}:</span>
             </div>
 
             <div fxLayout="column">
               <mat-form-field fxFill class="m-top-24">
-                <input matInput class="mat-input" #user placeholder="{{ 'USERNAME' | oTranslate }}" id="username"
+                <input matInput class="mat-input" #user placeholder="{{ 'LOGIN.USERNAME' | oTranslate }}" id="username"
                   [formControl]="userCtrl">
                 <mat-error *ngIf="userCtrl.hasError('required')">
-                  {{ 'ERROR_USER_REQUIRED' | oTranslate }}
+                  {{ 'LOGIN.ERROR_USER_REQUIRED' | oTranslate }}
                 </mat-error>
               </mat-form-field>
             </div>
 
             <div fxLayout="row" fxLayoutAlign="flex-start center" fxLayoutGap="10px">
-              <span class="subtitle_text">{{ 'NO_ACCOUNT' | oTranslate }}</span>
-              <a href="" class="text_bold">{{ 'REGISTER' | oTranslate }}</a>
+              <span class="subtitle_text">{{ 'LOGIN.NO_ACCOUNT' | oTranslate }}</span>
+              <a href="" class="text_bold">{{ 'LOGIN.REGISTER' | oTranslate }}</a>
             </div>
 
             <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px" class="m-top-24">
-              <span class="text_bold">{{ 'FORGOT_PWD' | oTranslate }}</span>
+              <span class="text_bold">{{ 'LOGIN.FORGOT_PWD' | oTranslate }}</span>
             </div>
 
-            <button mat-raised-button color="primary" type="submit">{{ 'NEXT' | oTranslate }}</button>
+            <button mat-raised-button color="primary" type="submit">{{ 'LOGIN.NEXT' | oTranslate }}</button>
           </div>
 
           <div #passwordForm class="hide">
@@ -56,25 +56,25 @@
             </div>
 
             <div class="login-title-container" fxLayout="column">
-              <p class="session-expired text" *ngIf="sessionExpired">{{ 'ERROR_SESSION_EXPIRED' | oTranslate }}</p>
-              <span class="title_text">{{ 'LOGIN_TITLE' | oTranslate }}:</span>
+              <p class="session-expired text" *ngIf="sessionExpired">{{ 'LOGIN.ERROR_SESSION_EXPIRED' | oTranslate }}</p>
+              <span class="title_text">{{ 'LOGIN.LOGIN_TITLE' | oTranslate }}:</span>
             </div>
 
             <div fxLayout="column">
               <mat-form-field fxFill class="m-top-24">
-                <input matInput class="mat-input" #password placeholder="{{ 'PASSWORD' | oTranslate }}" id="password"
+                <input matInput class="mat-input" #password placeholder="{{ 'LOGIN.PASSWORD' | oTranslate }}" id="password"
                   type="password" [formControl]="pwdCtrl">
                 <mat-error *ngIf="pwdCtrl.hasError('required')">
-                  {{ 'ERROR_PASS_REQUIRED' | oTranslate }}
+                  {{ 'LOGIN.ERROR_PASS_REQUIRED' | oTranslate }}
                 </mat-error>
               </mat-form-field>
             </div>
 
             <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px" class="m-top-24">
-              <span class="subtitle_text">{{ 'FORGOT_PWD' | oTranslate }}</span>
+              <span class="subtitle_text">{{ 'LOGIN.FORGOT_PWD' | oTranslate }}</span>
             </div>
 
-            <button mat-raised-button color="primary" type="submit">{{ 'LOGIN' | oTranslate }}</button>
+            <button mat-raised-button color="primary" type="submit">{{ 'LOGIN.LOGIN' | oTranslate }}</button>
           </div>
 
         </form>
@@ -82,9 +82,9 @@
 
     </div>
     <div class="footer-container">
-      <span class="footer_text">{{ 'FOOTER_CREATED_BY' | oTranslate }}</span>
+      <span class="footer_text">{{ 'LOGIN.FOOTER_CREATED_BY' | oTranslate }}</span>
       <span class="footer_text"> &copy; 2024. </span>
-      <span class="footer_text">{{ 'FOOTER_RIGHTS' | oTranslate }}</span>
+      <span class="footer_text">{{ 'LOGIN.FOOTER_RIGHTS' | oTranslate }}</span>
     </div>
   </div>
 
