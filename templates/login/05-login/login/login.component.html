@@ -18,7 +18,7 @@
       <div fxLayoutAlign="center center" class="form-container">
         <form [formGroup]="loginForm" (ngSubmit)="login()">
 
-          <div #usernameForm>
+          <div [ngClass]="{'hide' : usernameHiden}">
             <div fxLayout="column" fxLayoutAlign="center flex-start" class="logo-container">
               <img src="./assets/images/Imatia_logo_white.png">
             </div>
@@ -50,7 +50,7 @@
             <button mat-raised-button color="primary" type="submit">{{ 'LOGIN.NEXT' | oTranslate }}</button>
           </div>
 
-          <div #passwordForm class="hide">
+          <div [ngClass]="{'hide' : !usernameHiden}">
             <div fxLayout="column" fxLayoutAlign="center flex-start" class="logo-container">
               <img src="./assets/images/Imatia_logo_white.png">
             </div>

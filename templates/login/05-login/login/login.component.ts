@@ -1,7 +1,7 @@
-import { Component, ElementRef, Inject, Injector, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, Inject, Injector, OnInit, ViewEncapsulation } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService, LocalStorageService, NavigationService, OPasswordInputComponent, OTextInputComponent, OTranslateService, SessionInfo, Util } from 'ontimize-web-ngx';
+import { AuthService, LocalStorageService, NavigationService, OTranslateService, SessionInfo, Util } from 'ontimize-web-ngx';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -21,9 +21,8 @@ export class LoginComponent implements OnInit {
 
   isSpanish: boolean;
 
-  @ViewChild ("usernameForm", {static: true}) usernameForm: ElementRef;
-  @ViewChild ("passwordForm", {static: true}) passwordForm: ElementRef;
-
+  usernameHiden: boolean;
+  
   constructor(
     private actRoute: ActivatedRoute,
     router: Router,
@@ -45,7 +44,7 @@ export class LoginComponent implements OnInit {
         }
       }
     });
-
+    this.usernameHiden = false;
   }
 
   ngOnInit(): any {
@@ -88,16 +87,18 @@ export class LoginComponent implements OnInit {
     const userName = this.loginForm.value.username;
     const password = this.loginForm.value.password;
 
-    if (this.usernameForm.nativeElement.className == "" && userName && userName.length) {
-      this.usernameForm.nativeElement.classList.add("hide");
-      this.passwordForm.nativeElement.classList.remove("hide");
-    } else if (this.passwordForm.nativeElement.className == "" && password && password.length > 0) {
+    if (!this.usernameHiden && userName && userName.length) {
+      this.usernameHiden = true
+    } else if (this.usernameHiden && password && password.length > 0) {
       const self = this;
       this.authService.login(userName, password)
-        .subscribe(() => {
+      .subscribe({
+        next: () => {
           self.sessionExpired = false;
           self.router.navigate(['../'], { relativeTo: this.actRoute });
-        }, this.handleError);
+        },
+        error: (e) => console.error(e)
+      });
     }
   }
 
