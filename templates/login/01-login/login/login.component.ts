@@ -91,13 +91,16 @@ export class LoginComponent implements OnInit {
     const userName = this.loginForm.value.username;
     const password = this.loginForm.value.password;
 
-    if (userName && userName.length > 0 && password && password.length > 0) {
+    if (userName?.length > 0 && password?.length > 0) {
       const self = this;
       this.authService.login(userName, password)
-        .subscribe(() => {
-          self.sessionExpired = false;
-          self.router.navigate(['../'], { relativeTo: this.actRoute });
-        }, this.handleError);
+        .subscribe({
+          next: () => {
+            self.sessionExpired = false;
+            self.router.navigate(['../'], { relativeTo: this.actRoute });
+          },
+          error: (e) => console.error(e)
+        });
     }
   }
 

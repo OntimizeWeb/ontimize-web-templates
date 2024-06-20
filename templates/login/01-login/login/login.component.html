@@ -13,45 +13,45 @@
           </div>
 
           <div class="login-title-container" fxLayout="column">
-            <p class="session-expired text" *ngIf="sessionExpired">Session expired</p>
-            <span class="title_text">Log in to your account:</span>
+            <p class="session-expired text" *ngIf="sessionExpired">{{ 'LOGIN.ERROR_SESSION_EXPIRED' | oTranslate }}</p>
+            <span class="title_text">{{ 'LOGIN.TITLE' | oTranslate }}:</span>
           </div>
 
           <div fxLayout="column">
             <mat-form-field fxFill class="m-top-24">
-              <input matInput class="mat-input" #user placeholder="Username" id="username" [formControl]="userCtrl">
+              <input matInput class="mat-input" #user placeholder="{{ 'LOGIN.USERNAME' | oTranslate }}" id="username" [formControl]="userCtrl">
               <mat-error *ngIf="userCtrl.hasError('required')">
-                Incorrect username
+                {{ 'LOGIN.ERROR_USER_REQUIRED' | oTranslate }}
               </mat-error>
             </mat-form-field>
             <mat-form-field fxFill class="m-top-24">
-              <input matInput class="mat-input" #password placeholder="Password" id="password" type="password"
+              <input matInput class="mat-input" #password placeholder="{{ 'LOGIN.PASSWORD' | oTranslate }}" id="password" type="password"
                 [formControl]="pwdCtrl">
               <mat-error *ngIf="pwdCtrl.hasError('required')">
-                Incorrect password
+                {{ 'LOGIN.ERROR_PASS_REQUIRED' | oTranslate }}
               </mat-error>
             </mat-form-field>
           </div>
 
           <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px" class="m-top-24">
-            <mat-checkbox #checkbox (change)="rememberMe($event.checked)" class="text">Remember me</mat-checkbox>
-            <a href="" class="text link_text">Forgot your password?</a>
+            <mat-checkbox #checkbox (change)="rememberMe($event.checked)" class="text">{{ 'LOGIN.REMEMBERME' | oTranslate }}</mat-checkbox>
+            <a href="" class="text link_text">{{ 'LOGIN.FORGOT_PASS' | oTranslate }}</a>
           </div>
 
-          <button mat-raised-button color="primary" type="submit">Login</button>
+          <button mat-raised-button color="primary" type="submit">{{ 'LOGIN.LOGIN' | oTranslate }}</button>
 
           <div fxLayout="row" fxLayoutAlign="flex-start center" fxLayoutGap="10px" layout-padding>
-            <span class="text">Don't have account?</span>
-            <a href="" class="title_text">Register</a>
+            <span class="text">{{ 'LOGIN.NO_ACC' | oTranslate }}</span>
+            <a href="" class="title_text">{{ 'LOGIN.REGISTER' | oTranslate }}</a>
           </div>
         </form>
       </div>
 
       <div id="footer" class="footer-container">
         <div fxLayout="row" fxLayoutAlign="end center">
-          <span>Created by Imatia Innovation</span>
-          <span> &copy; 2024 </span>
-          <span>All rights reserved</span>
+          <span class="footer_text">{{ 'LOGIN.FOOTER_CREATED_BY' | oTranslate }}</span>
+      <span class="footer_text"> &copy; 2024 </span>
+      <span class="footer_text">{{ 'LOGIN.FOOTER_RIGHTS' | oTranslate }}</span>
         </div>
       </div>
     </div>

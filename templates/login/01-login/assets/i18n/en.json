@@ -1,0 +1,18 @@
+{
+    "LOGIN.USERNAME": "Username",
+    "LOGIN.PASSWORD": "Password",
+    "LOGIN.LOGIN": "Login",
+    "LOGIN.REGISTER": "Register",
+    "LOGIN.TITLE": "Log in to your account",
+    "LOGIN.ERROR_REQUIRED_FIELD": "Field is required",
+    "LOGIN.ERROR_MIN_LENGTH_REQUIRED": "The value length entered must be at least 8 characters.",
+    "LOGIN.ERROR_SESSION_EXPIRED": "Session expired",
+    "LOGIN.ERROR_USER_REQUIRED": "Incorrect username",
+    "LOGIN.ERROR_PASS_REQUIRED": "Incorrect password",
+    "LOGIN.ERROR_USER_PASS_INCORRECT": "Invalid username or password",
+    "LOGIN.REMEMBERME": "Remember me",
+    "LOGIN.FORGOT_PASS": "Forgot your password?",
+    "LOGIN.NO_ACC": "Don't have account?",
+    "LOGIN.FOOTER_CREATED_BY": "Created by Imatia Innovation",
+    "LOGIN.FOOTER_RIGHTS": "All rights reserved"
+  }
