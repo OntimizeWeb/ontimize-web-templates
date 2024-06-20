@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
 
   router: Router;
 
-  currentLang: string;
+  isSpanish: boolean;
 
   constructor(
     private actRoute: ActivatedRoute,
@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
     private _translateService: OTranslateService,
   ) {
     this.router = router;
-    this.currentLang = this._translateService.getCurrentLang();
     const qParamObs: Observable<any> = this.actRoute.queryParams;
     qParamObs.subscribe(params => {
       if (params) {
@@ -48,7 +47,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): any {
     this.navigation.setVisible(false);
-
+    this.isSpanish = this._translateService.getCurrentLang() == "es" ? true : false;
     this.loginForm.addControl('username', this.userCtrl);
     this.loginForm.addControl('password', this.pwdCtrl);
 
@@ -78,7 +77,7 @@ export class LoginComponent implements OnInit {
   changeLang(language): void {
     if (this._translateService && this._translateService.getCurrentLang() !== language) {
       this._translateService.use(language);
-      this.currentLang = this._translateService.getCurrentLang();
+      this.isSpanish = language == "es" ? true : false;
     }
   }
 
