@@ -23,7 +23,7 @@
 
 </pre>
 
-<li>Add the translations you want to use on your app ​​to the en.json, es.json and gal.json files of your project</li>
+<li>Add the translations you want to use on your app ​​to the en.json and es.json files of your project</li>
 
 <li>Configure routing in app.module.ts</li>
 
