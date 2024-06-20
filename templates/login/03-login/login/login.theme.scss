@@ -25,13 +25,8 @@
           color: #f44336;
         }
 
-        .title_text,
-        .login_info {
+        .title_text {
           color: mat.get-color-from-palette($foreground, text);
-        }
-
-        .link_text {
-          color: mat.get-color-from-palette($primary);
         }
       }
 

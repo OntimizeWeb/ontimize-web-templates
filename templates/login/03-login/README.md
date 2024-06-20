@@ -14,7 +14,6 @@
     │   ├───i18n
     |   |   └───en.json
     |   |   └───es.json
-    |   |   └───gal.json
     │   └───images
     │       └───background.png
     │       └───Imatia_logo.png
