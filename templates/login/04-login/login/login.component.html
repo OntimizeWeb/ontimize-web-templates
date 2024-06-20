@@ -19,28 +19,28 @@
         <form [formGroup]="loginForm" (ngSubmit)="login()">
 
           <div class="login-title-container" fxLayout="column" fxLayoutAlign="flex-start center">
-            <p class="session-expired text" *ngIf="sessionExpired">{{ 'ERROR_SESSION_EXPIRED' | oTranslate }}</p>
-            <span class="title_text">{{ 'LOGIN_TITLE' | oTranslate }}</span>
+            <p class="session-expired text" *ngIf="sessionExpired">{{ 'LOGIN.ERROR_SESSION_EXPIRED' | oTranslate }}</p>
+            <span class="title_text">{{ 'LOGIN.TITLE' | oTranslate }}</span>
           </div>
 
           <div fxLayout="column">
             <mat-form-field fxFill class="m-top-24">
-              <input #user matInput class="mat-input" placeholder="{{ 'USERNAME' | oTranslate }}" id="username"
+              <input #user matInput class="mat-input" placeholder="{{ 'LOGIN.USERNAME' | oTranslate }}" id="username"
                 [formControl]="userCtrl">
               <mat-error *ngIf="userCtrl.hasError('required')">
-                {{ 'ERROR_USER_REQUIRED' | oTranslate }}
+                {{ 'LOGIN.ERROR_USER_REQUIRED' | oTranslate }}
               </mat-error>
             </mat-form-field>
             <mat-form-field fxFill class="m-top-24">
-              <input #password matInput class="mat-input" placeholder="{{ 'PASSWORD' | oTranslate }}" id="password"
+              <input #password matInput class="mat-input" placeholder="{{ 'LOGIN.PASSWORD' | oTranslate }}" id="password"
                 type="password" [formControl]="pwdCtrl">
               <mat-error *ngIf="pwdCtrl.hasError('required')">
-                {{ 'ERROR_PASS_REQUIRED' | oTranslate }}
+                {{ 'LOGIN.ERROR_PASS_REQUIRED' | oTranslate }}
               </mat-error>
             </mat-form-field>
           </div>
 
-          <button mat-raised-button color="primary" type="submit">{{ 'LOGIN' | oTranslate }}</button>
+          <button mat-raised-button color="primary" type="submit">{{ 'LOGIN.LOGIN' | oTranslate }}</button>
 
         </form>
       </div>

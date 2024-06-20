@@ -1,12 +1,12 @@
 {
-  "USERNAME": "Username",
-  "PASSWORD": "Password",
-  "LOGIN": "Login",
-  "LOGIN_TITLE": "Log in to your account",
-  "ERROR_REQUIRED_FIELD": "Field is required",
-  "ERROR_MIN_LENGTH_REQUIRED": "The value length entered must be at least 8 characters.",
-  "ERROR_SESSION_EXPIRED": "Session expired",
-  "ERROR_USER_REQUIRED": "Incorrect username",
-  "ERROR_PASS_REQUIRED": "Incorrect password",
-  "ERROR_USER_PASS_INCORRECT": "Invalid username or password"
+  "LOGIN.USERNAME": "Username",
+  "LOGIN.PASSWORD": "Password",
+  "LOGIN.LOGIN": "Login",
+  "LOGIN.TITLE": "Log in to your account",
+  "LOGIN.ERROR_REQUIRED_FIELD": "Field is required",
+  "LOGIN.ERROR_MIN_LENGTH_REQUIRED": "The value length entered must be at least 8 characters.",
+  "LOGIN.ERROR_SESSION_EXPIRED": "Session expired",
+  "LOGIN.ERROR_USER_REQUIRED": "Incorrect username",
+  "LOGIN.ERROR_PASS_REQUIRED": "Incorrect password",
+  "LOGIN.ERROR_USER_PASS_INCORRECT": "Invalid username or password"
 }
