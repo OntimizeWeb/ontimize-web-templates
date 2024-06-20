@@ -14,7 +14,6 @@
     │   ├───i18n
     |   |   └───en.json
     |   |   └───es.json
-    |   |   └───gal.json
     │   └───images
     │       └───background.png
     │       └───Imatia_logo_white.png
@@ -24,7 +23,7 @@
 
 </pre>
 
-<li>Add the translations you wanna use on your app ​​to the en.json, es.json and gal.json files of your project</li>
+<li>Add the translations you want to use on your app ​​to the en.json, es.json and gal.json files of your project</li>
 
 <li>Configure routing in app.module.ts</li>
 

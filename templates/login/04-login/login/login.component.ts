@@ -1,7 +1,7 @@
-import { Component, Inject, Injector, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, Inject, Injector, OnInit, ViewEncapsulation } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService, LocalStorageService, NavigationService, OPasswordInputComponent, OTextInputComponent, OTranslateService, SessionInfo, Util } from 'ontimize-web-ngx';
+import { AuthService, LocalStorageService, NavigationService, OTranslateService, SessionInfo, Util } from 'ontimize-web-ngx';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -47,8 +47,6 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): any {
-    this.selectLang(this.currentLang);
-
     this.navigation.setVisible(false);
 
     this.loginForm.addControl('username', this.userCtrl);
@@ -79,16 +77,9 @@ export class LoginComponent implements OnInit {
 
   changeLang(language): void {
     if (this._translateService && this._translateService.getCurrentLang() !== language) {
-      this.selectLang(language, this._translateService.getCurrentLang());
       this._translateService.use(language);
+      this.currentLang = this._translateService.getCurrentLang();
     }
-  }
-
-  selectLang(newLang, oldlang?) {
-    if (oldlang){
-      document.getElementById(oldlang).classList.remove("selected");
-    }
-    document.getElementById(newLang).classList.add("selected");
   }
 
   login() {
