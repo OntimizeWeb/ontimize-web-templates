@@ -1,5 +1,5 @@
-<div class="full-page">
-  <div class="login-outer-container" fxFlexAlign="stretch" fxLayout="wrap column" >
+<div class="full-page" fxFill>
+  <div class="login-outer-container" fxFlexAlign="stretch" fxLayout="wrap column" fxFill>
     <div class="header-language">
       <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="24px" class="language-selector">
         <div (click)="changeLang('es')" class="language" [ngClass]="{'selected' : isSpanish}">Castellano</div>
@@ -13,7 +13,7 @@
     <div class="login-bg-container">
     </div>
 
-    <div fxLayoutAlign="center center" class="wrapp-login">
+    <div fxLayoutAlign="center center" class="wrapp-login" fxFill>
 
       <div fxLayoutAlign="center center" class="form-container">
         <form [formGroup]="loginForm" (ngSubmit)="login()">
