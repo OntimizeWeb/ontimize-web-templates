@@ -1,8 +1,13 @@
-# LOGIN
-
 ## How to use
+
 <ol>
-<li>Download and put **login** folder in src/app/, **images** into assets/images/   </li>
+<li>Download folder 02-login </li>
+<br />
+
+Download folder 02-login and put `login` folder in `src/app/`, `images` into `assets/images/`
+
+<br />
+
 <pre>
 ─src
     ├───app
@@ -19,10 +24,10 @@
     │
     └───..
 
-
 </pre>
 
 <li>Add the translations of the following values ​​to the en.json file of your project</li>
+<br />
 
 ```json
   "LOGIN.LOGIN": "Login",
@@ -33,35 +38,41 @@
 
 <li>Configure routing in app.module.ts</li>
 
+<br />
+
 ```ts
 import { NgModule } from '@angular/core';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 
-
 export const routes: Routes = [
-  {
-    path: 'login',
-    loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
-  },
-  ...]
+{
+path: 'login',
+loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
+},
+...]
 
 const opt: ExtraOptions = {
-    enableTracing: false
-    // true if you want to print navigation routes
+enableTracing: false
+// true if you want to print navigation routes
 };
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, opt)],
-  exports: [RouterModule],
-  providers: []
+imports: [RouterModule.forRoot(routes, opt)],
+exports: [RouterModule],
+providers: []
 })
 export class AppRoutingModule { }
 
-```
+````
+<li>To configure the theme on the login</li>
+<br />
 
-<li>To configure the theme on the login component it is necessary to include **login.theme.scss** in app.scss</li>
+It is necessary to include **login.theme.scss** in app.scss
 
-```app.scss
+<br />
+
+```scss
+app.scss
 @use 'theme.scss' as theme;
 @use 'ontimize-web-ngx/theming/ontimize-style.scss';
 ...
@@ -94,11 +105,18 @@ export class AppRoutingModule { }
 
 ```
 
+<br />
+
 <li>To change the background image you must replace the file with the new background image in assets/images/BG-img.png</li>
 
+<br />
+
 <li>To change logo icon, you must replace assets/images/logo.svg and assets/images/logo-dark.svg for light and dark mode</li>
+
+<br />
 </ol>
 
 ## LEARN MORE
-* **Dark and light mode** https://ontimizeweb.github.io/docs/v15/customize/theming/#dark-and-light-primary-variants
+<br />
 
+- **Dark and light mode** https://ontimizeweb.github.io/docs/v15/customize/theming/#dark-and-light-primary-variants
