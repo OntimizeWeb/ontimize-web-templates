@@ -2,7 +2,8 @@ import { AfterViewInit, Component, Inject, Injector, OnInit, ViewChild, ViewEnca
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatCheckbox } from '@angular/material/checkbox';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService, LocalStorageService, NavigationService, Observable, SessionInfo, Util } from 'ontimize-web-ngx';
+import { AuthService, LocalStorageService, NavigationService } from 'ontimize-web-ngx';
+import { LoginComponent } from '../login.component';
 
 @Component({
   selector: 'app-forgot-pass',
@@ -14,11 +15,11 @@ export class ForgotPassComponent implements OnInit, AfterViewInit {
   loginForm: UntypedFormGroup = new UntypedFormGroup({});
   pwdCtrl1: UntypedFormControl = new UntypedFormControl('', Validators.required);
   pwdCtrl2: UntypedFormControl = new UntypedFormControl('', Validators.required);
-  sessionExpired = false;
 
   router: Router;
 
   @ViewChild ('checkbox', {static: true}) rememberChk: MatCheckbox;
+  @ViewChild (LoginComponent) loginComp: LoginComponent;
 
   constructor(
     private actRoute: ActivatedRoute,
@@ -29,19 +30,6 @@ export class ForgotPassComponent implements OnInit, AfterViewInit {
     public injector: Injector
   ) {
     this.router = router;
-
-    const qParamObs: Observable<any> = this.actRoute.queryParams;
-    qParamObs.subscribe(params => {
-      if (params) {
-        const isDetail = params['session-expired'];
-        if (isDetail === 'true') {
-          this.sessionExpired = true;
-        } else {
-          this.sessionExpired = false;
-        }
-      }
-    });
-
   }
 
   ngOnInit(): any {
@@ -63,7 +51,7 @@ export class ForgotPassComponent implements OnInit, AfterViewInit {
 
     if(password1 && password2) {
       if(password1 == password2) {
-
+        
       } else {
         this.handleError({status: 402});
       }
@@ -75,7 +63,7 @@ export class ForgotPassComponent implements OnInit, AfterViewInit {
       case 401:
         console.error('Email or password is wrong.');
         break;
-      case 401:
+      case 402:
         console.error("Passwords doesn't match");
         break;
       default: break;

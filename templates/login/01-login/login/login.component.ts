@@ -2,7 +2,7 @@ import { Component, Inject, Injector, OnInit, ViewChild, ViewEncapsulation } fro
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatCheckbox } from '@angular/material/checkbox';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService, LocalStorageService, NavigationService, SessionInfo, Util } from 'ontimize-web-ngx';
+import { AuthService, DialogService, LocalStorageService, NavigationService, SessionInfo, Util } from 'ontimize-web-ngx';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   userCtrl: UntypedFormControl = new UntypedFormControl('', Validators.required);
   pwdCtrl: UntypedFormControl = new UntypedFormControl('', Validators.required);
   sessionExpired = false;
-
+  username: string;
   router: Router;
 
   @ViewChild ('checkbox', {static: true}) rememberChk: MatCheckbox;
@@ -28,15 +28,16 @@ export class LoginComponent implements OnInit {
     @Inject(NavigationService) public navigation: NavigationService,
     @Inject(AuthService) private authService: AuthService,
     @Inject(LocalStorageService) private localStorageService: LocalStorageService,
-    public injector: Injector
+    public injector: Injector,
+    protected dialogService: DialogService
   ) {
     this.router = router;
 
     const qParamObs: Observable<any> = this.actRoute.queryParams;
     qParamObs.subscribe(params => {
       if (params) {
-        const isDetail = params['session-expired'];
-        if (isDetail === 'true') {
+        const sessionExpired = params['session-expired'];
+        if (sessionExpired === 'true') {
           this.sessionExpired = true;
         } else {
           this.sessionExpired = false;
@@ -84,6 +85,14 @@ export class LoginComponent implements OnInit {
       this.localStorageService.setLocalStorage({'rememberme': 'true'});
     } else {
       this.localStorageService.setLocalStorage({'rememberme': 'false'});
+    }
+  }
+
+  enterUsername() {
+    if (this.loginForm.value.username == '') {
+      this.dialogService.error("Missing username", "First enter your username");
+    } else {
+      this.router.navigate(['login/forgotpass/' + this.loginForm.value.username]);
     }
   }
 

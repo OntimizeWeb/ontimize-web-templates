@@ -35,7 +35,7 @@
 
           <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px" class="m-top-24">
             <mat-checkbox #checkbox (change)="rememberMe($event.checked)" class="text">{{ 'LOGIN.REMEMBERME' | oTranslate }}</mat-checkbox>
-            <a href="login/forgotpass" class="text link_text">{{ 'LOGIN.FORGOT_PASS' | oTranslate }}</a>
+            <span class="text link_text" (click)="enterUsername()">{{ 'LOGIN.FORGOT_PASS' | oTranslate }}</span>
           </div>
 
           <button mat-raised-button color="primary" type="submit">{{ 'LOGIN.LOGIN' | oTranslate }}</button>
