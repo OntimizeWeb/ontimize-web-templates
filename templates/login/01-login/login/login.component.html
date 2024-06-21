@@ -5,7 +5,7 @@
     </div>
 
     <div class="wrapp-login">
-      <div fxFill fxLayout="column" fxLayoutAlign="center center" class="login-inner-container">
+      <div fxFill fxLayout="column" fxLayoutAlign="center center" class="login-inner-container" >
         <form [formGroup]="loginForm" (ngSubmit)="login()">
 
           <div fxLayout="column" fxLayoutAlign="center flex-start" class="logo-container">
@@ -35,7 +35,7 @@
 
           <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px" class="m-top-24">
             <mat-checkbox #checkbox (change)="rememberMe($event.checked)" class="text">{{ 'LOGIN.REMEMBERME' | oTranslate }}</mat-checkbox>
-            <a href="" class="text link_text">{{ 'LOGIN.FORGOT_PASS' | oTranslate }}</a>
+            <a href="login/forgotpass" class="text link_text">{{ 'LOGIN.FORGOT_PASS' | oTranslate }}</a>
           </div>
 
           <button mat-raised-button color="primary" type="submit">{{ 'LOGIN.LOGIN' | oTranslate }}</button>
