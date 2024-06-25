@@ -11,6 +11,7 @@
   "LOGIN.ERROR_SESSION_EXPIRED": "La sesión ha caducado",
   "LOGIN.ERROR_USER_REQUIRED": "Nombre de usuario incorrecto",
   "LOGIN.ERROR_PASS_REQUIRED": "Contraseña incorrecta",
+  "LOGIN.ERROR_PASS_DIFFERENT": "Passwords doesn't match",
   "LOGIN.ERROR_USER_PASS_INCORRECT": "Usuario o contraseña incorrecta",
   "LOGIN.REMEMBER_ME": "Recuérdame",
   "LOGIN.FORGOT_PWD": "¿Has olvidado tu contraseña?",
@@ -21,5 +22,7 @@
   "LOGIN.EMAIL": "Correo electrónico",
   "LOGIN.CHANGE_PASSWORD": "Cambiar contraseña",
   "LOGIN.NEW_PASSWORD": "Nueva contraseña",
-  "LOGIN.CONFIRM_PASSWORD": "Confirmar contraseña"
+  "LOGIN.CONFIRM_PASSWORD": "Confirmar contraseña",
+  "LOGIN.RESET_PASS": "Cambiar contraseña",
+  "LOGIN.CHANGE_PASS_TITLE": "Introduce tu nueva contraseña"
 }

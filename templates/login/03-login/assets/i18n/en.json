@@ -11,6 +11,7 @@
   "LOGIN.ERROR_SESSION_EXPIRED": "Session expired",
   "LOGIN.ERROR_USER_REQUIRED": "Incorrect username",
   "LOGIN.ERROR_PASS_REQUIRED": "Incorrect password",
+  "LOGIN.ERROR_PASS_DIFFERENT": "Passwords doesn't match",
   "LOGIN.ERROR_USER_PASS_INCORRECT": "Invalid username or password",
   "LOGIN.REMEMBER_ME": "Remember me",
   "LOGIN.FORGOT_PWD": "Forgot your password?",
@@ -21,5 +22,7 @@
   "LOGIN.EMAIL": "Email",
   "LOGIN.CHANGE_PASSWORD": "Change password",
   "LOGIN.NEW_PASSWORD": "New password",
-  "LOGIN.CONFIRM_PASSWORD": "Confirm new password"
+  "LOGIN.CONFIRM_PASSWORD": "Confirm new password",
+  "LOGIN.RESET_PASS": "Change password",
+  "LOGIN.CHANGE_PASS_TITLE": "Write your new password"
 }

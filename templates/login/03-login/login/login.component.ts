@@ -1,7 +1,7 @@
 import { Component, Inject, Injector, OnInit, ViewEncapsulation } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService, LocalStorageService, NavigationService, OTranslateService, SessionInfo, Util } from 'ontimize-web-ngx';
+import { AuthService, DialogService, LocalStorageService, NavigationService, OTranslateService, SessionInfo, Util } from 'ontimize-web-ngx';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -21,8 +21,6 @@ export class LoginComponent implements OnInit {
 
   isSpanish: boolean;
 
-  currentLang: string;
-
   usernameHiden: boolean;
 
   constructor(
@@ -33,9 +31,10 @@ export class LoginComponent implements OnInit {
     @Inject(LocalStorageService) private localStorageService: LocalStorageService,
     public injector: Injector,
     private _translateService: OTranslateService,
+    protected dialogService: DialogService
   ) {
     this.router = router;
-    this.currentLang = this._translateService.getCurrentLang();
+    this.isSpanish = this._translateService.getCurrentLang() == "es" ? true : false;
     const qParamObs: Observable<any> = this.actRoute.queryParams;
     qParamObs.subscribe(params => {
       if (params) {
@@ -74,7 +73,7 @@ export class LoginComponent implements OnInit {
       if (Util.parseBoolean(appData['rememberme'], false)) {
         this.loginForm.patchValue({ 'username': sessionData.user });
       } else {
-        this.loginForm.patchValue({ 'username': ''});
+        this.loginForm.patchValue({ 'username': '' });
       }
     }
   }
@@ -83,6 +82,18 @@ export class LoginComponent implements OnInit {
     if (this._translateService && this._translateService.getCurrentLang() !== language) {
       this._translateService.use(language);
       this.isSpanish = language == "es" ? true : false;
+    }
+  }
+
+  enterUsername() {
+    if (this.loginForm.value.username == '') {
+      if (this._translateService.getCurrentLang() == "en") {
+        this.dialogService.error("Missing username", "First enter your username");
+      } else {
+        this.dialogService.error("Falta el nombre de usuario", "Primero introduce tu nombre de usuario");
+      }
+    } else {
+      this.router.navigate(['login/forgotpass/' + this.loginForm.value.username]);
     }
   }
 
@@ -95,13 +106,13 @@ export class LoginComponent implements OnInit {
     } else if (this.usernameHiden && password && password.length > 0) {
       const self = this;
       this.authService.login(userName, password)
-      .subscribe({
-        next: () => {
-          self.sessionExpired = false;
-          self.router.navigate(['../'], { relativeTo: this.actRoute });
-        },
-        error: (e) => console.error(e)
-      });
+        .subscribe({
+          next: () => {
+            self.sessionExpired = false;
+            self.router.navigate(['../'], { relativeTo: this.actRoute });
+          },
+          error: (e) => console.error(e)
+        });
     }
   }
 
