@@ -1,11 +1,11 @@
-<div class="full-page">
-  <div class="login-outer-container">
+<div class="full-page" fxFill>
+  <div class="login-outer-container" fxFlexAlign="stretch" fxLayout="wrap column" fxFill>
 
     <div class="login-bg-container">
     </div>
 
-    <div class="wrapp-login">
-      <div fxFill fxLayout="column" fxLayoutAlign="center center" class="login-inner-container" >
+    <div fxLayoutAlign="space-between center" fxLayout="column" class="wrapp-login">
+      <div fxFill fxLayout="row" fxLayoutAlign="center center" class="login-inner-container" >
         <form [formGroup]="loginForm" (ngSubmit)="login()">
 
           <div fxLayout="column" fxLayoutAlign="center flex-start" class="logo-container">
@@ -19,13 +19,13 @@
 
           <div fxLayout="column">
             <mat-form-field fxFill class="m-top-24">
-              <input matInput class="mat-input" #user placeholder="{{ 'LOGIN.USERNAME' | oTranslate }}" id="username" [formControl]="userCtrl">
+              <input matInput class="mat-input" placeholder="{{ 'LOGIN.USERNAME' | oTranslate }}" id="username" [formControl]="userCtrl">
               <mat-error *ngIf="userCtrl.hasError('required')">
                 {{ 'LOGIN.ERROR_USER_REQUIRED' | oTranslate }}
               </mat-error>
             </mat-form-field>
             <mat-form-field fxFill class="m-top-24">
-              <input matInput class="mat-input" #password placeholder="{{ 'LOGIN.PASSWORD' | oTranslate }}" id="password" type="password"
+              <input matInput class="mat-input" placeholder="{{ 'LOGIN.PASSWORD' | oTranslate }}" id="password" type="password"
                 [formControl]="pwdCtrl">
               <mat-error *ngIf="pwdCtrl.hasError('required')">
                 {{ 'LOGIN.ERROR_PASS_REQUIRED' | oTranslate }}
@@ -42,7 +42,7 @@
 
           <div fxLayout="row" fxLayoutAlign="flex-start center" fxLayoutGap="10px" layout-padding>
             <span class="text">{{ 'LOGIN.NO_ACC' | oTranslate }}</span>
-            <a href="" class="title_text">{{ 'LOGIN.REGISTER' | oTranslate }}</a>
+            <a href="login/register" class="title_text">{{ 'LOGIN.REGISTER' | oTranslate }}</a>
           </div>
         </form>
       </div>

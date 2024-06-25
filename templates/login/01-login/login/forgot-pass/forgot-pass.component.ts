@@ -1,9 +1,15 @@
-import { AfterViewInit, Component, Inject, Injector, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { AfterViewInit, Component, Inject, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { AbstractControl, FormControl, UntypedFormControl, UntypedFormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { MatCheckbox } from '@angular/material/checkbox';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService, LocalStorageService, NavigationService } from 'ontimize-web-ngx';
-import { LoginComponent } from '../login.component';
+import { AuthService, NavigationService } from 'ontimize-web-ngx';
+
+export const confirmPasswordValidator: ValidatorFn = (
+  control: AbstractControl
+): ValidationErrors => {
+  return control.value.password1 === control.value.password2
+    ? { PasswordNoMatch: false }
+    : { PasswordNoMatch: true };
+};
 
 @Component({
   selector: 'app-forgot-pass',
@@ -16,27 +22,19 @@ export class ForgotPassComponent implements OnInit, AfterViewInit {
   pwdCtrl1: UntypedFormControl = new UntypedFormControl('', Validators.required);
   pwdCtrl2: UntypedFormControl = new UntypedFormControl('', Validators.required);
 
-  router: Router;
-
   @ViewChild ('checkbox', {static: true}) rememberChk: MatCheckbox;
-  @ViewChild (LoginComponent) loginComp: LoginComponent;
 
   constructor(
-    private actRoute: ActivatedRoute,
-    router: Router,
     @Inject(NavigationService) public navigation: NavigationService,
-    @Inject(AuthService) private authService: AuthService,
-    @Inject(LocalStorageService) private localStorageService: LocalStorageService,
-    public injector: Injector
-  ) {
-    this.router = router;
-  }
+    @Inject(AuthService) private authService: AuthService
+  ) { }
 
   ngOnInit(): any {
     this.navigation.setVisible(false);
 
     this.loginForm.addControl('password1', this.pwdCtrl1);
     this.loginForm.addControl('password2', this.pwdCtrl2);
+    this.loginForm.addValidators(confirmPasswordValidator);
   }
 
   ngAfterViewInit(): any {

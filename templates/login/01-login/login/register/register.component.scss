@@ -48,10 +48,6 @@
             }
           }
   
-          .session-expired {
-            text-align: center;
-          }
-  
           .login-title-container {
             margin-top: 64px;
           }
@@ -78,6 +74,7 @@
             font-weight: 700;
             text-decoration: none;
             color: black;
+            cursor: pointer;
           }
         }
   

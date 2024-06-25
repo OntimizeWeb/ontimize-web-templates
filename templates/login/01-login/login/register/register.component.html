@@ -5,23 +5,26 @@
 		</div>
 
 		<div fxLayoutAlign="space-between center" fxLayout="column" class="wrapp-login">
-			<div fxFill fxLayout="column" fxLayoutAlign="center center" class="login-inner-container">
-				<form [formGroup]="loginForm" (ngSubmit)="changePass()">
+			<div fxFill fxLayout="row" fxLayoutAlign="center center" class="login-inner-container">
+				<form [formGroup]="registerForm" (ngSubmit)="register()">
 
 					<a href="/">
 						<div fxLayout="column" fxLayoutAlign="center flex-start" class="logo-container">
 							<img src="./assets/images/Imatia_logo.png">
 						</div>
 					</a>
-					<div class="login-title-container" fxLayout="column">
-						<span class="title_text">{{ 'LOGIN.CHANGE_PASS_TITLE' | oTranslate }}:</span>
-					</div>
-
 					<div fxLayout="column">
 						<mat-form-field fxFill class="m-top-24">
-							<input matInput class="mat-input" placeholder="{{ 'LOGIN.PASSWORD' | oTranslate }}" id="password1"
+							<input matInput class="mat-input" placeholder="{{ 'LOGIN.USERNAME' | oTranslate }}"
+								[formControl]="userCtrl">
+							<mat-error *ngIf="userCtrl.hasError('required')">
+								{{ 'LOGIN.ERROR_USER_REQUIRED' | oTranslate }}
+							</mat-error>
+						</mat-form-field>
+						<mat-form-field fxFill class="m-top-24">
+							<input matInput class="mat-input" placeholder="{{ 'LOGIN.PASSWORD' | oTranslate }}"
 								type="password" [formControl]="pwdCtrl1">
-							<mat-error *ngIf="loginForm.errors['PasswordNoMatch']">
+							<mat-error *ngIf="registerForm.errors['PasswordNoMatch']">
 								{{ 'LOGIN.ERROR_PASS_DIFFERENT' | oTranslate }}
 							</mat-error>
 							<mat-error *ngIf="pwdCtrl1.hasError('required')">
@@ -29,9 +32,9 @@
 							</mat-error>
 						</mat-form-field>
 						<mat-form-field fxFill class="m-top-24">
-							<input matInput class="mat-input" placeholder="{{ 'LOGIN.PASSWORD' | oTranslate }}" id="password2"
+							<input matInput class="mat-input" placeholder="{{ 'LOGIN.PASSWORD' | oTranslate }}"
 								type="password" [formControl]="pwdCtrl2">
-							<mat-error *ngIf="loginForm.errors['PasswordNoMatch']">
+							<mat-error *ngIf="registerForm.errors['PasswordNoMatch']">
 								{{ 'LOGIN.ERROR_PASS_DIFFERENT' | oTranslate }}
 							</mat-error>
 							<mat-error *ngIf="pwdCtrl2.hasError('required')">
@@ -40,8 +43,7 @@
 						</mat-form-field>
 					</div>
 
-					<button mat-raised-button color="primary" type="submit">{{ 'LOGIN.RESET_PASS' | oTranslate }}</button>
-
+					<button mat-raised-button color="primary" type="submit">{{ 'LOGIN.REGISTER' | oTranslate }}</button>
 				</form>
 			</div>
 
