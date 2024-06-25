@@ -1,0 +1,19 @@
+@use '@angular/material'as mat;
+@use 'sass:map';
+
+@mixin login-theme($theme) {
+  $primary: map.get($theme, color, primary);
+  $accent: map.get($theme, color, accent);
+  $warn: map.get($theme, color, warn);
+  $background: map.get($theme, color, background);
+  $foreground: map.get($theme, color, foreground);
+
+  .login-outer-container {
+    background-color: mat.get-color-from-palette($background, background);
+
+    .session-expired {
+      color: #f44336;
+    }
+
+  }
+}
