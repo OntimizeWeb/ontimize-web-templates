@@ -34,14 +34,14 @@
           </div>
 
           <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px" class="m-top-24">
-            <mat-checkbox #checkbox (change)="rememberMe($event.checked)" class="text">{{ 'LOGIN.REMEMBERME' | oTranslate }}</mat-checkbox>
-            <span class="text link_text" (click)="enterUsername()">{{ 'LOGIN.FORGOT_PASS' | oTranslate }}</span>
+            <mat-checkbox #checkbox (change)="rememberMe($event.checked)" class="text">{{ 'LOGIN.REMEMBER_ME' | oTranslate }}</mat-checkbox>
+            <span class="text link_text" (click)="enterUsername()">{{ 'LOGIN.FORGOT_PWD' | oTranslate }}</span>
           </div>
 
           <button mat-raised-button color="primary" type="submit">{{ 'LOGIN.LOGIN' | oTranslate }}</button>
 
           <div fxLayout="row" fxLayoutAlign="flex-start center" fxLayoutGap="10px" layout-padding>
-            <span class="text">{{ 'LOGIN.NO_ACC' | oTranslate }}</span>
+            <span class="text">{{ 'LOGIN.NO_ACCOUNT' | oTranslate }}</span>
             <a href="login/register" class="title_text">{{ 'LOGIN.REGISTER' | oTranslate }}</a>
           </div>
         </form>

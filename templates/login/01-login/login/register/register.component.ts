@@ -1,14 +1,15 @@
 import { AfterViewInit, Component, Inject, Injector, OnInit, ViewEncapsulation } from '@angular/core';
-import { AbstractControl, UntypedFormControl, UntypedFormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, UntypedFormControl, UntypedFormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { AuthService, NavigationService } from 'ontimize-web-ngx';
 
-export const confirmPasswordValidator: ValidatorFn = (
-  control: AbstractControl
-): ValidationErrors => {
-  return control.value.password1 === control.value.password2
-    ? { PasswordNoMatch: false }
-    : { PasswordNoMatch: true };
-};
+function RetypeConfirm(newpassword: string): ValidatorFn {
+  return (control: FormControl) => {
+    if (!control || !control.parent) {
+      return null;
+    }
+    return control.parent.get(newpassword).value === control.value ? null : { mismatch: true };
+  };
+}
 
 @Component({
   selector: 'app-register',
@@ -17,23 +18,25 @@ export const confirmPasswordValidator: ValidatorFn = (
   encapsulation: ViewEncapsulation.None
 })
 export class RegisterComponent implements OnInit, AfterViewInit {
-  registerForm: UntypedFormGroup = new UntypedFormGroup({});
-  userCtrl: UntypedFormControl = new UntypedFormControl('', Validators.required);
-  pwdCtrl1: UntypedFormControl = new UntypedFormControl('', Validators.required);
-  pwdCtrl2: UntypedFormControl = new UntypedFormControl('', Validators.required);
+  registerForm: FormGroup = new FormGroup({});
 
   constructor(
     @Inject(NavigationService) public navigation: NavigationService,
     @Inject(AuthService) private authService: AuthService,
-    public injector: Injector
+    public injector: Injector,
+    private fb: FormBuilder
   ) { }
 
   ngOnInit(): any {
     this.navigation.setVisible(false);
-    this.registerForm.addControl('username', this.userCtrl);
-    this.registerForm.addControl('password1', this.pwdCtrl1);
-    this.registerForm.addControl('password2', this.pwdCtrl2);
-    this.registerForm.addValidators(confirmPasswordValidator);
+    this.registerForm = this.fb.group({
+      username: ['', [Validators.required]],
+      newpassword: ['', [Validators.required]],
+      confirmpassword: ['', [
+        Validators.required,
+        RetypeConfirm('newpassword')
+      ]]
+    });
   }
 
   ngAfterViewInit(): any {
@@ -44,8 +47,8 @@ export class RegisterComponent implements OnInit, AfterViewInit {
 
   register() {
     const username = this.registerForm.value.username;
-    const password1 = this.registerForm.value.password1;
-    const password2 = this.registerForm.value.password2;
+    const password1 = this.registerForm.value.newassword;
+    const password2 = this.registerForm.value.confirmpassword;
 
     if(password1 && password2 && username) {
       if(password1 == password2) {
