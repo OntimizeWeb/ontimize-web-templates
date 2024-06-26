@@ -1,15 +1,17 @@
 import { AfterViewInit, Component, Inject, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { AbstractControl, FormControl, UntypedFormControl, UntypedFormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { MatCheckbox } from '@angular/material/checkbox';
+import { ActivatedRoute } from '@angular/router';
 import { AuthService, NavigationService, OTranslateService } from 'ontimize-web-ngx';
 
-export const confirmPasswordValidator: ValidatorFn = (
-  control: AbstractControl
-): ValidationErrors => {
-  return control.value.password1 === control.value.password2
-    ? { PasswordNoMatch: false }
-    : { PasswordNoMatch: true };
-};
+function RetypeConfirm(newpassword: string): ValidatorFn {
+  return (control: FormControl) => {
+    if (!control || !control.parent) {
+      return null;
+    }
+    return control.parent.get(newpassword).value === control.value ? null : { mismatch: true };
+  };
+}
 
 @Component({
   selector: 'app-forgot-pass',
@@ -18,9 +20,7 @@ export const confirmPasswordValidator: ValidatorFn = (
   encapsulation: ViewEncapsulation.None
 })
 export class ForgotPassComponent implements OnInit, AfterViewInit {
-  loginForm: UntypedFormGroup = new UntypedFormGroup({});
-  pwdCtrl1: UntypedFormControl = new UntypedFormControl('', Validators.required);
-  pwdCtrl2: UntypedFormControl = new UntypedFormControl('', Validators.required);
+  changePassForm: FormGroup = new FormGroup({});
 
   isSpanish: boolean;
 
@@ -29,15 +29,21 @@ export class ForgotPassComponent implements OnInit, AfterViewInit {
   constructor(
     @Inject(NavigationService) public navigation: NavigationService,
     @Inject(AuthService) private authService: AuthService,
-    private _translateService: OTranslateService
+    private _translateService: OTranslateService,
+    private fb: FormBuilder,
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): any {
     this.navigation.setVisible(false);
     this.isSpanish = this._translateService.getCurrentLang() == "es" ? true : false;
-    this.loginForm.addControl('password1', this.pwdCtrl1);
-    this.loginForm.addControl('password2', this.pwdCtrl2);
-    this.loginForm.addValidators(confirmPasswordValidator);
+    this.changePassForm = this.fb.group({
+      newpassword: ['', [Validators.required]],
+      confirmpassword: ['', [
+        Validators.required,
+        RetypeConfirm('newpassword')
+      ]]
+    });
   }
 
   ngAfterViewInit(): any {
@@ -54,9 +60,9 @@ export class ForgotPassComponent implements OnInit, AfterViewInit {
   }
 
   changePass() {
-    const username = this.loginForm.value.username;
-    const password1 = this.loginForm.value.password1;
-    const password2 = this.loginForm.value.password2;
+    const username = this.activatedRoute.snapshot.params['USERNAME'];
+    const password1 = this.changePassForm.value.newpassword;
+    const password2 = this.changePassForm.value.confirmpassword;
 
     if(password1 && password2 && username) {
       if(password1 == password2) {

@@ -11,7 +11,7 @@
   "LOGIN.ERROR_SESSION_EXPIRED": "La sesión ha caducado",
   "LOGIN.ERROR_USER_REQUIRED": "Nombre de usuario incorrecto",
   "LOGIN.ERROR_PASS_REQUIRED": "Contraseña incorrecta",
-  "LOGIN.ERROR_PASS_DIFFERENT": "Passwords doesn't match",
+  "LOGIN.ERROR_PASS_DIFFERENT": "Las contraseñas no coinciden",
   "LOGIN.ERROR_USER_PASS_INCORRECT": "Usuario o contraseña incorrecta",
   "LOGIN.REMEMBER_ME": "Recuérdame",
   "LOGIN.FORGOT_PWD": "¿Has olvidado tu contraseña?",

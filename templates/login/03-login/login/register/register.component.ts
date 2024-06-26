@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, Inject, Injector, OnInit, ViewEncapsulation } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, UntypedFormControl, UntypedFormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { AuthService, NavigationService, OTranslateService } from 'ontimize-web-ngx';
 
 function RetypeConfirm(newpassword: string): ValidatorFn {
@@ -34,8 +34,9 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     this.navigation.setVisible(false);
     this.isSpanish = this._translateService.getCurrentLang() == "es" ? true : false;
     this.registerForm = this.fb.group({
+      username: ['', [Validators.required]],
       newpassword: ['', [Validators.required]],
-      confirmPassword: ['', [
+      confirmpassword: ['', [
         Validators.required,
         RetypeConfirm('newpassword')
       ]]
@@ -57,8 +58,8 @@ export class RegisterComponent implements OnInit, AfterViewInit {
 
   register() {
     const username = this.registerForm.value.username;
-    const password1 = this.registerForm.value.password1;
-    const password2 = this.registerForm.value.password2;
+    const password1 = this.registerForm.value.newassword;
+    const password2 = this.registerForm.value.confirmpassword;
 
     if (password1 && password2 && username) {
       if (password1 == password2) {
