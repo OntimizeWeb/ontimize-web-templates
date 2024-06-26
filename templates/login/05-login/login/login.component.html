@@ -1,5 +1,5 @@
-<div class="full-page">
-  <div class="login-outer-container">
+<div class="full-page" fxFill>
+  <div class="login-outer-container" fxFlexAlign="stretch" fxLayout="wrap column" fxFill>
     <div class="header-language">
       <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="24px" class="language-selector">
         <div (click)="changeLang('es')" class="language" [ngClass]="{'selected' : isSpanish}">Castellano</div>
@@ -25,7 +25,7 @@
 
             <div class="login-title-container" fxLayout="column">
               <p class="session-expired text" *ngIf="sessionExpired">{{ 'LOGIN.ERROR_SESSION_EXPIRED' | oTranslate }}</p>
-              <span class="title_text">{{ 'LOGIN.LOGIN_TITLE' | oTranslate }}:</span>
+              <span class="title_text">{{ 'LOGIN.TITLE' | oTranslate }}:</span>
             </div>
 
             <div fxLayout="column">
@@ -40,7 +40,7 @@
 
             <div fxLayout="row" fxLayoutAlign="flex-start center" fxLayoutGap="10px">
               <span class="subtitle_text">{{ 'LOGIN.NO_ACCOUNT' | oTranslate }}</span>
-              <a href="" class="text_bold">{{ 'LOGIN.REGISTER' | oTranslate }}</a>
+              <a href="login/register" class="text_bold">{{ 'LOGIN.REGISTER' | oTranslate }}</a>
             </div>
 
             <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px" class="m-top-24">
