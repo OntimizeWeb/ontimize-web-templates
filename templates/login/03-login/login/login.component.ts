@@ -87,11 +87,7 @@ export class LoginComponent implements OnInit {
 
   enterUsername() {
     if (this.loginForm.value.username == '') {
-      if (this._translateService.getCurrentLang() == "en") {
-        this.dialogService.error("Missing username", "First enter your username");
-      } else {
-        this.dialogService.error("Falta el nombre de usuario", "Primero introduce tu nombre de usuario");
-      }
+      this.dialogService.error(this._translateService.get("LOGIN.ERROR_REQUIRED_FIELD"), this._translateService.get("LOGIN.ERROR_USER_REQUIRED"));
     } else {
       this.router.navigate(['login/forgotpass/' + this.loginForm.value.username]);
     }
