@@ -89,6 +89,9 @@
             color: #FFFFFFBD;
           }
 
+          .mat-input {
+            color: white;
+          }
         }
       }
 
@@ -129,6 +132,10 @@
       .subtitle_text {
         font-size: 12px;
         color: #FFFFFFBD;
+      }
+
+      .link_text {
+        cursor: pointer;
       }
     }
 

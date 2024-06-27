@@ -1,6 +1,7 @@
-import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
-import { NavigationService, OTranslateService } from 'ontimize-web-ngx';
+import { ActivatedRoute } from '@angular/router';
+import { AuthService, NavigationService, OTranslateService } from 'ontimize-web-ngx';
 
 function RetypeConfirm(newpassword: string): ValidatorFn {
   return (control: FormControl) => {
@@ -12,33 +13,40 @@ function RetypeConfirm(newpassword: string): ValidatorFn {
 }
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss'],
+  selector: 'app-forgot-pass',
+  templateUrl: './forgot-pass.component.html',
+  styleUrls: ['./forgot-pass.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class RegisterComponent implements OnInit {
-  registerForm: FormGroup = new FormGroup({});
+export class ForgotPassComponent implements OnInit, AfterViewInit {
+  changePassForm: FormGroup = new FormGroup({});
 
   isSpanish: boolean;
 
   constructor(
     @Inject(NavigationService) public navigation: NavigationService,
+    @Inject(AuthService) private authService: AuthService,
     private _translateService: OTranslateService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private activatedRoute: ActivatedRoute
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): any {
     this.navigation.setVisible(false);
     this.isSpanish = this._translateService.getCurrentLang() == "es" ? true : false;
-    this.registerForm = this.fb.group({
-      username: ['', [Validators.required]],
+    this.changePassForm = this.fb.group({
       newpassword: ['', [Validators.required]],
       confirmpassword: ['', [
         Validators.required,
         RetypeConfirm('newpassword')
       ]]
     });
+  }
+
+  ngAfterViewInit(): any {
+    if (this.authService.isLoggedIn()) {
+      return;
+    }
   }
 
   changeLang(language): void {
@@ -48,16 +56,16 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  register() {
-    const username = this.registerForm.value.username;
-    const password1 = this.registerForm.value.newassword;
-    const password2 = this.registerForm.value.confirmpassword;
+  changePass() {
+    const username = this.activatedRoute.snapshot.params['USERNAME'];
+    const password1 = this.changePassForm.value.newpassword;
+    const password2 = this.changePassForm.value.confirmpassword;
 
     if (password1 && password2 && username) {
       if (password1 == password2) {
 
       } else {
-        this.handleError({ status: 401 });
+        this.handleError({ status: 402 });
       }
     }
   }
@@ -66,6 +74,9 @@ export class RegisterComponent implements OnInit {
     switch (error.status) {
       case 401:
         console.error('Email or password is wrong.');
+        break;
+      case 402:
+        console.error("Passwords doesn't match");
         break;
       default: break;
     }

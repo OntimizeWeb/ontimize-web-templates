@@ -1,7 +1,7 @@
 import { Component, Inject, Injector, OnInit, ViewEncapsulation } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService, LocalStorageService, NavigationService, OTranslateService, SessionInfo, Util } from 'ontimize-web-ngx';
+import { AuthService, DialogService, LocalStorageService, NavigationService, OTranslateService, SessionInfo, Util } from 'ontimize-web-ngx';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   isSpanish: boolean;
 
   usernameHiden: boolean;
-  
+
   constructor(
     private actRoute: ActivatedRoute,
     router: Router,
@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
     @Inject(LocalStorageService) private localStorageService: LocalStorageService,
     public injector: Injector,
     private _translateService: OTranslateService,
+    protected dialogService: DialogService
   ) {
     this.router = router;
     const qParamObs: Observable<any> = this.actRoute.queryParams;
@@ -80,6 +81,14 @@ export class LoginComponent implements OnInit {
     if (this._translateService.getCurrentLang() !== language) {
       this._translateService.use(language);
       this.isSpanish = language == "es" ? true : false;
+    }
+  }
+
+  enterUsername() {
+    if (this.loginForm.value.username == '') {
+      this.dialogService.error(this._translateService.get("LOGIN.ERROR_REQUIRED_FIELD"), this._translateService.get("LOGIN.ERROR_USER_REQUIRED"));
+    } else {
+      this.router.navigate(['login/forgotpass/' + this.loginForm.value.username]);
     }
   }
 
