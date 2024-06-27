@@ -37,12 +37,7 @@ export class LoginComponent implements OnInit {
     const qParamObs: Observable<any> = this.actRoute.queryParams;
     qParamObs.subscribe(params => {
       if (params) {
-        const isDetail = params['session-expired'];
-        if (isDetail === 'true') {
-          this.sessionExpired = true;
-        } else {
-          this.sessionExpired = false;
-        }
+        this.sessionExpired = params['session-expired'] === 'true' ? true : false;
       }
     });
     this.usernameHiden = false;
@@ -69,7 +64,7 @@ export class LoginComponent implements OnInit {
     const sessionData: SessionInfo = appData[LocalStorageService.SESSION_STORAGE_KEY] || {};
 
     if (appData && Util.isDefined(appData['rememberme'])) {
-      if (Util.parseBoolean(appData['rememberme'], false)) {
+      if (Util.parseBoolean(appData['rememberme'], true)) {
         this.loginForm.patchValue({ 'username': sessionData.user });
       } else {
         this.loginForm.patchValue({ 'username': ''});
