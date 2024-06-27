@@ -19,15 +19,15 @@
 
 					<div fxLayout="column">
 						<mat-form-field fxFill class="m-top-24">
-							<input matInput class="mat-input" placeholder="{{ 'LOGIN.PASSWORD' | oTranslate }}" id="password1"
-								type="password" formControlName="newpassword">
+							<input matInput class="mat-input" placeholder="{{ 'LOGIN.PASSWORD' | oTranslate }}" id="password1" type="password"
+								formControlName="newpassword">
 							<mat-error *ngIf="changePassForm.get('newpassword').hasError('required')">
 								{{ 'LOGIN.ERROR_PASS_REQUIRED' | oTranslate }}
 							</mat-error>
 						</mat-form-field>
 						<mat-form-field fxFill class="m-top-24">
-							<input matInput class="mat-input" placeholder="{{ 'LOGIN.PASSWORD' | oTranslate }}" id="password2"
-								type="password" formControlName="confirmpassword">
+							<input matInput class="mat-input" placeholder="{{ 'LOGIN.PASSWORD' | oTranslate }}" id="password2" type="password"
+								formControlName="confirmpassword">
 							<mat-error *ngIf="changePassForm.get('confirmpassword').errors?.mismatch">
 								{{ 'LOGIN.ERROR_PASS_DIFFERENT' | oTranslate }}
 							</mat-error>

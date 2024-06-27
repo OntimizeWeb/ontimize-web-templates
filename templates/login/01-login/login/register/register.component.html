@@ -15,22 +15,19 @@
 					</a>
 					<div fxLayout="column">
 						<mat-form-field fxFill class="m-top-24">
-							<input matInput class="mat-input" placeholder="{{ 'LOGIN.USERNAME' | oTranslate }}"
-								formControlName="username">
+							<input matInput class="mat-input" placeholder="{{ 'LOGIN.USERNAME' | oTranslate }}" formControlName="username">
 							<mat-error *ngIf="registerForm.get('username').hasError('required')">
 								{{ 'LOGIN.ERROR_USER_REQUIRED' | oTranslate }}
 							</mat-error>
 						</mat-form-field>
 						<mat-form-field fxFill class="m-top-24">
-							<input matInput class="mat-input" placeholder="{{ 'LOGIN.PASSWORD' | oTranslate }}"
-								type="password" formControlName="newpassword">
+							<input matInput class="mat-input" placeholder="{{ 'LOGIN.PASSWORD' | oTranslate }}" type="password" formControlName="newpassword">
 							<mat-error *ngIf="registerForm.get('newpassword').hasError('required')">
 								{{ 'LOGIN.ERROR_PASS_REQUIRED' | oTranslate }}
 							</mat-error>
 						</mat-form-field>
 						<mat-form-field fxFill class="m-top-24">
-							<input matInput class="mat-input" placeholder="{{ 'LOGIN.PASSWORD' | oTranslate }}"
-								type="password" formControlName="confirmpassword">
+							<input matInput class="mat-input" placeholder="{{ 'LOGIN.PASSWORD' | oTranslate }}" type="password" formControlName="confirmpassword">
 							<mat-error *ngIf="registerForm.get('confirmpassword').errors?.mismatch">
 								{{ 'LOGIN.ERROR_PASS_DIFFERENT' | oTranslate }}
 							</mat-error>
