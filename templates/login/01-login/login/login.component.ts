@@ -37,12 +37,7 @@ export class LoginComponent implements OnInit {
     const qParamObs: Observable<any> = this.actRoute.queryParams;
     qParamObs.subscribe(params => {
       if (params) {
-        const sessionExpired = params['session-expired'];
-        if (sessionExpired === 'true') {
-          this.sessionExpired = true;
-        } else {
-          this.sessionExpired = false;
-        }
+        this.sessionExpired = params['session-expired'] === 'true' ? true : false;
       }
     });
 
@@ -57,11 +52,9 @@ export class LoginComponent implements OnInit {
     if (this.authService.isLoggedIn()) {
       this.router.navigate(['../'], { relativeTo: this.actRoute });
     } else {
-      this.authService.clearSessionData();
-      if (window.localStorage.getItem("rememberme") == "true") {
+      if (this.localStorageService.getStoredData()['rememberme'] == "true") {
         this.rememberChk.checked = true;
       }
-      this.rememberMe(this.rememberChk.checked);
     }
   }
 
@@ -73,7 +66,7 @@ export class LoginComponent implements OnInit {
     const sessionData: SessionInfo = appData[LocalStorageService.SESSION_STORAGE_KEY] || {};
 
     if (appData && Util.isDefined(appData['rememberme'])) {
-      if (Util.parseBoolean(appData['rememberme'], false)) {
+      if (Util.parseBoolean(appData['rememberme'], true)) {
         this.loginForm.patchValue({ 'username': sessionData.user });
       } else {
         this.loginForm.patchValue({ 'username': ''});
@@ -90,7 +83,7 @@ export class LoginComponent implements OnInit {
   }
 
   enterUsername() {
-    if (this.loginForm.value.username == '') {
+    if (this.loginForm.value.username == '' || this.loginForm.value.username == undefined) {
       this.dialogService.error(this.translateService.get("LOGIN.ERROR_REQUIRED_FIELD"), this.translateService.get("LOGIN.ERROR_USER_REQUIRED"));
     } else {
       this.router.navigate(['login/forgotpass/' + this.loginForm.value.username]);
