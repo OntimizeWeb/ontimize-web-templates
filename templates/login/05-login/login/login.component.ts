@@ -1,7 +1,7 @@
 import { Component, Inject, Injector, OnInit, ViewEncapsulation } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService, DialogService, LocalStorageService, NavigationService, OTranslateService, SessionInfo, Util } from 'ontimize-web-ngx';
+import { AuthService, DialogService, LocalStorageService, NavigationService, OTranslateService } from 'ontimize-web-ngx';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -59,16 +59,6 @@ export class LoginComponent implements OnInit {
   ngAfterViewInit(): any {
     if (this.authService.isLoggedIn()) {
       return;
-    }
-    const appData = this.localStorageService.getStoredData();
-    const sessionData: SessionInfo = appData[LocalStorageService.SESSION_STORAGE_KEY] || {};
-
-    if (appData && Util.isDefined(appData['rememberme'])) {
-      if (Util.parseBoolean(appData['rememberme'], true)) {
-        this.loginForm.patchValue({ 'username': sessionData.user });
-      } else {
-        this.loginForm.patchValue({ 'username': ''});
-      }
     }
   }
 
