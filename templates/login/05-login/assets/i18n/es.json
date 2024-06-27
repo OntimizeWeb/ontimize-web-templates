@@ -5,7 +5,7 @@
   "LOGIN.NO_ACCOUNT": "¿No tienes una cuenta?",
   "LOGIN.REGISTER": "Registrar ahora",
   "LOGIN.NEXT": "Siguiente",
-  "LOGIN.LOGIN_TITLE": "Inicia sesión en tu cuenta",
+  "LOGIN.TITLE": "Inicia sesión en tu cuenta",
   "LOGIN.ERROR_REQUIRED_FIELD": "El campo es requerido",
   "LOGIN.ERROR_MIN_LENGTH_REQUIRED": "El valor introducido tiene que tener una longitud mínima de 8 caracteres",
   "LOGIN.ERROR_SESSION_EXPIRED": "La sesión ha caducado",
