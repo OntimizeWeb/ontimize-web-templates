@@ -2,7 +2,7 @@ import { Component, Inject, Injector, OnInit, ViewChild, ViewEncapsulation } fro
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatCheckbox } from '@angular/material/checkbox';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService, DialogService, LocalStorageService, NavigationService, SessionInfo, Util } from 'ontimize-web-ngx';
+import { AuthService, DialogService, LocalStorageService, NavigationService, OTranslateService, SessionInfo, Util } from 'ontimize-web-ngx';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -29,7 +29,8 @@ export class LoginComponent implements OnInit {
     @Inject(AuthService) private authService: AuthService,
     @Inject(LocalStorageService) private localStorageService: LocalStorageService,
     public injector: Injector,
-    protected dialogService: DialogService
+    protected dialogService: DialogService,
+    private translateService: OTranslateService
   ) {
     this.router = router;
 
@@ -90,7 +91,7 @@ export class LoginComponent implements OnInit {
 
   enterUsername() {
     if (this.loginForm.value.username == '') {
-      this.dialogService.error("Missing username", "First enter your username");
+      this.dialogService.error(this.translateService.get("LOGIN.ERROR_REQUIRED_FIELD"), this.translateService.get("LOGIN.ERROR_USER_REQUIRED"));
     } else {
       this.router.navigate(['login/forgotpass/' + this.loginForm.value.username]);
     }
