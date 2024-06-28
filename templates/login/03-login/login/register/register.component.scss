@@ -8,15 +8,16 @@
   overflow: hidden;
 
   .login-outer-container {
+    height: 100%;
     overflow: auto;
 
     .header-language {
       height: 24px;
       width: 100%;
       background-color: #0C3C63;
-      padding-right: 342px;
 
       .language-selector {
+        padding-right: 342px;
         color: white;
 
         .language {
@@ -38,18 +39,24 @@
 
     .login-bg-container {
       background-image: url('^assets/images/background.png');
-      width: calc(100% - 640px);
-      height: calc(100% - 144px);
+      position: fixed;
+      top: 140px;
+      bottom: 0;
+      left: 0;
+      right: 640px;
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
-      position: relative;
       z-index: 1;
     }
 
     .wrapp-login {
+      overflow: auto;
       width: 640px;
-      height: calc(100% - 144px);
+      position: fixed;
+      top: 140px;
+      bottom: 0;
+      right: 0;
 
       .login-inner-container {
         height: calc(100% - 40px);
@@ -58,11 +65,25 @@
           height: 100%;
 
           form {
-            padding: 16px;
             min-width: 368px;
 
             .mdc-text-field--filled:not(.mdc-text-field--disabled) {
               background-color: transparent;
+            }
+          }
+
+          .footer-container {
+            width: 100%;
+            height: 40px;
+
+            div {
+              height: 40px;
+              margin-right: 138px;
+
+              span {
+                font-size: 11px;
+                padding-right: 4px;
+              }
             }
           }
         }
@@ -83,7 +104,7 @@
 
         button {
           width: 100%;
-          margin: 32px 0 49px;
+          margin: 32px 0;
           height: 42px;
           font-size: 16px;
         }
@@ -92,6 +113,13 @@
           font-size: 14px;
           font-weight: 600;
           text-decoration: none;
+        }
+
+        .subtitle_text {
+          font-size: 12px;
+          font-weight: 700;
+          text-decoration: none;
+          color: black;
         }
 
         .text {
@@ -106,33 +134,28 @@
           cursor: pointer;
         }
       }
-
-      .footer-container {
-        width: 100%;
-        height: 40px;
-
-        div {
-          height: 40px;
-          margin-right: 138px;
-
-          span {
-            font-size: 11px;
-            padding-right: 4px;
-          }
-        }
-
-      }
     }
 
   }
 
 }
-@media(max-width:576px) {
+@media(max-width:651px) {
   .full-page {
+    overflow: auto;
+
     .login-outer-container {
+      .header-language {
+        .language-selector {
+          padding-right: 42px;
+        }
+      }
+
+      .header {
+        padding-left: 42px;
+      }
+
       .wrapp-login {
         width: 100%;
-        min-height: 100%;
 
         .login-inner-container {
           width: 100%;

@@ -35,6 +35,10 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     this.isSpanish = this._translateService.getCurrentLang() == "es" ? true : false;
     this.registerForm = this.fb.group({
       username: ['', [Validators.required]],
+      email: ['', [
+        Validators.required,
+        Validators.email
+      ]],
       newpassword: ['', [Validators.required]],
       confirmpassword: ['', [
         Validators.required,
@@ -57,13 +61,14 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   }
 
   register() {
+    const email = this.registerForm.value.email;
     const username = this.registerForm.value.username;
     const password1 = this.registerForm.value.newassword;
     const password2 = this.registerForm.value.confirmpassword;
 
-    if (password1 && password2 && username) {
+    if (this.registerForm.valid) {
       if (password1 == password2) {
-
+        console.log("passwords match");
       } else {
         this.handleError({ status: 401 });
       }

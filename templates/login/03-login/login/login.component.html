@@ -1,5 +1,5 @@
 <div class="full-page" fxFill>
-  <div class="login-outer-container" fxFlexAlign="stretch" fxLayout="wrap column" fxFill>
+  <div class="login-outer-container" fxFlexAlign="flex-start" fxLayout="column" fxFill>
     <div class="header-language">
       <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="24px" class="language-selector">
         <div (click)="changeLang('es')" class="language" [ngClass]="{'selected' : isSpanish}">Castellano</div>
@@ -15,7 +15,7 @@
 
     <div class="wrapp-login">
       <div fxFill fxLayout="column" fxLayoutAlign="space-between center" class="login-inner-container" fxFill>
-        <div fxLayoutAlign="center center" class="form-container">
+        <div fxLayoutAlign="space-between center" fxLayout="column" class="form-container" fxFill>
           <form [formGroup]="loginForm" (ngSubmit)="login()">
             <div [ngClass]="{'hide' : usernameHiden}">
               <div fxLayout="column" fxLayoutAlign="center flex-start" class="logo-container">
@@ -43,7 +43,7 @@
               </div>
 
               <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px" class="m-top-24">
-                <span class="subtitle_text link_text" (click)="enterUsername()">{{ 'LOGIN.FORGOT_PWD' | oTranslate }}</span>
+                <span class="subtitle_text link_text" (click)="forgotPwd()">{{ 'LOGIN.FORGOT_PWD' | oTranslate }}</span>
               </div>
 
               <button mat-raised-button color="primary" type="submit">{{ 'LOGIN.NEXT' | oTranslate }}</button>
@@ -70,18 +70,18 @@
               </div>
 
               <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px" class="m-top-24">
-                <span class="subtitle_text link_text" (click)="enterUsername()">{{ 'LOGIN.FORGOT_PWD' | oTranslate }}</span>
+                <span class="subtitle_text link_text" (click)="forgotPwd()">{{ 'LOGIN.FORGOT_PWD' | oTranslate }}</span>
               </div>
 
               <button mat-raised-button color="primary" type="submit">{{ 'LOGIN.LOGIN' | oTranslate }}</button>
             </div>
           </form>
-        </div>
-        <div id="footer" class="footer-container">
-          <div fxLayout="row" fxLayoutAlign="end center">
-            <span>{{ 'LOGIN.FOOTER_CREATED_BY' | oTranslate }}</span>
-            <span> &copy; 2024 </span>
-            <span>{{ 'LOGIN.FOOTER_RIGHTS' | oTranslate }}</span>
+          <div id="footer" class="footer-container">
+            <div fxLayout="row" fxLayoutAlign="end center">
+              <span>{{ 'LOGIN.FOOTER_CREATED_BY' | oTranslate }}</span>
+              <span> &copy; 2024 </span>
+              <span>{{ 'LOGIN.FOOTER_RIGHTS' | oTranslate }}</span>
+            </div>
           </div>
         </div>
       </div>

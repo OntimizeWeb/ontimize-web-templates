@@ -1,5 +1,5 @@
 <div class="full-page" fxFill>
-  <div class="login-outer-container" fxFlexAlign="stretch" fxLayout="wrap column" fxFill>
+  <div class="login-outer-container" fxFlexAlign="flex-start" fxLayout="column" fxFill>
     <div class="header-language">
       <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="24px" class="language-selector">
         <div (click)="changeLang('es')" class="language" [ngClass]="{'selected' : isSpanish}">Castellano</div>
@@ -13,8 +13,8 @@
     <div class="login-bg-container">
     </div>
     <div fxLayoutAlign="space-between center" fxLayout="column" class="wrapp-login">
-      <div fxFill fxLayout="column" fxLayoutAlign="space-between center" class="login-inner-container">
-        <div fxLayoutAlign="center center" class="form-container">
+      <div fxFill fxLayout="column" fxLayoutAlign="space-between center" class="login-inner-container" fxFill>
+        <div fxLayoutAlign="space-between center" fxLayout="column" fxFill>
           <form [formGroup]="sendEmailForm" (ngSubmit)="sendEmail()">
             <a href="/">
               <div fxLayout="column" fxLayoutAlign="center flex-start" class="logo-container">
@@ -22,7 +22,7 @@
               </div>
             </a>
             <div class="login-title-container" fxLayout="column">
-              <span class="title_text">{{ 'LOGIN.CHANGE_PASS_TITLE' | oTranslate }}:</span>
+              <span class="title_text">{{ 'LOGIN.ENTER_EMAIL' | oTranslate }}:</span>
             </div>
 
             <div fxLayout="column">
@@ -30,23 +30,23 @@
                 <input matInput class="mat-input" placeholder="{{ 'LOGIN.EMAIL' | oTranslate }}" type="email"
                   formControlName="email">
                 <mat-error *ngIf="sendEmailForm.get('email').hasError('required')">
-                  {{ 'LOGIN.ERROR_PASS_REQUIRED' | oTranslate }}
+                  {{ 'LOGIN.ERROR_REQUIRED_FIELD' | oTranslate }}
                 </mat-error>
                 <mat-error *ngIf="sendEmailForm.get('email').hasError('email')">
-                  bad email
+                  {{ 'LOGIN.ERROR_EMAIL' | oTranslate }}
                 </mat-error>
               </mat-form-field>
             </div>
 
-            <button mat-raised-button color="primary" type="submit">{{ 'LOGIN.RESET_PASS' | oTranslate }}</button>
+            <button mat-raised-button color="primary" type="submit">{{ 'LOGIN.SEND_EMAIL' | oTranslate }}</button>
 
           </form>
-        </div>
-        <div id="footer" class="footer-container">
-          <div fxLayout="row" fxLayoutAlign="end center">
-            <span class="footer_text">{{ 'LOGIN.FOOTER_CREATED_BY' | oTranslate }}</span>
-            <span class="footer_text"> &copy; 2024 </span>
-            <span class="footer_text">{{ 'LOGIN.FOOTER_RIGHTS' | oTranslate }}</span>
+          <div id="footer" class="footer-container">
+            <div fxLayout="row" fxLayoutAlign="end center">
+              <span class="footer_text">{{ 'LOGIN.FOOTER_CREATED_BY' | oTranslate }}</span>
+              <span class="footer_text"> &copy; 2024 </span>
+              <span class="footer_text">{{ 'LOGIN.FOOTER_RIGHTS' | oTranslate }}</span>
+            </div>
           </div>
         </div>
       </div>

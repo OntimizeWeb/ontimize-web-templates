@@ -1,10 +1,6 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { NavigationService } from 'ontimize-web-ngx/lib/services/navigation.service';
-import { OTranslateService } from 'ontimize-web-ngx/lib/services/translate/o-translate.service';
-import { map } from 'rxjs';
+import { OTranslateService } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'app-forgot-pass-email',
@@ -17,8 +13,6 @@ export class ForgotPassEmailComponent implements OnInit {
   isSpanish: boolean;
 
   constructor(
-    private router: Router,
-    private httpClient: HttpClient,
     private fb: FormBuilder,
     private _translateService: OTranslateService
   ) {
@@ -42,14 +36,10 @@ export class ForgotPassEmailComponent implements OnInit {
   }
 
   sendEmail() {
-    if (this.sendEmailForm.value.email) {
-      this.httpClient.post<any>(`${this.router.getCurrentNavigation().extractedUrl.toString}`, { email: this.sendEmailForm.value.email }).subscribe(
-        value => {
-          console.log(value);
-        }
-      );
+    if (this.sendEmailForm.valid) {
+      console.log("email valid");
     } else {
-
+      console.log("wrong email");
     }
   }
 

@@ -13,6 +13,7 @@
   "LOGIN.ERROR_PASS_REQUIRED": "Contraseña incorrecta",
   "LOGIN.ERROR_PASS_DIFFERENT": "Las contraseñas no coinciden",
   "LOGIN.ERROR_USER_PASS_INCORRECT": "Usuario o contraseña incorrecta",
+  "LOGIN.ERROR_EMAIL": "Correo electrónico inválido",
   "LOGIN.REMEMBER_ME": "Recuérdame",
   "LOGIN.FORGOT_PWD": "¿Has olvidado tu contraseña?",
   "LOGIN.FOOTER_CREATED_BY": "Creado por Imatia Innovation",
@@ -24,5 +25,7 @@
   "LOGIN.NEW_PASSWORD": "Nueva contraseña",
   "LOGIN.CONFIRM_PASSWORD": "Confirmar contraseña",
   "LOGIN.RESET_PASS": "Cambiar contraseña",
-  "LOGIN.CHANGE_PASS_TITLE": "Introduce tu nueva contraseña"
+  "LOGIN.CHANGE_PASS_TITLE": "Introduce tu nueva contraseña",
+  "LOGIN.ENTER_EMAIL": "Introduzca su correo electrónico",
+  "LOGIN.SEND_EMAIL": "Enviar correo"
 }
