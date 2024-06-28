@@ -33,6 +33,10 @@ export class RegisterComponent implements OnInit {
     this.isSpanish = this._translateService.getCurrentLang() == "es" ? true : false;
     this.registerForm = this.fb.group({
       username: ['', [Validators.required]],
+      email: ['', [
+        Validators.required,
+        Validators.email
+      ]],
       newpassword: ['', [Validators.required]],
       confirmpassword: ['', [
         Validators.required,

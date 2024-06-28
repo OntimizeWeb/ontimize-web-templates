@@ -69,12 +69,8 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  enterUsername() {
-    if (this.loginForm.value.username == '' || this.loginForm.value.username == undefined) {
-      this.dialogService.error(this._translateService.get("LOGIN.ERROR_REQUIRED_FIELD"), this._translateService.get("LOGIN.ERROR_USER_REQUIRED"));
-    } else {
-      this.router.navigate(['login/forgotpass/' + this.loginForm.value.username]);
-    }
+  forgotPwd() {
+    this.router.navigate(['login/forgotpass']);
   }
 
   login() {

@@ -32,6 +32,16 @@
             </mat-form-field>
 
             <mat-form-field fxFill class="m-top-24">
+              <input matInput class="mat-input" placeholder="{{ 'LOGIN.EMAIL' | oTranslate }}" type="email" formControlName="email">
+              <mat-error *ngIf="registerForm.get('email').hasError('required')">
+                {{ 'LOGIN.ERROR_REQUIRED_FIELD' | oTranslate }}
+              </mat-error>
+              <mat-error *ngIf="registerForm.get('email').hasError('email')">
+                {{ 'LOGIN.ERROR_EMAIL' | oTranslate }}
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field fxFill class="m-top-24">
               <input matInput class="mat-input" placeholder="{{ 'LOGIN.PASSWORD' | oTranslate }}" type="password" formControlName="newpassword">
               <mat-error *ngIf="registerForm.get('newpassword').hasError('required')">
                 {{ 'LOGIN.ERROR_PASS_REQUIRED' | oTranslate }}
