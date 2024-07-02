@@ -15,7 +15,7 @@
 
     <div class="wrapp-login">
       <div fxFill fxLayout="column" fxLayoutAlign="space-between center" class="login-inner-container" fxFill>
-        <div fxLayoutAlign="space-between center" fxLayout="column" class="form-container" fxFill>
+        <div fxLayoutAlign="center center" fxLayout="column" class="form-container" fxFill>
           <form [formGroup]="loginForm" (ngSubmit)="login()">
             <div [ngClass]="{'hide' : usernameHiden}">
               <div fxLayout="column" fxLayoutAlign="center flex-start" class="logo-container">
@@ -56,7 +56,7 @@
 
               <div class="login-title-container" fxLayout="column">
                 <p class="session-expired text" *ngIf="sessionExpired">{{ 'LOGIN.ERROR_SESSION_EXPIRED' | oTranslate }}</p>
-                <span class="title_text">{{ 'LOGIN.LOGIN_TITLE' | oTranslate }}:</span>
+                <span class="title_text">{{ 'LOGIN.TITLE' | oTranslate }}:</span>
               </div>
 
               <div fxLayout="column">

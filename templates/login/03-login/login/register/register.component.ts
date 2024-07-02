@@ -1,6 +1,6 @@
-import { AfterViewInit, Component, Inject, Injector, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Inject, Injector, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
-import { AuthService, NavigationService, OTranslateService } from 'ontimize-web-ngx';
+import { NavigationService, OTranslateService } from 'ontimize-web-ngx';
 
 function RetypeConfirm(newpassword: string): ValidatorFn {
   return (control: FormControl) => {
@@ -17,14 +17,13 @@ function RetypeConfirm(newpassword: string): ValidatorFn {
   styleUrls: ['./register.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class RegisterComponent implements OnInit, AfterViewInit {
+export class RegisterComponent implements OnInit {
   registerForm: FormGroup = new FormGroup({});
 
   isSpanish: boolean;
 
   constructor(
     @Inject(NavigationService) public navigation: NavigationService,
-    @Inject(AuthService) private authService: AuthService,
     public injector: Injector,
     private _translateService: OTranslateService,
     private fb: FormBuilder
@@ -47,12 +46,6 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngAfterViewInit(): any {
-    if (this.authService.isLoggedIn()) {
-      return;
-    }
-  }
-
   changeLang(language): void {
     if (this._translateService && this._translateService.getCurrentLang() !== language) {
       this._translateService.use(language);
@@ -61,17 +54,11 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   }
 
   register() {
-    const email = this.registerForm.value.email;
-    const username = this.registerForm.value.username;
-    const password1 = this.registerForm.value.newassword;
-    const password2 = this.registerForm.value.confirmpassword;
-
     if (this.registerForm.valid) {
-      if (password1 == password2) {
-        console.log("passwords match");
-      } else {
-        this.handleError({ status: 401 });
-      }
+      console.log("register fields valid");
+    }
+    else {
+      this.handleError({ status: 401 });
     }
   }
 

@@ -73,8 +73,13 @@
           }
 
           .footer-container {
-            width: 100%;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 640px;
             height: 40px;
+            background-color: #0C3C63;
+            z-index: 1;
 
             div {
               height: 40px;
@@ -107,6 +112,7 @@
           margin: 32px 0;
           height: 42px;
           font-size: 16px;
+          background-color: #0C3C63;
         }
 
         .title_text {
