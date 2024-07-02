@@ -18,6 +18,15 @@
           </div>
           <div fxLayout="column">
             <mat-form-field fxFill class="m-top-24">
+              <input matInput class="mat-input" placeholder="{{ 'LOGIN.EMAIL' | oTranslate }}" formControlName="email">
+              <mat-error *ngIf="registerForm.get('email').hasError('required')">
+                {{ 'LOGIN.ERROR_EMAIL_REQUIRED' | oTranslate }}
+              </mat-error>
+              <mat-error *ngIf="registerForm.get('email').hasError('email')">
+                {{ 'LOGIN.ERROR_EMAIL' | oTranslate }}
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field fxFill class="m-top-24">
               <input matInput class="mat-input" placeholder="{{ 'LOGIN.USERNAME' | oTranslate }}" formControlName="username">
               <mat-error *ngIf="registerForm.get('username').hasError('required')">
                 {{ 'LOGIN.ERROR_USER_REQUIRED' | oTranslate }}

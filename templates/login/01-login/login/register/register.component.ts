@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, Inject, Injector, OnInit, ViewEncapsulation } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, UntypedFormControl, UntypedFormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { AuthService, NavigationService } from 'ontimize-web-ngx';
 
 function RetypeConfirm(newpassword: string): ValidatorFn {
@@ -17,7 +17,7 @@ function RetypeConfirm(newpassword: string): ValidatorFn {
   styleUrls: ['./register.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class RegisterComponent implements OnInit, AfterViewInit {
+export class RegisterComponent implements OnInit {
   registerForm: FormGroup = new FormGroup({});
 
   constructor(
@@ -30,6 +30,10 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   ngOnInit(): any {
     this.navigation.setVisible(false);
     this.registerForm = this.fb.group({
+      email: ['', [
+        Validators.required,
+        Validators.email
+      ]],
       username: ['', [Validators.required]],
       newpassword: ['', [Validators.required]],
       confirmpassword: ['', [
@@ -39,24 +43,12 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngAfterViewInit(): any {
-    if (this.authService.isLoggedIn()) {
-      return;
-    }
-  }
-
   register() {
-    const username = this.registerForm.value.username;
-    const password1 = this.registerForm.value.newassword;
-    const password2 = this.registerForm.value.confirmpassword;
-
-    if(password1 && password2 && username) {
-      if(password1 == password2) {
-        
-      } else {
-        this.handleError({status: 401});
-      }
-    }  
+    if(this.registerForm.valid) {
+      console.log("register form valid");
+    } else {
+      this.handleError({ status: 401 });
+    }
   }
 
   handleError(error) {

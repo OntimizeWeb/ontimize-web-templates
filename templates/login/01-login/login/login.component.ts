@@ -2,7 +2,7 @@ import { Component, Inject, Injector, OnInit, ViewChild, ViewEncapsulation } fro
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatCheckbox } from '@angular/material/checkbox';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService, DialogService, LocalStorageService, NavigationService, OTranslateService, SessionInfo, Util } from 'ontimize-web-ngx';
+import { AuthService, DialogService, LocalStorageService, NavigationService, Util } from 'ontimize-web-ngx';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -29,8 +29,7 @@ export class LoginComponent implements OnInit {
     @Inject(AuthService) private authService: AuthService,
     @Inject(LocalStorageService) private localStorageService: LocalStorageService,
     public injector: Injector,
-    protected dialogService: DialogService,
-    private translateService: OTranslateService
+    protected dialogService: DialogService
   ) {
     this.router = router;
 
@@ -52,7 +51,7 @@ export class LoginComponent implements OnInit {
     if (this.authService.isLoggedIn()) {
       this.router.navigate(['../'], { relativeTo: this.actRoute });
     } else {
-      if (this.localStorageService.getStoredData()['rememberme'] == "true") {
+      if (this.localStorageService.getStoredData()['rememberme'] != 'false') {
         this.rememberChk.checked = true;
       }
     }
@@ -63,40 +62,38 @@ export class LoginComponent implements OnInit {
       return;
     }
     const appData = this.localStorageService.getStoredData();
-    const sessionData: SessionInfo = appData[LocalStorageService.SESSION_STORAGE_KEY] || {};
 
-    if (appData && Util.isDefined(appData['rememberme'])) {
-      if (Util.parseBoolean(appData['rememberme'], true)) {
-        this.loginForm.patchValue({ 'username': sessionData.user });
+    if (Util.isDefined(appData['rememberme'])) {
+      if (appData['rememberme'] != 'false') {
+        this.loginForm.patchValue({ 'username': this.localStorageService.getStoredData()['rememberme'] });
       } else {
-        this.loginForm.patchValue({ 'username': ''});
+        this.loginForm.patchValue({ 'username': '' });
       }
     }
   }
 
   rememberMe(remember){
     if (remember){
-      this.localStorageService.setLocalStorage({'rememberme': 'true'});
+      this.localStorageService.setLocalStorage({ 'rememberme': '' });
     } else {
-      this.localStorageService.setLocalStorage({'rememberme': 'false'});
+      this.localStorageService.setLocalStorage({ 'rememberme': 'false' });
     }
   }
 
-  enterUsername() {
-    if (this.loginForm.value.username == '' || this.loginForm.value.username == undefined) {
-      this.dialogService.error(this.translateService.get("LOGIN.ERROR_REQUIRED_FIELD"), this.translateService.get("LOGIN.ERROR_USER_REQUIRED"));
-    } else {
-      this.router.navigate(['login/forgotpass/' + this.loginForm.value.username]);
-    }
+  forgotPwd() {
+    this.router.navigate(['login/forgotpass']);
   }
 
   login() {
-    const userName = this.loginForm.value.username;
+    const username = this.loginForm.value.username;
     const password = this.loginForm.value.password;
 
-    if (userName?.length > 0 && password?.length > 0) {
+    if (username?.length > 0 && password?.length > 0) {
+      if (this.localStorageService.getStoredData()['rememberme'] != 'false') {
+        this.localStorageService.setLocalStorage({ 'rememberme': username });
+      }
       const self = this;
-      this.authService.login(userName, password)
+      this.authService.login(username, password)
         .subscribe({
           next: () => {
             self.sessionExpired = false;

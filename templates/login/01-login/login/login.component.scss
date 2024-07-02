@@ -9,6 +9,7 @@
 
   .login-outer-container {
     overflow: auto;
+    background-color: white;
 
     .login-bg-container {
       background-image: url('^assets/images/background.png');
@@ -48,17 +49,13 @@
           }
         }
 
-        .session-expired {
-          text-align: center;
-        }
-
         .login-title-container {
           margin-top: 64px;
         }
 
         button {
           width: 100%;
-          margin: 32px 0 49px 0;
+          margin: 32px 0 49px;
           height: 42px;
           font-size: 16px;
         }
@@ -83,31 +80,35 @@
       }
 
       .footer-container {
-        width: 100%;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        z-index: 1;
+        width: 640px;
         height: 40px;
-    
+
         div {
           height: 40px;
           margin-right: 138px;
-    
+
           span {
             font-size: 11px;
             padding-right: 4px;
           }
         }
-    
+
       }
     }
 
   }
 
 }
-@media(max-width:576px) {
+@media(max-width:640px) {
   .full-page {
     .login-outer-container {
       .wrapp-login {
         width: 100%;
-        min-height: 100%;
+        min-height: calc(100% - 40px);
 
         .login-inner-container {
           width: 100%;
@@ -117,13 +118,13 @@
             min-height: auto;
           }
         }
-      }
-    }
 
-    .footer-container {
-      div {
-        margin: 0 auto;
-        place-content: center !important;
+        .footer-container {
+          div {
+            margin: 0 auto;
+            place-content: center !important;
+          }
+        }
       }
     }
   }
