@@ -1,5 +1,3 @@
-# LOGIN
-
 ## How to use
 <ol>
 <li>Download and put `login` folder in `src/app/`, `images` into `assets/images/`   </li>
