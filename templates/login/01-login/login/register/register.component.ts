@@ -1,6 +1,6 @@
-import { AfterViewInit, Component, Inject, Injector, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Inject, Injector, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
-import { AuthService, NavigationService } from 'ontimize-web-ngx';
+import { NavigationService } from 'ontimize-web-ngx';
 
 function RetypeConfirm(newpassword: string): ValidatorFn {
   return (control: FormControl) => {
@@ -22,7 +22,6 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     @Inject(NavigationService) public navigation: NavigationService,
-    @Inject(AuthService) private authService: AuthService,
     public injector: Injector,
     private fb: FormBuilder
   ) { }
