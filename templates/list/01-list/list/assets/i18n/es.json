@@ -1,0 +1,12 @@
+{
+  "FILTER_BALANCE": "Balance (€)",
+  "HIDE_FILTERS": "Ocultar filtros",
+  "SHOW_FILTERS": "Mostrar filtros",
+  "RELOAD_DATA": "Refrescar datos",
+  "ACCOUNT_NUMBER": "Número de cuenta",
+  "ENTITYID": "Entidad",
+  "OFFICEID": "Oficina",
+  "CDID": "Control",
+  "ACCOUNTTYPEID": "Tipo",
+  "ACCOUNTTYP": "Alias"
+}
