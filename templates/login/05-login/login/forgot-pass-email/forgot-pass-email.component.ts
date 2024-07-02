@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { OTranslateService } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'app-forgot-pass-email',
   templateUrl: './forgot-pass-email.component.html',
-  styleUrls: ['./forgot-pass-email.component.scss']
+  styleUrls: ['./forgot-pass-email.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ForgotPassEmailComponent implements OnInit {
   sendEmailForm: FormGroup = new FormGroup({});

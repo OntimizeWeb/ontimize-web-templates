@@ -14,10 +14,10 @@
       height: 24px;
       width: 100%;
       background-color: #0C3C63;
-      padding-right: 342px;
       z-index: 1;
 
       .language-selector {
+        margin-right: 342px;
         color: white;
 
         .language {
@@ -61,7 +61,7 @@
       .form-container {
         width: 480px;
         height: 478px;
-        box-shadow: 0px 4px 24px 0px #196DAB80;
+        box-shadow: 0 4px 24px 0 #196DAB80;
         border-radius: 8px;
         background-color: #07315B;
 
