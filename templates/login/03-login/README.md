@@ -1,6 +1,6 @@
 ## How to use
 <ol>
-<li>Download and put **login** folder in src/app/, **images** into assets/images/   </li>
+<li>Download and put `login` folder in `src/app/`, `images` into `assets/images/`   </li>
 <pre>
 ─src
     ├───app
@@ -22,7 +22,7 @@
 
 </pre>
 
-<li>Add the translations you wanna use on your app ​​to the en.json and es.json files of your project</li>
+<li>Add the translations you want to use on your app ​​to the en.json and es.json files of your project</li>
 
 <li>Configure routing in app.module.ts</li>
 
@@ -52,7 +52,7 @@ export class AppRoutingModule { }
 
 ```
 
-<li>To configure the theme on the login component it is necessary to include **login.theme.scss** in app.scss</li>
+<li>To configure the theme on the login component it is necessary to include `login.theme.scss` in app.scss</li>
 
 ```app.scss
 @use 'theme.scss' as theme;
