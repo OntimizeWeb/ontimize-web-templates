@@ -58,6 +58,7 @@ export class AppRoutingModule { }
 
 <br/>
 <li>To configure the theme on the login component it is necessary to include **login.theme.scss** in app.scss</li>
+<br/>
 
 ```app.scss
 @use 'theme.scss' as theme;
