@@ -53,14 +53,11 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    const username = this.registerForm.value.username;
     const password1 = this.registerForm.value.newassword;
     const password2 = this.registerForm.value.confirmpassword;
 
-    if (password1 && password2 && username) {
-      if (password1 == password2) {
-
-      } else {
+    if (this.registerForm.valid) {
+      if (password1 !== password2) {
         this.handleError({ status: 401 });
       }
     }
