@@ -37,6 +37,7 @@ export class ForgotPassEmailComponent implements OnInit {
 
   sendEmail() {
     if (this.sendEmailForm.valid) {
+      /* Here is where you should call backend to send the email to change the password of the user */
       console.log("email valid");
     } else {
       console.log("wrong email");

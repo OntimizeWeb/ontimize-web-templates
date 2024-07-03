@@ -1,6 +1,9 @@
 ## How to use
 <ol>
-<li>Download and put `login` folder in `src/app/`, `images` into `assets/images/`   </li>
+<li>Download the login folder</li>
+
+Put `login` folder in `src/app/`, `images` into `assets/images/`.
+
 <pre>
 ─src
     ├───app
@@ -52,7 +55,7 @@ export class AppRoutingModule { }
 
 ```
 
-<li>To configure the theme on the login component it is necessary to include `login.theme.scss` in app.scss</li>
+<li>To configure the theme on the login component it is necessary to include login.theme.scss in the app.scss file</li>
 
 ```app.scss
 @use 'theme.scss' as theme;
