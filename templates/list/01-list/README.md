@@ -39,7 +39,7 @@
 
 @mixin app-themes($theme) {
 ...
-+ @include list-home-theme($theme);
++ @include list-theme($theme);
 ...
 }
 
