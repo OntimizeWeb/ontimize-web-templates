@@ -1,6 +1,7 @@
 ## How to use
-<ol>
-<li>Download and put `list` folder in src/app/ and `i18n` into assets/  </li>
+
+1. Download and put `list` folder in src/app/ and `i18n` into assets/
+
 <pre>
 ─src
     ├───app
@@ -15,18 +16,17 @@
     │
     └───..
 
-
 </pre>
 
-<li>Check if the name of the ATTR, entities and services are concording with your application</li>
+2. Check if the name of the ATTR, entities and services are concording with your application
 
-<li>Add the translations you want to use on your app ​​to the en.json and es.json files of your project</li>
+1. Add the translations you want to use on your app ​​to the en.json and es.json files of your project
 
-<li>Configure routing in `main-routing.module.ts`</li>
+1. Configure routing in `main-routing.module.ts`
 
-<li>Add the module declaration in the `main.module.ts` file</li>
+1. Add the module declaration in the `main.module.ts` file
 
-<li>To configure the theme on the login component it is necessary to include `list-home.theme.scss` in `app.scss`</li>
+1. To configure the theme on the list component it is necessary to include `list-home.theme.scss` in `app.scss`
 
 ```app.scss
 @use 'theme.scss' as theme;
@@ -61,7 +61,6 @@
 
 ```
 
-</ol>
-
 ## LEARN MORE
 * **Dark and light mode** https://ontimizeweb.github.io/docs/v15/customize/theming/#dark-and-light-primary-variants
+* **OTranslateService** https://ontimizeweb.github.io/docs/v15/guide/otranslateservice/overview
