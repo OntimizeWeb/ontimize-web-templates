@@ -64,3 +64,5 @@
 ## LEARN MORE
 * **Dark and light mode** https://ontimizeweb.github.io/docs/v15/customize/theming/#dark-and-light-primary-variants
 * **OTranslateService** https://ontimizeweb.github.io/docs/v15/guide/otranslateservice/overview
+* **Filter builder** https://ontimizeweb.github.io/docs/v15/components/data/filterbuilder/overview
+* **List component** https://ontimizeweb.github.io/docs/v15/components/data/list/overview
