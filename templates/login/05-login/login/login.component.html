@@ -2,9 +2,9 @@
   <div class="login-outer-container" fxFlexAlign="stretch" fxLayout="wrap column" fxFill>
     <div class="header-language">
       <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="24px" class="language-selector">
-        <div (click)="changeLang('es')" class="language" [ngClass]="{'selected' : isSpanish}">Castellano</div>
+        <div (click)="changeLang('es')" (keydown)="changeLang('es')" tabindex="0" class="language" [ngClass]="{'selected' : isSpanish}">Castellano</div>
         <div>|</div>
-        <div (click)="changeLang('en')" class="language" [ngClass]="{'selected' : !isSpanish}">English</div>
+        <div (click)="changeLang('en')" (keydown)="changeLang('en')" tabindex="0"class="language" [ngClass]="{'selected' : !isSpanish}">English</div>
       </div>
     </div>
     <div class="header" fxLayoutAlign="flex-start center">
@@ -44,7 +44,7 @@
             </div>
 
             <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px" class="m-top-24">
-              <span class="text_bold link_text" (click)="forgotPwd()">{{ 'LOGIN.FORGOT_PWD' | oTranslate }}</span>
+              <span class="text_bold link_text" (click)="forgotPwd()" (keydown)="forgotPwd()" tabindex="0">{{ 'LOGIN.FORGOT_PWD' | oTranslate }}</span>
             </div>
 
             <button mat-raised-button color="primary" type="submit">{{ 'LOGIN.NEXT' | oTranslate }}</button>
@@ -71,7 +71,7 @@
             </div>
 
             <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px" class="m-top-24">
-              <span class="text_bold link_text" (click)="forgotPwd()">{{ 'LOGIN.FORGOT_PWD' | oTranslate }}</span>
+              <span class="text_bold link_text" (click)="forgotPwd()" (keydown)="forgotPwd()" tabindex="0">{{ 'LOGIN.FORGOT_PWD' | oTranslate }}</span>
             </div>
 
             <button mat-raised-button color="primary" type="submit">{{ 'LOGIN.LOGIN' | oTranslate }}</button>
