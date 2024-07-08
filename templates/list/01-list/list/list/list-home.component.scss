@@ -55,78 +55,74 @@
       margin-top: 30px;
       margin-left: 40px;
 
-      .o-list-container {
+      .o-list-content {
+        padding-bottom: 48px;
         max-height: 100%;
+      }
 
-        .o-list-content {
-          padding-bottom: 48px;
-          max-height: 100%;
+      .mat-mdc-list {
+        overflow: auto;
+        padding: 4px 0 0 4px;
+        @media (min-width: 1400px) {
+          .mat-mdc-card {
+            width: 75%;
+          }
+        }
+        @media (min-width: 1700px) {
+          .mat-mdc-card {
+            width: 75%;
+          }
         }
 
-        .mat-mdc-list {
-          overflow: auto;
-          padding: 4px 0 0 4px;
-          @media (min-width: 1400px) {
-            .mat-mdc-card {
-              width: 75%;
-            }
-          }
-          @media (min-width: 1700px) {
-            .mat-mdc-card {
-              width: 75%;
-            }
+        .o-list-item.mat-mdc-card {
+          box-shadow: 0 3px 6px #00000029;
+          margin-bottom: 20px;
+          margin-top: 0;
+          padding: 16px;
+
+          label,
+          span {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            font-size: 14px;
+            padding: 6px 0;
           }
 
-          .o-list-item.mat-mdc-card {
-            box-shadow: 0 3px 6px #00000029;
-            margin-bottom: 20px;
-            margin-top: 0;
-            padding: 16px;
+          label {
+            font-weight: 500;
+          }
 
+          .info-iban {
             label,
             span {
-              text-overflow: ellipsis;
-              white-space: nowrap;
-              overflow: hidden;
-              font-size: 14px;
-              padding: 6px 0;
+              font-size: 18px;
+            }
+          }
+
+          .info-account {
+            &.border-right {
+              border-right-style: solid;
+              border-right-width: 1.5px;
             }
 
-            label {
-              font-weight: 500;
+            &.border-bottom {
+              padding: 8px 0;
+              border-bottom-style: solid;
+              border-bottom-width: 1.5px;
+            }
+          }
+
+          .balance-account {
+            label,
+            span {
+              padding-top: 12px;
+              font-size: 18px;
+              padding-bottom: 0;
             }
 
-            .info-iban {
-              label,
-              span {
-                font-size: 18px;
-              }
-            }
-
-            .info-account {
-              &.border-right {
-                border-right-style: solid;
-                border-right-width: 1.5px;
-              }
-
-              &.border-bottom {
-                padding: 8px 0;
-                border-bottom-style: solid;
-                border-bottom-width: 1.5px;
-              }
-            }
-
-            .balance-account {
-              label,
-              span {
-                padding-top: 12px;
-                font-size: 18px;
-                padding-bottom: 0;
-              }
-
-              span.date {
-                font-size: 12px;
-              }
+            span.date {
+              font-size: 12px;
             }
           }
         }
