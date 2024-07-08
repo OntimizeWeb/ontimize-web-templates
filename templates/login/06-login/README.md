@@ -22,9 +22,9 @@
 
 </pre>
 
-2. Add the translations you want to use on your app ​​to the en.json and es.json files of your project
+2. Add the translations you want to use on your app ​​to the `en.json` and `es.json` files of your project
 
-1. Configure routing in app.module.ts
+1. Configure routing in `app.module.ts`
 
 ```ts
 import { NgModule } from '@angular/core';
@@ -52,7 +52,7 @@ export class AppRoutingModule { }
 
 ```
 
-4. To configure the theme on the login component it is necessary to include **login.theme.scss** in app.scss
+4. To configure the theme on the login component it is necessary to include `login.theme.scss` in `app.scss`
 
 ```app.scss
 @use 'theme.scss' as theme;
@@ -87,9 +87,9 @@ export class AppRoutingModule { }
 
 ```
 
-5. To change the background image you must replace the file with the new background image in assets/images/background.png
+5. To change the background image you must replace the file with the new background image in `assets/images/background.png`
 
-1. To change logo icon, you must replace assets/images/Imatia_logo_white.png
+1. To change logo icon, you must replace `assets/images/Imatia_logo_white.png`
 
 ## LEARN MORE
 
