@@ -27,15 +27,39 @@
 
 <br/>
 
-1. Configure routing in your routing file
+3. Configure routing in your routing file
 
 <br/>
 
-1. To configure the theme on the grid component it is necessary to include `grid.theme.scss` in `app.scss`
+```js
+import { NgModule } from '@angular/core';
+import { ExtraOptions, RouterModule, Routes } from '@angular/router';
+
+export const routes: Routes = [
+  ...
+  { path: 'grid', component: GridHomeComponent }
+];
+
+const opt: ExtraOptions = {
+  enableTracing: false
+  // true if you want to print navigation routes
+};
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes, opt)],
+  exports: [RouterModule],
+  providers: []
+})
+export class MainRoutingModule { }
+```
 
 <br/>
 
-```app.scss
+4. To configure the theme on the grid component it is necessary to include `grid.theme.scss` in `app.scss`
+
+<br/>
+
+```scss
 @use 'theme.scss' as theme;
 @use 'ontimize-web-ngx/theming/ontimize-style.scss';
 ...
@@ -74,10 +98,6 @@
 
 * **OTranslateService** https://ontimizeweb.github.io/docs/v15/guide/otranslateservice/overview
 
-<br/>
-
 * **Filter builder** https://ontimizeweb.github.io/docs/v15/components/data/filterbuilder/overview
-
-<br/>
 
 * **Grid component** https://ontimizeweb.github.io/docs/v15/components/data/grid/overview

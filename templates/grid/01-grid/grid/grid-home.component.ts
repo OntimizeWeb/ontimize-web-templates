@@ -41,4 +41,8 @@ export class GridHomeComponent {
     }
   }
 
+  public getImageSrc(base64: string): any {
+    return base64 ? this.sanitizer.bypassSecurityTrustResourceUrl('data:image/*;base64,' + base64) : './assets/images/no-image-transparent.png';
+  }
+
 }
