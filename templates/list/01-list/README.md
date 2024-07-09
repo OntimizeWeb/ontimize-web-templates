@@ -26,11 +26,51 @@
 
 <br/>
 
+Remplace:
+```html
+ <o-list #listAccount service="@branches@" entity="@account@" keys="@ACCOUNTID@"
+    columns="@ACCOUNTID;ENTITYID;OFFICEID;CDID;ANID;BALANCE;STARTDATE;ENDDATE;INTERESRATE;ACCOUNTTYP;ACCOUNTTYPEID;ACCOUNTTYPENAME@"
+    controls="no" fxFlex.gt-lg="list-accounts-60" pageable="yes" fxFill>
+```
+
+<br/>
+
+By:
+```html
+ <o-list #listAccount service="yourservice" entity="yourentity" keys="yourkey"
+    columns="yourcolumn1;yourcolumn2"
+    controls="no" fxFlex.gt-lg="list-accounts-60" pageable="yes" fxFill>
+```
+
 3. Add the translations you want to use on your app ​​to the en.json and es.json files of your project
 
 <br/>
 
 4. Configure routing in `main-routing.module.ts`
+
+<br/>
+
+```js
+import { NgModule } from '@angular/core';
+import { ExtraOptions, RouterModule, Routes } from '@angular/router';
+
+export const routes: Routes = [
+  ...
+  { path: 'list', component: ListHomeComponent }
+];
+
+const opt: ExtraOptions = {
+  enableTracing: false
+  // true if you want to print navigation routes
+};
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes, opt)],
+  exports: [RouterModule],
+  providers: []
+})
+export class MainRoutingModule { }
+```
 
 <br/>
 
@@ -42,7 +82,7 @@
 
 <br/>
 
-```app.scss
+```scss
 @use 'theme.scss' as theme;
 @use 'ontimize-web-ngx/theming/ontimize-style.scss';
 ...
@@ -81,14 +121,8 @@
 
 * **Dark and light mode** https://ontimizeweb.github.io/docs/v15/customize/theming/#dark-and-light-primary-variants
 
-<br/>
-
 * **OTranslateService** https://ontimizeweb.github.io/docs/v15/guide/otranslateservice/overview
 
-<br/>
-
 * **Filter builder** https://ontimizeweb.github.io/docs/v15/components/data/filterbuilder/overview
-
-<br/>
 
 * **List component** https://ontimizeweb.github.io/docs/v15/components/data/list/overview
