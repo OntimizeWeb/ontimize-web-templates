@@ -110,7 +110,7 @@ app.scss
 
 <br/>
 
-1. To change logo icon, you must replace assets/images/logo.svg and assets/images/logo-dark.svg for light and dark mode
+6. To change logo icon, you must replace assets/images/logo.svg and assets/images/logo-dark.svg for light and dark mode
 
 <br/>
 
