@@ -1,10 +1,12 @@
 ## How to use
 
+<br/>
+
 1. Download folder 02-login
 
 Download folder 02-login and put `login` folder in `src/app/`, `images` into `assets/images/`
 
-
+<br/>
 <pre>
 ─src
     ├───app
@@ -22,8 +24,11 @@ Download folder 02-login and put `login` folder in `src/app/`, `images` into `as
     └───..
 
 </pre>
+<br/>
 
 2. Add the translations of the following values ​​to the en.json file of your project
+
+<br/>
 
 ```json
   "LOGIN.LOGIN": "Login",
@@ -34,6 +39,7 @@ Download folder 02-login and put `login` folder in `src/app/`, `images` into `as
 
 3. Configure routing in app.module.ts
 
+<br/>
 
 ```ts
 import { NgModule } from '@angular/core';
@@ -63,6 +69,7 @@ export class AppRoutingModule { }
 
 It is necessary to include **login.theme.scss** in app.scss
 
+<br/>
 
 ```scss
 app.scss
@@ -101,10 +108,14 @@ app.scss
 
 5. To change the background image you must replace the file with the new background image in assets/images/BG-img.png
 
+<br/>
 
 1. To change logo icon, you must replace assets/images/logo.svg and assets/images/logo-dark.svg for light and dark mode
 
+<br/>
 
 ## LEARN MORE
+
+<br/>
 
 - **Dark and light mode** https://ontimizeweb.github.io/docs/v15/customize/theming/#dark-and-light-primary-variants
