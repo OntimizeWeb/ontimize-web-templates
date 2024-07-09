@@ -110,15 +110,9 @@ export class ListHomeComponent implements OnDestroy {
     this.sidenav.toggle()
   }
 
+  // Improve list query performance
   trackByIndex(index: number, obj: any): any {
     return index;
-  }
-
-  fillReportFilter() {
-    const filter = {
-      filter: this.filterBuilder.getBasicExpression() === undefined ? {} : this.filterBuilder.getBasicExpression()
-    }
-    this.reportStoreService.openFillReport("2abdb71f-6ea7-4d13-b255-b0df406c8f0b", [], filter);
   }
 
 }

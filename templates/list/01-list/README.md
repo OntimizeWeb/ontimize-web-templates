@@ -22,7 +22,7 @@
 
 </pre>
 
-2. Check if the name of the ATTR, entities and services are concording with your application
+2. Check if all the fields that have `@` on it's prefix and sufix are concording to your application data
 
 <br/>
 

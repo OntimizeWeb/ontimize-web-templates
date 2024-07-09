@@ -29,6 +29,14 @@
 
       overflow: auto;
 
+      .o-slider {
+        width: 100%;
+
+        .mat-mdc-slider {
+          width: calc(100% - 16px);
+        }
+      }
+
       .label-balance {
         font-size: 14px;
       }
