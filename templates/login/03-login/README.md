@@ -65,7 +65,7 @@ export class AppRoutingModule { }
 
 <br/>
 
-```app.scss
+```scss
 @use 'theme.scss' as theme;
 @use 'ontimize-web-ngx/theming/ontimize-style.scss';
 ...
@@ -98,11 +98,15 @@ export class AppRoutingModule { }
 
 ```
 
-5. To change the background image you must replace the file with the new background image in `assets/images/background.png`
+5. Implement the `register()` and `sendEmail()` methods included on each TypeScript file
 
 <br/>
 
-6. To change logo icon, you must replace `assets/images/Imatia_logo_white.png` and `assets/images/Imatia_logo.png`
+6. To change the background image you must replace the file with the new background image in `assets/images/background.png`
+
+<br/>
+
+7. To change logo icon, you must replace `assets/images/Imatia_logo_white.png` and `assets/images/Imatia_logo.png`
 
 <br/>
 
