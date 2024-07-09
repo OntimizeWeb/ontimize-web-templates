@@ -22,16 +22,14 @@ export class ListHomeComponent implements OnDestroy {
   @ViewChild('formFilter')
   private formFilter: OFormComponent;
 
-  @ViewChild('filterBuilder')
-  private filterBuilder: OFilterBuilderComponent;
-
   @ViewChild('sidenav')
   private sidenav: MatSidenav;
 
 
-  constructor(changeDetectorRef: ChangeDetectorRef,
-    media: MediaMatcher,
-    private reportStoreService: OReportStoreService) {
+  constructor(
+    changeDetectorRef: ChangeDetectorRef,
+    media: MediaMatcher
+  ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addEventListener("change", this._mobileQueryListener);
@@ -110,7 +108,6 @@ export class ListHomeComponent implements OnDestroy {
     this.sidenav.toggle()
   }
 
-  // Improve list query performance
   trackByIndex(index: number, obj: any): any {
     return index;
   }

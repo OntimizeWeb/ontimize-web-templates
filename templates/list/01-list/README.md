@@ -2,7 +2,7 @@
 
 <br/>
 
-1. Download and put `list` folder in src/app/ and `i18n` into assets/
+1. Download and put `list` folder in src/app/main/ and `i18n` into assets/
 
 <br/>
 
@@ -42,7 +42,7 @@ By:
     controls="no" fxFlex.gt-lg="list-accounts-60" pageable="yes" fxFill>
 ```
 
-3. Add the translations you want to use on your app ​​to the en.json and es.json files of your project
+3. Add the translations you want to use on your app ​​to the `en.json` and `es.json` files of your project
 
 <br/>
 
@@ -56,7 +56,7 @@ import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 
 export const routes: Routes = [
   ...
-  { path: 'list', component: ListHomeComponent }
+  { path: 'list', loadChildren: () => import('./list/list.module').then(m => m.ListModule) }
 ];
 
 const opt: ExtraOptions = {
