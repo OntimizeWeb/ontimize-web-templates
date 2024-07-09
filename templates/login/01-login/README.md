@@ -1,6 +1,10 @@
 ## How to use
 
+<br/>
+
 1. Download and put `login` folder in `src/app/`, `images` into `assets/images/`
+
+<br/>
 
 <pre>
 ─src
@@ -24,7 +28,11 @@
 
 2. Add the translations you want to use on your app ​​to the `en.json` and `es.json` files of your project
 
+<br/>
+
 1. Configure routing in `app.module.ts`
+
+<br/>
 
 ```ts
 import { NgModule } from '@angular/core';
@@ -53,6 +61,8 @@ export class AppRoutingModule { }
 ```
 
 4. To configure the theme on the login component it is necessary to include `login.theme.scss` in `app.scss`
+
+<br/>
 
 ```app.scss
 @use 'theme.scss' as theme;
@@ -89,10 +99,18 @@ export class AppRoutingModule { }
 
 5. To change the background image you must replace the file with the new background image in `assets/images/background.png`
 
+<br/>
+
 1. To change logo icon, you must replace `assets/images/Imatia_logo.png`
+
+<br/>
 
 ## LEARN MORE
 
+<br/>
 
 * **Dark and light mode** https://ontimizeweb.github.io/docs/v15/customize/theming/#dark-and-light-primary-variants
+
+<br/>
+
 * **OTranslateService** https://ontimizeweb.github.io/docs/v15/guide/otranslateservice/overview
