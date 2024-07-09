@@ -1,6 +1,10 @@
 ## How to use
 
+<br/>
+
 1. Download and put `list` folder in src/app/ and `i18n` into assets/
+
+<br/>
 
 <pre>
 ─src
@@ -20,13 +24,23 @@
 
 2. Check if the name of the ATTR, entities and services are concording with your application
 
+<br/>
+
 1. Add the translations you want to use on your app ​​to the en.json and es.json files of your project
+
+<br/>
 
 1. Configure routing in `main-routing.module.ts`
 
+<br/>
+
 1. Add the module declaration in the `main.module.ts` file
 
+<br/>
+
 1. To configure the theme on the list component it is necessary to include `list-home.theme.scss` in `app.scss`
+
+<br/>
 
 ```app.scss
 @use 'theme.scss' as theme;
@@ -62,7 +76,19 @@
 ```
 
 ## LEARN MORE
+
+<br/>
+
 * **Dark and light mode** https://ontimizeweb.github.io/docs/v15/customize/theming/#dark-and-light-primary-variants
+
+<br/>
+
 * **OTranslateService** https://ontimizeweb.github.io/docs/v15/guide/otranslateservice/overview
+
+<br/>
+
 * **Filter builder** https://ontimizeweb.github.io/docs/v15/components/data/filterbuilder/overview
+
+<br/>
+
 * **List component** https://ontimizeweb.github.io/docs/v15/components/data/list/overview
