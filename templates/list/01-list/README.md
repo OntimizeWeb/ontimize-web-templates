@@ -26,19 +26,19 @@
 
 <br/>
 
-1. Add the translations you want to use on your app ​​to the en.json and es.json files of your project
+3. Add the translations you want to use on your app ​​to the en.json and es.json files of your project
 
 <br/>
 
-1. Configure routing in `main-routing.module.ts`
+4. Configure routing in `main-routing.module.ts`
 
 <br/>
 
-1. Add the module declaration in the `main.module.ts` file
+5. Add the module declaration in the `main.module.ts` file
 
 <br/>
 
-1. To configure the theme on the list component it is necessary to include `list-home.theme.scss` in `app.scss`
+6. To configure the theme on the list component it is necessary to include `list-home.theme.scss` in `app.scss`
 
 <br/>
 
