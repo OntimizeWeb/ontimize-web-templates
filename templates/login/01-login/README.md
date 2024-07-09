@@ -30,7 +30,7 @@
 
 <br/>
 
-3. Configure routing in `app.module.ts`
+3. Configure routing in `app-routing.module.ts`
 
 <br/>
 
