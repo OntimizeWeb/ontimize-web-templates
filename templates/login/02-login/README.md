@@ -2,9 +2,7 @@
 
 <br/>
 
-1. Download folder 02-login
-
-Download folder 02-login and put `login` folder in `src/app/`, `images` into `assets/images/`
+1. Download folder 02-login and put login folder in `src/app/`, images into `assets/images/`
 
 <br/>
 <pre>
@@ -64,10 +62,9 @@ providers: []
 })
 export class AppRoutingModule { }
 
-````
-4. To configure the theme on the login
+```
 
-It is necessary to include **login.theme.scss** in app.scss
+4. To configure the theme on the login it is necessary to include `login.theme.scss` in `app.scss`
 
 <br/>
 
@@ -106,11 +103,11 @@ app.scss
 ```
 
 
-5. To change the background image you must replace the file with the new background image in assets/images/BG-img.png
+5. To change the background image you must replace the file with the new background image in `assets/images/BG-img.png`
 
 <br/>
 
-6. To change logo icon, you must replace assets/images/logo.svg and assets/images/logo-dark.svg for light and dark mode
+6. To change logo icon, you must replace `assets/images/logo.svg` and `assets/images/logo-dark.svg` for light and dark mode
 
 <br/>
 
