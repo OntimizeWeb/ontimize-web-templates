@@ -2,14 +2,15 @@
 
 <br/>
 
-1. Download 01-grid folder and put the grid folder in `src/app/`
+1. Download 01-grid folder and put the grid folder in `src/app/main/` and i18n into `assets/`
 
 <br/>
 
 <pre>
 ─src
     ├───app
-    │   ├───grid
+    |   ├───main
+    |   |   └───grid
     │   ├───...
     │   │
     ├───assets
@@ -23,11 +24,33 @@
 
 </pre>
 
-2. Add the translations you want to use on your app ​​to the `en.json` and `es.json` files of your project
+2. Check if all the fields that have `@` on it's prefix and sufix are concording to your application data
 
 <br/>
 
-3. Configure routing in your routing file
+Remplace:
+```html
+ <o-grid #grid attr="@employees@" service="@employees@" entity="@employee@"
+      columns="@EMPLOYEEID;EMPLOYEETYPEID;EMPLOYEENAME;EMPLOYEESURNAME;EMPLOYEEADDRESS;EMPLOYEESTARTDATE;EMPLOYEEEMAIL;OFFICEID;EMPLOYEEPHOTO;EMPLOYEEPHONE;NAME@"
+      quick-filter-columns="@EMPLOYEENAME;EMPLOYEESURNAME;EMPLOYEEADDRESS;EMPLOYEEEMAIL;OFFICEID@" keys="@EMPLOYEEID@" sort-columns="@EMPLOYEESURNAME@"
+      pageable="yes" query-rows="16" fixed-header="yes" refresh-button="no" gutter-size="18px" detail-mode="none">
+```
+
+<br/>
+
+By:
+```html
+ <o-grid #grid attr="yourattr" service="yourservice" entity="yourentity"
+      columns="yourcolumn1;yourcolumn2"
+      quick-filter-columns="yourcolumn1;yourcolumn2" keys="yourkey" sort-columns="yourcolumn"
+      pageable="yes" query-rows="16" fixed-header="yes" refresh-button="no" gutter-size="18px" detail-mode="none">
+```
+
+3. Add the translations you want to use on your app ​​to the `en.json` and `es.json` files of your project
+
+<br/>
+
+4. Configure routing in `main-routing.module.ts`
 
 <br/>
 
@@ -55,7 +78,7 @@ export class MainRoutingModule { }
 
 <br/>
 
-4. To configure the theme on the grid component it is necessary to include `grid.theme.scss` in `app.scss`
+5. To configure the theme on the grid component it is necessary to include `grid.theme.scss` in `app.scss`
 
 <br/>
 
