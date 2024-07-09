@@ -31,7 +31,7 @@
 
 <br/>
 
-1. Configure routing in `app.module.ts`
+3. Configure routing in `app.module.ts`
 
 <br/>
 
@@ -102,7 +102,7 @@ export class AppRoutingModule { }
 
 <br/>
 
-1. To change logo icon, you must replace `assets/images/Imatia_logo_white.png` and `assets/images/Imatia_logo.png`
+6. To change logo icon, you must replace `assets/images/Imatia_logo_white.png` and `assets/images/Imatia_logo.png`
 
 <br/>
 
@@ -111,7 +111,5 @@ export class AppRoutingModule { }
 <br/>
 
 * **Dark and light mode** https://ontimizeweb.github.io/docs/v15/customize/theming/#dark-and-light-primary-variants
-
-<br/>
 
 * **OTranslateService** https://ontimizeweb.github.io/docs/v15/guide/otranslateservice/overview
