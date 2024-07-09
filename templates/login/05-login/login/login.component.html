@@ -51,9 +51,11 @@
           </div>
 
           <div [ngClass]="{'hide' : !usernameHiden}">
-            <div fxLayout="column" fxLayoutAlign="center flex-start" class="logo-container">
-              <img src="./assets/images/Imatia_logo_white.png">
-            </div>
+            <a href="/">
+              <div fxLayout="column" fxLayoutAlign="center flex-start" class="logo-container">
+                <img src="./assets/images/Imatia_logo_white.png">
+              </div>
+            </a>
 
             <div class="login-title-container" fxLayout="column">
               <p class="session-expired text" *ngIf="sessionExpired">{{ 'LOGIN.ERROR_SESSION_EXPIRED' | oTranslate }}</p>
