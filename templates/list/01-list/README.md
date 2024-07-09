@@ -9,14 +9,16 @@
 <pre>
 ─src
     ├───app
-    │   ├───list
+    |   ├───main
+    |   |   └───list
     │   ├───...
     │   │
     ├───assets
     │   ├───css
     │   └───i18n
-    |       └───en.json
+    |       ├───en.json
     |       └───es.json
+    │
     │
     └───..
 
