@@ -28,7 +28,7 @@
 
 <br/>
 
-Remplace:
+Replace:
 ```html
  <o-list #listAccount service="@branches@" entity="@account@" keys="@ACCOUNTID@"
     columns="@ACCOUNTID;ENTITYID;OFFICEID;CDID;ANID;BALANCE;STARTDATE;ENDDATE;INTERESRATE;ACCOUNTTYP;ACCOUNTTYPEID;ACCOUNTTYPENAME@"
@@ -44,11 +44,13 @@ By:
     controls="no" fxFlex.gt-lg="list-accounts-60" pageable="yes" fxFill>
 ```
 
-3. Add the translations you want to use on your app ​​to the `en.json` and `es.json` files of your project
+3. Configure your filter component setting your inputs and custom ATTR to build the filter. Example of how filter builder works at the end of the readme.
+
+4. Add the translations you want to use on your app ​​to the `en.json` and `es.json` files of your project
 
 <br/>
 
-4. Configure routing in `main-routing.module.ts`
+5. Configure routing in `main-routing.module.ts`
 
 <br/>
 
@@ -76,11 +78,11 @@ export class MainRoutingModule { }
 
 <br/>
 
-5. Add the module declaration in the `main.module.ts` file
+6. Add the module declaration in the `main.module.ts` file
 
 <br/>
 
-6. To configure the theme on the list component it is necessary to include `list-home.theme.scss` in `app.scss`
+7. To configure the theme on the list component it is necessary to include `list-home.theme.scss` in `app.scss`
 
 <br/>
 

@@ -44,8 +44,8 @@
 
         <div fxLayout="column" fxLayoutAlign="start start" class="flex-container" fxLayoutGap="18px" fxFill>
           <div fxFill>
-            <o-list #listAccount service="branches" entity="account" keys="ACCOUNTID"
-              columns="ACCOUNTID;ENTITYID;OFFICEID;CDID;ANID;BALANCE;STARTDATE;ENDDATE;INTERESRATE;ACCOUNTTYP;ACCOUNTTYPEID;ACCOUNTTYPENAME"
+            <o-list #listAccount service="@branches@" entity="@account@" keys="@ACCOUNTID@"
+              columns="@ACCOUNTID;ENTITYID;OFFICEID;CDID;ANID;BALANCE;STARTDATE;ENDDATE;INTERESRATE;ACCOUNTTYP;ACCOUNTTYPEID;ACCOUNTTYPENAME@"
               controls="no" fxFlex.gt-lg="list-accounts-60" pageable="yes" fxFill>
 
 
