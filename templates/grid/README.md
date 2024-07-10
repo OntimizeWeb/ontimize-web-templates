@@ -28,7 +28,7 @@
 
 <br/>
 
-Remplace:
+Replace:
 ```html
  <o-grid #grid attr="@employees@" service="@employees@" entity="@employee@"
       columns="@EMPLOYEEID;EMPLOYEETYPEID;EMPLOYEENAME;EMPLOYEESURNAME;EMPLOYEEADDRESS;EMPLOYEESTARTDATE;EMPLOYEEEMAIL;OFFICEID;EMPLOYEEPHOTO;EMPLOYEEPHONE;NAME@"
@@ -46,11 +46,14 @@ By:
       pageable="yes" query-rows="16" fixed-header="yes" refresh-button="no" gutter-size="18px" detail-mode="none">
 ```
 
-3. Add the translations you want to use on your app ​​to the `en.json` and `es.json` files of your project
+
+3. Configure your filter component setting your inputs and custom ATTR to build the filter. Example of how filter builder works at the end of the readme.
+
+4. Add the translations you want to use on your app ​​to the `en.json` and `es.json` files of your project
 
 <br/>
 
-4. Configure routing in `main-routing.module.ts`
+5. Configure routing in `main-routing.module.ts`
 
 <br/>
 
@@ -78,7 +81,7 @@ export class MainRoutingModule { }
 
 <br/>
 
-5. To configure the theme on the grid component it is necessary to include `grid.theme.scss` in `app.scss`
+6. To configure the theme on the grid component it is necessary to include `grid.theme.scss` in `app.scss`
 
 <br/>
 
