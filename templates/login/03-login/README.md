@@ -98,7 +98,7 @@ export class AppRoutingModule { }
 
 ```
 
-5. Implement the `register()` method ubicated in the `register.component.ts` file and the `sendEmail()` method ubicated in the `forgot-pass-email.component.ts` file
+5. Implement the `register()` method ubicated in the `register.component.ts` file to get all the user information provided by the form and store it in your database. Also you need to implement the `sendEmail()` method ubicated in the `forgot-pass-email.component.ts` file to call your backend and send a temporal password to the email provided in the form.
 
 <br/>
 
