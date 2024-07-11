@@ -24,7 +24,7 @@
 
 </pre>
 
-2. Check if all the fields that have `@` on it's prefix and sufix are concording to your application data
+2. Check if all the fields that have `@` on it's prefix and suffix are concording to your application data
 
 <br/>
 
