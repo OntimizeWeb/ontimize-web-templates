@@ -92,7 +92,7 @@ export class MainRoutingModule { }
 ...
 @include ontimize-style.ontimize-theme-styles(theme.$theme);
 
-+ @import '../../app/list/list-home.theme.scss';
++ @import '../../app/list/list.theme.scss';
 
 
 @mixin app-themes($theme) {
