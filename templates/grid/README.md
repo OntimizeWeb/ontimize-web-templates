@@ -24,7 +24,7 @@
 
 </pre>
 
-2. Check if all the fields that have `@` on it's prefix and sufix are concording to your application data
+2. Check if all the fields that have `@` on it's prefix and suffix are concording to your application data
 
 <br/>
 
@@ -47,7 +47,7 @@ By:
 ```
 
 
-3. Configure your filter component setting your inputs and custom ATTR to build the filter. Example of how filter builder works at the end of the readme.
+3. Configure your filter component setting your inputs and custom ATTR to build the filter. Link to the filter builder documentation at the end of the readme.
 
 4. Add the translations you want to use on your app ​​to the `en.json` and `es.json` files of your project
 
