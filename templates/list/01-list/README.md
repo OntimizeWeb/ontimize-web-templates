@@ -82,7 +82,7 @@ export class MainRoutingModule { }
 
 <br/>
 
-7. To configure the theme on the list component it is necessary to include `list-home.theme.scss` in `app.scss`
+7. To configure the theme on the list component it is necessary to include `list.theme.scss` in `app.scss`
 
 <br/>
 
