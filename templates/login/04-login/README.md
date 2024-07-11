@@ -1,8 +1,10 @@
-# LOGIN
-
 ## How to use
-<ol>
-<li>Download and put **login** folder in src/app/, **images** into assets/images/   </li>
+
+<br/>
+
+1. Download 04-login folder and put the login folder in `src/app/` and images into `assets/images/`
+
+<br/>
 <pre>
 ─src
     ├───app
@@ -23,9 +25,13 @@
 
 </pre>
 
-<li>Add the translations you want to use on your app ​​to the en.json and es.json files of your project</li>
+2. Add the translations you want to use on your app ​​to the `en.json` and `es.json` files of your project
 
-<li>Configure routing in app.module.ts</li>
+<br/>
+
+3. Configure routing in `app-routing.module.ts`
+
+<br/>
 
 ```ts
 import { NgModule } from '@angular/core';
@@ -53,7 +59,10 @@ export class AppRoutingModule { }
 
 ```
 
-<li>To configure the theme on the login component it is necessary to include **login.theme.scss** in app.scss</li>
+
+4. To configure the theme on the login component it is necessary to include `login.theme.scss` in `app.scss`
+
+<br/>
 
 ```app.scss
 @use 'theme.scss' as theme;
@@ -88,10 +97,19 @@ export class AppRoutingModule { }
 
 ```
 
-<li>To change the background image you must replace the file with the new background image in assets/images/background.png</li>
 
-<li>To change logo icon, you must replace assets/images/Imatia_logo_white.png</li>
-</ol>
+5. To change the background image you must replace the file with the new background image in `assets/images/background.png`
+
+<br/>
+
+6. To change logo icon, you must replace `assets/images/Imatia_logo_white.png`
+
+<br/>
 
 ## LEARN MORE
+
+<br/>
+
 * **Dark and light mode** https://ontimizeweb.github.io/docs/v15/customize/theming/#dark-and-light-primary-variants
+
+* **OTranslateService** https://ontimizeweb.github.io/docs/v15/guide/otranslateservice/overview

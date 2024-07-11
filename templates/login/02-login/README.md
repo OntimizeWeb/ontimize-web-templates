@@ -1,13 +1,10 @@
 ## How to use
 
-<ol>
-<li>Download folder 02-login </li>
-<br />
+<br/>
 
-Download folder 02-login and put `login` folder in `src/app/`, `images` into `assets/images/`
+1. Download folder 02-login and put login folder in `src/app/`, images into `assets/images/`
 
-<br />
-
+<br/>
 <pre>
 ─src
     ├───app
@@ -25,9 +22,11 @@ Download folder 02-login and put `login` folder in `src/app/`, `images` into `as
     └───..
 
 </pre>
+<br/>
 
-<li>Add the translations of the following values ​​to the en.json file of your project</li>
-<br />
+2. Add the translations of the following values ​​to the en.json file of your project
+
+<br/>
 
 ```json
   "LOGIN.LOGIN": "Login",
@@ -36,9 +35,9 @@ Download folder 02-login and put `login` folder in `src/app/`, `images` into `as
   "LOGIN.PASSWORKD": "Password"
 ```
 
-<li>Configure routing in app.module.ts</li>
+3. Configure routing in app-routing.module.ts
 
-<br />
+<br/>
 
 ```ts
 import { NgModule } from '@angular/core';
@@ -63,13 +62,11 @@ providers: []
 })
 export class AppRoutingModule { }
 
-````
-<li>To configure the theme on the login</li>
-<br />
+```
 
-It is necessary to include **login.theme.scss** in app.scss
+4. To configure the theme on the login it is necessary to include `login.theme.scss` in `app.scss`
 
-<br />
+<br/>
 
 ```scss
 app.scss
@@ -105,18 +102,17 @@ app.scss
 
 ```
 
-<br />
 
-<li>To change the background image you must replace the file with the new background image in assets/images/BG-img.png</li>
+5. To change the background image you must replace the file with the new background image in `assets/images/BG-img.png`
 
-<br />
+<br/>
 
-<li>To change logo icon, you must replace assets/images/logo.svg and assets/images/logo-dark.svg for light and dark mode</li>
+6. To change logo icon, you must replace `assets/images/logo.svg` and `assets/images/logo-dark.svg` for light and dark mode
 
-<br />
-</ol>
+<br/>
 
 ## LEARN MORE
-<br />
+
+<br/>
 
 - **Dark and light mode** https://ontimizeweb.github.io/docs/v15/customize/theming/#dark-and-light-primary-variants
