@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-forgot-pass-email',
   templateUrl: './forgot-pass-email.component.html',
-  styleUrls: ['./forgot-pass-email.component.scss']
+  styleUrls: ['../login.component.scss']
 })
 export class ForgotPassEmailComponent implements OnInit {
   sendEmailForm: FormGroup = new FormGroup({});
@@ -25,9 +25,9 @@ export class ForgotPassEmailComponent implements OnInit {
 
   sendEmail() {
     if (this.sendEmailForm.valid) {
-      console.log("email valid");
+      // Email valid
     } else {
-      console.log("wrong email");
+      // Wrong email
     }
   }
 

@@ -14,7 +14,7 @@ function RetypeConfirm(newpassword: string): ValidatorFn {
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss'],
+  styleUrls: ['../login.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class RegisterComponent implements OnInit {
@@ -44,7 +44,7 @@ export class RegisterComponent implements OnInit {
 
   register() {
     if(this.registerForm.valid) {
-      console.log("register form valid");
+      // Register form valid
     } else {
       this.handleError({ status: 401 });
     }
