@@ -5,7 +5,7 @@ import { OTranslateService } from 'ontimize-web-ngx';
 @Component({
   selector: 'app-forgot-pass-email',
   templateUrl: './forgot-pass-email.component.html',
-  styleUrls: ['./forgot-pass-email.component.scss'],
+  styleUrls: ['../login.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class ForgotPassEmailComponent implements OnInit {
@@ -38,9 +38,9 @@ export class ForgotPassEmailComponent implements OnInit {
 
   sendEmail() {
     if (this.sendEmailForm.valid) {
-      console.log("email valid");
+      // Email valid to change password
     } else {
-      console.log("wrong email");
+      // Wrong email entered
     }
   }
 

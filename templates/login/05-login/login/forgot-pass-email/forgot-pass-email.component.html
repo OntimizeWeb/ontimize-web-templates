@@ -2,7 +2,8 @@
   <div class="login-outer-container" fxFlexAlign="stretch" fxLayout="wrap column" fxFill>
     <div class="header-language">
       <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="24px" class="language-selector">
-        <div (click)="changeLang('es')" (keydown)="changeLang('es')" tabindex="0" class="language" [ngClass]="{'selected' : isSpanish}">Castellano</div>
+        <div (click)="changeLang('es')" (keydown)="changeLang('es')" tabindex="0" class="language" [ngClass]="{'selected' : isSpanish}">Castellano
+        </div>
         <div>|</div>
         <div (click)="changeLang('en')" (keydown)="changeLang('en')" tabindex="0" class="language" [ngClass]="{'selected' : !isSpanish}">English</div>
       </div>
@@ -40,15 +41,16 @@
           <button mat-raised-button color="primary" type="submit">{{ 'LOGIN.SEND_EMAIL' | oTranslate }}</button>
 
         </form>
-        <div id="footer" class="footer-container">
-          <div fxLayout="row" fxLayoutAlign="end center">
-            <span class="footer_text">{{ 'LOGIN.FOOTER_CREATED_BY' | oTranslate }}</span>
-            <span class="footer_text"> &copy; 2024 </span>
-            <span class="footer_text">{{ 'LOGIN.FOOTER_RIGHTS' | oTranslate }}</span>
-          </div>
-        </div>
+
       </div>
 
+    </div>
+    <div id="footer" class="footer-container">
+      <div fxLayout="row" fxLayoutAlign="end center">
+        <span class="footer_text">{{ 'LOGIN.FOOTER_CREATED_BY' | oTranslate }}</span>
+        <span class="footer_text">&nbsp;&copy; 2024.&nbsp;</span>
+        <span class="footer_text">{{ 'LOGIN.FOOTER_RIGHTS' | oTranslate }}</span>
+      </div>
     </div>
   </div>
 </div>

@@ -14,7 +14,7 @@ function RetypeConfirm(newpassword: string): ValidatorFn {
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss'],
+  styleUrls: ['../login.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class RegisterComponent implements OnInit {
@@ -53,13 +53,8 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    const password1 = this.registerForm.value.newassword;
-    const password2 = this.registerForm.value.confirmpassword;
-
     if (this.registerForm.valid) {
-      if (password1 !== password2) {
-        this.handleError({ status: 401 });
-      }
+      // Register form valid to register the new user
     }
   }
 
