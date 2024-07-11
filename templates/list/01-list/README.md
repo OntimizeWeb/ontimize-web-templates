@@ -44,7 +44,7 @@ By:
     controls="no" fxFlex.gt-lg="list-accounts-60" pageable="yes" fxFill>
 ```
 
-3. Configure your filter component setting your inputs and custom ATTR to build the filter. Example of how filter builder works at the end of the readme.
+3. Configure your filter component setting your inputs and custom ATTR to build the filter. Link to the filter builder documentation at the end of the readme.
 
 4. Add the translations you want to use on your app ​​to the `en.json` and `es.json` files of your project
 
