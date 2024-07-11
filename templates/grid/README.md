@@ -24,7 +24,7 @@
 
 </pre>
 
-2. Check if all the fields that have `@` on it's prefix and suffix are concording to your application data
+2. Configure the `o-grid`, you must to modify the values ​​between `@` for the inputs `attr`, `service`, `entity`, `columns`, `quick-filter-columns`, `sort-columns`, `keys` . For more information consult the following url https://ontimizeweb.github.io/docs/v15/components/data/grid/overview
 
 <br/>
 
@@ -46,6 +46,11 @@ By:
       pageable="yes" query-rows="16" fixed-header="yes" refresh-button="no" gutter-size="18px" detail-mode="none">
 ```
 
+<br/>
+
+Also you need to configure your `createFilter` method located in the `grid-home.component.ts` file according the filter you want to build. Link to the filter builder documentation at the end of the readme.
+
+<br/>
 
 3. Configure your filter component setting your inputs and custom ATTR to build the filter. Link to the filter builder documentation at the end of the readme.
 
