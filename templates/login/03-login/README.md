@@ -98,7 +98,7 @@ export class AppRoutingModule { }
 
 ```
 
-5. Implement the `register()` and `sendEmail()` methods included on each TypeScript file
+5. Implement the `register()` method ubicated in `register.component.ts` file and the `sendEmail()` method ubicated in the `forgot-pass-email.component.ts` file
 
 <br/>
 
