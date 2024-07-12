@@ -30,7 +30,7 @@
 
 Replace:
 ```html
- <o-list #listAccount service="@branches@" entity="@account@" keys="@ACCOUNTID@"
+ <o-list #@attr@ service="@branches@" entity="@account@" keys="@ACCOUNTID@"
     columns="@ACCOUNTID;ENTITYID;OFFICEID;CDID;ANID;BALANCE;STARTDATE;ENDDATE;INTERESRATE;ACCOUNTTYP;ACCOUNTTYPEID;ACCOUNTTYPENAME@"
     controls="no" fxFlex.gt-lg="list-accounts-60" pageable="yes" fxFill>
 ```
