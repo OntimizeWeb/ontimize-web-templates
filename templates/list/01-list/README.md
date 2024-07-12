@@ -24,7 +24,7 @@
 
 </pre>
 
-2. Configure the `o-grid`, you must to modify the values ​​between `@` for the inputs `attr`, `service`, `entity`, `columns`, `quick-filter-columns`, `sort-columns`, `keys` . For more information consult the following url https://ontimizeweb.github.io/docs/v15/components/data/grid/overview
+2. Configure the `o-list`, you must to modify the values ​​between `@` for the inputs `attr`, `service`, `entity`, `columns` and `keys` . For more information consult the following url https://ontimizeweb.github.io/docs/v15/components/data/list/overview
 
 <br/>
 
