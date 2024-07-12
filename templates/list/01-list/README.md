@@ -50,7 +50,7 @@ Also you need to configure your `createFilter` method located in the `grid-home.
 
 <br/>
 
-3. Configure your filter component setting your inputs and custom ATTR to build the filter. Link to the filter builder documentation at the end of the readme.
+3. Configure your `o-filter-builder` setting your inputs and custom ATTR to build the filter. Link to the filter builder documentation at the end of the readme.
 
 4. Add the translations you want to use on your app ​​to the `en.json` and `es.json` files of your project
 
