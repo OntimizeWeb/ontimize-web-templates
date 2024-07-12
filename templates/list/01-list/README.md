@@ -46,11 +46,11 @@ By:
 
 <br/>
 
-Also you need to configure your `createFilter` method located in the `list-home.component.ts` file according the filter you want to build. Link to the filter builder documentation at the end of the readme.
+Also you need to configure your `createFilter` method located in the `list-home.component.ts` file according the filter you want to build. Link to the filter builder documentation: https://ontimizeweb.github.io/docs/v15/components/data/filterbuilder/overview
 
 <br/>
 
-3. Configure your `o-filter-builder` setting your inputs and custom ATTR to build the filter. Link to the filter builder documentation at the end of the readme.
+3. Configure your `o-filter-builder` setting your inputs and custom ATTR to build the filter. Link to the filter builder documentation: https://ontimizeweb.github.io/docs/v15/components/data/filterbuilder/overview
 
 4. Add the translations you want to use on your app ​​to the `en.json` and `es.json` files of your project
 
