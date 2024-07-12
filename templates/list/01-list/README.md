@@ -46,7 +46,7 @@ By:
 
 <br/>
 
-Also you need to configure your `createFilter` method located in the `grid-home.component.ts` file according the filter you want to build. Link to the filter builder documentation at the end of the readme.
+Also you need to configure your `createFilter` method located in the `list-home.component.ts` file according the filter you want to build. Link to the filter builder documentation at the end of the readme.
 
 <br/>
 
