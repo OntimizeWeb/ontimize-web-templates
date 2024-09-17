@@ -46,6 +46,10 @@ By:
 
 <br/>
 
+Don't forget to customize your `o-list-item` as you want. In this template we are using a `mat-card` component but it isn't necesary.
+
+<br/>
+
 Also you need to configure your `createFilter` method located in the `list-home.component.ts` file according the filter you want to build. Link to the filter builder documentation: https://ontimizeweb.github.io/docs/v15/components/data/filterbuilder/overview
 
 <br/>
