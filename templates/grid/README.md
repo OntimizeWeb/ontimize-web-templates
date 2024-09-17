@@ -45,6 +45,9 @@ By:
       quick-filter-columns="yourcolumn1;yourcolumn2" keys="yourkey" sort-columns="yourcolumn"
       pageable="yes" query-rows="16" fixed-header="yes" refresh-button="no" gutter-size="18px" detail-mode="none">
 ```
+<br/>
+
+Don't forget to customize your `o-grid-item` as you want.
 
 <br/>
 
