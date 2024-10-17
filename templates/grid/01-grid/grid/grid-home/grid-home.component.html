@@ -49,7 +49,7 @@
             <span>{{ item.EMPLOYEEEMAIL }}</span>
             <span>{{ 'EMPLOYEE_BRANCH' | oTranslate : {values: [item.NAME]} }}
               <div class="square"></div>
-              {{ 'EMPLOYEETYPE_' + item.EMPLOYEETYPEID | oTranslate }}
+              {{ employeeType }}
             </span>
             <span>{{ item.ADDRESS }}</span>
           </div>

@@ -1,7 +1,7 @@
-import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Expression, FilterExpressionUtils, OFilterBuilderComponent } from 'ontimize-web-ngx';
+import { Expression, FilterExpressionUtils, OFilterBuilderComponent, OGridComponent } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'grid-home',
@@ -9,15 +9,52 @@ import { Expression, FilterExpressionUtils, OFilterBuilderComponent } from 'onti
   styleUrls: ['./grid-home.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class GridHomeComponent {
+export class GridHomeComponent implements AfterViewInit {
 
   @ViewChild('filterBuilder', { static: true })
   filterBuilder: OFilterBuilderComponent;
+
+  @ViewChild('grid', { static: true })
+  grid: OGridComponent;
+
+  public employeeType: string;
 
   constructor(
     protected dialog: MatDialog,
     protected sanitizer: DomSanitizer
   ) { }
+
+  ngAfterViewInit(): void {
+    this.grid.onDataLoaded.subscribe(data => {
+      this.grid.getDataArray().forEach(e => {
+        switch (e.EMPLOYEETYPEID) {
+          case 6380:
+            this.employeeType = 'Manager';
+            break;
+          case 6381:
+            this.employeeType = 'Cashier';
+            break;
+          case 6382:
+            this.employeeType = 'Secretariat';
+            break;
+          case 6383:
+            this.employeeType = 'Support';
+            break;
+          case 6384:
+            this.employeeType = 'Sanitation Department';
+            break;
+          case 6385:
+            this.employeeType = 'Transportation department';
+            break;
+          case 6386:
+            this.employeeType = 'Security';
+            break;
+          default:
+            this.employeeType = '';
+        }
+      });
+    });
+  }
 
   public createFilter(values: Array<{ attr: string, value: any }>): Expression {
     // Prepare simple expressions from the filter components values

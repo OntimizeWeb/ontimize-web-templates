@@ -1,13 +1,6 @@
 {
   "FILTERS_EMPLOYEES": "Filters employees",
   "EMPLOYEE_BRANCH": "Branch: {0}",
-  "EMPLOYEETYPE_6380": "Manager",
-  "EMPLOYEETYPE_6381": "Cashier",
-  "EMPLOYEETYPE_6382": "Secretariat",
-  "EMPLOYEETYPE_6383": "Support",
-  "EMPLOYEETYPE_6384": "Sanitation Department",
-  "EMPLOYEETYPE_6385": "Transportation department",
-  "EMPLOYEETYPE_6386": "Security",
   "NAME": "Name",
   "SURNAME": "Surname",
   "EMPLOYEETYPE": "Employee type",
