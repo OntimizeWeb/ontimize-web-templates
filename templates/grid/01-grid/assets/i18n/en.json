@@ -7,5 +7,12 @@
   "EMPLOYEETYPE_6383": "Support",
   "EMPLOYEETYPE_6384": "Sanitation Department",
   "EMPLOYEETYPE_6385": "Transportation department",
-  "EMPLOYEETYPE_6386": "Security"
+  "EMPLOYEETYPE_6386": "Security",
+  "NAME": "Name",
+  "SURNAME": "Surname",
+  "EMPLOYEETYPE": "Employee type",
+  "EMAIL": "Email",
+  "OFFICE": "Office",
+  "CLEAR": "Clear",
+  "FILTER": "Filter"
 }

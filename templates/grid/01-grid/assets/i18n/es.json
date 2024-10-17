@@ -7,5 +7,12 @@
   "EMPLOYEETYPE_6383": "Soporte",
   "EMPLOYEETYPE_6384": "Departamento de sanidad",
   "EMPLOYEETYPE_6385": "Departamento de transporte",
-  "EMPLOYEETYPE_6386": "Seguridad"
+  "EMPLOYEETYPE_6386": "Seguridad",
+  "NAME": "Nombre",
+  "SURNAME": "Apellidos",
+  "EMPLOYEETYPE": "Tipo de empleado",
+  "EMAIL": "Correo electrónico",
+  "OFFICE": "Oficina",
+  "CLEAR": "Limpiar",
+  "FILTER": "Filtrar"
 }
