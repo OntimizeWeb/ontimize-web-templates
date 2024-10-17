@@ -2,9 +2,10 @@
 
 <br/>
 
-1. Download 04-login folder and put the login folder in `src/app/` and images into `assets/images/`
+1. Download and put `login` folder in `src/app/`, `images` into `assets/images/`
 
 <br/>
+
 <pre>
 ─src
     ├───app
@@ -18,7 +19,7 @@
     |   |   └───es.json
     │   └───images
     │       └───background.png
-    │       └───Imatia_logo_white.png
+    │       └───Imatia_logo.png
     │
     └───..
 
@@ -59,12 +60,11 @@ export class AppRoutingModule { }
 
 ```
 
-
 4. To configure the theme on the login component it is necessary to include `login.theme.scss` in `app.scss`
 
 <br/>
 
-```app.scss
+```scss
 @use 'theme.scss' as theme;
 @use 'ontimize-web-ngx/theming/ontimize-style.scss';
 ...
@@ -97,12 +97,15 @@ export class AppRoutingModule { }
 
 ```
 
-
-5. To change the background image you must replace the file with the new background image in `assets/images/background.png`
+5. Implement the `register()` method ubicated in the `register.component.ts` file to get all the user information provided by the form and store it in your database. Also you need to implement the `sendEmail()` method ubicated in the `forgot-pass-email.component.ts` file to call your backend and send a temporal password to the email provided in the form.
 
 <br/>
 
-6. To change logo icon, you must replace `assets/images/Imatia_logo_white.png`
+6. To change the background image you must replace the file with the new background image in `assets/images/background.png`
+
+<br/>
+
+7. To change logo icon, you must replace `assets/images/Imatia_logo.png`
 
 <br/>
 
