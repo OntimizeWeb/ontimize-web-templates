@@ -1,7 +1,8 @@
-import { AfterViewInit, Component, ViewChild, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, Injector, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Expression, FilterExpressionUtils, OFilterBuilderComponent, OGridComponent } from 'ontimize-web-ngx';
+import { DummyService } from '../../../shared/dummy.service';
 
 @Component({
   selector: 'grid-home',
@@ -9,7 +10,7 @@ import { Expression, FilterExpressionUtils, OFilterBuilderComponent, OGridCompon
   styleUrls: ['./grid-home.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class GridHomeComponent implements AfterViewInit {
+export class GridHomeComponent implements AfterViewInit, OnInit {
 
   @ViewChild('filterBuilder', { static: true })
   filterBuilder: OFilterBuilderComponent;
@@ -18,42 +19,45 @@ export class GridHomeComponent implements AfterViewInit {
   grid: OGridComponent;
 
   public employeeType: string;
+  public service: DummyService;
+  private employeeTypes = [{
+    NAME: "",
+    ID: ""
+  }];
 
   constructor(
     protected dialog: MatDialog,
-    protected sanitizer: DomSanitizer
-  ) { }
+    protected sanitizer: DomSanitizer,
+    protected injector: Injector
+  ) {
+    this.service = this.injector.get(DummyService);
+  }
+
+  ngOnInit(): void {
+    this.configureService();
+  }
 
   ngAfterViewInit(): void {
-    this.grid.onDataLoaded.subscribe(data => {
-      this.grid.getDataArray().forEach(e => {
-        switch (e.EMPLOYEETYPEID) {
-          case 6380:
-            this.employeeType = 'Manager';
-            break;
-          case 6381:
-            this.employeeType = 'Cashier';
-            break;
-          case 6382:
-            this.employeeType = 'Secretariat';
-            break;
-          case 6383:
-            this.employeeType = 'Support';
-            break;
-          case 6384:
-            this.employeeType = 'Sanitation Department';
-            break;
-          case 6385:
-            this.employeeType = 'Transportation department';
-            break;
-          case 6386:
-            this.employeeType = 'Security';
-            break;
-          default:
-            this.employeeType = '';
-        }
+    // We are using a fake service to get the employees types, in a real app the user should get the data from the backend.
+    this.service.query({}, [], "employeeTypes").subscribe(v => {
+      v.data.forEach(empType => {
+        this.employeeTypes.push(empType);
       });
     });
+    this.grid.onDataLoaded.subscribe(data => {
+      this.grid.getDataArray().forEach(gridData => {
+        this.employeeTypes.forEach(type => {
+          if (type.ID == gridData.EMPLOYEETYPEID) {
+            this.employeeType = type.NAME;
+          }
+        });
+      });
+    });
+  }
+
+  private configureService() {
+    const conf = this.service.getDefaultServiceConfiguration('DummyService');
+    this.service.configureService(conf);
   }
 
   public createFilter(values: Array<{ attr: string, value: any }>): Expression {

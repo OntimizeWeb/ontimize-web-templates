@@ -125,6 +125,7 @@ export class MainRoutingModule { }
 
 ```
 
+7. Dont forget to use your own service instead the dummy service used to take the employees type data.
 
 ## LEARN MORE
 
@@ -135,3 +136,5 @@ export class MainRoutingModule { }
 * **Filter builder** https://ontimizeweb.github.io/docs/v15/components/data/filterbuilder/overview
 
 * **Grid component** https://ontimizeweb.github.io/docs/v15/components/data/grid/overview
+
+* **Ontimize SCSS surface classes** https://ontimizeweb.github.io/docs/v15/customize/style-guide/#surfaces
