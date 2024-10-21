@@ -1,0 +1,40 @@
+{
+  "code": 0,
+  "message": "",
+  "totalQueryRecordsNumber": 7,
+  "startRecordIndex": 0,
+  "data": [
+    {
+      "NAME": "Manager",
+      "ID": 6380
+    },
+    {
+      "NAME": "Cashier",
+      "ID": 6381
+    },
+    {
+      "NAME": "Secretariat",
+      "ID": 6382
+    },
+    {
+      "NAME": "Support",
+      "ID": 6383
+    },
+    {
+      "NAME": "Sanitation Deparment",
+      "ID": 6384
+    },
+    {
+      "NAME": "Transportation department",
+      "ID": 6385
+    },
+    {
+      "NAME": "Security",
+      "ID": 6386
+    }
+  ],
+  "sqlTypes": {
+    "NAME": 12,
+    "ID": 4
+  }
+}

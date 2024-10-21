@@ -70,8 +70,13 @@ import { NgModule } from '@angular/core';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 
 export const routes: Routes = [
-  ...
-  { path: 'grid', component: GridHomeComponent }
+  {
+    path: '', component: MainComponent,
+    children: [
+      ...
+      { path: 'grid', loadChildren: () => import('./grid/grid.module').then(m => m.GridModule) }
+    ]
+  }
 ];
 
 const opt: ExtraOptions = {
@@ -125,6 +130,7 @@ export class MainRoutingModule { }
 
 ```
 
+7. Dont forget to use your own service instead the dummy service used to take the employees type data.
 
 ## LEARN MORE
 
@@ -135,3 +141,6 @@ export class MainRoutingModule { }
 * **Filter builder** https://ontimizeweb.github.io/docs/v15/components/data/filterbuilder/overview
 
 * **Grid component** https://ontimizeweb.github.io/docs/v15/components/data/grid/overview
+
+* **Ontimize SCSS surface classes** https://ontimizeweb.github.io/docs/v15/customize/style-guide/#surfaces
+* **Form Css Class** https://ontimizeweb.github.io/docs/v15/components/data/form/overview#css-class
