@@ -138,3 +138,4 @@ export class MainRoutingModule { }
 * **Grid component** https://ontimizeweb.github.io/docs/v15/components/data/grid/overview
 
 * **Ontimize SCSS surface classes** https://ontimizeweb.github.io/docs/v15/customize/style-guide/#surfaces
+* **Form Css Class** https://ontimizeweb.github.io/docs/v15/components/data/form/overview#css-class
