@@ -138,3 +138,5 @@ export class MainRoutingModule { }
 * **List component** https://ontimizeweb.github.io/docs/v15/components/data/list/overview
 
 * **MediaMatcher** https://material.angular.io/cdk/layout/overview
+
+* **Ontimize SCSS surface classes** https://ontimizeweb.github.io/docs/v15/customize/style-guide/#surfaces

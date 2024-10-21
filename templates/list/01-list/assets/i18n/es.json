@@ -8,5 +8,10 @@
   "OFFICEID": "Oficina",
   "CDID": "Control",
   "ACCOUNTTYPEID": "Tipo",
-  "AVAILABLE_BALANCE": "Saldo disponible"
+  "AVAILABLE_BALANCE": "Saldo disponible",
+  "ANID": "Número de cuenta",
+  "STARTDATE": "Fecha inicio",
+  "ENDDATE": "Fecha fin",
+  "APPLY_FILTER": "Aplicar filtro",
+  "DELETE_FILTER": "Eliminar filtro"
 }

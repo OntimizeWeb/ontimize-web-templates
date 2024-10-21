@@ -8,5 +8,10 @@
   "OFFICEID": "Office",
   "CDID": "Control",
   "ACCOUNTTYPEID": "Type",
-  "AVAILABLE_BALANCE": "Available balance"
+  "AVAILABLE_BALANCE": "Available balance",
+  "ANID": "Account ID",
+  "STARTDATE": "Start date",
+  "ENDDATE": "End date",
+  "APPLY_FILTER": "Apply filter",
+  "DELETE_FILTER": "Delete filter"
 }
