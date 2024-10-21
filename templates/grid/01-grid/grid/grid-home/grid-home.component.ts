@@ -15,9 +15,6 @@ export class GridHomeComponent implements OnInit {
   @ViewChild('filterBuilder', { static: true })
   filterBuilder: OFilterBuilderComponent;
 
-  @ViewChild('grid', { static: true })
-  grid: OGridComponent;
-
   public service: DummyService;
   private employeeTypes = [{
     NAME: "",
