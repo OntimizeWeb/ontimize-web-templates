@@ -1,0 +1,17 @@
+{
+  "FILTER_BALANCE": "Balance (€)",
+  "HIDE_FILTERS": "Hide filters",
+  "SHOW_FILTERS": "Show filters",
+  "RELOAD_DATA": "Reload data",
+  "ACCOUNT_NUMBER": "Account number",
+  "ENTITYID": "Entity",
+  "OFFICEID": "Office",
+  "CDID": "Control",
+  "ACCOUNTTYPEID": "Type",
+  "AVAILABLE_BALANCE": "Available balance",
+  "ANID": "Account ID",
+  "STARTDATE": "Start date",
+  "ENDDATE": "End date",
+  "APPLY_FILTER": "Apply filter",
+  "DELETE_FILTER": "Delete filter"
+}

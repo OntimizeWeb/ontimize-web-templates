@@ -1,0 +1,6 @@
+{
+  "LOGIN.LOGIN": "Login",
+  "LOGIN.ERROR_SESSION_EXPIRED": "Session expired",
+  "LOGIN.USERNAME": "Username",
+  "LOGIN.PASSWORKD": "Password"
+}

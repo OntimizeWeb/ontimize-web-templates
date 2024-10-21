@@ -1,0 +1,132 @@
+.m-top-24 {
+  margin-top: 24px;
+}
+
+.full-page {
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+
+  .login-outer-container {
+    overflow: auto;
+
+    .header-language {
+      height: 24px;
+      width: 100%;
+      background-color: #0C3C63;
+      padding-right: 17px;
+      z-index: 1;
+
+      .language-selector {
+        color: white;
+
+        .language {
+          cursor: pointer;
+        }
+
+        .selected {
+          border-top: 2px solid #FFFFFF;
+        }
+      }
+    }
+
+    .header {
+      height: 120px;
+      width: 100%;
+      padding-left: 342px;
+      background-color: #082842;
+    }
+
+    .login-bg-container {
+      background-image: url('^assets/images/background.png');
+      width: 100%;
+      height: calc(100% - 144px);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .wrapp-login {
+      position: fixed;
+      background-color: transparent;
+
+      .form-container {
+        width: 464px;
+        height: 416px;
+        box-shadow: 0 4px 24px 0 #196DAB80;
+        border-radius: 8px;
+        background-color: #07315C;
+
+        form {
+          padding: 16px;
+          min-width: 368px;
+
+          .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+            background-color: transparent;
+          }
+
+          button {
+            width: 100%;
+            margin: 32px 0;
+            height: 42px;
+            font-size: 16px;
+            background-color: #14639C;
+          }
+
+          .mdc-line-ripple::before {
+            border-color: #FFFFFFBD;
+          }
+
+          .mat-input::placeholder {
+            color: #FFFFFFBD;
+          }
+
+          input:-webkit-autofill,
+          input:-webkit-autofill:active,
+          input:-webkit-autofill:focus,
+          input:-webkit-autofill:hover {
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: #ffffff;
+            transition: background-color 5000s ease-in-out 0s;
+            box-shadow: inset 0 0 20px 20px #23232329;
+          }
+        }
+      }
+
+      .session-expired {
+        text-align: center;
+      }
+
+      .login-title-container {
+        margin-top: 64px;
+      }
+
+      .title_text {
+        color: white;
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      .text {
+        font-size: 12px;
+        font-weight: normal;
+      }
+    }
+  }
+}
+@media(max-width:576px) {
+  .full-page {
+    .login-outer-container {
+      .wrapp-login {
+        width: 100%;
+        min-height: 100%;
+
+        form {
+          min-width: auto;
+          min-height: auto;
+        }
+      }
+    }
+  }
+}

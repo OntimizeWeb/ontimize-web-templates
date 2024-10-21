@@ -1,0 +1,33 @@
+@import '../login.component.scss';
+
+.wrapp-login {
+  .login-inner-container {
+    form {
+      min-width: 368px;
+
+      .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+        background-color: transparent;
+      }
+    }
+
+    .footer-container {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      width: 640px;
+      height: 40px;
+      background-color: #0C3C63;
+      z-index: 1;
+
+      div {
+        height: 40px;
+        margin-right: 138px;
+
+        span {
+          font-size: 11px;
+          padding-right: 4px;
+        }
+      }
+    }
+  }
+}
