@@ -1,4 +1,4 @@
-<div class="bg-level-1" fxFill>
+<div class="bg-level-08" fxFill>
   <o-form editable-detail="no" show-header="no" layout-align="start stretch" class="employees-filters-form" fxFill>
 
     <o-column-collapsible title="{{ 'FILTERS_EMPLOYEES' | oTranslate }}" appearance="legacy" expanded="no" icon="filter_list" class="collapsible">
@@ -37,7 +37,7 @@
         quick-filter-columns="EMPLOYEENAME;EMPLOYEESURNAME;EMPLOYEEADDRESS;EMPLOYEEEMAIL;OFFICEID" keys="EMPLOYEEID" sort-columns="EMPLOYEESURNAME"
         pageable="yes" query-rows="16" fixed-header="yes" refresh-button="no" gutter-size="18px" detail-mode="none">
         <o-grid-item *ngFor="let item of grid.dataArray">
-          <div fxLayout="column" fxLayoutAlign="space-evenly center" class="employee-item mat-elevation-z1">
+          <div fxLayout="column" fxLayoutAlign="space-evenly center" class="employee-item mat-elevation-z1 bg-level-1">
             <div fxLayout="row" fxLayoutAlign="space-between end" class="image-container">
               <mat-divider fxFlex></mat-divider>
               <div class="image">
@@ -51,7 +51,7 @@
               <span>{{ item.EMPLOYEEEMAIL }}</span>
               <span>{{ 'EMPLOYEE_BRANCH' | oTranslate : {values: [item.NAME]} }}
                 <div class="square"></div>
-                {{ employeeType }}
+                {{ getEmployeeTypeName(item.EMPLOYEETYPEID) }}
               </span>
               <span>{{ item.ADDRESS }}</span>
             </div>

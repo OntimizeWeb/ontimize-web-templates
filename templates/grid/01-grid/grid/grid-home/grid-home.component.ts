@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Injector, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, Injector, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Expression, FilterExpressionUtils, OFilterBuilderComponent, OGridComponent } from 'ontimize-web-ngx';
@@ -10,7 +10,7 @@ import { DummyService } from '../../../shared/dummy.service';
   styleUrls: ['./grid-home.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class GridHomeComponent implements AfterViewInit, OnInit {
+export class GridHomeComponent implements OnInit {
 
   @ViewChild('filterBuilder', { static: true })
   filterBuilder: OFilterBuilderComponent;
@@ -18,7 +18,6 @@ export class GridHomeComponent implements AfterViewInit, OnInit {
   @ViewChild('grid', { static: true })
   grid: OGridComponent;
 
-  public employeeType: string;
   public service: DummyService;
   private employeeTypes = [{
     NAME: "",
@@ -35,24 +34,15 @@ export class GridHomeComponent implements AfterViewInit, OnInit {
 
   ngOnInit(): void {
     this.configureService();
+    this.service.query({}, [], "employeeTypes").subscribe(v => {
+      this.employeeTypes = v.data;
+    });
   }
 
-  ngAfterViewInit(): void {
-    // We are using a fake service to get the employees types, in a real app the user should get the data from the backend.
-    this.service.query({}, [], "employeeTypes").subscribe(v => {
-      v.data.forEach(empType => {
-        this.employeeTypes.push(empType);
-      });
-    });
-    this.grid.onDataLoaded.subscribe(data => {
-      this.grid.getDataArray().forEach(gridData => {
-        this.employeeTypes.forEach(type => {
-          if (type.ID == gridData.EMPLOYEETYPEID) {
-            this.employeeType = type.NAME;
-          }
-        });
-      });
-    });
+  public getEmployeeTypeName(id) {
+    return this.employeeTypes.find(empType => {
+      return empType.ID === id;
+    })?.NAME;
   }
 
   private configureService() {

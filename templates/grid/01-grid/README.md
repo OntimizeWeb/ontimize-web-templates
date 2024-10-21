@@ -70,8 +70,13 @@ import { NgModule } from '@angular/core';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 
 export const routes: Routes = [
-  ...
-  { path: 'grid', component: GridHomeComponent }
+  {
+    path: '', component: MainComponent,
+    children: [
+      ...
+      { path: 'grid', loadChildren: () => import('./grid/grid.module').then(m => m.GridModule) }
+    ]
+  }
 ];
 
 const opt: ExtraOptions = {
