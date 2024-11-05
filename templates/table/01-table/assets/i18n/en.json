@@ -1,0 +1,11 @@
+{
+  "FILTERS_EMPLOYEES": "Filters employees",
+  "EMPLOYEE_BRANCH": "Branch: {0}",
+  "NAME": "Name",
+  "SURNAME": "Surname",
+  "EMPLOYEETYPE": "Employee type",
+  "EMAIL": "Email",
+  "OFFICE": "Office",
+  "CLEAR": "Clear",
+  "FILTER": "Filter"
+}
