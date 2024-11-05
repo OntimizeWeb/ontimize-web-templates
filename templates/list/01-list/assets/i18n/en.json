@@ -13,5 +13,6 @@
   "STARTDATE": "Start date",
   "ENDDATE": "End date",
   "APPLY_FILTER": "Apply filter",
-  "DELETE_FILTER": "Delete filter"
+  "DELETE_FILTER": "Delete filter",
+  "ACCOUNTTYP": "Alias"
 }
