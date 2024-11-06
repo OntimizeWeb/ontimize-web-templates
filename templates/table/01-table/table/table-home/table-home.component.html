@@ -1,19 +1,23 @@
 <o-form editable-detail="no" show-header="no">
   <div fxFill fxLayout="column" fxLayoutAlign="start" class="bg-level-1">
-    <div fxLayout="row">
-      <o-text-input attr="NAMEFILTER" read-only="no" fxFlex></o-text-input>
-      <o-text-input attr="SURNAMEFILTER" read-only="no" fxFlex></o-text-input>
-      <o-email-input attr="EMAILFILTER" read-only="no" fxFlex></o-email-input>
-    </div>
-    <div fxLayout="row">
-      <o-date-input value-type="timestamp" attr="DATEFILTER" read-only="no"></o-date-input>
-    </div>
-    <div fxLayoutAlign="end">
-      <o-button attr="clear" [oFilterBuilderClear]="filterBuilder" type="RAISED" label="Clear"></o-button>
-      <o-button attr="filter" [oFilterBuilderQuery]="filterBuilder" type="RAISED" label="Filter"></o-button>
-    </div>
-    <o-filter-builder #filterBuilder attr="thefilter" filters="NAME:NAMEFILTER;SURNAME:SURNAMEFILTER;EMAIL:EMAILFILTER;STARTDATE:DATEFILTER" [target]="table"
-      query-on-change="no" query-on-change-delay="500" [expression-builder]="createFilter"></o-filter-builder>
+    <o-column-collapsible title="{{ 'FILTER_BUTTON' | oTranslate }}" appearance="legacy" expanded="no" icon="filter_list" class="collapsible">
+      <div fxLayout="column" fxLayoutGap="20px">
+        <div fxLayout="row" fxLayoutGap="20px">
+          <o-text-input attr="NAMEFILTER" label="NAME" read-only="no" fxFlex></o-text-input>
+          <o-text-input attr="SURNAMEFILTER" label="SURNAME" read-only="no" fxFlex></o-text-input>
+          <o-email-input attr="EMAILFILTER" label="EMAIL" read-only="no" fxFlex></o-email-input>
+        </div>
+        <div fxLayout="row">
+          <o-combo service="customers" entity="customerType" value-column="DESCRIPTION" attr="TYPEFILTER" label="CUSTOMERTYPEID" read-only="no"></o-combo>
+        </div>
+        <div fxLayoutAlign="end" fxLayoutGap="20px">
+          <o-button attr="clear" [oFilterBuilderClear]="filterBuilder" type="RAISED" label="Clear"></o-button>
+          <o-button attr="filter" [oFilterBuilderQuery]="filterBuilder" type="RAISED" label="Filter"></o-button>
+        </div>
+      </div>
+    </o-column-collapsible>
+    <o-filter-builder #filterBuilder attr="thefilter" filters="NAME:NAMEFILTER;SURNAME:SURNAMEFILTER;EMAIL:EMAILFILTER;CUSTOMERTYPEID:TYPEFILTER"
+      [target]="table" query-on-change="no" query-on-change-delay="500" [expression-builder]="createFilter"></o-filter-builder>
     <o-table #table fxFlex attr="customer" title="CUSTOMERS" service="customers" entity="customer" keys="CUSTOMERID"
       columns="CUSTOMERID;PHOTO;NAME;SURNAME;ADDRESS;STARTDATE;EMAIL;CUSTOMERTYPEID"
       visible-columns="PHOTO;NAME;SURNAME;STARTDATE;EMAIL;ADDRESS;CUSTOMERTYPEID" sort-columns="SURNAME" query-rows="24" quick-filter="yes"

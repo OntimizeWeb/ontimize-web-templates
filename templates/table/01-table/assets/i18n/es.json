@@ -1,11 +1,13 @@
 {
-  "FILTERS_EMPLOYEES": "Filtrar empleados",
-  "EMPLOYEE_BRANCH": "Sucursal: {0}",
   "NAME": "Nombre",
   "SURNAME": "Apellidos",
   "EMPLOYEETYPE": "Tipo de empleado",
   "EMAIL": "Correo electrónico",
   "OFFICE": "Oficina",
   "CLEAR": "Limpiar",
-  "FILTER": "Filtrar"
+  "FILTER": "Filtrar",
+  "FILTER_BUTTON": "Filtros",
+  "STARTDATE": "Fecha inicio",
+  "ADDRESS": "Dirección",
+  "CUSTOMERTYPEID": "Tipo"
 }

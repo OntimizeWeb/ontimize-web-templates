@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { TableRoutingModule } from './table-routing.module';
 import { TableHomeComponent } from './table-home/table-home.component';
-import { SharedModule } from '../../shared/shared.module';
 import { OntimizeWebModule } from 'ontimize-web-ngx';
 
 
@@ -14,7 +13,6 @@ import { OntimizeWebModule } from 'ontimize-web-ngx';
   imports: [
     CommonModule,
     TableRoutingModule,
-    SharedModule,
     OntimizeWebModule
   ]
 })

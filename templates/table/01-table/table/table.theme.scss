@@ -1,0 +1,25 @@
+@use '@angular/material'as mat;
+@use 'sass:map';
+@mixin table-theme($theme) {
+  $primary: map.get($theme, color, primary);
+  $accent: map.get($theme, color, accent);
+  $foreground: map.get($theme, color, foreground);
+  $background: map.get($theme, color, background);
+  $border-color: mat.get-color-from-palette($foreground, disabled);
+  $is-dark: map.get($theme, color, is-dark);
+
+  .mat-expansion-panel-header-title {
+    color: mat.get-color-from-palette($primary);
+    border-color: $border-color !important;
+  }
+
+  .mat-expansion-panel-content {
+    border-color: mat.get-color-from-palette($accent);
+  }
+
+  @if $is-dark {
+    .o-table.ontimize-table.o-table-fixed {
+      background-color: mat.get-color-from-palette($background, level-1);
+    }
+  }
+}
