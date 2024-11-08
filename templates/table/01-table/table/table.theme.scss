@@ -18,8 +18,8 @@
   }
 
   @if $is-dark {
-    .o-table.ontimize-table.o-table-fixed {
-      background-color: mat.get-color-from-palette($background, level-1);
+    .collapsible {
+      background-color: #424242;
     }
   }
 }
