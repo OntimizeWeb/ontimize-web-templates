@@ -4,7 +4,6 @@
   $primary: map.get($theme, color, primary);
   $accent: map.get($theme, color, accent);
   $foreground: map.get($theme, color, foreground);
-  $background: map.get($theme, color, background);
   $border-color: mat.get-color-from-palette($foreground, disabled);
   $is-dark: map.get($theme, color, is-dark);
 
