@@ -1,0 +1,39 @@
+<o-form editable-detail="no" show-header="no">
+  <div fxLayout="row" fxLayoutAlign="space-around" class="bg-level-1" layout-padding>
+    <mat-card [ngClass]="type == 1 ? 'active type-card' : 'type-card'" (click)="changeValue(1)">
+      <mat-card-header>{{ "NORMAL" | oTranslate }}</mat-card-header>
+      <mat-icon svgIcon="ontimize:normal" class="center-icon"></mat-icon>
+    </mat-card>
+    <mat-card [ngClass]="type == 2 ? 'active type-card' : 'type-card'" (click)="changeValue(2)">
+      <mat-card-header>{{ "VIP" | oTranslate }}</mat-card-header>
+      <mat-icon svgIcon="ontimize:VIP" class="center-icon"></mat-icon>
+    </mat-card>
+    <mat-card [ngClass]="type == 3 ? 'active type-card' : 'type-card'" (click)="changeValue(3)">
+      <mat-card-header>{{ "OTHER" | oTranslate }}</mat-card-header>
+      <mat-icon svgIcon="ontimize:other" class="center-icon"></mat-icon>
+    </mat-card>
+    <mat-card [ngClass]="type == 0 ? 'active type-card' : 'type-card'" (click)="changeValue(0)">
+      <mat-card-header>{{ "ALL" | oTranslate }}</mat-card-header>
+      <mat-icon svgIcon="ontimize:all" class="center-icon"></mat-icon>
+    </mat-card>
+    <!-- List picker component used to filtering the table with the method changeValue(number) declarated on the .ts file -->
+    <o-list-picker #listPicker attr="CUSTOMERTYPEID" service="@yourService@" service-type="@yourServiceType@" entity="@customerTypes@" columns="@CUSTOMERTYPEID;DESCRIPTION@"
+      value-column="@CUSTOMERTYPEID@" keys="@CUSTOMERTYPEID@" class="hide">
+    </o-list-picker>
+  </div>
+  <o-filter-builder #filterBuilder attr="thefilter" filters="CUSTOMERTYPEID"
+    [target]="table" query-on-change="yes" query-on-change-delay="500" [expression-builder]="createFilter"></o-filter-builder>
+  <o-table #table fxFlex attr="@customer@" title="CUSTOMERS" service="@yourService@" service-type="@yourServiceType@" entity="@data@" keys="@CUSTOMERID@"
+    columns="@PHOTO;CUSTOMERID;NAME;SURNAME;ADDRESS;STARTDATE;EMAIL;CUSTOMERTYPEID@" visible-columns="@NAME;SURNAME;STARTDATE;EMAIL;ADDRESS;CUSTOMERTYPEID@"
+    sort-columns="@SURNAME@" query-rows="24" quick-filter="yes" row-height="medium" pageable="yes" virtual-scroll="no">
+
+    <o-table-column attr="NAME" title="NAME" orderable="no"></o-table-column>
+    <o-table-column attr="STARTDATE" title="STARTDATE" type="date" format="LL"></o-table-column>
+    <o-table-column attr="CUSTOMERTYPEID" title="CUSTOMERTYPEID" editable="true">
+      <o-table-cell-renderer-service service="yourService" service-type="yourServiceType" entity="customerTypes" value-column="DESCRIPTION" translate="no"
+        columns="CUSTOMERTYPEID;DESCRIPTION" visible-columns="DESCRIPTION">
+      </o-table-cell-renderer-service>
+    </o-table-column>
+    <o-table-paginator page-size-options="24;48;96"></o-table-paginator>
+  </o-table>
+</o-form>

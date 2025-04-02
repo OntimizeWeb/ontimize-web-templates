@@ -1,0 +1,14 @@
+@use '@angular/material'as mat;
+@use 'sass:map';
+@mixin table-theme($theme) {
+  $primary: map.get($theme, color, primary);
+  $background: map.get($theme, color, background);
+
+  .active {
+    border-color: mat.get-color-from-palette($primary) !important;
+  }
+
+  .mat-mdc-card.type-card {
+    background-color: mat.get-color-from-palette($background, level-08);
+  }
+}
