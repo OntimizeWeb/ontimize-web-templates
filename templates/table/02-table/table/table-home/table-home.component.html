@@ -1,6 +1,6 @@
 <o-form editable-detail="no" show-header="no">
   <div fxLayout="column" class="bg-level-1" fxFill>
-    <div fxLayout="row" fxLayoutAlign="space-between" class="cards-container">
+    <div fxLayout="row" class="cards-container">
       <mat-card [ngClass]="type == 1 ? 'active type-card' : 'type-card'" (click)="filterBuilder.triggerReload(); type=1">
         <mat-card-header [ngClass]="type == 1 ? 'active' : '' ">{{ "NORMAL" | oTranslate }}</mat-card-header>
         <mat-card-content>
