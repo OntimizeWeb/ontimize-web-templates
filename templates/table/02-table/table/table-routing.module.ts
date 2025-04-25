@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { TableHomeComponent } from './table-home/table-home.component';
 
 const routes: Routes = [
-  { path: '', component: TableHomeComponent }
+  { path: '', component: TableHomeComponent },
+  { path: ':CUSTOMERID', component: TableHomeComponent }
 ];
 
 @NgModule({

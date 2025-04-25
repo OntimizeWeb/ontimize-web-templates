@@ -103,6 +103,19 @@ export class MainRoutingModule { }
 
 ```
 
+</br>
+
+7. Also you need to add the icons to the Ontimize icon registry service on your `app.component.ts` file as follows.
+
+```js
+this.ontimizeMatIconRegistry.addOntimizeSvgIcon('VIP', 'assets/icons/vip.svg');
+this.ontimizeMatIconRegistry.addOntimizeSvgIcon('normal', 'assets/icons/normal.svg');
+this.ontimizeMatIconRegistry.addOntimizeSvgIcon('all', 'assets/icons/all.svg');
+this.ontimizeMatIconRegistry.addOntimizeSvgIcon('other', 'assets/icons/other.svg');
+
+```
+More information [here](https://ontimizeweb.github.io/docs/v15/customize/icons/).
+
 ## LEARN MORE
 
 <br/>
@@ -120,3 +133,5 @@ export class MainRoutingModule { }
 * **MediaMatcher** https://material.angular.io/cdk/layout/overview
 
 * **Ontimize SCSS surface classes** https://ontimizeweb.github.io/docs/v15/customize/style-guide/#surfaces
+
+* **Ontimize Web icon registry documentation** https://ontimizeweb.github.io/docs/v15/customize/icons/

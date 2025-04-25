@@ -2,13 +2,38 @@
 @use 'sass:map';
 @mixin table-theme($theme) {
   $primary: map.get($theme, color, primary);
+  $accent: map.get($theme, color, accent);
+  $foreground: map.get($theme, color, foreground);
   $background: map.get($theme, color, background);
+  $border-color: mat.get-color-from-palette($foreground, disabled);
+  $is-dark: map.get($theme, color, is-dark);
 
   .active {
     border-color: mat.get-color-from-palette($primary) !important;
+    color: mat.get-color-from-palette($primary);
+    fill: mat.get-color-from-palette($primary);
   }
 
   .mat-mdc-card.type-card {
     background-color: mat.get-color-from-palette($background, level-08);
+    border-color: #626262;
+    @if $is-dark {
+      border-color: white;
+    }
+  }
+
+  .mat-icon {
+    svg {
+      fill: inherit;
+    }
+  }
+
+  .mat-expansion-panel-header-title {
+    color: mat.get-color-from-palette($primary);
+    border-color: $border-color !important;
+  }
+
+  .mat-expansion-panel-content {
+    border-color: mat.get-color-from-palette($primary);
   }
 }
