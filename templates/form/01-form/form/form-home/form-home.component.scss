@@ -7,9 +7,15 @@
 }
 
 .personal-data {
+  font-weight: bold;
   margin-top: 24px;
   margin-left: 8px;
   margin-right: 16px;
+
+  .name {
+    font-size: 18px;
+    font-weight: 600;
+  }
 }
 
 .file-data {
@@ -17,7 +23,21 @@
 }
 
 .file-number-row {
-  margin-top: 16px;
+  .mat-icon {
+    height: 32px;
+    width: 32px;
+    font-size: 32px;
+  }
+
+  p {
+    font-size: 22px;
+    font-weight: 600;
+  }
+}
+
+.respon-zone {
+  font-size: 15px;
+  font-weight: bold;
 }
 
 .tags-row {
@@ -61,8 +81,13 @@
   border-bottom-left-radius: 15px;
 }
 
-.mat-mdc-tab-header {
-  margin-left: 40px;
+.example-tab-group {
+  min-width: 100%;
+
+  .mat-mdc-tab-header {
+    margin-left: 40px;
+  }
+
 }
 
 /* @media(width<=1920px) {
