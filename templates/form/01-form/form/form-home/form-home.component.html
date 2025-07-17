@@ -14,8 +14,7 @@
     </div>
 
     <div fxLayout="column" fxFlex="4%" fxLayoutAlign="start center" fxLayoutGap="8px">
-      <o-image class="avatar-image" attr="PHOTO" avatar="yes" not-found-image="assets/images/no-image.png" show-controls="no" sql-type="OTHER"
-        read-only="true"></o-image>
+      <img class="avatar-image" [src]="getImageSrc(photo)">
       <mat-icon *ngIf="show" fontIcon="info"></mat-icon>
       <mat-icon *ngIf="show" fontIcon="location_on"></mat-icon>
     </div>

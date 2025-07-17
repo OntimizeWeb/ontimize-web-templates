@@ -1,10 +1,9 @@
-.o-image.avatar-image .o-image-content.o-image-auto-fit .o-image-display-container>img {
+.avatar-image {
   height: 48px;
-  max-height: none;
-  max-width: none;
-  object-fit: fill;
   width: 48px;
+  object-fit: cover;
   border-radius: 50%;
+  margin-top: 16px;
 }
 
 .personal-data {

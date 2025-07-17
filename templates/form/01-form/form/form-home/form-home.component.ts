@@ -1,5 +1,6 @@
 import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { OFormComponent } from 'ontimize-web-ngx';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'form-home',
@@ -16,8 +17,14 @@ export class FormHomeComponent {
   public address: string;
   public phone: number;
   public id: number;
-  public show = true;
-  public icon = "keyboard_arrow_up";
+  public photo: any;
+  public show: boolean;
+  public icon: string;
+
+  constructor(protected sanitizer: DomSanitizer) {
+    this.icon = "keyboard_arrow_up";
+    this.show = true;
+  }
 
   showInfo(evt: any) {
     this.show = !this.show;
@@ -48,6 +55,15 @@ export class FormHomeComponent {
     if (data.CUSTOMERID) {
       this.id = data.CUSTOMERID;
     }
+
+    if (data.PHOTO) {
+      this.photo = data.PHOTO;
+    }
+  }
+
+
+  public getImageSrc(base64: any): any {
+    return base64 ? this.sanitizer.bypassSecurityTrustResourceUrl('data:image/*;base64,' + base64.bytes) : './assets/images/no-image.png';
   }
 
 }
