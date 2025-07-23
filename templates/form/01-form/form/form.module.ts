@@ -3,7 +3,7 @@ import { OntimizeWebModule } from 'ontimize-web-ngx';
 
 import { SharedModule } from '../../shared/shared.module';
 import { FormRoutingModule } from './form-routing.module';
-import { FormHomeComponent } from './form-home/form-home.component';
+import { FormDetailComponent } from './form-detail/form-detail.component';
 
 @NgModule({
   imports: [
@@ -11,6 +11,6 @@ import { FormHomeComponent } from './form-home/form-home.component';
     OntimizeWebModule,
     FormRoutingModule
   ],
-  declarations: [FormHomeComponent],
+  declarations: [FormDetailComponent],
 })
 export class FormModule { }

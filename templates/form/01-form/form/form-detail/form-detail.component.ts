@@ -3,12 +3,13 @@ import { OFormComponent } from 'ontimize-web-ngx';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
-  selector: 'form-home',
-  templateUrl: './form-home.component.html',
-  styleUrls: ['./form-home.component.scss'],
+  selector: 'app-form-detail',
+  templateUrl: './form-detail.component.html',
+  styleUrls: ['./form-detail.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class FormHomeComponent {
+
+export class FormDetailComponent {
 
   @ViewChild('form') form: OFormComponent;
 
@@ -61,9 +62,8 @@ export class FormHomeComponent {
     }
   }
 
-
   public getImageSrc(base64: any): any {
-    return base64 ? this.sanitizer.bypassSecurityTrustResourceUrl('data:image/*;base64,' + base64.bytes) : './assets/images/no-image.png';
+    return base64 ? this.sanitizer.bypassSecurityTrustResourceUrl('data:image/*;base64,' + base64) : './assets/images/no-image.png';
   }
 
 }

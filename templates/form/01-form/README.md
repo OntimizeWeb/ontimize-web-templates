@@ -10,7 +10,7 @@
 ─src
     ├───app
     |   ├───main
-    |   |   └───table
+    |   |   └───form
     │   ├───...
     │   │
     ├───assets
@@ -24,31 +24,65 @@
 
 </pre>
 
-2. Configure the `o-form`, you must to modify the values ​​between `@` for the inputs `attr`, `service`, `entity`, `columns` and `keys` . For more information consult the following url https://ontimizeweb.github.io/docs/v15/components/data/form/overview
+2. In order to have exactly the same layout as the template, we recommend that you configure the following in the app.module.ts file
+
+<br/>
+
+```js
+export const customProviders: any = [
+  { provide: O_MAT_ERROR_OPTIONS, useValue: { type: 'lite' } },
+  { provide: O_INPUTS_OPTIONS, useValue: { iconColor: 'accent' } },
+  { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } }
+];
+```
+<br/>
+
+3. Configure the `o-form`, you must to modify the values ​​between `@` for the inputs `attr`, `service`, `entity`, `keys`, `columns` and `keys-sql-types`. For more information consult the following url https://ontimizeweb.github.io/docs/v15/components/data/form/overview
 
 <br/>
 
 Replace:
 ```html
- <o-form #form attr="@customers@" service="@customers@" entity="@customer@" keys="@CUSTOMERID@" class="fill-form" show-header="none"
-  columns="@CUSTOMERID;NAME;SURNAME;ADDRESS;PHONE@" (onDataLoaded)="onFormDataLoaded($event)">
+<o-form #form attr="@customers_form_edit@" service="@customers@" entity="@customer@" keys="@CUSTOMERID@" class="fill-form" show-header="none"
+columns="@CUSTOMERID;NAME;SURNAME;ADDRESS;PHONE;PHOTO@" keys-sql-types="@INTEGER@" (onDataLoaded)="onFormDataLoaded($event)">
 ```
 
 <br/>
 
 By:
 ```html
- <o-form #form attr="yourattr" service="yourservice" entity="yourentity" keys="yourkey" class="fill-form" show-header="none"
-    columns="yourcolumns" (onDataLoaded)="onFormDataLoaded($event)">
+<o-form #form attr="yourattr" service="yourservice" entity="yourentity" keys="yourkey" class="fill-form" show-header="none" columns="yourcolumns"
+keys-sql-types="sqltypekey" (onDataLoaded)="onFormDataLoaded($event)">
 ```
 
 <br/>
 
-3. Add the translations you want to use on your app ​​to the `en.json` and `es.json` files of your project
+4. Configure the `o-table` inside the `mat-tab-group`, you must to modify the values between `@` for the inputs `attr`, `service`, `entity`, `parent-keys`, `keys`, `columns`, and `visible-columns`. For more information consult the following url https://ontimizeweb.github.io/docs/v15/components/data/table/overview
 
 <br/>
 
-4. Configure routing in `main-routing.module.ts`
+Replace:
+```html
+<o-table #accountsTable attr="@customer_accounts@" service="@customers@" entity="@customerAccount@" parent-keys="@CUSTOMERID@" keys="@ACCOUNTID@"
+columns="@ACCOUNTID;ENTITYID;OFFICEID;CDID;ANID;ACCOUNT;BALANCE;CUSTOMERID;STARTDATE;ENDDATE@"
+visible-columns="@ACCOUNT;BALANCE;STARTDATE;ENDDATE@" query-rows="20" delete-button="none">
+```
+
+<br/>
+
+By:
+```html
+<o-table #accountsTable attr="yourattr" service="yourservice" entity="yourentity" parent-keys="yourparentkey" keys="yourkey"
+columns="yourcolumns" visible-columns="yourvisiblecolumns" query-rows="20" delete-button="none">
+```
+
+<br/>
+
+5. Add the translations you want to use on your app ​​to the `en.json` and `es.json` files of your project
+
+<br/>
+
+6. Configure routing in `main-routing.module.ts`
 
 <br/>
 
@@ -76,7 +110,7 @@ export class MainRoutingModule { }
 
 <br/>
 
-5. To configure the theme on the form component it is necessary to include `form.theme.scss` in `app.scss`
+7. To configure the theme on the form component it is necessary to include `form.theme.scss` in `app.scss`
 
 <br/>
 
