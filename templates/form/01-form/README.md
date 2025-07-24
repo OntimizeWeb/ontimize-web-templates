@@ -57,7 +57,57 @@ keys-sql-types="sqltypekey" (onDataLoaded)="onFormDataLoaded($event)">
 
 <br/>
 
-4. Configure the `o-table` inside the `mat-tab-group`, you must to modify the values between `@` for the inputs `attr`, `service`, `entity`, `parent-keys`, `keys`, `columns`, and `visible-columns`. For more information consult the following url https://ontimizeweb.github.io/docs/v15/components/data/table/overview
+4. Configure the `o-input` elements, you must to modify the value of the attr between `@`. For more information consult the following url https://ontimizeweb.github.io/docs/v15/components/input/
+
+<br/>
+
+Replace:
+```html
+<o-text-input attr="@CREATOR@" [hidden]="!show" class="creator-input" label="CREATOR"></o-text-input>
+```
+
+<br/>
+
+By:
+```html
+<o-text-input attr="yourattr" [hidden]="!show" class="creator-input" label="CREATOR"></o-text-input>
+```
+
+<br/>
+
+Replace:
+```html
+<o-date-input attr="@FILE_OPENING@" fxFlex="30%" label="FILE_OPENING"></o-date-input>
+<o-date-input attr="@LAST_UPDATE@" fxFlex="30%" label="LAST_UPDATE"></o-date-input>
+<o-date-input attr="@TERMINATION_DATE@" fxFlex="30%" label="TERMINATION_DATE"></o-date-input>
+```
+
+<br/>
+
+By:
+```html
+<o-date-input attr="yourattr" fxFlex="30%" label="FILE_OPENING"></o-date-input>
+<o-date-input attr="yourattr" fxFlex="30%" label="LAST_UPDATE"></o-date-input>
+<o-date-input attr="yourattr" fxFlex="30%" label="TERMINATION_DATE"></o-date-input>
+```
+
+<br/>
+
+Replace:
+```html
+<o-text-input attr="@SICK_LEAVE_CAUSE@" fxFlex="100" label="SICK_LEAVE_CAUSE"></o-text-input>
+```
+
+<br/>
+
+By:
+```html
+<o-text-input attr="yourattr" fxFlex="100" label="SICK_LEAVE_CAUSE"></o-text-input>
+```
+
+<br/>
+
+5. Configure the `o-table` inside the `mat-tab-group`, you must to modify the values between `@` for the inputs `attr`, `service`, `entity`, `parent-keys`, `keys`, `columns`, and `visible-columns`. For more information consult the following url https://ontimizeweb.github.io/docs/v15/components/data/table/overview
 
 <br/>
 
@@ -78,11 +128,11 @@ columns="yourcolumns" visible-columns="yourvisiblecolumns" query-rows="20" delet
 
 <br/>
 
-5. Add the translations you want to use on your app ​​to the `en.json` and `es.json` files of your project
+6. Add the translations you want to use on your app ​​to the `en.json` and `es.json` files of your project
 
 <br/>
 
-6. Configure routing in `main-routing.module.ts`
+7. Configure routing in `main-routing.module.ts`
 
 <br/>
 
@@ -110,7 +160,7 @@ export class MainRoutingModule { }
 
 <br/>
 
-7. To configure the theme on the form component it is necessary to include `form.theme.scss` in `app.scss`
+8. To configure the theme on the form component it is necessary to include `form.theme.scss` in `app.scss`
 
 <br/>
 
