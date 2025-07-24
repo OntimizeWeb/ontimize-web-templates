@@ -1,18 +1,18 @@
 <o-form #form attr="@customers_form_edit@" service="@customers@" entity="@customer@" keys="@CUSTOMERID@" class="fill-form" show-header="none"
   columns="@CUSTOMERID;NAME;SURNAME;ADDRESS;PHONE;PHOTO@" keys-sql-types="@INTEGER@" (onDataLoaded)="onFormDataLoaded($event)">
 
-  <div fxLayout="row" class="card-row">
+  <div fxLayout="row" class="card-row" fxLayoutAlign="space-between">
     <div fxLayout="column" fxFlex="30px" class="collapse-button">
       <o-button attr="collapse" type="ICON" icon="{{icon}}" layout-padding (click)="showInfo($event)"></o-button>
     </div>
 
-    <div fxLayout="column" fxFlex="13%" fxLayoutAlign="start space-around" fxLayoutGap="8px" class="personal-data">
+    <div fxLayout="column" fxFlex="12%" fxLayoutAlign="start space-around" fxLayoutGap="8px" class="personal-data">
       <span class="name">{{name}} {{surname}}</span>
       <span class="address">{{address}}</span>
       <span *ngIf="show" class="phone">{{phone}}</span>
     </div>
 
-    <div fxLayout="column" fxFlex="7%" fxLayoutAlign="start center" fxLayoutGap="16px" class="avatar-icons">
+    <div fxLayout="column" fxFlex="56px" fxLayoutAlign="start center" fxLayoutGap="16px" class="avatar-icons">
       <img class="avatar-image" [src]="getImageSrc(photo)">
       <mat-icon *ngIf="show" fontIcon="info"></mat-icon>
       <mat-icon *ngIf="show" fontIcon="location_on"></mat-icon>
@@ -32,18 +32,18 @@
             <span>{{ 'FILE_NUMBER' | oTranslate}} {{id}}</span>
           </div>
           <div fxLayout="column" fxFlex="30%">
-            <o-text-input [hidden]="!show" class="creator-input" label="CREATOR"></o-text-input>
+            <o-text-input attr="@CREATOR@" [hidden]="!show" class="creator-input" label="CREATOR"></o-text-input>
           </div>
         </div>
 
         <div *ngIf="show" fxLayout="row" fxLayoutAlign="space-between">
-          <o-date-input fxFlex="30%" label="FILE_OPENING"></o-date-input>
-          <o-date-input fxFlex="30%" label="LAST_UPDATE"></o-date-input>
-          <o-date-input fxFlex="30%" label="TERMINATION_DATE"></o-date-input>
+          <o-date-input attr="@FILE_OPENING@" fxFlex="30%" label="FILE_OPENING"></o-date-input>
+          <o-date-input attr="@LAST_UPDATE@" fxFlex="30%" label="LAST_UPDATE"></o-date-input>
+          <o-date-input attr="@TERMINATION_DATE@" fxFlex="30%" label="TERMINATION_DATE"></o-date-input>
         </div>
 
         <div *ngIf="show" fxLayout="row">
-          <o-text-input fxFlex="100" label="SICK_LEAVE_CAUSE"></o-text-input>
+          <o-text-input attr="@SICK_LEAVE_CAUSE@" fxFlex="100" label="SICK_LEAVE_CAUSE"></o-text-input>
         </div>
 
         <div *ngIf="show" fxLayout="row" fxLayoutAlign="start start">
