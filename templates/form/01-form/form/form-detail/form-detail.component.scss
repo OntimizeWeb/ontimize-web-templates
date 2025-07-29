@@ -23,6 +23,7 @@
   margin-top: 32px;
   margin-left: 8px;
   margin-right: 16px;
+  max-width: 12%;
 
   .name {
     font-size: 18px;
@@ -78,7 +79,6 @@
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  margin-right: 8px;
 }
 
 .tags-row {
@@ -152,11 +152,21 @@
   display: inline;
 }
 
+@media(min-width: 1920px) {
+  .personal-data {
+    max-width: 20%;
+  }
+}
+
 @media(max-width: 1919px) {
 
   .file-actions-1,
   .file-actions {
     width: 120px;
+  }
+
+  .types-buttons {
+    font-size: 12px;
   }
 
   .mat-mdc-form-field .mat-mdc-floating-label.mdc-floating-label {

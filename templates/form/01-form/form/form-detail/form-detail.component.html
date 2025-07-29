@@ -6,7 +6,7 @@
       <o-button attr="collapse" type="ICON" icon="{{icon}}" layout-padding (click)="showInfo($event)"></o-button>
     </div>
 
-    <div fxLayout="column" fxFlex="12%" fxLayoutAlign="start space-around" fxLayoutGap="8px" class="personal-data">
+    <div fxLayout="column" fxFlex fxLayoutAlign="start space-around" fxLayoutGap="8px" class="personal-data">
       <span class="name">{{name}} {{surname}}</span>
       <span class="address">{{address}}</span>
       <span *ngIf="show" class="phone">{{phone}}</span>
@@ -18,7 +18,7 @@
       <mat-icon *ngIf="show" fontIcon="location_on"></mat-icon>
     </div>
 
-    <div fxFlex="75%" class="info-card" [ngClass]="{ 'expand': show, 'collapse': !show}">
+    <div fxFlex="70%" class="info-card" [ngClass]="{ 'expand': show, 'collapse': !show}">
 
       <div fxLayout="column" fxFlex="16px" class="blue-bg"></div>
 
@@ -46,7 +46,7 @@
           <o-text-input attr="@SICK_LEAVE_CAUSE@" fxFlex="100" label="SICK_LEAVE_CAUSE"></o-text-input>
         </div>
 
-        <div *ngIf="show" fxLayout="row" fxLayoutAlign="start start">
+        <div *ngIf="show" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="28px">
           <div fxLayout="column" class="respon-zone">
             <span>{{ 'RESPONSABLE' | oTranslate}}: {{name}}</span>
           </div>

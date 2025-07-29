@@ -75,38 +75,6 @@ By:
 
 <br/>
 
-Replace:
-```html
-<o-date-input attr="@FILE_OPENING@" fxFlex="30%" label="FILE_OPENING"></o-date-input>
-<o-date-input attr="@LAST_UPDATE@" fxFlex="30%" label="LAST_UPDATE"></o-date-input>
-<o-date-input attr="@TERMINATION_DATE@" fxFlex="30%" label="TERMINATION_DATE"></o-date-input>
-```
-
-<br/>
-
-By:
-```html
-<o-date-input attr="yourattr" fxFlex="30%" label="FILE_OPENING"></o-date-input>
-<o-date-input attr="yourattr" fxFlex="30%" label="LAST_UPDATE"></o-date-input>
-<o-date-input attr="yourattr" fxFlex="30%" label="TERMINATION_DATE"></o-date-input>
-```
-
-<br/>
-
-Replace:
-```html
-<o-text-input attr="@SICK_LEAVE_CAUSE@" fxFlex="100" label="SICK_LEAVE_CAUSE"></o-text-input>
-```
-
-<br/>
-
-By:
-```html
-<o-text-input attr="yourattr" fxFlex="100" label="SICK_LEAVE_CAUSE"></o-text-input>
-```
-
-<br/>
-
 5. Configure the `o-table` inside the `mat-tab-group`, you must to modify the values between `@` for the inputs `attr`, `service`, `entity`, `parent-keys`, `keys`, `columns`, and `visible-columns`. For more information consult the following url https://ontimizeweb.github.io/docs/v15/components/data/table/overview
 
 <br/>
