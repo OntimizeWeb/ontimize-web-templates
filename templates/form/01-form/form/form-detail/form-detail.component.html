@@ -1,0 +1,95 @@
+<o-form #form attr="@customers_form_edit@" service="@customers@" entity="@customer@" keys="@CUSTOMERID@" class="fill-form" show-header="none"
+  columns="@CUSTOMERID;NAME;SURNAME;ADDRESS;PHONE;PHOTO@" keys-sql-types="@INTEGER@" (onDataLoaded)="onFormDataLoaded($event)">
+
+  <div fxLayout="row" class="card-row" fxLayoutAlign="space-between">
+    <div fxLayout="column" fxFlex="30px" class="collapse-button">
+      <o-button attr="collapse" type="ICON" icon="{{icon}}" layout-padding (click)="showInfo($event)"></o-button>
+    </div>
+
+    <div fxLayout="column" fxFlex fxLayoutAlign="start space-around" fxLayoutGap="8px" class="personal-data">
+      <span class="name">{{name}} {{surname}}</span>
+      <span class="address">{{address}}</span>
+      <span *ngIf="show" class="phone">{{phone}}</span>
+    </div>
+
+    <div fxLayout="column" fxFlex="56px" fxLayoutAlign="start center" fxLayoutGap="16px" class="avatar-icons">
+      <img class="avatar-image" [src]="getImageSrc(photo)">
+      <mat-icon *ngIf="show" fontIcon="info"></mat-icon>
+      <mat-icon *ngIf="show" fontIcon="location_on"></mat-icon>
+    </div>
+
+    <div fxFlex="70%" class="info-card" [ngClass]="{ 'expand': show, 'collapse': !show}">
+
+      <div fxLayout="column" fxFlex="16px" class="blue-bg"></div>
+
+      <div fxLayout="column" fxFlex="75%" class="file-data" fxLayoutGap="8px">
+
+        <div class="file-number-row" fxLayout="row" fxLayoutAlign="flex-start">
+          <div fxLayout="column" fxFlex="5%">
+            <mat-icon fontIcon="star" color="primary"></mat-icon>
+          </div>
+          <div fxLayout="column" fxFlex="65%">
+            <span>{{ 'FILE_NUMBER' | oTranslate}} {{id}}</span>
+          </div>
+          <div fxLayout="column" fxFlex="30%">
+            <o-text-input attr="@CREATOR@" [hidden]="!show" class="creator-input" label="CREATOR"></o-text-input>
+          </div>
+        </div>
+
+        <div *ngIf="show" fxLayout="row" fxLayoutAlign="space-between">
+          <o-date-input attr="@FILE_OPENING@" fxFlex="30%" label="FILE_OPENING"></o-date-input>
+          <o-date-input attr="@LAST_UPDATE@" fxFlex="30%" label="LAST_UPDATE"></o-date-input>
+          <o-date-input attr="@TERMINATION_DATE@" fxFlex="30%" label="TERMINATION_DATE"></o-date-input>
+        </div>
+
+        <div *ngIf="show" fxLayout="row">
+          <o-text-input attr="@SICK_LEAVE_CAUSE@" fxFlex="100" label="SICK_LEAVE_CAUSE"></o-text-input>
+        </div>
+
+        <div *ngIf="show" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="28px">
+          <div fxLayout="column" class="respon-zone">
+            <span>{{ 'RESPONSABLE' | oTranslate}}: {{name}}</span>
+          </div>
+          <div fxLayout="column" class="respon-zone">
+            <span>{{ 'ZONE' | oTranslate}}: {{address}}</span>
+          </div>
+        </div>
+
+        <div class="tags-row" fxLayout="row">
+          <span class="types-buttons">{{ 'PREVIOUS_APPOINTMENT' | oTranslate}}</span>
+          <span class="types-buttons">{{ 'CHILDREN_AND_FAMILY' | oTranslate}}</span>
+          <span class="types-buttons">{{ 'MIGRATIONS' | oTranslate}}</span>
+        </div>
+      </div>
+
+      <div fxLayout="column" fxFlex="22%" fxLayoutAlign="flex-start center">
+        <o-button label="ADD_TRACKING_SHEET" type="STROKED" class="file-actions-1" layout-padding></o-button>
+        <o-button *ngIf="show" label="CREATING_REQUEST" type="STROKED" class="file-actions" layout-padding></o-button>
+        <o-button *ngIf="show" label="ACCESS_TO_HSUE" type="STROKED" class="file-actions" layout-padding></o-button>
+      </div>
+    </div>
+  </div>
+
+  <div fxLayout="row" class="tab-group">
+    <mat-tab-group class="example-tab-group" fxFlex>
+      <mat-tab label="{{ 'FAMILY_MEMBERS' | oTranslate}}">
+        <o-table #accountsTable attr="@customer_accounts@" service="@customers@" entity="@customerAccount@" parent-keys="@CUSTOMERID@" keys="@ACCOUNTID@"
+          columns="@ACCOUNTID;ENTITYID;OFFICEID;CDID;ANID;ACCOUNT;BALANCE;CUSTOMERID;STARTDATE;ENDDATE@"
+          visible-columns="@ACCOUNT;BALANCE;STARTDATE;ENDDATE@" query-rows="20" delete-button="none">
+          <o-table-button attr="viewDealings" label="VIEW_DEALINGS" icon="autorenew"></o-table-button>
+          <o-table-button attr="viewResources" label="VIEW_RESOURCES" icon="autorenew"></o-table-button>
+          <o-table-column attr="ACCOUNT" title="ACCOUNT"></o-table-column>
+          <o-table-column attr="STARTDATE" title="STARTDATE" type="date" format="LL"></o-table-column>
+          <o-table-column attr="BALANCE" title="BALANCE" type="currency" currency-symbol="€" currency-symbol-position="right" thousand-separator="."
+            decimal-separator=",">
+          </o-table-column>
+          <o-table-column attr="ENDDATE" title="ENDDATE" type="date" format="LL"></o-table-column>
+        </o-table>
+      </mat-tab>
+      <mat-tab label="{{ 'OPERATIONS' | oTranslate}}"></mat-tab>
+      <mat-tab label="{{ 'EXAMPLE_TAB' | oTranslate}}"></mat-tab>
+      <mat-tab label="{{ 'EXAMPLE_TAB' | oTranslate}}"></mat-tab>
+    </mat-tab-group>
+  </div>
+
+</o-form>

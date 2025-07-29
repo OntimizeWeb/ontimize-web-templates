@@ -1,0 +1,21 @@
+{
+  "FILE_NUMBER": "File Nº",
+  "CREATOR": "Creator",
+  "FILE_OPENING": "File opening",
+  "LAST_UPDATE": "Last update",
+  "TERMINATION_DATE": "Termination date",
+  "SICK_LEAVE_CAUSE": "Cause of sick leave",
+  "ADD_TRACKING_SHEET": "Add tracking sheet",
+  "CREATING_REQUEST": "Creating request",
+  "ACCESS_TO_HSUE": "Access to HSUE",
+  "FAMILY_MEMBERS": "Family members",
+  "OPERATIONS": "Operations",
+  "EXAMPLE_TAB": "Example tab",
+  "PREVIOUS_APPOINTMENT": "Previous appointment",
+  "CHILDREN_AND_FAMILY": "Children and family",
+  "MIGRATIONS": "Migrations",
+  "RESPONSABLE": "Responsable",
+  "ZONE": "Zone",
+  "VIEW_DEALINGS": "View dealings",
+  "VIEW_RESOURCES": "View resources"
+}

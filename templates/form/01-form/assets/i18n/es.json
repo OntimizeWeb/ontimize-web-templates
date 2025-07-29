@@ -1,0 +1,21 @@
+{
+  "FILE_NUMBER": "Nº Expediente",
+  "CREATOR": "Creador",
+  "FILE_OPENING": "Apertura expediente",
+  "LAST_UPDATE": "Última modificación",
+  "TERMINATION_DATE": "Fecha baja",
+  "SICK_LEAVE_CAUSE": "Motivo baja",
+  "ADD_TRACKING_SHEET": "Añadir hoja seguimiento",
+  "CREATING_REQUEST": "Crear solicitud",
+  "ACCESS_TO_HSUE": "Acceso a HSUE",
+  "FAMILY_MEMBERS": "Parrilla familiar",
+  "OPERATIONS": "Intervenciones",
+  "EXAMPLE_TAB": "Pestaña de ejemplo",
+  "PREVIOUS_APPOINTMENT": "Cita previa",
+  "CHILDREN_AND_FAMILY": "Infancia y familia",
+  "MIGRATIONS": "Migraciones",
+  "RESPONSABLE": "Responsable",
+  "ZONE": "Zona",
+  "VIEW_DEALINGS": "Ver gestiones",
+  "VIEW_RESOURCES": "Ver recursos"
+}
