@@ -18,7 +18,7 @@ export class FormDetailComponent {
   public address: string;
   public phone: string;
   public id: number;
-  public photo: any;
+  public photo: string;
   public show: boolean;
   public icon: string;
 
