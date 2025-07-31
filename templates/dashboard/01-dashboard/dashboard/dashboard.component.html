@@ -1,0 +1,260 @@
+<div class="home-cards-container" fxFlexFill fxLayout="column" fxLayoutAlign="center start" fxLayoutGap="18px">
+  <div class="card-title" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px">
+    <mat-icon class="dashboard-icon">dashboard</mat-icon>
+    <span class="home-title">{{ 'dashboard' | oTranslate}}</span>
+  </div>
+  <div class="cards-grid">
+    <!-- Candidates card -->
+    <mat-card class="card-small">
+      <mat-card-header>
+        <mat-card-title>
+          <div class="card-title" fxLayout="row" fxLayoutAlign="start start">
+            <mat-icon class="card-icon">people</mat-icon>
+            <span class="card-name">{{ 'candidates' | oTranslate }}</span>
+          </div>
+        </mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content class="card-content">
+        <div fxLayout="column" fxLayoutGap="20px">
+          <div fxLayout="row" fxLayoutAlign="end center">
+            <span class="data-label-primary-cards">{{ this.candidatesAmounts.total }}</span>
+          </div>
+          <div fxLayout="row" fxLayoutGap="15px">
+            <div class="categories" fxLayout="column" fxFLex="30%" fxLayoutAlign="space-evenly">
+              <div fxLayout="row" fxLayoutAlign="start center">
+                <mat-icon>boy</mat-icon>
+                <span>{{ 'junior' | oTranslate }}</span>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="start center">
+                <mat-icon>directions_walk</mat-icon>
+                <span>{{ 'medium' | oTranslate }}</span>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="start center">
+                <mat-icon>attribution</mat-icon>
+                <span>{{ 'senior' | oTranslate }}</span>
+              </div>
+            </div>
+            <div fxLayout="column" fxFlex="50px" fxLayoutAlign="space-evenly">
+              <div fxLayout="row" fxLayoutAlign="start center">
+                <span class="blue1 dot"></span>
+                <span class="data-label-secondary">{{ filteredCandidates[1] }}</span>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="start center">
+                <span class="blue2 dot"></span>
+                <span class="data-label-secondary">{{ filteredCandidates[2] }}</span>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="start center">
+                <span class="blue3 dot"></span>
+                <span class="data-label-secondary">{{ filteredCandidates[3] }}</span>
+              </div>
+            </div>
+            <div fxLayout="column" fxFlex fxLayoutAlign="center end">
+              <o-chart #pieChart type="pie" [chart-parameters]="pieParams" translate="yes" [data]="candidatesData" [color]="colorScheme"
+                class="pieChart"></o-chart>
+            </div>
+          </div>
+
+        </div>
+
+      </mat-card-content>
+
+      <mat-card-actions align="end" class="card-action">
+        <a href="../link">{{ 'see_all' | oTranslate }}</a>
+      </mat-card-actions>
+    </mat-card>
+
+
+    <!-- Interviews card -->
+    <mat-card class="card-small">
+      <mat-card-header>
+        <mat-card-title>
+          <div class="card-title" fxLayout="row" fxLayoutAlign="start start">
+            <mat-icon class="card-icon">assignment_ind</mat-icon>
+            <span class="card-name">{{ 'interviews' | oTranslate}}</span>
+          </div>
+        </mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content class="card-content">
+        <div fxLayout="column" fxLayoutGap="20px">
+          <div fxLayout="row" fxLayoutAlign="end center">
+            <span class="data-label-primary-cards">{{ this.interviewsAmounts.total }}</span>
+          </div>
+          <div fxLayout="row" fxLayoutGap="15px">
+            <div class="categories" fxLayout="column" fxFLex="30%" fxLayoutAlign="space-evenly">
+              <div fxLayout="row" fxLayoutAlign="start center">
+                <mat-icon>diversity_3</mat-icon>
+                <span>{{ 'hr' | oTranslate }}</span>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="start center">
+                <mat-icon>manage_accounts</mat-icon>
+                <span>{{ 'management' | oTranslate }}</span>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="start center">
+                <mat-icon>square_foot</mat-icon>
+                <span>{{ 'technical' | oTranslate }}</span>
+              </div>
+            </div>
+            <div fxLayout="column" fxFlex="50px" fxLayoutAlign="space-evenly">
+              <div fxLayout="row" fxLayoutAlign="start center">
+                <span class="blue1 dot"></span>
+                <span class="data-label-secondary">{{ filteredInterviews[1] }}</span>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="start center">
+                <span class="blue2 dot"></span>
+                <span class="data-label-secondary">{{ filteredInterviews[2] }}</span>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="start center">
+                <span class="blue3 dot"></span>
+                <span class="data-label-secondary">{{ filteredInterviews[3] }}</span>
+              </div>
+            </div>
+            <div fxLayout="column" fxFlex fxLayoutAlign="center end">
+              <o-chart type="pie" [chart-parameters]="pieParams" translate="yes" [data]="interviewsData" [color]="colorScheme"
+                class="pieChart"></o-chart>
+            </div>
+          </div>
+
+        </div>
+
+      </mat-card-content>
+
+      <mat-card-actions align="end" class="card-action">
+        <a href="../link">{{ 'see_all' | oTranslate}} </a>
+      </mat-card-actions>
+    </mat-card>
+
+    <!-- Selection processes per priority -->
+    <mat-card class="card-small">
+      <mat-card-header>
+        <mat-card-title>
+          <div class="card-title" fxLayout="row" fxLayoutAlign="start start">
+            <mat-icon class="card-icon">assignment_ind</mat-icon>
+            <span class="card-name">{{ 'selection_processes_per_priority' | oTranslate}}</span>
+          </div>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="card-content">
+        <div fxLayout="column">
+          <div fxLayout="row" fxLayoutAlign="center center">
+            <span class="data-label">{{ this.selectionProcessesPerPriorityAmounts.total }}</span>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="center center">
+            <mat-progress-bar [value]='this.selectionProcessesPerPriorityAmounts.total' color="primary" mode="determinate">
+            </mat-progress-bar>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+            <div class="categories" fxLayout="column" fxLayoutAlign="space-evenly" fxLayoutGap="8px">
+              <span>{{ 'priority_high' | oTranslate }}</span>
+              <span>{{ 'priority_medium' | oTranslate }}</span>
+              <span>{{ 'priority_low' | oTranslate }}</span>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="space-evenly">
+              <div fxLayout="row" fxLayoutAlign="start center">
+                <span class="red dot"></span>
+                <span class="data-label-secondary">{{ filteredSelectionProcessesPriority[3] }}</span>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="start center">
+                <span class="yellow dot"></span>
+                <span class="data-label-secondary">{{ filteredSelectionProcessesPriority[2] }}</span>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="start center">
+                <span class="green dot"></span>
+                <span class="data-label-secondary">{{ filteredSelectionProcessesPriority[1] }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+
+      <mat-card-actions align="end" class="card-action">
+        <a href="../link">{{ 'see_all' | oTranslate}}</a>
+      </mat-card-actions>
+
+    </mat-card>
+
+    <!-- Selection processes card -->
+    <mat-card class="card-small">
+      <mat-card-header>
+        <mat-card-title>
+          <div class="card-title" fxLayout="row" fxLayoutAlign="start start">
+            <mat-icon class="card-icon">person_search</mat-icon>
+            <span class="card-name">{{ 'selectionprocesses' | oTranslate}}</span>
+          </div>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="card-content">
+        <div fxLayout="column" fxLayoutGap="10px">
+          <div fxLayout="row" fxLayoutAlign="center center">
+            <span class="label-before">{{ 'active' | oTranslate }}</span>
+            <span class="label-primary">{{ this.selectionProcessesAmounts.active + '/' + this.selectionProcessesAmounts.total }}</span>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+            <div class="categories" fxLayout="column" fxLayoutAlign="space-evenly" fxLayoutGap="8px">
+              <div fxLayout="row" fxLayoutAlign="start center">
+                <mat-icon>pending_actions</mat-icon>
+                <span>{{ 'pending' | oTranslate }}</span>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="start center">
+                <mat-icon>manage_history</mat-icon>
+                <span>{{ 'in_progress' | oTranslate }}</span>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="start center">
+                <mat-icon>check_circle</mat-icon>
+                <span>{{ 'completed' | oTranslate }}</span>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="start center">
+                <mat-icon>highlight_off</mat-icon>
+                <span>{{ 'cancelled' | oTranslate }}</span>
+              </div>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="space-evenly">
+              <div fxLayout="row" fxLayoutAlign="start center">
+                <span class="purple dot"></span>
+                <span class="data-label-secondary">{{ filteredSelectionProcesses[1] }}</span>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="start center">
+                <span class="orange dot"></span>
+                <span class="data-label-secondary">{{ filteredSelectionProcesses[2] }}</span>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="start center">
+                <span class="green dot"></span>
+                <span class="data-label-secondary">{{ filteredSelectionProcesses[3] }}</span>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="start center">
+                <span class="red dot"></span>
+                <span class="data-label-secondary">{{ filteredSelectionProcesses[4] }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+
+      <mat-card-actions align="end" class="card-action">
+        <a href="../link">{{ 'see_all' | oTranslate}}</a>
+      </mat-card-actions>
+    </mat-card>
+
+    <!-- Bar chart of interviews per score -->
+    <mat-card class="card-medium">
+      <mat-card-header>
+        <mat-card-title class="card-charts-title">{{ 'interviews_per_score' | oTranslate }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="card-content">
+        <o-chart type="discreteBar" x-axis="score" y-axis="id" [data]="barData" [chart-parameters]="barParams" [color]="colorScheme"
+          show-data-label="false" show-grid-lines="false"></o-chart>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Donut chart of selection processes per status -->
+    <mat-card class="card-medium">
+      <mat-card-header>
+        <mat-card-title class="card-charts-title">{{ 'selection_processes_per_status' | oTranslate }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="card-content">
+        <o-chart type="donutChart" [chart-parameters]="donutParams" translate="yes" [data]="donutData" [color]="colorScheme"></o-chart>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
