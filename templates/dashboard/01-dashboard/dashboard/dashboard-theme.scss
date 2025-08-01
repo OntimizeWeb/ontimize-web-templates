@@ -1,17 +1,14 @@
 @use '@angular/material' as mat;
-@use 'sass:map';
 
-@mixin home-theme($theme) {
-  $primary: map.get($theme, color, primary);
-  $accent: map-get($theme, color, accent);
-  $warn: map-get($theme, color, warn);
-  $background: map-get($theme, color, background);
+@mixin dashboard-theme($theme) {
+  $primary: map-get($theme, color, primary);
   $foreground: map-get($theme, color, foreground);
   $typography: map-get($theme, typography);
 
   .home-cards-container {
     .card-title {
       .home-title {
+        font-size: mat.font-size($typography, headline-5);
         color: mat.get-color-from-palette($foreground, button);
       }
     }
@@ -19,6 +16,7 @@
     .cards-grid {
       .categories {
         span {
+          font-size: mat.font-size($typography, subtitle-1);
           color: mat.get-color-from-palette($foreground, base);
         }
 
@@ -28,6 +26,7 @@
       }
 
       .card-action {
+        font-size: mat.font-size($typography, subtitle-1);
         color: mat.get-color-from-palette($primary, A400);
       }
 
@@ -74,7 +73,19 @@
         color: mat.get-color-from-palette($foreground, base);
       }
 
+      .data-label,
+      .label-before,
+      .label-primary,
+      .data-label-primary-cards {
+        font-size: mat.font-size($typography, headline-3);
+      }
+
+      .data-label-secondary {
+        font-size: mat.font-size($typography, headline-6);
+      }
+
       .card-title {
+        font-size: mat.font-size($typography, headline-6);
         color: mat.get-color-from-palette($foreground, button);
       }
 

@@ -70,7 +70,9 @@ export class DashboardComponent {
 
   private configureCharts() {
     let splitColor = '1464a5'.match(/.{1,2}/g).map(function (hex) { return parseInt(hex, 16); });
-    this.colorScheme = { domain: ['#1464a5', '#eeeeee', '#c5c5c5', 'rgba(' + splitColor[0] + ', ' + splitColor[1] + ', ' + splitColor[2] + ', 0.3)'] };
+    this.colorScheme = {
+      domain: ['#0E5293', '#377BB3', '#b9d1e4', 'rgba(' + splitColor[0] + ', ' + splitColor[1] + ', ' + splitColor[2] + ', 0.3)']
+    };
 
     this.donutParams = new DonutChartConfiguration();
     this.donutParams.showTooltip = true;

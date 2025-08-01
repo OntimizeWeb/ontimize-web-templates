@@ -1,12 +1,5 @@
 .home-cards-container {
 
-  .card-title {
-    .home-title {
-      font-size: 22px;
-      font-weight: 600;
-    }
-  }
-
   .cards-grid {
     overflow-x: hidden;
     display: grid;
@@ -24,9 +17,12 @@
       grid-column: span 2;
     }
 
+    .mat-mdc-card-content {
+      display: flex;
+      justify-content: center;
+    }
+
     .data-label {
-      font-size: 32px;
-      font-weight: 600;
       margin-top: 30px;
       white-space: nowrap;
       overflow: hidden;
@@ -36,8 +32,6 @@
     .label-before,
     .label-primary {
       margin-top: 30px;
-      font-size: 32px;
-      font-weight: 600;
     }
 
     mat-progress-bar {
@@ -50,8 +44,6 @@
     }
 
     .data-label-primary-cards {
-      font-size: 32px;
-      font-weight: 600;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -76,7 +68,6 @@
     }
 
     .card-title {
-      font-size: 18px;
       text-align: center;
 
       .card-icon {
@@ -90,23 +81,15 @@
         overflow: hidden;
         text-overflow: ellipsis;
         width: fit-content;
-        font-weight: 500;
       }
     }
 
     .card-action {
-      font-size: 14px;
-      font-weight: 400;
       margin-top: auto;
       margin-right: 16px;
     }
 
     .categories {
-      span {
-        font-size: 16px;
-        font-weight: 400;
-      }
-
       mat-icon {
         font-size: 20px;
         height: 20px;
@@ -126,6 +109,18 @@
         display: flex;
         justify-content: space-between;
         padding-bottom: 100px;
+      }
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .home-cards-container {
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr); // 2 columnas
+
+        .card-medium {
+          grid-column: span 2; // ocupa fila completa (2 columnas)
+        }
       }
     }
   }
