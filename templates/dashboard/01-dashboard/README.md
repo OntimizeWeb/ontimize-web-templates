@@ -174,7 +174,7 @@ export class MainRoutingModule { }
 ...
 @include ontimize-style.ontimize-theme-styles(theme.$theme);
 
-+ @import '../../app/dashboard/dashboard.theme.scss';
++ @import '../../app/main/dashboard/dashboard.theme.scss';
 
 
 @mixin app-themes($theme) {
