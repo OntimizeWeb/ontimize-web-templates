@@ -1,7 +1,7 @@
 @use '@angular/material' as mat;
 @use 'sass:map';
 
-@mixin home-theme($theme) {
+@mixin dashboard-theme($theme) {
   $primary: map.get($theme, color, primary);
   $accent: map-get($theme, color, accent);
   $warn: map-get($theme, color, warn);
