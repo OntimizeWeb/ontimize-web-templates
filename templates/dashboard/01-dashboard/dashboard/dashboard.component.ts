@@ -68,6 +68,36 @@ export class DashboardComponent {
     this.setInterviewsAmounts();
   }
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event: UIEvent) {
+    const realWidth = window.screen.width * window.devicePixelRatio;
+    if (realWidth >= 1920) {
+      document.body.classList.add("screen-1920-up");
+    } else {
+      document.body.classList.remove("screen-1920-up");
+    }
+    if (realWidth < 1920) {
+      document.body.classList.add("screen-1920-down");
+    } else {
+      document.body.classList.remove("screen-1920-down");
+    }
+  }
+
+  ngOnInit(): void {
+    const realWidth = window.screen.width * window.devicePixelRatio;
+    if (realWidth >= 1920) {
+      document.body.classList.add("screen-1920-up");
+    } else {
+      document.body.classList.remove("screen-1920-up");
+    }
+
+    if (realWidth < 1920) {
+      document.body.classList.add("screen-1920-down");
+    } else {
+      document.body.classList.remove("screen-1920-down");
+    }
+  }
+
   private configureCharts() {
     let splitColor = '1464a5'.match(/.{1,2}/g).map(function (hex) { return parseInt(hex, 16); });
     this.colorScheme = {

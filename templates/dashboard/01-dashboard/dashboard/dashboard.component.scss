@@ -4,7 +4,6 @@
     overflow-x: hidden;
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     grid-gap: 16px;
 
     .card-small,
@@ -99,10 +98,13 @@
       }
     }
   }
+}
 
-  @media(min-width: 1920px) and (min-height: 1080px) {
+.screen-1920-up {
+  .home-cards-container {
     .cards-grid {
       overflow: hidden;
+      grid-template-columns: repeat(4, minmax(400px, 1fr));
 
       .card-medium {
         height: 600px;
@@ -112,15 +114,15 @@
       }
     }
   }
+}
 
-  @media (min-width: 1280px) {
-    .home-cards-container {
-      .cards-grid {
-        grid-template-columns: repeat(2, 1fr); // 2 columnas
+.screen-1920-down {
+  .home-cards-container {
+    .cards-grid {
+      grid-template-columns: repeat(2, minmax(400px, 1fr));
 
-        .card-medium {
-          grid-column: span 2; // ocupa fila completa (2 columnas)
-        }
+      .card-medium {
+        grid-column: span 2; // ocupa fila completa (2 columnas)
       }
     }
   }
