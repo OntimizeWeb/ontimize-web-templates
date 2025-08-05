@@ -1,9 +1,10 @@
 .home-cards-container {
 
   .cards-grid {
-    overflow-x: hidden;
+    overflow-x: auto;
     display: grid;
     width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     grid-gap: 16px;
 
     .card-small,
@@ -95,34 +96,6 @@
         width: 20px;
         line-height: 20px;
         margin-right: 6px;
-      }
-    }
-  }
-}
-
-.screen-1920-up {
-  .home-cards-container {
-    .cards-grid {
-      overflow: hidden;
-      grid-template-columns: repeat(4, minmax(400px, 1fr));
-
-      .card-medium {
-        height: 600px;
-        display: flex;
-        justify-content: space-between;
-        padding-bottom: 100px;
-      }
-    }
-  }
-}
-
-.screen-1920-down {
-  .home-cards-container {
-    .cards-grid {
-      grid-template-columns: repeat(2, minmax(400px, 1fr));
-
-      .card-medium {
-        grid-column: span 2; // ocupa fila completa (2 columnas)
       }
     }
   }
