@@ -4,7 +4,7 @@
     overflow-x: auto;
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(50%, 50%));
     grid-gap: 16px;
 
     .card-small,
@@ -98,5 +98,12 @@
         margin-right: 6px;
       }
     }
+  }
+
+  @media (min-width: 1920px) {
+    .cards-grid {
+      grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+    }
+
   }
 }
