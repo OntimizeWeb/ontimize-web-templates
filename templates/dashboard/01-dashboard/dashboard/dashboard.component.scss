@@ -4,7 +4,7 @@
     overflow-x: auto;
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(auto-fit, minmax(50%, 50%));
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: 16px;
 
     .card-small,
@@ -102,7 +102,7 @@
 
   @media (min-width: 1920px) {
     .cards-grid {
-      grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+      grid-template-columns: repeat(4, 1fr);
     }
 
   }
