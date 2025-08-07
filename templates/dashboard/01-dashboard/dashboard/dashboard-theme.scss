@@ -1,0 +1,95 @@
+@use '@angular/material' as mat;
+
+@mixin dashboard-theme($theme) {
+  $primary: map-get($theme, color, primary);
+  $foreground: map-get($theme, color, foreground);
+  $typography: map-get($theme, typography);
+
+  .home-cards-container {
+    .card-title {
+      .home-title {
+        font-size: mat.font-size($typography, headline-5);
+        color: mat.get-color-from-palette($foreground, button);
+      }
+    }
+
+    .cards-grid {
+      .categories {
+        span {
+          font-size: mat.font-size($typography, subtitle-1);
+          color: mat.get-color-from-palette($foreground, base);
+        }
+
+        .mat-icon {
+          color: mat.get-color-from-palette($foreground, button);
+        }
+      }
+
+      .card-action {
+        font-size: mat.font-size($typography, subtitle-1);
+        color: mat.get-color-from-palette($primary, A400);
+      }
+
+      .blue1 {
+        background-color: mat.get-color-from-palette($primary, 700);
+      }
+
+      .blue2 {
+        background-color: mat.get-color-from-palette($primary, 400);
+      }
+
+      .blue3 {
+        background-color: mat.get-color-from-palette($primary, 100);
+      }
+
+      .red {
+        background-color: #E03133;
+      }
+
+      .yellow {
+        background-color: #FFC700;
+      }
+
+      .green {
+        background-color: #269F00;
+      }
+
+      .purple {
+        background-color: #744AE2;
+      }
+
+      .orange {
+        background-color: #FD7E24;
+      }
+
+      .label-primary {
+        color: mat.get-color-from-palette($primary, 500);
+      }
+
+      .data-label-primary-cards,
+      .data-label,
+      .label-before,
+      .data-label-secondary {
+        color: mat.get-color-from-palette($foreground, base);
+      }
+
+      .data-label,
+      .label-before,
+      .label-primary,
+      .data-label-primary-cards {
+        font-size: mat.font-size($typography, headline-3);
+      }
+
+      .data-label-secondary {
+        font-size: mat.font-size($typography, headline-6);
+      }
+
+      .card-title {
+        font-size: mat.font-size($typography, headline-6);
+        color: mat.get-color-from-palette($foreground, button);
+      }
+
+    }
+  }
+
+}
