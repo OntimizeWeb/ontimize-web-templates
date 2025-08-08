@@ -1,0 +1,75 @@
+.home-container {
+  overflow: auto;
+
+  .home-title {
+    .mat-icon {
+      font-size: 18px;
+      width: 18px;
+      height: 18px;
+      padding-left: 16px;
+    }
+  }
+
+  .home-content {
+    padding: 16px 40px;
+
+    .dashboard-alerts {
+      .dashboard-cards {
+        gap: 12px;
+
+        .dashboard-card {
+          padding: 16px;
+          border-radius: 8px;
+
+          .card-content {
+            .card-icon {
+              font-size: 36px;
+              height: 36px;
+              width: 36px;
+            }
+          }
+
+          .card-info {
+            .info-row {
+              .dot {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+              }
+            }
+          }
+
+          .info-row {
+            .total-number {
+              padding-top: 16px;
+            }
+
+            mat-progress-bar {
+              height: 10px;
+              width: 72px;
+              border-radius: 8px;
+            }
+          }
+        }
+      }
+
+      mat-expansion-panel {
+
+        .title {
+          margin-left: 12px;
+        }
+
+        .color-label {
+          display: inline-block;
+          align-content: center;
+          text-align: center;
+          width: 112px;
+          height: 28px;
+          border-radius: 16px;
+          padding: 4px 16px;
+        }
+      }
+    }
+  }
+
+}
