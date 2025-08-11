@@ -8,7 +8,7 @@
 
   .home-container {
 
-    .home-content {
+  .home-content {
       background-color: mat.get-color-from-palette($background, level-1);
 
       .categories-cards {
@@ -16,6 +16,11 @@
           font-size: mat.font-size($typography, headline-5);
           color: mat.get-color-from-palette($foreground, title);
         }
+
+        .o-card-menu-item .o-card-menu-item-content .o-card-menu-item-image-container .o-card-menu-item-icon {
+          color: mat.get-color-from-palette($foreground, icon);
+        }
+
       }
 
       .dashboard-alerts {
@@ -27,6 +32,8 @@
         .dashboard-cards {
 
           .dashboard-card {
+            background-color: mat.get-color-from-palette($background, background, 0.29);
+
             .card-title {
               font-size: mat.font-size($typography, headline-6);
               color: mat.get-color-from-palette($foreground, button);
@@ -81,6 +88,8 @@
         }
 
         mat-expansion-panel {
+          background-color: mat.get-color-from-palette($background, background, 0.29);
+
           .date {
             font-size: mat.font-size($typography, body-1);
             color: mat.get-color-from-palette($foreground, text);
@@ -111,4 +120,4 @@
     }
   }
 
-}
+  }
