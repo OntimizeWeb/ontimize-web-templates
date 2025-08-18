@@ -8,7 +8,7 @@
 
   .home-container {
 
-  .home-content {
+    .home-content {
       background-color: mat.get-color-from-palette($background, level-1);
 
       .categories-cards {
@@ -17,8 +17,16 @@
           color: mat.get-color-from-palette($foreground, title);
         }
 
-        .o-card-menu-item .o-card-menu-item-content .o-card-menu-item-image-container .o-card-menu-item-icon {
-          color: mat.get-color-from-palette($foreground, icon);
+        .o-card-menu-item {
+          background: mat.get-color-from-palette($background, level-08);
+
+          .o-card-menu-item-content .o-card-menu-item-main {
+            background-color: mat.get-color-from-palette($background, level-08);
+
+            .o-card-menu-item-image-container .o-card-menu-item-icon {
+              color: mat.get-color-from-palette($foreground, icon);
+            }
+          }
         }
 
       }
@@ -32,7 +40,9 @@
         .dashboard-cards {
 
           .dashboard-card {
-            background-color: mat.get-color-from-palette($background, background, 0.29);
+            background-color: mat.get-color-from-palette($background, level-08);
+            border: 1px solid;
+            border-color: mat.get-color-from-palette($primary, 0.17);
 
             .card-title {
               font-size: mat.font-size($typography, headline-6);
@@ -43,10 +53,6 @@
               .card-number {
                 font-size: mat.font-size($typography, headline-2);
                 color: mat.get-color-from-palette($foreground, icon);
-              }
-
-              .card-icon {
-                color: mat.get-color-from-palette($primary);
               }
             }
 
@@ -88,7 +94,9 @@
         }
 
         mat-expansion-panel {
-          background-color: mat.get-color-from-palette($background, background, 0.29);
+          background-color: mat.get-color-from-palette($background, level-08);
+          border: 1px solid;
+          border-color: mat.get-color-from-palette($primary, 0.17);
 
           .date {
             font-size: mat.font-size($typography, body-1);
@@ -111,13 +119,8 @@
           }
         }
 
-        .link {
-          font-size: mat.font-size($typography, body-1);
-          color: mat.get-color-from-palette($primary, 700);
-        }
-
       }
     }
   }
 
-  }
+}

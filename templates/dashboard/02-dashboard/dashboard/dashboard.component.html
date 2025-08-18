@@ -19,7 +19,7 @@
         <mat-card class="dashboard-card" fxFlex="1 1 auto" fxLayout="column" fxLayoutGap="24px">
           <div fxLayout="row" class="card-title">{{'PENDING_INSPECTIONS' | oTranslate}}</div>
           <div fxLayout="row" class="card-content" fxFlex fxLayoutAlign="center center" fxLayoutGap="32px">
-            <mat-icon class="card-icon">description</mat-icon>
+            <mat-icon class="card-icon" color="primary">description</mat-icon>
             <div class="card-number">{{ candidatesAmounts.total }}</div>
           </div>
         </mat-card>
@@ -27,7 +27,7 @@
         <mat-card class="dashboard-card" fxFlex="1 1 auto" fxLayout="column" fxLayoutGap="24px">
           <div fxLayout="row" class="card-title">{{'ACTIVE_EQUIPMENT' | oTranslate}}</div>
           <div fxLayout="row" class="card-content" fxFlex fxLayoutAlign="center center" fxLayoutGap="32px">
-            <mat-icon class="card-icon">home_repair_service</mat-icon>
+            <mat-icon class="card-icon" color="primary">home_repair_service</mat-icon>
             <div class="card-number">{{ interviewsAmounts.total }}</div>
           </div>
         </mat-card>
@@ -110,8 +110,8 @@
           Praesent auctor efficitur est eu suscipit.</p>
         <span class="color-label">Revisión</span>
       </mat-expansion-panel>
-      <div fxLayout="row" class="link" fxLayoutAlign="flex-end">
-        <a href="../link">{{ 'SEE_ALL' | oTranslate }}</a>
+      <div fxLayout="row" fxLayoutAlign="flex-end">
+        <o-button label="SEE_ALL" type="BASIC" (click)="navigate()">{{ 'SEE_ALL' | oTranslate }}</o-button>
       </div>
     </div>
   </div>

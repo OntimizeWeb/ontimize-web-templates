@@ -59,7 +59,7 @@ export class DashboardComponent {
   }
 
   navigate() {
-    this.router.navigate(['../', 'login'], { relativeTo: this.actRoute });
+    this.router.navigate(['../', 'candidates'], { relativeTo: this.actRoute });
   }
 
 }
