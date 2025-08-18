@@ -49,12 +49,18 @@ export const customProviders: any = [
 
 <br/>
 
-- 3.2. Configure `href` attribute in `a` element with your values.
+- 3.2. Configure `(click)` attribute in `o-button` element with your method on `dashboard.component.ts`.
 
 <br/>
 
 ```html
-<a href="../link">{{ 'SEE_ALL' | oTranslate }}</a>
+<o-button label="SEE_ALL" type="BASIC" (click)="navigate()"></o-button>
+```
+
+```js
+navigate() {
+    this.router.navigate(['../', 'candidates'], { relativeTo: this.actRoute });
+  }
 ```
 
 <br/>
