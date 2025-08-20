@@ -2,7 +2,7 @@
 
 <br/>
 
-1. Download and put `dashboard` folder in src/app/main/, `i18n` and `css` into assets/ and `pipes` in src/app or in src/app/shared if you have it.
+1. Download and put `dashboard` folder in src/app/main/, `i18n` and `css` into assets/ and `pipes` in src/app/shared.
 
 <br/>
 
@@ -11,8 +11,6 @@
     ├───app
     |   ├───main
     |   |   └───dashboard
-    |   ├───pipes
-------------(or)-----------
     |   ├───shared
     |   |   └───pipes
     │   ├───...
@@ -162,7 +160,7 @@ By:
 
 <br/>
 
-8. Configure the pipe in your `app.module.ts` or in your `shared.module.ts`, in case you have it, adding the next lines.
+8. Configure the pipe in your `shared.module.ts` adding the next lines.
 
 <br/>
 
