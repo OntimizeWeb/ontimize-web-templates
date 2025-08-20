@@ -2,7 +2,7 @@
 
 <br/>
 
-1. Download and put `dashboard` folder in src/app/main/ and `i18n` and `css` into assets/
+1. Download and put `dashboard` folder in src/app/main/, `i18n` and `css` into assets/ and `pipes` in src/app or in src/app/shared if you have it.
 
 <br/>
 
@@ -11,6 +11,10 @@
     ├───app
     |   ├───main
     |   |   └───dashboard
+    |   ├───pipes
+------------(or)-----------
+    |   ├───shared
+    |   |   └───pipes
     │   ├───...
     │   │
     ├───assets
@@ -39,7 +43,7 @@ export const customProviders: any = [
 
 3. In `dashboard.component.html`:
 
-- 3.1. Configure `parent-menu-id` attribute in `o-card-menu-layout` element with the corresponding value you have in your `app.menu.config.ts`. For more information, consult the following URL https://ontimizeweb.github.io/docs/v15/components/menu/cardmenulayout/overview
+- 3.1. Configure `parent-menu-id` attribute in `o-card-menu-layout` element with the corresponding value you have in your `app.menu.config.ts`. This attribute is not mandatory so you could create your `o-card-menu-layout` with any data you prefer. For more information, consult the following URL https://ontimizeweb.github.io/docs/v15/components/menu/cardmenulayout/overview
 
 <br/>
 
@@ -105,10 +109,11 @@ export class MainRoutingModule { }
 
 <br/>
 
+Replace:
+
 ```scss
 @use 'theme.scss' as theme;
-// @use 'ontimize-web-ngx/theming/themes/ontimize.scss' as theme;
-@use './custom-theme.scss' as theme;
+@use 'ontimize-web-ngx/theming/themes/ontimize.scss' as theme;
 ...
 @include ontimize-style.ontimize-theme-styles(theme.$theme);
 
@@ -127,21 +132,64 @@ export class MainRoutingModule { }
 ...
 }
 
-/*
-* Propagate theme to screen styles definition.
-*/
-@include app-themes(theme.$theme);
-
-
-/*
-* Other app styles
-*/
-
+...
 ```
 
-## LEARN MORE
+By:
+
+```scss
+@use 'theme.scss' as theme;
+@use './custom-theme.scss' as theme;
+...
+@include ontimize-style.ontimize-theme-styles(theme.$theme);
+
++ @import '../../app/main/dashboard/dashboard.theme.scss';
+
+
+@mixin app-themes($theme) {
+...
++ @include dashboard-theme($theme);
+...
+}
+
+.o-dark {
+...
+  + @include app-themes(theme.$dark-theme);
+...
+}
+...
+```
 
 <br/>
+
+8. Configure the pipe in your `app.module.ts` or in your `shared.module.ts`, in case you have it, adding the next lines.
+
+<br/>
+
+```js
+...
++ import { DecimalPipe } from '@angular/common';
++ import { ShortNumberPipe } from './pipes/short-number.pipe';
+...
+
+@NgModule({
+  ...
+  declarations: [
+    ...
+    ShortNumberPipe
+  ],
+  exports: [
+    ...
+    ShortNumberPipe
+  ],
+  providers: [DecimalPipe]
+})
+export class SharedModule { }
+```
+
+<br/>
+
+## LEARN MORE
 
 * **Dark and light mode** https://ontimizeweb.github.io/docs/v15/customize/theming/#dark-and-light-primary-variants
 

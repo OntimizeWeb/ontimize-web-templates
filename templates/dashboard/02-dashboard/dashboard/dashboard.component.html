@@ -3,44 +3,44 @@
     <mat-icon>home</mat-icon>
   </div>
   <div class="home-content" fxLayout="row" fxFlex fxLayoutGap="80px">
-    <div class="categories-cards" fxLayout="column" fxFlex="40%" fxLayoutGap="24px">
+    <div class="categories-cards" fxLayout="column" fxFlex="45%" fxLayoutGap="24px">
       <div class="column-title" fxLayout="row">
         <span><strong>{{'CATEGORIES' | oTranslate}}</strong></span>
       </div>
       <div class="column-content">
-        <o-card-menu-layout parent-menu-id="@candidatesMenu@"></o-card-menu-layout>
+        <o-card-menu-layout parent-menu-id="candidatesMenu"></o-card-menu-layout>
       </div>
     </div>
-    <div class="dashboard-alerts" fxLayout="column" fxFlex="60%" fxLayoutGap="24px">
-      <div class="column-title" fxLayout="row">
+    <div class="dashboard-alerts" fxLayout="column" fxFlex="55%" fxLayoutGap="24px">
+      <div class="column-title" fxLayout="row" fxFlex="35px">
         <span><strong>{{'DASHBOARD' | oTranslate}}</strong></span>
       </div>
-      <div class="dashboard-cards" fxLayout="row wrap" fxLayoutGap="32px">
-        <mat-card class="dashboard-card" fxFlex="1 1 auto" fxLayout="column" fxLayoutGap="24px">
+      <div class="dashboard-cards" fxLayout="row" fxLayout.lg="row wrap" fxLayoutAlign="space-between">
+        <mat-card class="dashboard-card" fxFlex="28%" fxFlex.lg="48%" fxLayout="column" fxLayoutGap="24px">
           <div fxLayout="row" class="card-title">{{'PENDING_INSPECTIONS' | oTranslate}}</div>
-          <div fxLayout="row" class="card-content" fxFlex fxLayoutAlign="center center" fxLayoutGap="32px">
+          <div fxLayout="row" class="card-content" fxFlex fxLayoutAlign="center flex-end" fxLayoutGap="16px">
             <mat-icon class="card-icon" color="primary">description</mat-icon>
-            <div class="card-number">{{ candidatesAmounts.total }}</div>
+            <span class="card-number" [matTooltip]="candidatesAmounts.total">{{candidatesAmounts.total | shortNumber}}</span>
           </div>
         </mat-card>
 
-        <mat-card class="dashboard-card" fxFlex="1 1 auto" fxLayout="column" fxLayoutGap="24px">
+        <mat-card class="dashboard-card" fxFlex="28%" fxFlex.lg="48%" fxLayout="column" fxLayoutGap="24px">
           <div fxLayout="row" class="card-title">{{'ACTIVE_EQUIPMENT' | oTranslate}}</div>
-          <div fxLayout="row" class="card-content" fxFlex fxLayoutAlign="center center" fxLayoutGap="32px">
+          <div fxLayout="row" class="card-content" fxFlex fxLayoutAlign="center flex-end" fxLayoutGap="16px">
             <mat-icon class="card-icon" color="primary">home_repair_service</mat-icon>
-            <div class="card-number">{{ interviewsAmounts.total }}</div>
+            <span class="card-number" [matTooltip]="5468995">{{5468995 | shortNumber}}</span>
           </div>
         </mat-card>
 
-        <mat-card class="dashboard-card" fxFlex="0 1 auto" fxLayout="column">
-          <div fxLayout="row" fxLayoutGap="48px">
-            <div fxLayout="column" fxLayoutGap="24px">
-              <div class="card-title" fxLayout="row">{{'REPORTS' | oTranslate}}</div>
+        <mat-card class="dashboard-card" fxFlex fxLayout="column">
+          <div class="card-title" fxLayout="row" fxLayoutAlign="flex-start">{{'REPORTS' | oTranslate}}</div>
+          <div fxLayout="row" fxLayoutGap="24px" fxLayoutAlign="center" fxLayoutGap.lg="56px">
+            <div fxLayout="column" fxLayoutAlign="flex-end" fxLayoutGap="24px">
               <div class="card-info" fxLayout="row" fxLayoutGap="24px">
                 <div class="info-row" fxLayout="column" fxLayoutAlign="center center">
                   <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="4px">
                     <span class="dot dot-done"></span>
-                    <span class="info-number">60</span>
+                    <span class="info-number" [matTooltip]="interviewsAmounts.total">{{interviewsAmounts.total | shortNumber}}</span>
                   </div>
                   <div fxLayout="row" fxLayoutAlign="center center">
                     <span class="info-label">{{'COMPLETED' | oTranslate}}</span>
@@ -49,7 +49,7 @@
                 <div class="info-row" fxLayout="column" fxLayoutAlign="center center">
                   <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="4px">
                     <span class="dot dot-pending"></span>
-                    <span class="info-number">40</span>
+                    <span class="info-number" [matTooltip]="999">{{999 | shortNumber}}</span>
                   </div>
                   <div fxLayout="row" fxLayoutAlign="center center">
                     <span class="info-label">{{'PENDING' | oTranslate}}</span>
@@ -59,7 +59,7 @@
             </div>
             <div class="info-row" fxLayout="column" fxLayoutAlign="flex-start center">
               <div fxLayout="row" fxFlex="58px" fxLayoutAlign="center center">
-                <span class="total-number">100</span>
+                <span class="total-number" [matTooltip]="18945">{{18945 | shortNumber}}</span>
               </div>
               <div fxLayout="row" fxFlex="16px">
                 <mat-progress-bar mode="determinate" value="60" class="progress-realizados"></mat-progress-bar>
@@ -71,48 +71,66 @@
           </div>
         </mat-card>
       </div>
-      <div class="column-title" fxLayout="row">
+
+      <div class="column-title" fxLayout="row" fxFlex="35px">
         <span><strong>{{'NOTIFICATIONS' | oTranslate}}</strong></span>
       </div>
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            <span class="date">24/08/2024</span>
-            <span class="title">INSPECCIÓN EQUIPO AC - A CORUÑA</span>
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pulvinar tristique eros.
-          Sed quis orci id tellus tempus tempor. Fusce ultrices lorem id dictum viverra. Ut mollis id mi mollis feugiat.
-          Praesent auctor efficitur est eu suscipit.</p>
-        <span class="color-label">Inspección</span>
-      </mat-expansion-panel>
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            <span class="date">05/06/2024</span>
-            <span class="title">REVISIÓN EQUIPOS ELEVADORES</span>
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pulvinar tristique eros.
-          Sed quis orci id tellus tempus tempor. Fusce ultrices lorem id dictum viverra. Ut mollis id mi mollis feugiat.
-          Praesent auctor efficitur est eu suscipit.</p>
-        <span class="color-label">Revisión</span>
-      </mat-expansion-panel>
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            <span class="date">15/04/2024</span>
-            <span class="title">REVISIÓN ANUAL EXTINTORES</span>
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pulvinar tristique eros.
-          Sed quis orci id tellus tempus tempor. Fusce ultrices lorem id dictum viverra. Ut mollis id mi mollis feugiat.
-          Praesent auctor efficitur est eu suscipit.</p>
-        <span class="color-label">Revisión</span>
-      </mat-expansion-panel>
-      <div fxLayout="row" fxLayoutAlign="flex-end">
-        <o-button label="SEE_ALL" type="BASIC" (click)="navigate()"></o-button>
+      <div class="notifications-panel" fxLayout="row" fxFlex fxFlex.lg>
+        <div fxLayout="column" fxFlexFill fxLayoutGap="16px">
+          <div fxLayout="row">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <span class="date">24/08/2024</span>
+                  <span class="title">INSPECCIÓN EQUIPO AC - A CORUÑA</span>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pulvinar tristique eros.
+                Sed quis orci id tellus tempus tempor. Fusce ultrices lorem id dictum viverra. Ut mollis id mi mollis feugiat.
+                Praesent auctor efficitur est eu suscipit.</p>
+              <span class="color-label">Inspección</span>
+            </mat-expansion-panel>
+          </div>
+          <div fxLayout="row">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <span class="date">05/06/2024</span>
+                  <span class="title">REVISIÓN EQUIPOS ELEVADORES</span>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pulvinar tristique eros.
+                Sed quis orci id tellus tempus tempor. Fusce ultrices lorem id dictum viverra. Ut mollis id mi mollis feugiat.
+                Praesent auctor efficitur est eu suscipit.</p>
+              <span class="color-label">Revisión</span>
+            </mat-expansion-panel>
+          </div>
+          <div fxLayout="row">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <span class="date">15/04/2024</span>
+                  <span class="title">REVISIÓN ANUAL EXTINTORES</span>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pulvinar tristique eros.
+                Sed quis orci id tellus tempus tempor. Fusce ultrices lorem id dictum viverra. Ut mollis id mi mollis feugiat.
+                Praesent auctor efficitur est eu suscipit.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pulvinar tristique eros.
+                Sed quis orci id tellus tempus tempor. Fusce ultrices lorem id dictum viverra. Ut mollis id mi mollis feugiat.
+                Praesent auctor efficitur est eu suscipit.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pulvinar tristique eros.
+                Sed quis orci id tellus tempus tempor. Fusce ultrices lorem id dictum viverra. Ut mollis id mi mollis feugiat.
+                Praesent auctor efficitur est eu suscipit.</p>
+              <span class="color-label">Revisión</span>
+            </mat-expansion-panel>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="flex-end">
+            <o-button label="SEE_ALL" type="BASIC" (click)="navigate()"></o-button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
 </div>
