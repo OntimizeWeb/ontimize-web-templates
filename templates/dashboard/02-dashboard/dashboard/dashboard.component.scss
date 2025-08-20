@@ -55,7 +55,6 @@
       }
 
       .notifications-panel {
-        overflow-y: auto;
 
         mat-expansion-panel {
           .title {
@@ -82,5 +81,13 @@
     @media (max-width: 1919px) {
       overflow: auto;
     }
+
+    @media (min-width: 1920px) {
+      .notifications-panel {
+        overflow-y: auto;
+      }
+    }
   }
+
+
 }
