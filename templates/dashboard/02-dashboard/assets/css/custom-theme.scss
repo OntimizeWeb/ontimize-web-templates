@@ -1,0 +1,65 @@
+@use '@angular/material' as mat;
+@use 'node_modules/ontimize-web-ngx/theming/ontimize-style.scss' as ontimize-style;
+
+/* Color definitions */
+$mat-custom-primary: (
+  50 : #E0EBDA,
+  100 : #BDCFB2,
+  200 : #ABC19E,
+  300 : #88A475,
+  400 : #64884D,
+  500 : #416C25,
+  600 : #34561E,
+  700 : #274116,
+  800 : #1A2B0F,
+  900 : #14200B,
+  A100: #6EC733,
+  A200: #47B500,
+  A400: #47B500,
+  A700: #3C6B1D,
+  contrast: (50 : #000000, 100 : #000000, 200 : #000000, 300 : #000000, 400 : #ffffff, 500 : #ffffff, 600 : #ffffff, 700 : #ffffff, 800 : #ffffff, 900 : #ffffff, A100 : #000000, A200 : #000000, A400 : #ffffff, A700 : #ffffff)
+);
+
+/* Color definitions */
+$mat-custom-primary-dark: (
+  50 : #14200B,
+  100: #1A2B0F,
+  200: #274116,
+  300: #34561E,
+  400: #416C25,
+  500: #64884D,
+  600: #88A475,
+  700: #ABC19E,
+  800: #BDCFB2,
+  900: #E0EBDA,
+  A100: #6EC733,
+  F A200: #47B500,
+  A400: #47B500,
+  A700: #3C6B1D,
+  contrast: (50 : #ffffff,
+    100: #ffffff,
+    200: #ffffff,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000)
+);
+
+// Define a theme.
+$primary: mat.define-palette($mat-custom-primary);
+$accent: $primary;
+$primary-dark: mat.define-palette($mat-custom-primary-dark);
+$accent-dark: $primary-dark;
+
+/* Light theme */
+$theme: ontimize-style.o-mat-light-theme($primary, $accent);
+
+/* Dark theme */
+$dark-theme: ontimize-style.o-mat-dark-theme($primary-dark, $accent-dark);
