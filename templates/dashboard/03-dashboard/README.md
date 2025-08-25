@@ -76,41 +76,21 @@ export class MainRoutingModule { }
 
 ```js
 ...
-+ import { DecimalPipe } from '@angular/common';
 + import { ShortNumberPipe } from './pipes/short-number.pipe';
-+ import { LongNumberPipe } from './pipes/long-number.pipe';
 ...
 
 @NgModule({
   ...
   declarations: [
     ...
-    ShortNumberPipe,
-    LongNumberPipe
+    ShortNumberPipe
   ],
   exports: [
     ...
-    ShortNumberPipe,
-    LongNumberPipe
-  ],
-  providers: [DecimalPipe]
+    ShortNumberPipe
+  ]
 })
 export class SharedModule { }
-```
-
-<br/>
-
-6. Register locale ES in your `app.module.ts` adding this lines.
-
-<br/>
-
-```js
-...
-+ import localeEs from '@angular/common/locales/es';
-+ import { registerLocaleData } from '@angular/common';
-
-+ registerLocaleData(localeEs);
-...
 ```
 
 <br/>

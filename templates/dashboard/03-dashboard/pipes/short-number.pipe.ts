@@ -1,6 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { DecimalPipe } from '@angular/common';
-import { OTranslateService } from 'ontimize-web-ngx';
+import { NumberService } from 'ontimize-web-ngx';
 
 @Pipe({
   name: 'shortNumber',
@@ -8,34 +7,37 @@ import { OTranslateService } from 'ontimize-web-ngx';
 })
 export class ShortNumberPipe implements PipeTransform {
 
-  constructor(private decimal: DecimalPipe, private translate: OTranslateService) { }
+  constructor(private numberService: NumberService) { }
 
-  transform(value: number | null | undefined): string {
-
+  transform(value: number | null | undefined, decimals: number = 0): string {
     if (value === null || value === undefined) return '';
 
-    let lang = this.translate.getCurrentLang();
-    lang = lang === 'es' ? 'es-ES' : 'en-US';
-
     const unitMap: Record<string, string[]> = {
-      'es-ES': [' mil', ' M', ' mil M', ' B'],
-      'en-US': [' k', ' M', ' B', ' T']
+      'es': [' mil', ' M', ' mil M', ' B'],
+      'en': [' k', ' M', ' B', ' T']
     };
 
+    const locale = this.numberService['locale'] || 'en';
+    const units = unitMap[locale] || unitMap['en'];
+
     if (value < 1000) {
-      return this.decimal.transform(value, '1.0-0', lang) ?? String(value);
+      return this.numberService.getIntegerValue(value, { locale });
     }
 
-    let units = unitMap[lang];
-    let unitIndex = 0;
     let num = value;
+    let unitIndex = 0;
 
     while (num >= 1000 && unitIndex < units.length - 1) {
       num /= 1000;
       unitIndex++;
     }
 
-    const formatted = this.decimal.transform(num, `1.0-1`, lang);
+    const formatted = this.numberService.getRealValue(num, {
+      locale,
+      minDecimalDigits: decimals,
+      maxDecimalDigits: decimals
+    });
+
     return `${formatted}${units[unitIndex]}`;
   }
 }
