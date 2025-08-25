@@ -179,25 +179,9 @@ By:
   exports: [
     ...
     ShortNumberPipe
-  ],
-  providers: [DecimalPipe]
+  ]
 })
 export class SharedModule { }
-```
-
-<br/>
-
-9. Register locale ES in your `app.module.ts` adding this lines.
-
-<br/>
-
-```js
-...
-+ import localeEs from '@angular/common/locales/es';
-+ import { registerLocaleData } from '@angular/common';
-
-+ registerLocaleData(localeEs);
-...
 ```
 
 <br/>
