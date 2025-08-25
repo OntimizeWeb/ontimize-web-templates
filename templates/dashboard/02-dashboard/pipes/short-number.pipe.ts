@@ -10,7 +10,7 @@ export class ShortNumberPipe implements PipeTransform {
 
   constructor(private decimal: DecimalPipe, private translate: OTranslateService) { }
 
-  transform(value: number | null | undefined): string {
+  transform(value: number | null | undefined, decimals: number): string {
 
     if (value === null || value === undefined) return '';
 
@@ -35,7 +35,7 @@ export class ShortNumberPipe implements PipeTransform {
       unitIndex++;
     }
 
-    const formatted = this.decimal.transform(num, `1.0-1`, lang);
+    const formatted = this.decimal.transform(num, `1.0-${decimals}`, lang);
     return `${formatted}${units[unitIndex]}`;
   }
 }
