@@ -166,7 +166,6 @@ By:
 
 ```js
 ...
-+ import { DecimalPipe } from '@angular/common';
 + import { ShortNumberPipe } from './pipes/short-number.pipe';
 ...
 
@@ -179,8 +178,7 @@ By:
   exports: [
     ...
     ShortNumberPipe
-  ],
-  providers: [DecimalPipe]
+  ]
 })
 export class SharedModule { }
 ```

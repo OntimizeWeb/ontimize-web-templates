@@ -3,7 +3,7 @@
     <mat-icon>home</mat-icon>
   </div>
   <div class="home-content" fxLayout="row" fxFlex fxLayoutGap="80px">
-    <div class="categories-cards" fxLayout="column" fxFlex="45%" fxLayoutGap="24px">
+    <div class="categories-cards" fxLayout="column" fxFlex="40%" fxLayoutGap="24px">
       <div class="column-title" fxLayout="row">
         <span><strong>{{'CATEGORIES' | oTranslate}}</strong></span>
       </div>
@@ -11,7 +11,7 @@
         <o-card-menu-layout parent-menu-id="candidatesMenu"></o-card-menu-layout>
       </div>
     </div>
-    <div class="dashboard-alerts" fxLayout="column" fxFlex="55%" fxLayoutGap="24px">
+    <div class="dashboard-alerts" fxLayout="column" fxFlex fxLayoutGap="24px">
       <div class="column-title" fxLayout="row" fxFlex="35px">
         <span><strong>{{'DASHBOARD' | oTranslate}}</strong></span>
       </div>
@@ -20,7 +20,7 @@
           <div fxLayout="row" class="card-title">{{'PENDING_INSPECTIONS' | oTranslate}}</div>
           <div fxLayout="row" class="card-content" fxFlex fxLayoutAlign="center flex-end" fxLayoutGap="16px">
             <mat-icon class="card-icon" color="primary">description</mat-icon>
-            <span class="card-number" [matTooltip]="candidatesAmounts.total">{{candidatesAmounts.total | shortNumber}}</span>
+            <span class="card-number" [matTooltip]="candidatesAmounts.total">{{candidatesAmounts.total | shortNumber:0}}</span>
           </div>
         </mat-card>
 
@@ -28,7 +28,7 @@
           <div fxLayout="row" class="card-title">{{'ACTIVE_EQUIPMENT' | oTranslate}}</div>
           <div fxLayout="row" class="card-content" fxFlex fxLayoutAlign="center flex-end" fxLayoutGap="16px">
             <mat-icon class="card-icon" color="primary">home_repair_service</mat-icon>
-            <span class="card-number" [matTooltip]="5468995">{{5468995 | shortNumber}}</span>
+            <span class="card-number" [matTooltip]="5468995">{{5468995 | shortNumber:2}}</span>
           </div>
         </mat-card>
 
@@ -40,7 +40,7 @@
                 <div class="info-row" fxLayout="column" fxLayoutAlign="center center">
                   <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="4px">
                     <span class="dot dot-done"></span>
-                    <span class="info-number" [matTooltip]="interviewsAmounts.total">{{interviewsAmounts.total | shortNumber}}</span>
+                    <span class="info-number" [matTooltip]="interviewsAmounts.total">{{interviewsAmounts.total | shortNumber:0}}</span>
                   </div>
                   <div fxLayout="row" fxLayoutAlign="center center">
                     <span class="info-label">{{'COMPLETED' | oTranslate}}</span>
@@ -49,7 +49,7 @@
                 <div class="info-row" fxLayout="column" fxLayoutAlign="center center">
                   <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="4px">
                     <span class="dot dot-pending"></span>
-                    <span class="info-number" [matTooltip]="999">{{999 | shortNumber}}</span>
+                    <span class="info-number" [matTooltip]="999">{{999 | shortNumber:0}}</span>
                   </div>
                   <div fxLayout="row" fxLayoutAlign="center center">
                     <span class="info-label">{{'PENDING' | oTranslate}}</span>
@@ -59,7 +59,7 @@
             </div>
             <div class="info-row" fxLayout="column" fxLayoutAlign="flex-start center">
               <div fxLayout="row" fxFlex="58px" fxLayoutAlign="center center">
-                <span class="total-number" [matTooltip]="18945">{{18945 | shortNumber}}</span>
+                <span class="total-number" [matTooltip]="18945">{{18945 | shortNumber:1}}</span>
               </div>
               <div fxLayout="row" fxFlex="16px">
                 <mat-progress-bar mode="determinate" value="60" class="progress-realizados"></mat-progress-bar>
