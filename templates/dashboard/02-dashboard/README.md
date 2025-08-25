@@ -166,7 +166,6 @@ By:
 
 ```js
 ...
-+ import { DecimalPipe } from '@angular/common';
 + import { ShortNumberPipe } from './pipes/short-number.pipe';
 ...
 
