@@ -194,5 +194,3 @@ export class SharedModule { }
 * **Card Menu Layout** https://ontimizeweb.github.io/docs/v15/components/menu/cardmenulayout/overview
 
 * **Ontimize SCSS surface classes** https://ontimizeweb.github.io/docs/v15/customize/style-guide/#surfaces
-
-* **DecimalPipe** https://v15.angular.io/api/common/DecimalPipe
