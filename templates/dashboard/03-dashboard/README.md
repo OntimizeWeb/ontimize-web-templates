@@ -102,5 +102,3 @@ export class SharedModule { }
 - **OTranslateService** <https://ontimizeweb.github.io/docs/v15/guide/otranslateservice/overview>
 
 - **Ontimize SCSS surface classes** <https://ontimizeweb.github.io/docs/v15/customize/style-guide/#surfaces>
-
-- **DecimalPipe** <https://v15.angular.io/api/common/DecimalPipe>
