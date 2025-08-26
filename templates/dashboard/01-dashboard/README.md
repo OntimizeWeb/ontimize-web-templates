@@ -164,7 +164,7 @@ export class MainRoutingModule { }
 
 <br/>
 
-7. To configure the theme on the form component it is necessary to include `dashboard.theme.scss` in `app.scss`
+7. To configure the theme on the dashboard component it is necessary to include `dashboard.theme.scss` in `app.scss`
 
 <br/>
 
