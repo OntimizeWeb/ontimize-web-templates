@@ -26,7 +26,7 @@
                 </mat-card-title>
               </mat-card-header>
               <mat-card-content>
-                <div fxLayout="row" fxLayoutGap="12px" fxLayoutAlign="start center">
+                <div fxLayout="row" fxLayoutAlign="start center">
                   <mat-icon>groups</mat-icon>
                   <span class="number-data" [matTooltip]="candidatesAmounts.total">{{candidatesAmounts.total | shortNumber:0}}</span>
                 </div>
@@ -41,7 +41,7 @@
                 </mat-card-title>
               </mat-card-header>
               <mat-card-content>
-                <div fxLayout="row" fxLayoutGap="12px" fxLayoutAlign="start center">
+                <div fxLayout="row" fxLayoutAlign="start center">
                   <mat-icon>topic</mat-icon>
                   <span class="number-data" [matTooltip]="interviewsAmounts.total">{{interviewsAmounts.total | shortNumber:0}}</span>
                 </div>
@@ -56,7 +56,7 @@
                 </mat-card-title>
               </mat-card-header>
               <mat-card-content>
-                <div fxLayout="row" fxLayoutGap="12px" fxLayoutAlign="start center">
+                <div fxLayout="row" fxLayoutAlign="start center">
                   <mat-icon>timeline</mat-icon>
                   <span class="number-data" [matTooltip]="3598745">{{ 3598745 | shortNumber:1 }}</span>
                 </div>
@@ -66,7 +66,7 @@
         </div>
       </div>
       <div fxLayout="column" fxLayoutGap="8px">
-        <div class="row-title" fxLayout="row" fxLayoutGap="8px">
+        <div class="row-title" fxLayout="row">
           <div fxLayout="column">
             <mat-icon>calendar_month</mat-icon>
           </div>
@@ -85,14 +85,14 @@
               <mat-card-content>
                 <div fxLayout="row" fxLayoutAlign="space-between">
                   <div fxLayout="column" fxLayoutAlign="end end">
-                    <div fxLayout="row" fxLayoutAlign="start end" fxLayoutGap="8px">
-                      <mat-icon>groups</mat-icon>
+                    <div fxLayout="row" fxLayoutAlign="start end">
+                      <mat-icon *ngIf="showIcon">groups</mat-icon>
                       <span class="label-data">{{ 'DISCHARGE' | oTranslate }}</span>
                       <span class="number-data" [matTooltip]="7854">{{7854 | shortNumber:0}}</span>
                     </div>
                   </div>
                   <div fxLayout="column" fxLayoutAlign="end end">
-                    <div fxLayout="row" fxLayoutAlign="start end" fxLayoutGap="8px">
+                    <div fxLayout="row" fxLayoutAlign="start end">
                       <span class="label-data">{{ 'LEAVE' | oTranslate }}</span>
                       <span class="number-data" [matTooltip]="100">{{100 | shortNumber:0}}</span>
                     </div>
@@ -109,7 +109,7 @@
                 </mat-card-title>
               </mat-card-header>
               <mat-card-content>
-                <div fxLayout="row" fxLayoutGap="12px" fxLayoutAlign="start center">
+                <div fxLayout="row" fxLayoutAlign="start center">
                   <mat-icon>add</mat-icon>
                   <span class="number-data" [matTooltip]="5789454652">{{5789454652 | shortNumber:2}}</span>
                 </div>
@@ -124,7 +124,7 @@
                 </mat-card-title>
               </mat-card-header>
               <mat-card-content>
-                <div fxLayout="row" fxLayoutGap="12px" fxLayoutAlign="start center">
+                <div fxLayout="row" fxLayoutAlign="start center">
                   <mat-icon>timeline</mat-icon>
                   <span class="number-data" [matTooltip]="55555555456545555">{{55555555456545555 | shortNumber:3}}</span>
                 </div>

@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectorRef, Component, ViewEncapsulation, HostListener } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OntimizeService } from 'ontimize-web-ngx';
 
@@ -24,6 +24,17 @@ export class DashboardComponent {
 
     // Interviews amounts (total)
     this.setInterviewsAmounts();
+  }
+
+  screenWidth: number = screen.width;
+
+  @HostListener('window:resize', [])
+  onResize() {
+    this.screenWidth = screen.width;
+  }
+
+  get showIcon(): boolean {
+    return this.screenWidth >= 1920;
   }
 
   private setCandidatesAmounts() {
