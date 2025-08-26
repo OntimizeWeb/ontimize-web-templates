@@ -37,6 +37,7 @@
       .number-data {
         font-size: mat.font-size($typography, headline-4);
         color: mat.get-color-from-palette($foreground, icon);
+        line-height: 26px;
       }
 
       .mat-icon {

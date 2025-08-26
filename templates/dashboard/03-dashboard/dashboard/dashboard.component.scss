@@ -61,9 +61,17 @@
           }
         }
 
+        .number-with-index {
+          align-items: baseline;
+        }
+
         .label-data {
           margin-bottom: 4px;
           margin-top: 16px;
+        }
+
+        .percentage {
+          line-height: 16px;
         }
       }
     }
