@@ -16,6 +16,15 @@
       }
     }
 
+    .column-title {
+      .mat-icon {
+        font-size: 24px;
+        width: 24px;
+        height: 24px;
+        overflow: visible;
+      }
+    }
+
     .mat-icon {
       font-size: 32px;
       width: 32px;
@@ -33,11 +42,13 @@
 
         .label-data {
           margin-left: 16px;
+          line-height: 28px;
         }
       }
 
       .mat-card-big {
         padding: 8px;
+        margin-top: 32px;
 
         .mat-mdc-card-header {
           .mat-mdc-card-title {
