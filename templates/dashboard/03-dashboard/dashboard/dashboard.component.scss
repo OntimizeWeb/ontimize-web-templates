@@ -35,7 +35,10 @@
 
     .main-column {
       .mini-card {
+
         .mat-mdc-card {
+          height: 100%;
+
           .mat-mdc-card-header {
             padding-bottom: 16px;
           }
