@@ -84,14 +84,14 @@
               </mat-card-header>
               <mat-card-content>
                 <div fxLayout="row" fxLayoutAlign="space-between">
-                  <div fxLayout="column">
+                  <div fxLayout="column" fxLayoutAlign="end end">
                     <div fxLayout="row" fxLayoutAlign="start end" fxLayoutGap="8px">
                       <mat-icon>groups</mat-icon>
                       <span class="label-data">{{ 'DISCHARGE' | oTranslate }}</span>
                       <span class="number-data" [matTooltip]="7854">{{7854 | shortNumber:0}}</span>
                     </div>
                   </div>
-                  <div fxLayout="column">
+                  <div fxLayout="column" fxLayoutAlign="end end">
                     <div fxLayout="row" fxLayoutAlign="start end" fxLayoutGap="8px">
                       <span class="label-data">{{ 'LEAVE' | oTranslate }}</span>
                       <span class="number-data" [matTooltip]="100">{{100 | shortNumber:0}}</span>
