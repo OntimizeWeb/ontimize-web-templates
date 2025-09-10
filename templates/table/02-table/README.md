@@ -24,15 +24,14 @@
 
 </pre>
 
-2. Configure the `o-table`, you must to modify the values ​​between `@` for the inputs `attr`, `service`, `entity`, `columns` and `keys` . For more information consult the following url https://ontimizeweb.github.io/docs/v15/components/data/table/overview
-
-<br/>
-
+2. Configure the `o-table`, you must to modify the values ​​between `@` for the inputs `attr`, `service`, `entity`, `columns` and `keys`. For more information consult the following url https://ontimizeweb.github.io/docs/v15/components/data/table/overview.
 Also you need to configure your `createFilter` method located in the `table-home.component.ts` file according the filter you want to build. Link to the filter builder documentation: https://ontimizeweb.github.io/docs/v15/components/data/filterbuilder/overview
 
 <br/>
 
 3. Configure your `o-filter-builder` setting your inputs and custom ATTR to build the filter. Link to the filter builder documentation: https://ontimizeweb.github.io/docs/v15/components/data/filterbuilder/overview
+
+<br/>
 
 4. Add the translations you want to use on your app ​​to the `en.json` and `es.json` files of your project
 
@@ -105,16 +104,14 @@ export class MainRoutingModule { }
 
 </br>
 
-7. Also you need to add the icons to the Ontimize icon registry service on your `app.component.ts` file as follows.
+7. Also you need to add the icons to the Ontimize icon registry service on your `app.component.ts` file as follows. More information [here](https://ontimizeweb.github.io/docs/v15/customize/icons/).
 
 ```js
 this.ontimizeMatIconRegistry.addOntimizeSvgIcon('VIP', 'assets/icons/vip.svg');
 this.ontimizeMatIconRegistry.addOntimizeSvgIcon('normal', 'assets/icons/normal.svg');
 this.ontimizeMatIconRegistry.addOntimizeSvgIcon('all', 'assets/icons/all.svg');
 this.ontimizeMatIconRegistry.addOntimizeSvgIcon('other', 'assets/icons/other.svg');
-
 ```
-More information [here](https://ontimizeweb.github.io/docs/v15/customize/icons/).
 
 ## LEARN MORE
 

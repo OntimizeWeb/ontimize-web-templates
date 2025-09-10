@@ -1,5 +1,13 @@
 import { Component, Injector, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { Expression, FilterExpressionUtils, OntimizeService, OTableComponent } from 'ontimize-web-ngx';
+import { Expression, FilterExpressionUtils, OFilterBuilderComponent, OntimizeService, OTableButtonComponent, OTableComponent } from 'ontimize-web-ngx';
+import { forkJoin } from 'rxjs';
+
+interface Type {
+  id: number;
+  label: string;
+  icon: string;
+  count: number;
+}
 
 @Component({
   selector: 'app-table-home',
@@ -7,16 +15,23 @@ import { Expression, FilterExpressionUtils, OntimizeService, OTableComponent } f
   styleUrls: ['./table-home.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
+
 export class TableHomeComponent implements OnInit {
 
   @ViewChild('table', { static: false }) table: OTableComponent;
+  @ViewChild('filterBuilder', { static: false }) filterBuilder: OFilterBuilderComponent;
+  @ViewChild('filterButton', { static: false }) filterButton: OTableButtonComponent;
 
-  public normalCount = 0;
-  public vipCount = 0;
-  public otherCount = 0;
-  public totalCount = 0;
-  public type = 0;
+  public selectedType = 0;
+  types: Type[] = [];
   private service: OntimizeService;
+  public filtersOpen = false;
+
+  private iconMap: Record<number, string> = {
+    1: 'ontimize:normal',
+    2: 'ontimize:VIP',
+    3: 'ontimize:other'
+  };
 
   constructor(protected injector: Injector) {
     this.service = this.injector.get(OntimizeService);
@@ -24,18 +39,38 @@ export class TableHomeComponent implements OnInit {
 
   ngOnInit() {
     this.configureService();
-    this.service.query({}, ["CUSTOMERTYPEID"], "customer").subscribe(q => {
-      q.data.forEach(element => {
-        this.totalCount++;
-        if (element.CUSTOMERTYPEID === 1) {
-          this.normalCount++;
-        } else if (element.CUSTOMERTYPEID === 2) {
-          this.vipCount++;
-        } else if (element.CUSTOMERTYPEID === 3) {
-          this.otherCount++;
-        }
+
+    const dataTypes = this.service.query({}, ["CUSTOMERTYPEID", "DESCRIPTION"], "customerType");
+
+    const dataCustomers = this.service.query({}, ['CUSTOMERTYPEID'], 'customer');
+
+    forkJoin({ cusTypes: dataTypes, customers: dataCustomers }).subscribe(({ cusTypes, customers }) => {
+      const counts: Record<number, number> = {};
+      customers.data.forEach((row: any) => {
+        const id = row.CUSTOMERTYPEID;
+        counts[id] = (counts[id] ?? 0) + 1;
+      });
+
+      this.types = cusTypes.data.map((t: any) => ({
+        id: t.CUSTOMERTYPEID,
+        label: t.DESCRIPTION,
+        icon: this.iconMap[t.CUSTOMERTYPEID] ?? 'ontimize:unknown',
+        count: counts[t.CUSTOMERTYPEID] ?? 0
+      }));
+
+      this.types.push({
+        id: 0,
+        label: 'ALL',
+        icon: 'ontimize:all',
+        count: customers.data.length
       });
     });
+  }
+
+  ngAfterViewInit() {
+    this.filterButton.onClick.subscribe(event => {
+      this.filtersOpen = !this.filtersOpen;
+    })
   }
 
   protected configureService() {
@@ -44,11 +79,19 @@ export class TableHomeComponent implements OnInit {
     this.service.configureService(conf);
   }
 
+  onSelect(id: number) {
+    this.selectedType = id;
+    this.filterBuilder?.triggerReload();
+  }
+
+  trackById(index: number, item: { id: number }) {
+    return item.id;
+  }
+
   createFilter = (values: Array<{ attr, value }>): Expression => {
-    const type = this.type;
     let filters: Array<Expression> = [];
-    if (type !== 0) {
-      filters.push(FilterExpressionUtils.buildExpressionEquals("CUSTOMERTYPEID", type));
+    if (this.selectedType !== 0) {
+      filters.push(FilterExpressionUtils.buildExpressionEquals("CUSTOMERTYPEID", this.selectedType));
     }
 
     values.forEach(fil => {

@@ -1,39 +1,33 @@
-@use '@angular/material'as mat;
+@use '@angular/material' as mat;
 @use 'sass:map';
+
 @mixin table-theme($theme) {
   $primary: map.get($theme, color, primary);
   $accent: map.get($theme, color, accent);
   $foreground: map.get($theme, color, foreground);
   $background: map.get($theme, color, background);
-  $border-color: mat.get-color-from-palette($foreground, disabled);
-  $is-dark: map.get($theme, color, is-dark);
 
-  .active {
-    border-color: mat.get-color-from-palette($primary) !important;
-    color: mat.get-color-from-palette($primary);
-    fill: mat.get-color-from-palette($primary);
-  }
+  .o-form {
+    .cards-container {
+      .mat-mdc-card.mdc-card.type-card {
+        border-color: mat.get-color-from-palette($foreground, disabled);
+        color: mat.get-color-from-palette($foreground, button);
 
-  .mat-mdc-card.type-card {
-    background-color: mat.get-color-from-palette($background, level-08);
-    border-color: #626262;
-    @if $is-dark {
-      border-color: white;
+        svg {
+          fill: mat.get-color-from-palette($foreground, button);
+        }
+
+      }
+
+      .mat-mdc-card.mdc-card.active.type-card {
+        border-color: mat.get-color-from-palette($primary);
+        color: mat.get-color-from-palette($primary);
+        background-color: mat.get-color-from-palette($primary, 50);
+
+        svg {
+          fill: mat.get-color-from-palette($primary);
+        }
+      }
     }
-  }
-
-  .mat-icon {
-    svg {
-      fill: inherit;
-    }
-  }
-
-  .mat-expansion-panel-header-title {
-    color: mat.get-color-from-palette($primary);
-    border-color: $border-color !important;
-  }
-
-  .mat-expansion-panel-content {
-    border-color: mat.get-color-from-palette($primary);
   }
 }
