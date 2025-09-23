@@ -82,7 +82,7 @@ export class MainRoutingModule { }
 ...
 @include ontimize-style.ontimize-theme-styles(theme.$theme);
 
-+ @import '../../app/table/table.theme.scss';
++ @import '../../app/main/table/table.theme.scss';
 
 
 @mixin app-themes($theme) {
