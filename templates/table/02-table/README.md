@@ -29,7 +29,11 @@ Also you need to configure your `createFilter` method located in the `table-home
 
 <br/>
 
-3. Configure your `o-filter-builder` setting your inputs and custom ATTR to build the filter. Link to the filter builder documentation: https://ontimizeweb.github.io/docs/v15/components/data/filterbuilder/overview
+3. Configure your `o-filter-builder` setting your inputs and custom ATTR to build the filter. Link to the filter builder documentation: https://ontimizeweb.github.io/docs/v15/components/data/filterbuilder/overview. In some cases, the values you will need for filtering the component request will be present in the parent form or the route parameter with a different name than the used in the component. For matching the component parent keys with these names, you can define an alias for each key you need separating the component parent key and its alias with two dots ‘:’.
+
+```html
+parent-keys="factory_id:factory;device_id:device"
+```
 
 <br/>
 
@@ -104,13 +108,37 @@ export class MainRoutingModule { }
 
 </br>
 
-7. Also you need to add the icons to the Ontimize icon registry service on your `app.component.ts` file as follows. More information [here](https://ontimizeweb.github.io/docs/v15/customize/icons/).
+7. To use custom icons in your application, you need to register them in the **Ontimize icon registry service**. This is typically done in the `app.component.ts` file so that the icons are available globally. The service `OntimizeMatIconRegistry` is injected into your component through Angular’s dependency injection system. More information [here](https://ontimizeweb.github.io/docs/v15/customize/icons/).
 
 ```js
-this.ontimizeMatIconRegistry.addOntimizeSvgIcon('VIP', 'assets/icons/vip.svg');
-this.ontimizeMatIconRegistry.addOntimizeSvgIcon('normal', 'assets/icons/normal.svg');
-this.ontimizeMatIconRegistry.addOntimizeSvgIcon('all', 'assets/icons/all.svg');
-this.ontimizeMatIconRegistry.addOntimizeSvgIcon('other', 'assets/icons/other.svg');
+import { Component, OnInit } from '@angular/core';
+import { OntimizeMatIconRegistry } from 'ontimize-web-ngx';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent implements OnInit {
+
+  constructor(private ontimizeMatIconRegistry: OntimizeMatIconRegistry) { }
+
+  ngOnInit(): void {
+    this.ontimizeMatIconRegistry.addOntimizeSvgIcon('VIP', 'assets/icons/vip.svg');
+    this.ontimizeMatIconRegistry.addOntimizeSvgIcon('normal', 'assets/icons/normal.svg');
+    this.ontimizeMatIconRegistry.addOntimizeSvgIcon('all', 'assets/icons/all.svg');
+    this.ontimizeMatIconRegistry.addOntimizeSvgIcon('other', 'assets/icons/other.svg');
+  }
+}
+```
+
+Once registered, you can use these icons anywhere in your templates:
+
+```html
+<mat-icon svgIcon="VIP"></mat-icon>
+<mat-icon svgIcon="normal"></mat-icon>
+<mat-icon svgIcon="all"></mat-icon>
+<mat-icon svgIcon="other"></mat-icon>
 ```
 
 ## LEARN MORE
