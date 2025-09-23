@@ -6,12 +6,21 @@
   $accent: map.get($theme, color, accent);
   $foreground: map.get($theme, color, foreground);
   $background: map.get($theme, color, background);
+  $typography: map-get($theme, typography);
 
   .o-form {
     .cards-container {
+
+      .mat-mdc-card-content {
+        span {
+          font-size: mat.font-size($typography, headline-3);
+        }
+      }
+
       .mat-mdc-card.mdc-card.type-card {
         border-color: mat.get-color-from-palette($foreground, disabled);
         color: mat.get-color-from-palette($foreground, button);
+        background-color: mat.get-color-from-palette($background, level-06);
 
         svg {
           fill: mat.get-color-from-palette($foreground, button);

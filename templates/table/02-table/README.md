@@ -2,7 +2,7 @@
 
 <br/>
 
-1. Download and put `table` folder in src/app/main/, `i18n` into assets/ and `icons` also on assets/ folder
+1. Download and put `table` folder in src/app/main/, `i18n` into assets/ and `icons` also on assets/ folder. Also add `intefaces` folder in src/app/shared.
 
 <br/>
 
@@ -11,7 +11,10 @@
     ├───app
     |   ├───main
     |   |   └───table
-    │   ├───...
+    │   ├───shared
+    |   |   └───interfaces
+    |   |
+    |   ├─── ...
     │   │
     ├───assets
     │   ├───css

@@ -1,13 +1,7 @@
 import { Component, Injector, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Expression, FilterExpressionUtils, OFilterBuilderComponent, OntimizeService, OTableButtonComponent, OTableComponent } from 'ontimize-web-ngx';
 import { forkJoin } from 'rxjs';
-
-interface Type {
-  id: number;
-  label: string;
-  icon: string;
-  count: number;
-}
+import { Type } from 'src/app/shared/interfaces/type.interface';
 
 @Component({
   selector: 'app-table-home',
@@ -18,7 +12,6 @@ interface Type {
 
 export class TableHomeComponent implements OnInit {
 
-  @ViewChild('table', { static: false }) table: OTableComponent;
   @ViewChild('filterBuilder', { static: false }) filterBuilder: OFilterBuilderComponent;
   @ViewChild('filterButton', { static: false }) filterButton: OTableButtonComponent;
 
@@ -64,6 +57,7 @@ export class TableHomeComponent implements OnInit {
         icon: 'ontimize:all',
         count: customers.data.length
       });
+
     });
   }
 

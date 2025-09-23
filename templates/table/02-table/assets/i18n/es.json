@@ -13,5 +13,6 @@
   "NORMAL": "Normal",
   "VIP": "VIP",
   "OTHER": "Otro",
-  "ALL": "Todos"
+  "ALL": "Todos",
+  "ACTION": "Acción"
 }
