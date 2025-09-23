@@ -18,7 +18,6 @@ interface Type {
 
 export class TableHomeComponent implements OnInit {
 
-  @ViewChild('table', { static: false }) table: OTableComponent;
   @ViewChild('filterBuilder', { static: false }) filterBuilder: OFilterBuilderComponent;
   @ViewChild('filterButton', { static: false }) filterButton: OTableButtonComponent;
 
