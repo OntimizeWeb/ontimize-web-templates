@@ -37,7 +37,18 @@ Also you need to configure your `createFilter` method located in the `table-home
 In some cases, the values you will need for filtering the component request will be present in the parent form with a different name than the used in the component. For matching the component parent keys with these names, you can define an alias for each key you need separating the component parent key and its alias with two dots ‘:’.
 
 ```html
-parent-keys="factory_id:factory;device_id:device"
+<o-form class="fill-form" editable-detail="no" show-header="no">
+...
+    <o-text-input attr="NAMEFILTER" label="NAME" read-only="no" fxFlex></o-text-input>
+    <o-text-input attr="SURNAMEFILTER" label="SURNAME" read-only="no" fxFlex></o-text-input>
+    <o-email-input attr="EMAILFILTER" label="EMAIL" read-only="no" fxFlex></o-email-input>
+          
+    <o-filter-builder  ... filters="NAME:NAMEFILTER;SURNAME:SURNAMEFILTER;EMAIL:EMAILFILTER;CUSTOMERTYPEID"></o-filter-builder>
+ </o-form>
+ <o-table #table  ...
+        columns="...NAME;SURNAME;...;EMAIL" ...>
+        ...
+ </o-table>
 ```
 
 <br/>
