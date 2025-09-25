@@ -20,12 +20,11 @@
       .mat-mdc-card.mdc-card.type-card {
         border-color: mat.get-color-from-palette($foreground, disabled);
         color: mat.get-color-from-palette($foreground, button);
-        background-color: mat.get-color-from-palette($background, level-06);
+        background-color: mat.get-color-from-palette($background, level-08);
 
         svg {
           fill: mat.get-color-from-palette($foreground, button);
         }
-
       }
 
       .mat-mdc-card.mdc-card.active.type-card {

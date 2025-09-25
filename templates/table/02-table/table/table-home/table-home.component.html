@@ -1,8 +1,8 @@
 <o-form class="fill-form" editable-detail="no" show-header="no">
-  <div fxLayout="column" class="bg-level-1" fxFlexFill>
+  <div fxLayout="column" class="bg-level-1 template" fxFlexFill>
     <div class="cards-container">
-      <mat-card *ngFor="let cat of types; trackBy: trackById" [ngClass]="selectedType === cat.id ? 'active type-card' : 'type-card'" class="bg-level-04"
-        (click)="onSelect(cat.id)">
+      <mat-card *ngFor="let cat of types; trackBy: trackById" [ngClass]="selectedType === cat.id ? 'active type-card' : 'type-card'"
+        class="bg-level-04" (click)="onSelect(cat.id)">
 
         <mat-card-header [ngClass]="selectedType === cat.id ? 'active' : ''">
           {{ cat.label | oTranslate }}
@@ -37,12 +37,12 @@
         visible-columns="NAME;SURNAME;STARTDATE;EMAIL;ADDRESS;CUSTOMERTYPEID;ACTION" auto-adjust="no" row-height="medium" detail-mode="click"
         quick-filter="yes" delete-button="no" refresh-button="no" insert-button="no" virtual-scroll="no">
         <o-table-button #filterButton attr="filterButton" label="FILTER_BUTTON" icon="filter_list"></o-table-button>
-        <o-table-column attr="NAME" title="NAME" width="10%" tooltip="yes" orderable="no"></o-table-column>
-        <o-table-column attr="SURNAME" title="SURNAME" width="15%" tooltip="yes" orderable="yes"></o-table-column>
+        <o-table-column attr="NAME" title="NAME" tooltip="yes" orderable="no"></o-table-column>
+        <o-table-column attr="SURNAME" title="SURNAME" tooltip="yes" orderable="yes"></o-table-column>
         <o-table-column attr="STARTDATE" title="STARTDATE" width="10%" tooltip="yes" type="date" format="LL"></o-table-column>
-        <o-table-column attr="EMAIL" title="EMAIL" width="20%" tooltip="yes" orderable="no"></o-table-column>
-        <o-table-column attr="ADDRESS" title="ADDRESS" width="25%" tooltip="yes" orderable="no"></o-table-column>
-        <o-table-column attr="CUSTOMERTYPEID" title="CUSTOMERTYPEID" width="5%" editable="true">
+        <o-table-column attr="EMAIL" title="EMAIL" tooltip="yes" orderable="no"></o-table-column>
+        <o-table-column attr="ADDRESS" title="ADDRESS" tooltip="yes" orderable="no"></o-table-column>
+        <o-table-column attr="CUSTOMERTYPEID" title="CUSTOMERTYPEID" width="10%" editable="true">
           <o-table-cell-renderer-service service="customers" entity="customerType" value-column="DESCRIPTION" translate="no"
             columns="CUSTOMERTYPEID;DESCRIPTION" visible-columns="DESCRIPTION">
           </o-table-cell-renderer-service>
