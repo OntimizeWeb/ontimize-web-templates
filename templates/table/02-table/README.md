@@ -32,7 +32,9 @@ Also you need to configure your `createFilter` method located in the `table-home
 
 <br/>
 
-3. Configure your `o-filter-builder` setting your inputs and custom ATTR to build the filter. Link to the filter builder documentation: https://ontimizeweb.github.io/docs/v15/components/data/filterbuilder/overview. In some cases, the values you will need for filtering the component request will be present in the parent form or the route parameter with a different name than the used in the component. For matching the component parent keys with these names, you can define an alias for each key you need separating the component parent key and its alias with two dots ‘:’.
+3. Configure your `o-filter-builder` setting your inputs and custom ATTR to build the filter. Link to the filter builder documentation: https://ontimizeweb.github.io/docs/v15/components/data/filterbuilder/overview. 
+
+In some cases, the values you will need for filtering the component request will be present in the parent form with a different name than the used in the component. For matching the component parent keys with these names, you can define an alias for each key you need separating the component parent key and its alias with two dots ‘:’.
 
 ```html
 parent-keys="factory_id:factory;device_id:device"
