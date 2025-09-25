@@ -1,7 +1,7 @@
 <o-form class="fill-form" editable-detail="no" show-header="no">
   <div fxLayout="column" class="bg-level-1" fxFlexFill>
     <div class="cards-container">
-      <mat-card *ngFor="let cat of types; trackBy: trackById" [ngClass]="selectedType === cat.id ? 'active type-card' : 'type-card'"
+      <mat-card *ngFor="let cat of types; trackBy: trackById" [ngClass]="selectedType === cat.id ? 'active type-card' : 'type-card'" class="bg-level-04"
         (click)="onSelect(cat.id)">
 
         <mat-card-header [ngClass]="selectedType === cat.id ? 'active' : ''">
