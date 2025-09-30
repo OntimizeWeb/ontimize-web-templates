@@ -1,5 +1,5 @@
 .form-container {
-  height: 100%;
+  overflow-y: auto;
 
   .title {
     padding: 16px;
@@ -42,7 +42,7 @@
       }
 
       .mat-mdc-card-content {
-        margin-top: 8px;
+        padding: 16px;
       }
     }
   }
@@ -68,8 +68,6 @@
 
     .card-2 {
       .mat-mdc-card-content {
-        padding-top: 16px;
-
         .data-row {
           mat-icon {
             font-size: 32px;

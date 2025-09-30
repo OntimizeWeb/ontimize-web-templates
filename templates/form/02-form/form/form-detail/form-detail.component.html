@@ -3,7 +3,7 @@
     <span><strong>{{ 'TITLE_1' | oTranslate}}</strong></span>
   </div>
   <div fxLayout="row" class="first-row-cards" fxLayoutAlign="space-between" fxLayoutGap="20px">
-    <div fxLayout="column" fxFlex="15%" class="card-1">
+    <div fxLayout="column" fxFlex.lg="20%" fxFlex="15%" class="card-1">
       <mat-card>
         <mat-card-header>
           <mat-card-title>
@@ -55,7 +55,7 @@
           </mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          <div fxLayout="row" fxLayoutAlign="space-between">
+          <div fxLayout="row" fxLayoutAlign="space-between" fxLayoutGap="8px">
             <div fxLayout="column">
               <div fxLayout="row" fxLayoutGap="14px">
                 <mat-icon class="material-icons-outlined" color="primary">lightbulb_2</mat-icon>
@@ -102,7 +102,7 @@
         </mat-card-content>
       </mat-card>
     </div>
-    <div fxLayout="column" fxFlex="15%" class="card-3">
+    <div fxLayout="column" fxFlex.lg="20%" fxFlex="15%" class="card-3">
       <mat-card>
         <mat-card-header>
           <mat-card-title>
@@ -297,7 +297,7 @@
       </div>
       <div fxLayout="row" class="list">
         <o-list #list attr="list" columns="@id;name;capacity;status;uptake@" quick-filter-columns="@capacity;status@" [static-data]="@getStaticData()@"
-          show-buttons-text="yes" insert-button="yes" insert-button-floatable="no" delete-button="no" query-rows="3" pagination-controls="yes">
+          show-buttons-text="yes" insert-button="yes" insert-button-floatable="no" delete-button="no" query-rows="2" pagination-controls="yes">
           <div class="cards-container">
             <mat-card *ngFor="let row of list.dataArray" [o-list-item]="row" class="card">
               <mat-card-content fxLayoutGap="24px">
