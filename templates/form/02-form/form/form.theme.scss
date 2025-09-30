@@ -1,0 +1,75 @@
+@use '@angular/material' as mat;
+@use 'sass:map';
+
+@mixin form-theme($theme) {
+  $primary: map.get($theme, color, primary);
+  $accent: map.get($theme, color, accent);
+  $foreground: map.get($theme, color, foreground);
+  $background: map.get($theme, color, background);
+  $typography: map-get($theme, typography);
+
+  .form-container {
+    .title {
+      font-size: mat.font-size($typography, headline-6);
+    }
+
+    .first-row-cards,
+    .second-row-cards {
+
+      .card-1,
+      .card-2,
+      .card-3,
+      .card-4,
+      .card-5,
+      .card-6 {
+        .mat-mdc-card-header {
+          border-bottom-color: mat.get-color-from-palette($foreground, divider);
+
+          .card-title {
+            span {
+              font-size: mat.font-size($typography, body-1);
+            }
+          }
+        }
+
+        .mat-mdc-card-content {
+          .number-big {
+            font-size: mat.font-size($typography, headline-3);
+          }
+
+          .number-medium {
+            font-size: mat.font-size($typography, headline-4);
+          }
+
+          .number-small {
+            font-size: mat.font-size($typography, headline-5);
+          }
+
+          .text-big {
+            font-size: mat.font-size($typography, headline-6);
+          }
+
+          .text-medium,
+          .tag-positive,
+          .tag-negative {
+            font-size: mat.font-size($typography, subtitle-1);
+          }
+
+          .text-small {
+            font-size: mat.font-size($typography, caption);
+          }
+        }
+      }
+    }
+    .grid-row{
+      .tag{
+        background-color: mat.get-color-from-palette($primary, 100);
+        color: mat.get-color-from-palette($primary);
+      }
+
+      .card-item-text{
+        color: mat.get-color-from-palette($foreground, base);
+      }
+    }
+  }
+}

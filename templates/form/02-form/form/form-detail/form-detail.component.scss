@@ -1,0 +1,168 @@
+.form-container {
+  height: 100%;
+
+  .title {
+    padding: 16px;
+  }
+
+  .first-row-cards {
+    padding: 0px 16px;
+
+    .card-1,
+    .card-2,
+    .card-3 {
+      .mat-mdc-card {
+        height: 210px;
+      }
+    }
+  }
+
+  .second-row-cards {
+    padding: 24px 16px 0px 16px;
+  }
+
+  .first-row-cards,
+  .second-row-cards {
+
+    .card-1,
+    .card-2,
+    .card-3,
+    .card-4,
+    .card-5,
+    .card-6 {
+      .mat-mdc-card-header {
+        border-bottom-width: 2px;
+        border-bottom-style: solid;
+        margin: 16px 16px 0;
+        padding: 0;
+
+        .card-title {
+          margin: 8px 0;
+        }
+      }
+
+      .mat-mdc-card-content {
+        margin-top: 8px;
+      }
+    }
+  }
+
+  .first-row-cards {
+    .card-1 {
+      .first-row {
+        mat-icon {
+          font-size: 48px;
+          width: 48px;
+          height: 48px;
+        }
+      }
+
+      .second-row {
+        mat-icon {
+          font-size: 36px;
+          width: 36px;
+          height: 36px;
+        }
+      }
+    }
+
+    .card-2 {
+      .mat-mdc-card-content {
+        padding-top: 16px;
+
+        .data-row {
+          mat-icon {
+            font-size: 32px;
+            width: 32px;
+            height: 32px;
+          }
+
+          .arrow-down {
+            color: #82C64D;
+          }
+
+          .arrow-up {
+            color: #FF5757;
+          }
+        }
+      }
+    }
+
+    .tag-positive {
+      display: inline-block;
+      background-color: #82C64D40;
+      color: #82C64D;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .tag-negative {
+      display: inline-block;
+      background-color: #FF575740;
+      color: #FF5757;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+  }
+
+  .grid-row {
+
+    o-list {
+      width: 100%;
+    }
+
+    .o-list-container {
+      padding: 0px 16px;
+
+      .mat-mdc-list .o-list-item.mat-mdc-card {
+        padding-bottom: 0px;
+      }
+    }
+
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 10px 0;
+    }
+
+    .card {
+      width: 400px;
+      flex: 0 0 auto;
+
+      .mat-mdc-card-content {
+        padding: 0 0 0 0;
+      }
+
+      img {
+        border-radius: 4px;
+      }
+
+      .data-column {
+        padding: 8px 8px 8px 0px;
+      }
+
+      .title {
+        padding: 12px 0px;
+      }
+
+      .tag {
+        gap: 6px;
+        padding: 4px 10px;
+        border-radius: 20px;
+      }
+
+      .uptake-low {
+        mat-icon {
+          color: #82C64D;
+        }
+      }
+
+      .uptake-high {
+        mat-icon {
+          color: #FF5757;
+        }
+      }
+    }
+  }
+}
