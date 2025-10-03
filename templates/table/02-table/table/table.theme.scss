@@ -20,6 +20,7 @@
 
       .mat-mdc-card.mdc-card.type-card {
         border-color: mat.get-color-from-palette($foreground, text, 0.32);
+        color: mat.get-color-from-palette($foreground, button);
         background-color: mat.get-color-from-palette($background, level-08);
 
         &:hover {
@@ -31,7 +32,7 @@
         }
 
         svg {
-          fill: mat.get-color-from-palette($foreground, title);
+          fill: mat.get-color-from-palette($foreground, button);
         }
       }
 
