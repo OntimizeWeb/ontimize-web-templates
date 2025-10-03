@@ -4,8 +4,6 @@
 
 1. Download and put `form` folder in src/app/main/, `i18n` into assets/ and `images` also on assets/ folder.
 
-<br/>
-
 <pre>
 ─src
     ├───app
@@ -35,8 +33,6 @@
 
 4. Configure routing in `main-routing.module.ts`
 
-<br/>
-
 ```js
 import { NgModule } from '@angular/core';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
@@ -62,8 +58,6 @@ export class MainRoutingModule { }
 <br/>
 
 5. To configure the theme on the form component it is necessary to include `form.theme.scss` in `app.scss`
-
-<br/>
 
 ```scss
 @use 'theme.scss' as theme;
@@ -98,8 +92,33 @@ export class MainRoutingModule { }
 
 ```
 
-## LEARN MORE
+</br>
 
+6. In order to use `class="material-icons-outlined"` on mat-icon elements, you should add the next line on your `index.html`
+
+```html
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Your app</title>
+
+  ...
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
+  ...
+
+</head>
+
+<body>
+ ...
+</body>
+
+</html>
+
+```
+
+## LEARN MORE
 
 * **Dark and light mode** <https://ontimizeweb.github.io/docs/v15/customize/theming/#dark-and-light-primary-variants>
 
