@@ -20,18 +20,18 @@
 
       .mat-mdc-card.mdc-card.type-card {
         border-color: mat.get-color-from-palette($foreground, text, 0.32);
-        color: mat.get-color-from-palette($primary, 500);
+        background-color: mat.get-color-from-palette($background, level-08);
 
         &:hover {
           background-color: mat.get-color-from-palette($primary, 100);
 
           @if $is-dark-theme {
-            background-color: mat.get-color-from-palette($primary, 500, 0.4);
+            background-color: mat.get-color-from-palette($primary, 500, 0.12);
           }
         }
 
         svg {
-          fill: mat.get-color-from-palette($primary, 500);
+          fill: mat.get-color-from-palette($foreground, title);
         }
       }
 
@@ -41,7 +41,7 @@
         background-color: mat.get-color-from-palette($primary, 100);
 
         @if $is-dark-theme {
-          background-color: mat.get-color-from-palette($primary, 500, 0.4);
+          background-color: mat.get-color-from-palette($primary, 500, 0.12);
         }
 
         svg {
