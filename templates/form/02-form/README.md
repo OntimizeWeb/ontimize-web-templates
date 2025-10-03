@@ -105,7 +105,7 @@ export class MainRoutingModule { }
   <title>Your app</title>
 
   ...
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
+  + <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
   ...
 
 </head>
