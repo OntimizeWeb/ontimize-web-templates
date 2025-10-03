@@ -7,6 +7,7 @@
   $foreground: map.get($theme, color, foreground);
   $background: map.get($theme, color, background);
   $typography: map-get($theme, typography);
+  $is-dark-theme: map-get($theme, color, is-dark);
 
   .o-form {
     .cards-container {
@@ -18,22 +19,33 @@
       }
 
       .mat-mdc-card.mdc-card.type-card {
-        border-color: mat.get-color-from-palette($foreground, disabled);
-        color: mat.get-color-from-palette($foreground, button);
-        background-color: mat.get-color-from-palette($background, level-08);
+        border-color: mat.get-color-from-palette($foreground, text, 0.32);
+        color: mat.get-color-from-palette($primary, 500);
+
+        &:hover {
+          background-color: mat.get-color-from-palette($primary, 100);
+
+          @if $is-dark-theme {
+            background-color: mat.get-color-from-palette($primary, 500, 0.4);
+          }
+        }
 
         svg {
-          fill: mat.get-color-from-palette($foreground, button);
+          fill: mat.get-color-from-palette($primary, 500);
         }
       }
 
       .mat-mdc-card.mdc-card.active.type-card {
-        border-color: mat.get-color-from-palette($primary);
-        color: mat.get-color-from-palette($primary);
-        background-color: mat.get-color-from-palette($primary, 50);
+        border-color: mat.get-color-from-palette($foreground, text, 0.32);
+        color: mat.get-color-from-palette($primary, 500);
+        background-color: mat.get-color-from-palette($primary, 100);
+
+        @if $is-dark-theme {
+          background-color: mat.get-color-from-palette($primary, 500, 0.4);
+        }
 
         svg {
-          fill: mat.get-color-from-palette($primary);
+          fill: mat.get-color-from-palette($primary, 500);
         }
       }
     }
