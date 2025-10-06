@@ -1,0 +1,59 @@
+<o-form class="fill-form" editable-detail="no" show-header="no">
+  <div fxLayout="column" class="bg-level-06 template" fxFlexFill>
+    <div class="cards-container">
+      <mat-card *ngFor="let cat of types; trackBy: trackById" [ngClass]="selectedType === cat.id ? 'active type-card' : 'type-card'"
+        class="bg-level-04" (click)="onSelect(cat.id)">
+
+        <mat-card-header [ngClass]="selectedType === cat.id ? 'active' : ''">
+          {{ cat.label | oTranslate }}
+        </mat-card-header>
+
+        <mat-card-content>
+          <div fxLayout="row" fxLayoutAlign="space-between center">
+            <mat-icon [ngClass]="selectedType === cat.id ? 'active' : ''" [svgIcon]="cat.icon"></mat-icon>
+            <span>{{ cat.count }}</span>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div *ngIf="filtersOpen" fxLayout="row" class="filters">
+      <div fxLayout="column" fxLayoutGap="20px" fxFill>
+        <div fxLayout="row" fxLayoutGap="20px">
+          <o-text-input attr="NAMEFILTER" label="NAME" read-only="no" fxFlex></o-text-input>
+          <o-text-input attr="SURNAMEFILTER" label="SURNAME" read-only="no" fxFlex></o-text-input>
+          <o-email-input attr="EMAILFILTER" label="EMAIL" read-only="no" fxFlex></o-email-input>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="20px">
+          <o-button attr="CLEAR" label="CLEAR" [oFilterBuilderClear]="filterBuilder" type="RAISED"></o-button>
+          <o-button attr="FILTER" label="FILTER" [oFilterBuilderQuery]="filterBuilder" type="RAISED" color="primary"></o-button>
+        </div>
+      </div>
+    </div>
+
+    <div fxLayout="row" class="table-container" fxFlex>
+      <o-table #table attr="customer" title="CUSTOMERS" entity="customer" service="customers" keys="CUSTOMERID"
+        columns="PHOTO;CUSTOMERID;NAME;SURNAME;ADDRESS;STARTDATE;EMAIL;CUSTOMERTYPEID"
+        visible-columns="NAME;SURNAME;STARTDATE;EMAIL;ADDRESS;CUSTOMERTYPEID;ACTION" auto-adjust="no" row-height="medium" detail-mode="click"
+        quick-filter="yes" delete-button="no" refresh-button="no" insert-button="no" virtual-scroll="no">
+        <o-table-button #filterButton attr="filterButton" label="FILTER_BUTTON" icon="filter_list"></o-table-button>
+        <o-table-column attr="NAME" title="NAME" tooltip="yes" orderable="no"></o-table-column>
+        <o-table-column attr="SURNAME" title="SURNAME" tooltip="yes" orderable="yes"></o-table-column>
+        <o-table-column attr="STARTDATE" title="STARTDATE" width="10%" tooltip="yes" type="date" format="LL"></o-table-column>
+        <o-table-column attr="EMAIL" title="EMAIL" tooltip="yes" orderable="no"></o-table-column>
+        <o-table-column attr="ADDRESS" title="ADDRESS" tooltip="yes" orderable="no"></o-table-column>
+        <o-table-column attr="CUSTOMERTYPEID" title="CUSTOMERTYPEID" width="10%" editable="true">
+          <o-table-cell-renderer-service service="customers" entity="customerType" value-column="DESCRIPTION" translate="no"
+            columns="CUSTOMERTYPEID;DESCRIPTION" visible-columns="DESCRIPTION">
+          </o-table-cell-renderer-service>
+        </o-table-column>
+        <o-table-column attr="ACTION" title="ACTION" resizable="no" max-width="56px">
+          <o-table-cell-renderer-action icon="edit" action="detail"></o-table-cell-renderer-action>
+        </o-table-column>
+        <o-table-paginator page-size-options="12;24;48;72"></o-table-paginator>
+      </o-table>
+    </div>
+    <o-filter-builder #filterBuilder attr="thefilter" filters="NAME:NAMEFILTER;SURNAME:SURNAMEFILTER;EMAIL:EMAILFILTER;CUSTOMERTYPEID"
+      [target]="table" query-on-change="yes" query-on-change-delay="500" [expression-builder]="createFilter"></o-filter-builder>
+  </div>
+</o-form>

@@ -1,0 +1,39 @@
+.o-form {
+  .template {
+    max-height: 100%;
+    overflow-y: auto;
+
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin: 20px 40px;
+      gap: 24px;
+      justify-items: center;
+
+      .mat-mdc-card {
+        width: 100%;
+        max-width: 292px;
+        max-height: 104px;
+        border: solid 1px;
+        border-radius: 2px;
+        cursor: pointer;
+
+        .mat-icon {
+          font-size: 40px;
+          height: 40px;
+          width: 40px;
+        }
+      }
+    }
+
+    .filters {
+      margin: 0px 40px;
+      flex: 0 1 auto;
+    }
+
+    .table-container {
+      margin: 8px 40px;
+      flex: 1 1 auto;
+    }
+  }
+}

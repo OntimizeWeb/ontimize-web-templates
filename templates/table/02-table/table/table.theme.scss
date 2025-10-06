@@ -1,0 +1,54 @@
+@use '@angular/material' as mat;
+@use 'sass:map';
+
+@mixin table-theme($theme) {
+  $primary: map.get($theme, color, primary);
+  $accent: map.get($theme, color, accent);
+  $foreground: map.get($theme, color, foreground);
+  $background: map.get($theme, color, background);
+  $typography: map-get($theme, typography);
+  $is-dark-theme: map-get($theme, color, is-dark);
+
+  .o-form {
+    .cards-container {
+
+      .mat-mdc-card-content {
+        span {
+          font-size: mat.font-size($typography, headline-3);
+        }
+      }
+
+      .mat-mdc-card.mdc-card.type-card {
+        border-color: mat.get-color-from-palette($foreground, text, 0.32);
+        color: mat.get-color-from-palette($foreground, button);
+        background-color: mat.get-color-from-palette($background, level-08);
+
+        &:hover {
+          background-color: mat.get-color-from-palette($primary, 100);
+
+          @if $is-dark-theme {
+            background-color: mat.get-color-from-palette($primary, 500, 0.12);
+          }
+        }
+
+        svg {
+          fill: mat.get-color-from-palette($foreground, button);
+        }
+      }
+
+      .mat-mdc-card.mdc-card.active.type-card {
+        border-color: mat.get-color-from-palette($foreground, text, 0.32);
+        color: mat.get-color-from-palette($primary, 500);
+        background-color: mat.get-color-from-palette($primary, 100);
+
+        @if $is-dark-theme {
+          background-color: mat.get-color-from-palette($primary, 500, 0.12);
+        }
+
+        svg {
+          fill: mat.get-color-from-palette($primary, 500);
+        }
+      }
+    }
+  }
+}
