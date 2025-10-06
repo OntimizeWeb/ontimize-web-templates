@@ -1,0 +1,25 @@
+.home-container {
+  padding: 24px;
+  overflow-y: hidden;
+
+  .o-form {
+    flex: none;
+  }
+
+  .home-content {
+    padding: 16px 0px;
+
+    .chart-card {
+      height: 230px;
+
+      .mat-mdc-card-content {
+        padding: 20px 16px;
+
+        .o-combo {
+          overflow: hidden;
+        }
+      }
+
+    }
+  }
+}
