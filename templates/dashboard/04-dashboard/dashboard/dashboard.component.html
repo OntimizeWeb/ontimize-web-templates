@@ -1,282 +1,180 @@
 <div class="home-container" fxLayout="column" fxLayoutAlign="start" fxFlexFill>
   <o-form show-header="no">
     <div fxLayout="row" fxLayoutGap="24px" fxLayoutAlign="space-between">
-      <o-combo #comboCountry attr="comboCountry" label="Select Country" [static-data]="countries" value-column="name" visible-columns="name"
+      <o-combo #comboCountry attr="comboCountry" label="SELECT_COUNTRY" [static-data]="countries" value-column="name" visible-columns="displayName"
         keys="name" (onValueChange)="onCountryChange($event.newValue)">
       </o-combo>
-      <o-combo #comboFactory attr="comboFactory" label="Select Factory" value-column="name" visible-columns="name" keys="name"
+      <o-combo #comboFactory attr="comboFactory" label="SELECT_FACTORY" value-column="name" visible-columns="displayName" keys="name"
         (onValueChange)="onFactoryChange($event.newValue)">
       </o-combo>
-      <o-combo #comboModel attr="comboModel" label="Select Model" value-column="name" visible-columns="name" keys="name"
+      <o-combo #comboModel attr="comboModel" label="SELECT_MODEL" value-column="name" visible-columns="displayName" keys="name"
         (onValueChange)="onModelChange($event.newValue)">
       </o-combo>
     </div>
   </o-form>
-  <div class="home-content" fxLayout="row" fxLayoutAlign="space-between">
-    <div fxLayout="column" fxFlex="32%" fxLayoutGap="24px" fxLayoutAlign="space-between">
-      <div class="chart-card" fxLayout="row">
-        <mat-card fxFlex="100%">
-          <mat-card-header>
-            <mat-card-title>
-              <span class="card-title"><strong>{{'CHART_1_TITLE' | oTranslate }}</strong></span>
-              <mat-divider></mat-divider>
-            </mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <div fxLayout="row" fxLayoutAlign="space-between">
-              <div fxLayout="column" fxFlex="25%" fxLayoutGap="8px">
-                <div fxLayout="row">
-                  <span class="card-content">{{'CHART_1_CONTENT' | oTranslate}}</span>
-                </div>
-                <div fxLayout="row">
-                  <span class="color-number"><strong>{{'40000' | number}}</strong></span>
-                </div>
+  <div class="home-content" fxLayout="row wrap" fxLayoutAlign="space-between">
+    <div class="chart-card">
+      <mat-card fxFlex="100%">
+        <mat-card-header>
+          <mat-card-title>
+            <span class="card-title"><strong>{{ lineChartTitle }}</strong></span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div fxLayout="row" fxLayoutAlign="space-between">
+            <div fxLayout="column" fxFlex="25%" fxLayoutGap="8px">
+              <div fxLayout="row">
+                <span class="card-content">{{'CHART_1_CONTENT' | oTranslate}}</span>
               </div>
-              <div fxLayout="column" fxLayoutAlign="center center">
-                <o-chart type="line" [color]="colorScheme" [data]="lineData" show-tooltip="true" show-x-axis-label="true" show-y-axis-label="true"
-                  show-grid-lines="true" chart-height="180" chart-width="400">
-                </o-chart>
+              <div fxLayout="row">
+                <span class="color-number"><strong>{{ totalUnitsLineChart | shortNumber:0}}</strong></span>
               </div>
             </div>
-          </mat-card-content>
-        </mat-card>
-      </div>
-      <div class="chart-card" fxLayout="row">
-        <mat-card fxFlex="100%">
-          <mat-card-header>
-            <mat-card-title>
-              <span class="card-title"><strong>{{'CHART_2_TITLE' | oTranslate }}</strong></span>
-              <mat-divider></mat-divider>
-            </mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <div fxLayout="row" fxLayoutAlign="space-between">
-              <div fxLayout="column" fxFlex="25%" fxLayoutGap="8px">
-                <div fxLayout="row">
-                  <span class="color-number"><strong>{{'0.80' | percent }}</strong></span>
-                </div>
-                <div fxLayout="row">
-                  <span class="card-content">{{'CHART_2_CONTENT' | oTranslate}}</span>
-                </div>
-              </div>
-              <div fxLayout="column" fxFlex fxLayoutAlign="center center">
-                <o-chart type="discreteBar" [color]="colorScheme" [data]="barData" [chart-parameters]="barParams" show-tooltip="true"
-                  show-x-axis-label="false" show-y-axis-label="true" show-grid-lines="no"></o-chart>
-              </div>
+            <div fxLayout="column" fxLayoutAlign="center center">
+              <o-chart type="line" [color]="colorScheme" [data]="lineData" show-tooltip="true" show-x-axis-label="true" show-y-axis-label="false"
+                show-grid-lines="true" chart-height="170" chart-width="360">
+              </o-chart>
             </div>
-          </mat-card-content>
-        </mat-card>
-      </div>
-      <div class="chart-card" fxLayout="row">
-        <mat-card fxFlex="100%">
-          <mat-card-header>
-            <mat-card-title>
-              <span class="card-title"><strong>{{'CHART_3_TITLE' | oTranslate }}</strong></span>
-              <mat-divider></mat-divider>
-            </mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <div fxLayout="row" fxLayoutAlign="space-between">
-              <div fxLayout="column" fxLayoutGap="8px">
-                <div fxLayout="row">
-                  <span class="card-content">{{'CHART_3_CONTENT' | oTranslate}}</span>
-                </div>
-              </div>
-              <div fxLayout="column" fxLayoutAlign="start center">
-                <o-chart type="donutChart" [color]="colorScheme" [data]="donutData" chart-height="150" chart-width="150"></o-chart>
-              </div>
-              <div fxLayout="column" fxLayoutGap="8px" fxLayoutAlign="start end">
-                <div fxLayout="row">
-                  <span class="card-content">{{'CHART_3_CONTENT_1' | oTranslate}}</span>
-                </div>
-                <div fxLayout="row">
-                  <span class="number"><strong>{{ '0.30' | percent }}</strong></span>
-                </div>
-                <div fxLayout="row">
-                  <span class="color-number"><strong>{{'0.70' | percent }}</strong></span>
-                </div>
-                <div fxLayout="row">
-                  <span class="card-content">{{'CHART_3_CONTENT_2' | oTranslate }}</span>
-                </div>
-              </div>
-            </div>
-          </mat-card-content>
-        </mat-card>
-      </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
     </div>
-    <div fxLayout="column" fxFlex="32%" fxLayoutGap="24px" fxLayoutAlign="space-between">
-      <div class="chart-card" fxLayout="row">
-        <mat-card fxFlex="100%">
-          <mat-card-header>
-            <mat-card-title>
-              <span class="card-title"><strong>{{'CHART_4_TITLE' | oTranslate }}</strong></span>
-              <mat-divider></mat-divider>
-            </mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <div fxLayout="row" fxLayoutAlign="space-between">
-              <div fxLayout="column" fxFlex="25%" fxLayoutGap="8px">
-                <div fxLayout="row">
-                  <div fxLayout="column">
-                    <span class="number"><strong>2021/</strong></span>
-                  </div>
-                  <div fxLayout="column">
-                    <span class="color-number"><strong>{{'0.20' | percent}}</strong></span>
-                  </div>
-                </div>
-                <div fxLayout="row">
-                  <span class="card-content">{{'CHART_4_CONTENT' | oTranslate}}</span>
-                </div>
+    <div class="chart-card">
+      <mat-card fxFlex="100%">
+        <mat-card-header>
+          <mat-card-title>
+            <span class="card-title"><strong>{{ barChartTitle }}</strong></span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div fxLayout="row" fxLayoutAlign="space-between">
+            <div fxLayout="column" fxFlex="25%" fxLayoutGap="8px">
+              <div fxLayout="row">
+                <span class="color-number"><strong>{{ barDominantPercentage | percent }}</strong></span>
               </div>
-              <div fxLayout="column" fxFlex fxLayoutAlign="center center">
-                <o-chart type="multiBarHorizontalChart" [color]="colorScheme" [data]="multiBarData" [chart-parameters]="horizontalBarParams"
-                  show-x-axis-label="false"></o-chart>
+              <div fxLayout="row">
+                <span class="card-content">{{'CHART_2_CONTENT' | oTranslate}}</span>
               </div>
             </div>
-          </mat-card-content>
-        </mat-card>
-      </div>
-      <div class="chart-card" fxLayout="row">
-        <mat-card fxFlex="100%">
-          <mat-card-header>
-            <mat-card-title>
-              <span class="card-title"><strong>{{'CHART_5_TITLE' | oTranslate }}</strong></span>
-              <mat-divider></mat-divider>
-            </mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <div fxLayout="row" fxLayoutAlign="space-between">
-              <div fxLayout="column" fxLayoutGap="8px">
-                <div fxLayout="row">
-                  <span class="number"><strong>2021</strong></span>
-                </div>
-                <div fxLayout="row">
-                  <span class="card-content">{{'CHART_5_CONTENT' | oTranslate}}</span>
-                </div>
-                <div fxLayout="row">
-                  <span class="color-number"><strong>{{'0.49' | percent}}</strong></span>
-                </div>
-              </div>
-              <div fxLayout="column">
-                <o-chart type="discreteBar" [color]="colorScheme" [data]="barData" show-tooltip="true" show-x-axis-label="no" show-y-axis-label="no"
-                  show-grid-lines="yes" chart-height="150" chart-width="350"></o-chart>
-              </div>
+            <div fxLayout="column" fxFlex fxLayoutAlign="center center">
+              <o-chart type="discreteBar" [color]="colorScheme" [data]="barData" [chart-parameters]="barParams" show-tooltip="true"
+                show-x-axis-label="false" show-y-axis-label="false" show-grid-lines="no"></o-chart>
             </div>
-          </mat-card-content>
-        </mat-card>
-      </div>
-      <div class="chart-card" fxLayout="row">
-        <mat-card fxFlex="100%">
-          <mat-card-header>
-            <mat-card-title>
-              <span class="card-title"><strong>{{'CHART_6_TITLE' | oTranslate }}</strong></span>
-              <mat-divider></mat-divider>
-            </mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <div fxLayout="row" fxLayoutAlign="space-between">
-              <div fxLayout="column" fxFlex="25%" fxLayoutGap="8px">
-                <div fxLayout="row">
-                  <span class="card-content">{{'CHART_6_CONTENT' | oTranslate}}</span>
-                </div>
-                <div fxLayout="row">
-                  <span class="color-number"><strong>{{'0.70' | percent}}</strong></span>
-                </div>
-              </div>
-              <div fxLayout="column" fxFlex fxLayoutAlign="center center">
-                <o-chart type="pie" [color]="colorScheme" [data]="pieData" [chart-parameters]="pieParams"></o-chart>
-              </div>
-            </div>
-          </mat-card-content>
-        </mat-card>
-      </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
     </div>
-    <div fxLayout="column" fxFlex="32%" fxLayoutGap="24px" fxLayoutAlign="space-between">
-      <div class="chart-card" fxLayout="row">
-        <mat-card fxFlex="100%">
-          <mat-card-header>
-            <mat-card-title>
-              <span class="card-title"><strong>{{'CHART_7_TITLE' | oTranslate }}</strong></span>
-              <mat-divider></mat-divider>
-            </mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <div fxLayout="row" fxLayoutAlign="space-between">
-              <div fxLayout="column" fxLayoutGap="8px">
-                <div fxLayout="row">
-                  <span class="card-content">{{'CHART_7_CONTENT' | oTranslate}}</span>
-                </div>
-                <div fxLayout="row">
-                  <span class="card-content">{{'CHART_7_CONTENT_1' | oTranslate}}</span>
-                </div>
-                <div fxLayout="row">
-                  <span class="color-number"><strong>{{'0.80' | percent}}</strong></span>
-                </div>
+    <div class="chart-card">
+      <mat-card fxFlex="100%">
+        <mat-card-header>
+          <mat-card-title>
+            <span class="card-title"><strong>{{ donutChartTitle }}</strong></span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content fxLayoutAlign="center">
+          <o-chart type="donutChart" [color]="colorScheme" [data]="donutData" chart-height="150" chart-width="150"></o-chart>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="chart-card">
+      <mat-card fxFlex="100%">
+        <mat-card-header>
+          <mat-card-title>
+            <span class="card-title"><strong>{{ multiBarChartTitle }}</strong></span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div fxLayout="row" fxLayoutAlign="space-between">
+            <div fxLayout="column" fxLayoutGap="8px">
+              <div fxLayout="row">
+                <span class="number"><strong>{{ multiBarMaxItem.name }}</strong></span>
               </div>
-              <div fxLayout="column" fxLayoutAlign="center center">
-                <o-chart type="stackedAreaChart" [chart-parameters]="stackParams" [color]="colorScheme" [data]="stackedAreaData"></o-chart>
-              </div>
-            </div>
-          </mat-card-content>
-        </mat-card>
-      </div>
-      <div class="chart-card" fxLayout="row">
-        <mat-card fxFlex="100%">
-          <mat-card-header>
-            <mat-card-title>
-              <span class="card-title"><strong>{{'CHART_8_TITLE' | oTranslate }}</strong></span>
-              <mat-divider></mat-divider>
-            </mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <div fxLayout="row" fxLayoutAlign="space-between">
-              <div fxLayout="column" fxLayoutGap="8px">
-                <div fxLayout="row">
-                  <span class="number"><strong>2021</strong></span>
-                </div>
-                <div fxLayout="row">
-                  <span class="card-content">{{'CHART_8_CONTENT' | oTranslate}}</span>
-                </div>
-                <div fxLayout="row">
-                  <span class="color-number"><strong>{{'13908863' | number:'1.0-1'}}</strong></span>
-                </div>
-              </div>
-              <div fxLayout="column" fxLayoutAlign="center center">
-                <o-chart type="multiBarHorizontalChart" [color]="colorScheme" [data]="multiBarData" [chart-parameters]="horizontalBarParams"
-                  show-x-axis-label="false"></o-chart>
+              <div fxLayout="row">
+                <span class="color-number"><strong>{{ multiBarDominantPercentage | percent}}</strong></span>
               </div>
             </div>
-          </mat-card-content>
-        </mat-card>
-      </div>
-      <div class="chart-card" fxLayout="row">
-        <mat-card fxFlex="100%">
-          <mat-card-header>
-            <mat-card-title>
-              <span class="card-title"><strong>{{'CHART_9_TITLE' | oTranslate }}</strong></span>
-              <mat-divider></mat-divider>
-            </mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <div fxLayout="row" fxLayoutGap="32px">
-              <div fxLayout="column" fxLayoutGap="8px">
-                <div fxLayout="row">
-                  <span class="number"><strong>2021</strong></span>
-                </div>
-                <div fxLayout="row">
-                  <span class="card-content">{{'CHART_9_CONTENT' | oTranslate}}</span>
-                </div>
-                <div fxLayout="row">
-                  <span class="color-number"><strong>{{ '0.30' | percent }}</strong></span>
-                </div>
+            <div fxLayout="column" fxFlex fxLayoutAlign="center center">
+              <o-chart type="multiBarHorizontalChart" [color]="colorScheme" [data]="multiBarHorizontalData" [chart-parameters]="horizontalBarParams"
+                show-x-axis-label="false"></o-chart>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="chart-card">
+      <mat-card fxFlex="100%">
+        <mat-card-header>
+          <mat-card-title>
+            <span class="card-title"><strong>{{ barChartTitle }}</strong></span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content fxLayoutAlign="center">
+          <o-chart type="discreteBar" [color]="colorScheme" [data]="barData" [chart-parameters]="barParams" show-tooltip="true"
+            show-x-axis-label="false" show-y-axis-label="false" show-grid-lines="no"></o-chart>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="chart-card">
+      <mat-card fxFlex="100%">
+        <mat-card-header>
+          <mat-card-title>
+            <span class="card-title"><strong>{{ pieChartTitle }}</strong></span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content fxLayoutAlign="center">
+          <o-chart type="pie" [color]="colorScheme" [data]="pieData" [chart-parameters]="pieParams"></o-chart>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="chart-card">
+      <mat-card fxFlex="100%">
+        <mat-card-header>
+          <mat-card-title>
+            <span class="card-title"><strong>{{ stackedAreaChartTitle }}</strong></span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content fxLayoutAlign="center">
+          <o-chart type="stackedAreaChart" [chart-parameters]="stackParams" [color]="colorScheme" [data]="stackedAreaData" show-y-axis-label="false"
+            y-axis="Petrol;Electric;Hybrid;Diesel"></o-chart>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="chart-card">
+      <mat-card fxFlex="100%">
+        <mat-card-header>
+          <mat-card-title>
+            <span class="card-title"><strong>{{ multiBarChartTitle }}</strong></span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div fxLayout="row" fxLayoutAlign="space-between">
+            <div fxLayout="column" fxLayoutGap="8px">
+              <div fxLayout="row">
+                <span class="number"><strong>{{ multiBarMaxItem.name }}</strong></span>
               </div>
-              <div fxLayout="column" fxLayoutAlign="center center">
-                <o-chart type="donutChart" [chart-parameters]="donutParams" [color]="colorScheme" [data]="donutData"></o-chart>
+              <div fxLayout="row">
+                <span class="color-number"><strong>{{ multiBarDominantPercentage | percent}}</strong></span>
               </div>
             </div>
-          </mat-card-content>
-        </mat-card>
-      </div>
+            <div fxLayout="column" fxFlex fxLayoutAlign="center center">
+              <o-chart type="multiBarHorizontalChart" [color]="colorScheme" [data]="multiBarHorizontalData" [chart-parameters]="horizontalBarParams"
+                show-x-axis-label="false"></o-chart>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="chart-card">
+      <mat-card fxFlex="100%">
+        <mat-card-header>
+          <mat-card-title>
+            <span class="card-title"><strong>{{ donutChartTitle }}</strong></span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content fxLayoutAlign="center">
+          <o-chart type="donutChart" [chart-parameters]="donutParams" [color]="colorScheme" [data]="donutData"></o-chart>
+        </mat-card-content>
+      </mat-card>
     </div>
   </div>
 </div>

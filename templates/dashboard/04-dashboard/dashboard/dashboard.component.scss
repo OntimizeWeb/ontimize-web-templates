@@ -11,15 +11,24 @@
 
     .chart-card {
       height: 230px;
+      width: 500px;
+      margin-bottom: 16px;
 
       .mat-mdc-card-content {
         padding: 20px 16px;
-
-        .o-combo {
-          overflow: hidden;
-        }
       }
+    }
+  }
+}
 
+@media(max-width: 1919px) {
+  .home-container {
+    overflow-y: auto;
+
+    .home-content {
+      .chart-card {
+        width: 470px;
+      }
     }
   }
 }

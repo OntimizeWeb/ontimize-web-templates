@@ -30,7 +30,7 @@
         }
 
         .number {
-          font-size: mat.font-size($typography, headline-5);
+          font-size: mat.font-size($typography, headline-6);
           color: mat.get-color-from-palette($foreground, icon);
         }
       }
