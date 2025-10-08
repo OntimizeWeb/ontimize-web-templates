@@ -61,13 +61,14 @@
         }
       }
     }
-    .grid-row{
-      .tag{
+
+    .grid-row {
+      .tag {
         background-color: mat.get-color-from-palette($primary, 100);
         color: mat.get-color-from-palette($primary);
       }
 
-      .card-item-text{
+      .card-item-text {
         color: mat.get-color-from-palette($foreground, base);
       }
     }

@@ -2,13 +2,15 @@
 
 <br/>
 
-1. Download and put `form` folder in src/app/main/, `i18n` into assets/ and `images` also on assets/ folder.
+1. Download and put `form` folder in src/app/main/, `i18n` and `images` into assets/ folder and `pipes` in src/app/shared.
 
 <pre>
 ─src
     ├───app
     |   ├───main
-    |   |   └───table
+    |   |   └───form
+    |   ├───shared
+    |   |   └───pipes
     |   |
     |   ├─── ...
     │   │
@@ -23,7 +25,7 @@
 
 </pre>
 
-2. Configure the `o-list` modifying the values ​​between `@` for the inputs `columns`, `quick-filter-columns` and `[static-data]`. For more information consult the following url <https://ontimizeweb.github.io/docs/v15/components/data/list/overview#custom-list-item>.
+2. Configure the `o-list` modifying the values for the inputs `service-type`, `entity` `columns`, `quick-filter-columns` and `parent-keys`. For more information consult the following url <https://ontimizeweb.github.io/docs/v15/components/data/list/overview#custom-list-item>.
 
 <br/>
 
@@ -74,49 +76,49 @@ export class MainRoutingModule { }
 ...
 }
 
-.o-dark {
 ...
-  + @include app-themes(theme.$dark-theme);
-...
-}
-
-/*
-* Propagate theme to screen styles definition.
-*/
-@include app-themes(theme.$theme);
-
-
-/*
-* Other app styles
-*/
 
 ```
 
 </br>
 
-6. In order to use `class="material-icons-outlined"` on mat-icon elements, you should add the next line on your `index.html`
+6. In order to have exactly the same layout as the template, we recommend that you configure the following in the app.module.ts file
 
-```html
-<!doctype html>
-<html lang="en">
+<br/>
 
-<head>
-  <meta charset="utf-8">
-  <title>Your app</title>
-
+```js
+export const customProviders: any = [
+  { provide: O_MAT_ERROR_OPTIONS, useValue: { type: 'lite' } },
   ...
-  + <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
-  ...
-
-</head>
-
-<body>
- ...
-</body>
-
-</html>
-
+];
 ```
+
+<br/>
+
+7. Configure the pipe in your `shared.module.ts` adding the next lines.
+
+<br/>
+
+```js
+...
++ import { SplitSchedulePipe } from './pipes/split-schedule.pipe';
+...
+
+@NgModule({
+  ...
+  declarations: [
+    ...
+    SplitSchedulePipe
+  ],
+  exports: [
+    ...
+    SplitSchedulePipe
+  ]
+})
+export class SharedModule { }
+```
+
+<br/>
 
 ## LEARN MORE
 

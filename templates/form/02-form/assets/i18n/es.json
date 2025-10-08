@@ -41,10 +41,13 @@
   "CARD_6_TEXT_6": "kg",
   "TITLE_2": "Espacios",
   "CARD_LIST_1": "huéspedes",
+  "CARD_LIST_2": "aforo",
   "busy": "Ocupado",
   "available": "Disponible",
   "maintenance": "Mantenimiento",
   "reserved": "Reservado",
   "UPTAKE_GOOD": "Consumo óptimo",
-  "UPTAKE_BAD": "Consumo elevado"
+  "UPTAKE_BAD": "Consumo elevado",
+  "CABINS": "Cabañas",
+  "COMMON_AREAS": "Zonas comunes"
 }

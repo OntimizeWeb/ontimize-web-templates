@@ -41,10 +41,13 @@
   "CARD_6_TEXT_6": "kg",
   "TITLE_2": "Spaces",
   "CARD_LIST_1": "guests",
+  "CARD_LIST_2": "capacity",
   "busy": "Busy",
   "available": "Available",
   "maintenance": "Maintenance",
   "reserved": "Reserved",
   "UPTAKE_GOOD": "Optimal uptake",
-  "UPTAKE_BAD": "High uptake"
+  "UPTAKE_BAD": "High uptake",
+  "CABINS": "Cabins",
+  "COMMON_AREAS": "Common areas"
 }
