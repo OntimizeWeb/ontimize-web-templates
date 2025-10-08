@@ -4,6 +4,8 @@
 
 1. Download and put `form` folder in src/app/main/, `i18n` and `images` into assets/ folder and `pipes` in src/app/shared.
 
+<br/>
+
 <pre>
 ─src
     ├───app
@@ -25,6 +27,8 @@
 
 </pre>
 
+<br/>
+
 2. Configure the `o-list` modifying the values for the inputs `service-type`, `entity` `columns`, `quick-filter-columns` and `parent-keys`. For more information consult the following url <https://ontimizeweb.github.io/docs/v15/components/data/list/overview#custom-list-item>.
 
 <br/>
@@ -34,6 +38,8 @@
 <br/>
 
 4. Configure routing in `main-routing.module.ts`
+
+<br/>
 
 ```js
 import { NgModule } from '@angular/core';
@@ -60,6 +66,8 @@ export class MainRoutingModule { }
 <br/>
 
 5. To configure the theme on the form component it is necessary to include `form.theme.scss` in `app.scss`
+
+<br/>
 
 ```scss
 @use 'theme.scss' as theme;
@@ -116,6 +124,34 @@ export const customProviders: any = [
   ]
 })
 export class SharedModule { }
+```
+
+<br/>
+
+8. In order to use `class="material-icons-outlined"` on mat-icon elements, you should add the next line on your `index.html`
+
+<br/>
+
+```html
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Your app</title>
+
+  ...
+  + <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
+  ...
+
+</head>
+
+<body>
+ ...
+</body>
+
+</html>
+
 ```
 
 <br/>
