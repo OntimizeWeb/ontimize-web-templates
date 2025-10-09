@@ -2,7 +2,7 @@
 
 <br/>
 
-1. Download and put `form` folder in src/app/main/, `i18n` and `images` into assets/ folder and `pipes` in src/app/shared.
+1. Download and put `form` folder in src/app/main/, `i18n` and `images` into assets/ folder and `pipes` and `services` in src/app/shared.
 
 <br/>
 
@@ -13,6 +13,7 @@
     |   |   └───form
     |   ├───shared
     |   |   └───pipes
+    |   |   └───services
     |   |
     |   ├─── ...
     │   │
@@ -153,6 +154,42 @@ export class SharedModule { }
 </html>
 
 ```
+
+<br/>
+
+9. For using a custom ontimize service, you must follow this steps:
+  - Register your custom service in your feature module. In this case, in `form.module.ts`.
+
+  ```js
+  import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { FormRoutingModule } from './form-routing.module';
+import { FormDetailComponent } from './form-detail/form-detail.component';
+import { OntimizeWebModule } from 'ontimize-web-ngx';
+import { HotelService } from '../../shared/services/hotel.service.ts';
+import { SharedModule } from '../../shared/shared.module';
+
+
+@NgModule({
+  declarations: [
+    FormDetailComponent
+  ],
+  imports: [
+    SharedModule,
+    CommonModule,
+    FormRoutingModule,
+    OntimizeWebModule
+  ],
+  + providers: [{ provide: 'hotels', useValue: HotelService }]
+})
+export class FormModule { }
+  ```
+
+- Create a service that extends OntimizeEEService and overrides query(...) to return data from in-memory arrays. You can see an example in `hotel.service.ts`.
+- Use it in `o-form` and `o-list` with the input `service-type`. In this case, `service-type="hotels"`.
+
+For more infomation about custom services in Ontimize click [here](https://ontimizeweb.github.io/docs/v15/guide/service/).
 
 <br/>
 
