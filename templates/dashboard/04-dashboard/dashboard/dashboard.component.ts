@@ -1,7 +1,7 @@
 import { DiscreteBarChartConfiguration, DonutChartConfiguration, LineChartConfiguration, MultiBarHorizontalChartConfiguration, StackedAreaChartConfiguration, PieChartConfiguration } from 'ontimize-web-ngx-charts';
 import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
 import { Factory } from '../../shared/interfaces/factories.interface';
-import { OComboComponent } from 'ontimize-web-ngx';
+import { OComboComponent, OTranslateService } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'dashboard',
@@ -1009,15 +1009,13 @@ export class DashboardComponent implements OnInit {
 
     this.stackParams = new StackedAreaChartConfiguration();
     this.stackParams.height = 200;
-    this.stackParams.width = 400;
-    this.stackParams.showLegend = true;
-    this.stackParams.legend.rightAlign = false;
+    this.stackParams.width = 460;
+    this.stackParams.showLegend = false;
 
     this.donutParams = new DonutChartConfiguration();
     this.donutParams.height = 150;
     this.donutParams.width = 150;
     this.donutParams.showLabels = true;
-    this.donutParams.showTooltip = true;
   }
 
   public get lineChartTitle(): string {

@@ -72,7 +72,7 @@
           </mat-card-title>
         </mat-card-header>
         <mat-card-content fxLayoutAlign="center">
-          <o-chart type="donutChart" [color]="colorScheme" [data]="donutData" chart-height="150" chart-width="150"></o-chart>
+          <o-chart type="donutChart" [color]="colorScheme" [data]="donutData" chart-height="150" chart-width="150" show-tooltip="true"></o-chart>
         </mat-card-content>
       </mat-card>
     </div>
@@ -122,7 +122,7 @@
           </mat-card-title>
         </mat-card-header>
         <mat-card-content fxLayoutAlign="center">
-          <o-chart type="pie" [color]="colorScheme" [data]="pieData" [chart-parameters]="pieParams"></o-chart>
+          <o-chart type="pie" [color]="colorScheme" [data]="pieData" [chart-parameters]="pieParams" show-tooltip="true"></o-chart>
         </mat-card-content>
       </mat-card>
     </div>
@@ -135,7 +135,7 @@
         </mat-card-header>
         <mat-card-content fxLayoutAlign="center">
           <o-chart type="stackedAreaChart" [chart-parameters]="stackParams" [color]="colorScheme" [data]="stackedAreaData" show-y-axis-label="false"
-            y-axis="Petrol;Electric;Hybrid;Diesel"></o-chart>
+            show-tooltip="true" y-axis="Petrol;Electric;Hybrid;Diesel"></o-chart>
         </mat-card-content>
       </mat-card>
     </div>
@@ -172,7 +172,7 @@
           </mat-card-title>
         </mat-card-header>
         <mat-card-content fxLayoutAlign="center">
-          <o-chart type="donutChart" [chart-parameters]="donutParams" [color]="colorScheme" [data]="donutData"></o-chart>
+          <o-chart type="donutChart" [chart-parameters]="donutParams" [color]="colorScheme" [data]="donutData" show-tooltip="true"></o-chart>
         </mat-card-content>
       </mat-card>
     </div>

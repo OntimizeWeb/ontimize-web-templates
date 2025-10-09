@@ -2,7 +2,7 @@
 
 <br/>
 
-1. Download and put `dashboard/` into `src/app/main/`, `assets/i18n/` into your project `assets/` and, `shared/interfaces` and `shared/pipes` into `src/app/shared/`
+1. Download and put `dashboard` into `src/app/main/`, `assets/i18n/` into your project `assets/` and, `shared/interfaces` and `shared/pipes` into `src/app/shared/`
 
 <br/>
 
