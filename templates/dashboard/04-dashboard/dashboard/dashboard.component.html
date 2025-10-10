@@ -1,0 +1,180 @@
+<div class="home-container" fxLayout="column" fxLayoutAlign="start" fxFlexFill>
+  <o-form show-header="no">
+    <div fxLayout="row" fxLayoutGap="24px" fxLayoutAlign="space-between">
+      <o-combo #comboCountry attr="comboCountry" label="SELECT_COUNTRY" [static-data]="countries" value-column="name" visible-columns="displayName"
+        keys="name" (onValueChange)="onCountryChange($event.newValue)">
+      </o-combo>
+      <o-combo #comboFactory attr="comboFactory" label="SELECT_FACTORY" value-column="name" visible-columns="displayName" keys="name"
+        (onValueChange)="onFactoryChange($event.newValue)">
+      </o-combo>
+      <o-combo #comboModel attr="comboModel" label="SELECT_MODEL" value-column="name" visible-columns="displayName" keys="name"
+        (onValueChange)="onModelChange($event.newValue)">
+      </o-combo>
+    </div>
+  </o-form>
+  <div class="home-content" fxLayout="row wrap" fxLayoutAlign="space-between">
+    <div class="chart-card">
+      <mat-card fxFlex="100%">
+        <mat-card-header>
+          <mat-card-title>
+            <span class="card-title"><strong>{{ lineChartTitle }}</strong></span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div fxLayout="row" fxLayoutAlign="space-between">
+            <div fxLayout="column" fxFlex="25%" fxLayoutGap="8px">
+              <div fxLayout="row">
+                <span class="card-content">{{'CHART_1_CONTENT' | oTranslate}}</span>
+              </div>
+              <div fxLayout="row">
+                <span class="color-number"><strong>{{ totalUnitsLineChart | shortNumber:0}}</strong></span>
+              </div>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="center center">
+              <o-chart type="line" [color]="colorScheme" [data]="lineData" show-tooltip="true" show-x-axis-label="true" show-y-axis-label="false"
+                show-grid-lines="true" chart-height="170" chart-width="360">
+              </o-chart>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="chart-card">
+      <mat-card fxFlex="100%">
+        <mat-card-header>
+          <mat-card-title>
+            <span class="card-title"><strong>{{ barChartTitle }}</strong></span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div fxLayout="row" fxLayoutAlign="space-between">
+            <div fxLayout="column" fxFlex="25%" fxLayoutGap="8px">
+              <div fxLayout="row">
+                <span class="color-number"><strong>{{ barDominantPercentage | percent }}</strong></span>
+              </div>
+              <div fxLayout="row">
+                <span class="card-content">{{'CHART_2_CONTENT' | oTranslate}}</span>
+              </div>
+            </div>
+            <div fxLayout="column" fxFlex fxLayoutAlign="center center">
+              <o-chart type="discreteBar" [color]="colorScheme" [data]="barData" [chart-parameters]="barParams" show-tooltip="true"
+                show-x-axis-label="false" show-y-axis-label="false" show-grid-lines="no"></o-chart>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="chart-card">
+      <mat-card fxFlex="100%">
+        <mat-card-header>
+          <mat-card-title>
+            <span class="card-title"><strong>{{ donutChartTitle }}</strong></span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content fxLayoutAlign="center">
+          <o-chart type="donutChart" [color]="colorScheme" [data]="donutData" chart-height="150" chart-width="150" show-tooltip="true"></o-chart>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="chart-card">
+      <mat-card fxFlex="100%">
+        <mat-card-header>
+          <mat-card-title>
+            <span class="card-title"><strong>{{ multiBarChartTitle }}</strong></span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div fxLayout="row" fxLayoutAlign="space-between">
+            <div fxLayout="column" fxLayoutGap="8px">
+              <div fxLayout="row">
+                <span class="number"><strong>{{ multiBarMaxItem.name }}</strong></span>
+              </div>
+              <div fxLayout="row">
+                <span class="color-number"><strong>{{ multiBarDominantPercentage | percent}}</strong></span>
+              </div>
+            </div>
+            <div fxLayout="column" fxFlex fxLayoutAlign="center center">
+              <o-chart type="multiBarHorizontalChart" [color]="colorScheme" [data]="multiBarHorizontalData" [chart-parameters]="horizontalBarParams"
+                show-x-axis-label="false"></o-chart>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="chart-card">
+      <mat-card fxFlex="100%">
+        <mat-card-header>
+          <mat-card-title>
+            <span class="card-title"><strong>{{ barChartTitle }}</strong></span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content fxLayoutAlign="center">
+          <o-chart type="discreteBar" [color]="colorScheme" [data]="barData" [chart-parameters]="barParams" show-tooltip="true"
+            show-x-axis-label="false" show-y-axis-label="false" show-grid-lines="no"></o-chart>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="chart-card">
+      <mat-card fxFlex="100%">
+        <mat-card-header>
+          <mat-card-title>
+            <span class="card-title"><strong>{{ pieChartTitle }}</strong></span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content fxLayoutAlign="center">
+          <o-chart type="pie" [color]="colorScheme" [data]="pieData" [chart-parameters]="pieParams" show-tooltip="true"></o-chart>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="chart-card">
+      <mat-card fxFlex="100%">
+        <mat-card-header>
+          <mat-card-title>
+            <span class="card-title"><strong>{{ stackedAreaChartTitle }}</strong></span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content fxLayoutAlign="center">
+          <o-chart type="stackedAreaChart" [chart-parameters]="stackParams" [color]="colorScheme" [data]="stackedAreaData" show-y-axis-label="false"
+            show-tooltip="true" y-axis="Petrol;Electric;Hybrid;Diesel"></o-chart>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="chart-card">
+      <mat-card fxFlex="100%">
+        <mat-card-header>
+          <mat-card-title>
+            <span class="card-title"><strong>{{ multiBarChartTitle }}</strong></span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div fxLayout="row" fxLayoutAlign="space-between">
+            <div fxLayout="column" fxLayoutGap="8px">
+              <div fxLayout="row">
+                <span class="number"><strong>{{ multiBarMaxItem.name }}</strong></span>
+              </div>
+              <div fxLayout="row">
+                <span class="color-number"><strong>{{ multiBarDominantPercentage | percent}}</strong></span>
+              </div>
+            </div>
+            <div fxLayout="column" fxFlex fxLayoutAlign="center center">
+              <o-chart type="multiBarHorizontalChart" [color]="colorScheme" [data]="multiBarHorizontalData" [chart-parameters]="horizontalBarParams"
+                show-x-axis-label="false"></o-chart>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="chart-card">
+      <mat-card fxFlex="100%">
+        <mat-card-header>
+          <mat-card-title>
+            <span class="card-title"><strong>{{ donutChartTitle }}</strong></span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content fxLayoutAlign="center">
+          <o-chart type="donutChart" [chart-parameters]="donutParams" [color]="colorScheme" [data]="donutData" show-tooltip="true"></o-chart>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

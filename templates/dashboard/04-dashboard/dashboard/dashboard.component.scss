@@ -1,0 +1,34 @@
+.home-container {
+  padding: 24px;
+  overflow-y: hidden;
+
+  .o-form {
+    flex: none;
+  }
+
+  .home-content {
+    padding: 16px 0px;
+
+    .chart-card {
+      height: 230px;
+      width: 32%;
+      margin-bottom: 16px;
+
+      .mat-mdc-card-content {
+        padding: 20px 16px;
+      }
+    }
+  }
+}
+
+@media(max-width: 1919px) {
+  .home-container {
+    overflow-y: auto;
+
+    .home-content {
+      .chart-card {
+        width: 49%;
+      }
+    }
+  }
+}
