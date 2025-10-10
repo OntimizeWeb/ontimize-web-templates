@@ -49,5 +49,7 @@
   "UPTAKE_GOOD": "Consumo óptimo",
   "UPTAKE_BAD": "Consumo elevado",
   "CABINS": "Cabañas",
-  "COMMON_AREAS": "Zonas comunes"
+  "COMMON_AREAS": "Zonas comunes",
+  "CABIN": "Cabaña",
+  "COMMON_AREA": "Zona común"
 }

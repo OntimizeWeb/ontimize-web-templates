@@ -307,7 +307,7 @@
         <div fxLayout="row" class="list" *ngIf="filter == 'cabins'">
           <o-list #list attr="list" service-type="hotels" entity="cabin" columns="id;name;capacity;status;uptake;image;hotelId"
             quick-filter-columns="capacity;status" parent-keys="hotelId:id" show-buttons-text="yes" insert-button="yes" insert-button-floatable="no"
-            delete-button="no" query-rows="2" pagination-controls="yes">
+            delete-button="no" query-rows="3" pagination-controls="yes">
             <div class="cards-container">
               <mat-card *ngFor="let row of list.dataArray" [o-list-item]="row" class="card">
                 <mat-card-content fxLayoutGap="24px" fxFlexFill>
@@ -315,9 +315,11 @@
                     <img src="{{ row.image }}" />
                   </div>
                   <div fxLayout="column" fxFlex class="data-column">
-                    <div fxLayout="row" class="tag" fxLayoutAlign="end">
-                      <mat-icon color="primary">home</mat-icon>
-                      <span>{{ row.status | oTranslate }}</span>
+                    <div fxLayout="row" fxLayoutAlign="end">
+                      <mat-chip class="tag">
+                        <mat-icon color="primary">home</mat-icon>
+                        {{ row.status | oTranslate }}
+                      </mat-chip>
                     </div>
                     <div fxLayout="row">
                       <span class="title"><strong>{{ row.name }}</strong></span>
@@ -359,7 +361,7 @@
         <div fxLayout="row" class="list" *ngIf="filter == 'commonAreas'">
           <o-list #list attr="list" service-type="hotels" entity="common" columns="id;name;capacity;schedule;image;hotelId"
             quick-filter-columns="capacity;schedule" parent-keys="hotelId:id" show-buttons-text="yes" insert-button="yes" insert-button-floatable="no"
-            delete-button="no" query-rows="2" pagination-controls="yes">
+            delete-button="no" query-rows="3" pagination-controls="yes">
             <div class="cards-container">
               <mat-card *ngFor="let row of list.dataArray" [o-list-item]="row" class="card">
                 <mat-card-content fxLayoutGap="24px" fxFlexFill>
@@ -397,7 +399,7 @@
         <div fxLayout="row" class="list" *ngIf="filter == 'all'">
           <o-list #spacesList attr="spaces" service-type="hotels" entity="spaces" columns="id;type;name;capacity;status;uptake;schedule;image;hotelId"
             parent-keys="hotelId:id" quick-filter-columns="capacity;schedule;type" parent-keys="hotelId:id" show-buttons-text="yes"
-            insert-button="yes" insert-button-floatable="no" delete-button="no" query-rows="2" pagination-controls="yes">
+            insert-button="yes" insert-button-floatable="no" delete-button="no" query-rows="3" pagination-controls="yes">
             <div class="cards-container">
               <mat-card *ngFor="let row of spacesList.dataArray" [o-list-item]="row" class="card">
                 <mat-card-content fxLayoutGap="24px" fxFlexFill>
@@ -407,7 +409,7 @@
                   <div fxLayout="column" fxFlex class="data-column">
                     <div fxLayout="row" fxLayoutAlign="end">
                       <mat-chip color="primary" selected disableRipple>
-                        {{ row.type === 'cabin' ? ('CABAÑA' | oTranslate) : ('ZONA COMÚN' | oTranslate) }}
+                        {{ row.type === 'cabin' ? ('CABIN' | oTranslate) : ('COMMON_AREA' | oTranslate) }}
                       </mat-chip>
                     </div>
                     <div fxLayout="row">

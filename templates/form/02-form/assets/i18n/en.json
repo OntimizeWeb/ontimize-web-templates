@@ -49,5 +49,7 @@
   "UPTAKE_GOOD": "Optimal uptake",
   "UPTAKE_BAD": "High uptake",
   "CABINS": "Cabins",
-  "COMMON_AREAS": "Common areas"
+  "COMMON_AREAS": "Common areas",
+  "CABIN": "Cabin",
+  "COMMON_AREA": "Common area"
 }
