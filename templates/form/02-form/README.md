@@ -30,7 +30,7 @@
 
 <br/>
 
-2. Configure the `o-list` modifying the values for the inputs `service-type`, `entity` `columns`, `quick-filter-columns` and `parent-keys`. For more information consult the following url <https://ontimizeweb.github.io/docs/v15/components/data/list/overview#custom-list-item>.
+2. Configure the `o-grid` modifying the values for the inputs `service-type`, `entity`, `columns` and `quick-filter-columns`. We don’t use `parent-keys` here. Instead, a dedicated service builds the kv and filters the data displayed by `o-grid`. See section 10 for details. For more information consult the following url <https://ontimizeweb.github.io/docs/v15/components/data/grid/overview>.
 
 <br/>
 
@@ -186,10 +186,38 @@ import { SharedModule } from '../../shared/shared.module';
 export class FormModule { }
   ```
 
-- Create a service that extends OntimizeEEService and overrides query(...) to return data from in-memory arrays. You can see an example in `hotel.service.ts`.
-- Use it in `o-form` and `o-list` with the input `service-type`. In this case, `service-type="hotels"`.
+  <br/>
+
+  - Create a service that extends OntimizeEEService and overrides query(...) to return data from in-memory arrays. You can see an example in `hotel.service.ts`.
+  - Use it in `o-form` and `o-grid` with the input `service-type`. In this case, `service-type="hotels"`.
 
 For more infomation about custom services in Ontimize click [here](https://ontimizeweb.github.io/docs/v15/guide/service/).
+
+<br/>
+
+10. We don’t use `parent-keys` here. Instead, a small service builds the `kv` and the component queries `o-grid` programmatically.
+
+  - `spaces-filter.service.ts`
+
+    - buildKv(hotelId, type): Central place that translates UI state into the kv sent to the Ontimize service. Always includes hotelId. Includes type only when filtering ('cabin' | 'common'), and omits it for “all”.
+
+  - `form-detail.component.ts`
+
+    - onFormDataLoaded(data): Called by `o-form`; sets the header label and triggers the initial query by calling loadSpaces('cabin') (after the view stabilizes).
+
+    - onFilterChange(event): Called by the toggle (onChange); extracts the selected type ('all' | 'cabin' | 'common') and calls loadSpaces(type).
+
+    - loadSpaces(type): Reads `hotelId` from the form, calls SpacesFilterService.buildKv(...), and then queries this.grid.queryData(kv).
+
+  - `form-detail.component.html`
+
+    - Toggle: <o-button-toggle-group ... (onChange)="onFilterChange($event)"> with explicit values: all, cabin, common.
+
+    - Grid: <o-grid ... query-on-init="no"> so the component fully controls when/how queries run.
+
+  - `hotel.service.ts` (Ontimize data service)
+
+    - query(..., entity='spaces'): Merges cabins + commons, always filters by hotelId, and only filters by type when present and not 'all'.
 
 <br/>
 
