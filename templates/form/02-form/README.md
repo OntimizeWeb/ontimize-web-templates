@@ -227,6 +227,6 @@ For more infomation about custom services in Ontimize click [here](https://ontim
 
 * **OTranslateService** <https://ontimizeweb.github.io/docs/v15/guide/otranslateservice/overview>
 
-* **List component** <https://ontimizeweb.github.io/docs/v15/components/data/list/overview>
+* **Grid component** <https://ontimizeweb.github.io/docs/v15/components/data/grid/overview>
 
 * **Ontimize SCSS surface classes** <https://ontimizeweb.github.io/docs/v15/customize/style-guide/#surfaces>
