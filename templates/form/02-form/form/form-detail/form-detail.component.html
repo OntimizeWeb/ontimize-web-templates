@@ -1,6 +1,5 @@
-<o-form #oForm attr="form-detail" service-type="hotels" entity="hotel" keys="id" keys-sql-types="INTEGER" columns="id;name;location;commonAreas"
-  editable-detail="true" show-header="true" header-actions="R;U;D" [label-header]="formLabel" show-header-navigation="true"
-  (onDataLoaded)="onFormDataLoaded($event)">
+<o-form #oForm attr="form-detail" service-type="hotels" entity="hotel" keys="id" keys-sql-types="INTEGER" columns="id;name" editable-detail="true"
+  show-header="true" header-actions="R;U;D" [label-header]="formLabel" show-header-navigation="true" (onDataLoaded)="onFormDataLoaded($event)">
   <div fxLayout=column class="form-container bg-level-1" fxFlexFill>
     <div fxLayout="row" class="title">
       <span><strong>{{ 'TITLE_1' | oTranslate}}</strong></span>
@@ -297,159 +296,72 @@
       <div fxLayout="column" fxFlexFill>
         <div fxLayout="row" class="title" fxLayoutAlign="space-between">
           <span><strong>{{ 'TITLE_2' | oTranslate}}</strong></span>
-          <o-button-toggle-group attr="toggleGroup" layout="row" multiple="no" value="cabins" layout-padding
-            (onChange)="onFilterChange($event.value)">
+          <o-button-toggle-group attr="TYPE" layout="row" multiple="no" value="cabin" layout-padding (onChange)="onFilterChange($event)">
             <o-button-toggle attr="toggle1" value="all" label="ALL"></o-button-toggle>
-            <o-button-toggle attr="toggle2" value="cabins" label="CABINS"></o-button-toggle>
-            <o-button-toggle attr="toggle3" value="commonAreas" label="COMMON_AREAS"></o-button-toggle>
+            <o-button-toggle attr="toggle2" value="cabin" label="CABINS"></o-button-toggle>
+            <o-button-toggle attr="toggle3" value="common" label="COMMON_AREAS"></o-button-toggle>
           </o-button-toggle-group>
         </div>
-        <div fxLayout="row" class="list" *ngIf="filter == 'cabins'">
-          <o-list #list attr="list" service-type="hotels" entity="cabin" columns="id;name;capacity;status;uptake;image;hotelId"
-            quick-filter-columns="capacity;status" parent-keys="hotelId:id" show-buttons-text="yes" insert-button="yes" insert-button-floatable="no"
-            delete-button="no" query-rows="3" pagination-controls="yes">
-            <div class="cards-container">
-              <mat-card *ngFor="let row of list.dataArray" [o-list-item]="row" class="card">
-                <mat-card-content fxLayoutGap="24px" fxFlexFill>
-                  <div fxLayout="column" fxFlex="40%">
-                    <img src="{{ row.image }}" />
-                  </div>
-                  <div fxLayout="column" fxFlex class="data-column">
-                    <div fxLayout="row" fxLayoutAlign="end">
-                      <mat-chip class="tag">
-                        <mat-icon color="primary">home</mat-icon>
-                        {{ row.status | oTranslate }}
-                      </mat-chip>
+        <div fxLayout="row" class="cards-container">
+          <o-grid #grid attr="grid" service-type="hotels" entity="spaces" columns="id;type;name;capacity;status;uptake;image;schedule;hotelId"
+            quick-filter-columns="capacity;status" keys="id" show-buttons-text="yes" insert-button="yes" insert-button-floatable="no"
+            pagination-controls="yes" gutter-size="20px" grid-item-height="190px" query-on-init="no">
+            <o-grid-item *ngFor="let row of grid.dataArray">
+              <div class="card">
+                <mat-card>
+                  <mat-card-content fxLayoutGap="24px" fxFlexFill>
+                    <div fxLayout="column" fxFlex="40%">
+                      <img [src]="row.image" />
                     </div>
-                    <div fxLayout="row">
-                      <span class="title"><strong>{{ row.name }}</strong></span>
-                    </div>
-                    <div fxLayout="row" fxLayoutGap="6px">
-                      <div fxLayout="column">
+                    <div fxLayout="column" fxFlex class="data-column">
+                      <div fxLayout="row" fxLayoutAlign="end" *ngIf="row.type == 'cabin'">
+                        <mat-chip class="tag">
+                          <mat-icon color="primary">home</mat-icon>
+                          <span>{{ row.status | oTranslate }}</span>
+                        </mat-chip>
+                      </div>
+                      <div fxLayout="row" fxLayoutAlign="end" *ngIf="row.type == 'common'">
+                        <mat-chip color="primary" selected disableRipple>
+                          {{ 'COMMON_AREA' | oTranslate }}
+                        </mat-chip>
+                      </div>
+                      <div fxLayout="row">
+                        <span class="title"><strong>{{ row.name }}</strong></span>
+                      </div>
+                      <div fxLayout="row" fxLayoutGap="6px" *ngIf="row.capacity != null">
                         <mat-icon color="primary">people</mat-icon>
+                        <span class="card-item-text">
+                          {{ row.capacity }} {{ row.type === 'cabin' ? ('CARD_LIST_1' | oTranslate) : ('CARD_LIST_2' | oTranslate) }}
+                        </span>
                       </div>
-                      <div fxLayout="column" class="card-item-text">
-                        {{ row.capacity }} {{'CARD_LIST_1' | oTranslate}}
-                      </div>
-                    </div>
-                    <div fxLayout="row">
-                      <div [ngSwitch]="row.uptake">
-                        <div *ngSwitchCase="'low'" class="uptake-low" fxLayoutAlign="start center" fxLayoutGap="6px">
-                          <div fxLayout="column">
+                      <div fxLayout="row" *ngIf="row.type === 'cabin' && row.status">
+                        <div [ngSwitch]="row.uptake">
+                          <div *ngSwitchCase="'low'" class="uptake-low" fxLayoutAlign="start center" fxLayoutGap="6px">
                             <mat-icon>eco</mat-icon>
+                            <span class="card-item-text">{{ 'UPTAKE_GOOD' | oTranslate }}</span>
                           </div>
-                          <div fxLayout="column" class="card-item-text">
-                            <span>{{ 'UPTAKE_GOOD' | oTranslate}}</span>
-                          </div>
-                        </div>
-                        <div *ngSwitchCase="'high'" class="uptake-high" fxLayoutAlign="start center" fxLayoutGap="6px">
-                          <div fxLayout="column">
+                          <div *ngSwitchCase="'high'" class="uptake-high" fxLayoutAlign="start center" fxLayoutGap="6px">
                             <mat-icon>warning</mat-icon>
-                          </div>
-                          <div fxLayout="column" class="card-item-text">
-                            <span>{{ 'UPTAKE_BAD' | oTranslate}}</span>
+                            <span class="card-item-text">{{ 'UPTAKE_BAD' | oTranslate }}</span>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                </mat-card-content>
-              </mat-card>
-            </div>
-          </o-list>
-        </div>
-        <div fxLayout="row" class="list" *ngIf="filter == 'commonAreas'">
-          <o-list #list attr="list" service-type="hotels" entity="common" columns="id;name;capacity;schedule;image;hotelId"
-            quick-filter-columns="capacity;schedule" parent-keys="hotelId:id" show-buttons-text="yes" insert-button="yes" insert-button-floatable="no"
-            delete-button="no" query-rows="3" pagination-controls="yes">
-            <div class="cards-container">
-              <mat-card *ngFor="let row of list.dataArray" [o-list-item]="row" class="card">
-                <mat-card-content fxLayoutGap="24px" fxFlexFill>
-                  <div fxLayout="column" fxFlex="40%">
-                    <img src="{{ row.image }}" />
-                  </div>
-                  <div fxLayout="column" fxFlex class="data-column" fxLayoutAlign="center">
-                    <div fxLayout="row">
-                      <span class="title"><strong>{{ row.name }}</strong></span>
-                    </div>
-                    <div fxLayout="row" fxLayoutGap="6px">
-                      <div fxLayout="column">
-                        <mat-icon color="primary">people</mat-icon>
-                      </div>
-                      <div fxLayout="column" class="card-item-text">
-                        {{ row.capacity }} {{'CARD_LIST_2' | oTranslate}}
-                      </div>
-                    </div>
-                    <div fxLayout="row" fxLayoutGap="6px">
-                      <div fxLayout="column">
-                        <mat-icon color="primary">schedule</mat-icon>
-                      </div>
-                      <div fxLayout="column" class="card-item-text">
-                        <ng-container *ngFor="let tramo of (row.schedule | splitSchedule)">
-                          <span class="schedule-line">{{ tramo }}</span>
-                        </ng-container>
-                      </div>
-                    </div>
-                  </div>
-                </mat-card-content>
-              </mat-card>
-            </div>
-          </o-list>
-        </div>
-        <div fxLayout="row" class="list" *ngIf="filter == 'all'">
-          <o-list #spacesList attr="spaces" service-type="hotels" entity="spaces" columns="id;type;name;capacity;status;uptake;schedule;image;hotelId"
-            parent-keys="hotelId:id" quick-filter-columns="capacity;schedule;type" parent-keys="hotelId:id" show-buttons-text="yes"
-            insert-button="yes" insert-button-floatable="no" delete-button="no" query-rows="3" pagination-controls="yes">
-            <div class="cards-container">
-              <mat-card *ngFor="let row of spacesList.dataArray" [o-list-item]="row" class="card">
-                <mat-card-content fxLayoutGap="24px" fxFlexFill>
-                  <div fxLayout="column" fxFlex="40%">
-                    <img [src]="row.image" />
-                  </div>
-                  <div fxLayout="column" fxFlex class="data-column">
-                    <div fxLayout="row" fxLayoutAlign="end">
-                      <mat-chip color="primary" selected disableRipple>
-                        {{ row.type === 'cabin' ? ('CABIN' | oTranslate) : ('COMMON_AREA' | oTranslate) }}
-                      </mat-chip>
-                    </div>
-                    <div fxLayout="row">
-                      <span class="title"><strong>{{ row.name }}</strong></span>
-                    </div>
-                    <div fxLayout="row" fxLayoutGap="6px" *ngIf="row.capacity != null">
-                      <div fxLayout="column">
-                        <mat-icon color="primary">people</mat-icon>
-                      </div>
-                      <div fxLayout="column" class="card-item-text">
-                        {{ row.capacity }} {{ row.type === 'cabin' ? ('CARD_LIST_1' | oTranslate) : ('Aforo' ) }}
-                      </div>
-                    </div>
-                    <div fxLayout="row" *ngIf="row.type === 'cabin' && row.status">
-                      <div [ngSwitch]="row.uptake">
-                        <div *ngSwitchCase="'low'" class="uptake-low" fxLayoutAlign="start center" fxLayoutGap="6px">
-                          <mat-icon>eco</mat-icon>
-                          <span class="card-item-text">{{ 'UPTAKE_GOOD' | oTranslate }}</span>
+                      <div fxLayout="row" fxLayoutGap="6px" *ngIf="row.type === 'common' && row.schedule">
+                        <div fxLayout="column">
+                          <mat-icon color="primary">schedule</mat-icon>
                         </div>
-                        <div *ngSwitchCase="'high'" class="uptake-high" fxLayoutAlign="start center" fxLayoutGap="6px">
-                          <mat-icon>warning</mat-icon>
-                          <span class="card-item-text">{{ 'UPTAKE_BAD' | oTranslate }}</span>
+                        <div fxLayout="column" class="card-item-text">
+                          <ng-container *ngFor="let tramo of (row.schedule | splitSchedule)">
+                            <span class="schedule-line">{{ tramo }}</span>
+                          </ng-container>
                         </div>
                       </div>
                     </div>
-                    <div fxLayout="row" fxLayoutGap="6px" *ngIf="row.type === 'common' && row.schedule">
-                      <div fxLayout="column">
-                        <mat-icon color="primary">schedule</mat-icon>
-                      </div>
-                      <div fxLayout="column" class="card-item-text">
-                        <ng-container *ngFor="let tramo of (row.schedule | splitSchedule)">
-                          <span class="schedule-line">{{ tramo }}</span>
-                        </ng-container>
-                      </div>
-                    </div>
-                  </div>
-                </mat-card-content>
-              </mat-card>
-            </div>
-          </o-list>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+            </o-grid-item>
+          </o-grid>
         </div>
       </div>
     </div>
