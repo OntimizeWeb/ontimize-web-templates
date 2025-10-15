@@ -30,7 +30,10 @@ export class FormDetailComponent {
 
   public onFormDataLoaded(data: any): void {
     this.formLabel = data.name;
-    Promise.resolve().then(() => this.loadSpaces('cabin'));
+    Promise.resolve().then(() => {
+      this.spacesFilter.setType('cabin');
+      this.grid.reloadData();
+    });
   }
 
   public onFilterChange(event: any) {
@@ -39,9 +42,8 @@ export class FormDetailComponent {
   }
 
   private loadSpaces(type: string) {
-    const hotelId = this.form.getUrlParam('id');
-    const kv = this.spacesFilter.buildKv(hotelId, type);
-    this.grid.queryData(kv);
+    this.spacesFilter.setType(type);
+    this.grid.reloadData();
   }
 
   private changeColsGrid(): void {

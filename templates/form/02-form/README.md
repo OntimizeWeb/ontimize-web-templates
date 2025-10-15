@@ -104,25 +104,27 @@ export const customProviders: any = [
 
 <br/>
 
-7. Configure the pipe in your `shared.module.ts` adding the next lines.
+7. Configure the pipe and the custom filter service in your `shared.module.ts` adding the next lines.
 
 <br/>
 
 ```js
 ...
 + import { SplitSchedulePipe } from './pipes/split-schedule.pipe';
++ import { SpacesFilterService } from './services/spaces-filter.service';
 ...
 
 @NgModule({
   ...
   declarations: [
     ...
-    SplitSchedulePipe
+   + SplitSchedulePipe
   ],
   exports: [
     ...
-    SplitSchedulePipe
-  ]
+   + SplitSchedulePipe
+  ],
+  + providers: [SpacesFilterService]
 })
 export class SharedModule { }
 ```

@@ -304,8 +304,8 @@
         </div>
         <div fxLayout="row" class="cards-container">
           <o-grid #grid attr="grid" service-type="hotels" entity="spaces" columns="id;type;name;capacity;status;uptake;image;schedule;hotelId"
-            quick-filter-columns="capacity;status" keys="id" show-buttons-text="yes" insert-button="yes" insert-button-floatable="no"
-            pagination-controls="yes" gutter-size="20px" grid-item-height="190px" query-on-init="no">
+            quick-filter-columns="capacity;status" keys="id" parent-keys="hotelId:id" show-buttons-text="yes" insert-button="yes"
+            insert-button-floatable="no" pagination-controls="yes" gutter-size="20px" grid-item-height="190px" query-method="query">
             <o-grid-item *ngFor="let row of grid.dataArray">
               <div class="card">
                 <mat-card>

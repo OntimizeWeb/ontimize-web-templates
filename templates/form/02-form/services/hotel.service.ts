@@ -1,13 +1,13 @@
 import { Injectable, Injector } from '@angular/core';
 import { OntimizeEEService, OntimizeServiceResponse } from 'ontimize-web-ngx';
 import { Observable, of } from 'rxjs';
+import { SpacesFilterService } from './spaces-filter.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 
 export class HotelService extends OntimizeEEService {
 
+  private spacesFilter: SpacesFilterService;
 
   private hotels = [
     {
@@ -160,6 +160,7 @@ export class HotelService extends OntimizeEEService {
 
   constructor(protected injector: Injector) {
     super(injector);
+    this.spacesFilter = this.injector.get(SpacesFilterService);
   }
 
   public override query(kv: any = {}, av: string[] = [], entity?: string): Observable<any> {
@@ -167,6 +168,8 @@ export class HotelService extends OntimizeEEService {
 
     switch (entity) {
       case 'spaces': {
+        kv = { ...kv, type: this.spacesFilter.getType() };
+        console.log(kv);
         const spaces = [
           ...this.cabins.map(c => ({ ...c, type: 'cabin' })),
           ...this.commons.map(c => ({ ...c, type: 'common' }))
@@ -179,9 +182,6 @@ export class HotelService extends OntimizeEEService {
         }
         if (kv?.type != null && kv.type !== 'all' && String(kv.type).trim() !== '') {
           data = data.filter(x => x.type === kv.type);
-        }
-        if (kv?.id != null) {
-          data = data.filter(x => String(x.id) === String(kv.id));
         }
         break;
       }
