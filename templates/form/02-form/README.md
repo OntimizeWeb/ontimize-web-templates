@@ -30,7 +30,7 @@
 
 <br/>
 
-2. Configure the `o-grid` modifying the values for the inputs `service-type`, `entity`, `columns` and `quick-filter-columns`. We don’t use `parent-keys` here. Instead, a dedicated service builds the kv and filters the data displayed by `o-grid`. See section 10 for details. For more information consult the following url <https://ontimizeweb.github.io/docs/v15/components/data/grid/overview>.
+2. Configure the `o-grid` modifying the values for the inputs `service-type`, `entity`, `columns` and `quick-filter-columns`.  See section 10 for details. For more information consult the following url <https://ontimizeweb.github.io/docs/v15/components/data/grid/overview>.
 
 <br/>
 
