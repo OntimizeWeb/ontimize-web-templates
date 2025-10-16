@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, ViewChild, HostListener } from '@angular/core';
+import { Component, ViewEncapsulation, ViewChild, HostListener, ChangeDetectorRef } from '@angular/core';
 import { OFormComponent, OGridComponent } from 'ontimize-web-ngx';
 import { SpacesFilterService } from '../../../shared/services/spaces-filter.service';
 
@@ -13,27 +13,33 @@ export class FormDetailComponent {
   @ViewChild('oForm') form!: OFormComponent;
   @ViewChild('grid') grid!: OGridComponent;
   private screenWidth = window.innerWidth;
-
   public formLabel: string;
+  public gridCols: number;
 
-  constructor(private spacesFilter: SpacesFilterService) { }
-
-  ngAfterViewInit(): void {
-    this.changeColsGrid();
+  constructor(private spacesFilter: SpacesFilterService, private cdr: ChangeDetectorRef) {
+    this.spacesFilter.setType('cabin');
+    if (this.screenWidth >= 1920) {
+      this.gridCols = 3;
+    } else {
+      this.gridCols = 2;
+    }
   }
 
   @HostListener('window:resize', [])
   onResize() {
+    let auxCols = this.gridCols;
     this.screenWidth = window.innerWidth;
+
     this.changeColsGrid();
+
+    if (auxCols !== this.gridCols) {
+      this.cdr.detectChanges();
+      this.grid.reloadData();
+    }
   }
 
   public onFormDataLoaded(data: any): void {
     this.formLabel = data.name;
-    Promise.resolve().then(() => {
-      this.spacesFilter.setType('cabin');
-      this.grid.reloadData();
-    });
   }
 
   public onFilterChange(event: any) {
@@ -48,13 +54,9 @@ export class FormDetailComponent {
 
   private changeColsGrid(): void {
     if (this.screenWidth >= 1920) {
-      this.grid.cols = 3;
-      this.grid.queryRows = 3;
-      this.grid.reloadData();
+      this.gridCols = 3;
     } else {
-      this.grid.cols = 2;
-      this.grid.queryRows = 2;
-      this.grid.reloadData();
+      this.gridCols = 2;
     }
   }
 }

@@ -30,7 +30,7 @@
 
 <br/>
 
-2. Configure the `o-grid` modifying the values for the inputs `service-type`, `entity`, `columns` and `quick-filter-columns`.  See section 10 for details. For more information consult the following url <https://ontimizeweb.github.io/docs/v15/components/data/grid/overview>.
+2. Configure the `o-grid` modifying the values for the inputs `service-type`, `entity`,`keys`, `parent-keys`, `columns` and `quick-filter-columns`. See section 10 for details. For more information consult the following url <https://ontimizeweb.github.io/docs/v15/components/data/grid/overview>.
 
 <br/>
 
@@ -169,7 +169,7 @@ import { CommonModule } from '@angular/common';
 import { FormRoutingModule } from './form-routing.module';
 import { FormDetailComponent } from './form-detail/form-detail.component';
 import { OntimizeWebModule } from 'ontimize-web-ngx';
-import { HotelService } from '../../shared/services/hotel.service.ts';
++ import { HotelService } from '../../shared/services/hotel.service.ts';
 import { SharedModule } from '../../shared/shared.module';
 
 
@@ -197,29 +197,25 @@ For more infomation about custom services in Ontimize click [here](https://ontim
 
 <br/>
 
-10. We don’t use `parent-keys` here. Instead, a small service builds the `kv` and the component queries `o-grid` programmatically.
+10. We filtering `spaces` by overriding the Ontimize query. We don’t push `type` through parent-keys or hidden inputs. Instead, the data service injects the current `type` into the kv right before querying.
 
-  - `spaces-filter.service.ts`
-
-    - buildKv(hotelId, type): Central place that translates UI state into the kv sent to the Ontimize service. Always includes hotelId. Includes type only when filtering ('cabin' | 'common'), and omits it for “all”.
+  - `spaces-filter.service.ts`: Service that stores the current selection: `all | cabin | common`
 
   - `form-detail.component.ts`
 
-    - onFormDataLoaded(data): Called by `o-form`; sets the header label and triggers the initial query by calling loadSpaces('cabin') (after the view stabilizes).
+    - onFormDataLoaded(data): Called by `o-form`; sets the header label and (if needed) trigger the first grid query once the form data is ready. We control this with o-grid inputs: `query-on-bind="true" query-on-init="false"`. For more information about it click [here](https://ontimizeweb.github.io/docs/v15/components/service/service-base/overview#binding-to-local-data)
 
-    - onFilterChange(event): Called by the toggle (onChange); extracts the selected type ('all' | 'cabin' | 'common') and calls loadSpaces(type).
+    - onFilterChange(event): Called by the toggle (onChange); call the private method `loadSpaces(event.value)`.
 
-    - loadSpaces(type): Reads `hotelId` from the form, calls SpacesFilterService.buildKv(...), and then queries this.grid.queryData(kv).
+    - loadSpaces(type): Calls `SpacesFilterService.setType(type)`, and then `grid.reloadData()` to re-run the service query.
 
   - `form-detail.component.html`
 
     - Toggle: <o-button-toggle-group ... (onChange)="onFilterChange($event)"> with explicit values: all, cabin, common.
 
-    - Grid: <o-grid ... query-on-init="no"> so the component fully controls when/how queries run.
-
   - `hotel.service.ts` (Ontimize data service)
 
-    - query(..., entity='spaces'): Merges cabins + commons, always filters by hotelId, and only filters by type when present and not 'all'.
+    - query(..., entity='spaces'): Merges cabins + commons, always filters by `hotelId`, and only filters by `type` when present and not 'all'. Read `type` from `SpacesFilterService.getType()` and inject it into `kv`.
 
 <br/>
 

@@ -169,7 +169,6 @@ export class HotelService extends OntimizeEEService {
     switch (entity) {
       case 'spaces': {
         kv = { ...kv, type: this.spacesFilter.getType() };
-        console.log(kv);
         const spaces = [
           ...this.cabins.map(c => ({ ...c, type: 'cabin' })),
           ...this.commons.map(c => ({ ...c, type: 'common' }))
