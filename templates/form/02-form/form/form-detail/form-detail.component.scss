@@ -104,7 +104,7 @@
 
   .grid-row {
 
-    .title {
+    .cards-container {
       .mat-button-toggle-group {
         border-radius: 50px;
 
@@ -116,9 +116,7 @@
           line-height: 32px;
         }
       }
-    }
 
-    .cards-container {
       o-grid {
         padding: 0px 16px;
         width: 100%;

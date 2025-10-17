@@ -6,7 +6,8 @@ import { SpacesFilterService } from '../../../shared/services/spaces-filter.serv
   selector: 'form-detail',
   templateUrl: './form-detail.component.html',
   styleUrls: ['./form-detail.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  providers: [SpacesFilterService]
 })
 export class FormDetailComponent {
 

@@ -32,6 +32,8 @@
 
 2. Configure the `o-grid` modifying the values for the inputs `service-type`, `entity`,`keys`, `parent-keys`, `columns` and `quick-filter-columns`. See section 10 for details. For more information consult the following url <https://ontimizeweb.github.io/docs/v15/components/data/grid/overview>.
 
+  - Via <o-grid> inputs ``query-on-bind="true"`` and ``query-on-init="false"`` we ensure the first grid query is triggered only after the form data is ready. For more information about it click [here](https://ontimizeweb.github.io/docs/v15/components/service/service-base/overview#binding-to-local-data)
+
 <br/>
 
 3. Add the translations you want to use on your app ​​to the `en.json` and `es.json` files of your project
@@ -104,27 +106,28 @@ export const customProviders: any = [
 
 <br/>
 
-7. Configure the pipe and the custom filter service in your `shared.module.ts` adding the next lines.
+7. Configure the pipe and custom-card component in your `shared.module.ts` adding the next lines.
 
 <br/>
 
 ```js
 ...
 + import { SplitSchedulePipe } from './pipes/split-schedule.pipe';
-+ import { SpacesFilterService } from './services/spaces-filter.service';
++ import { CustomCardComponent } from './custom-card/custom-card.component';
 ...
 
 @NgModule({
   ...
   declarations: [
     ...
-   + SplitSchedulePipe
+   + SplitSchedulePipe,
+   + CustomCardComponent
   ],
   exports: [
     ...
-   + SplitSchedulePipe
+   + SplitSchedulePipe,
+   + CustomCardComponent
   ],
-  + providers: [SpacesFilterService]
 })
 export class SharedModule { }
 ```
@@ -159,11 +162,12 @@ export class SharedModule { }
 
 <br/>
 
-9. For using a custom ontimize service, you must follow this steps:
-  - Register your custom service in your feature module. In this case, in `form.module.ts`.
+9. For using a custom ontimize service and use it in `o-form` and `o-grid` with the input `service-type`, you must follow this steps:
 
-  ```js
-  import { NgModule } from '@angular/core';
+- Register your custom service in your feature module. In this case, in `form.module.ts`.
+
+```js
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { FormRoutingModule } from './form-routing.module';
@@ -186,45 +190,42 @@ import { SharedModule } from '../../shared/shared.module';
   + providers: [{ provide: 'hotels', useValue: HotelService }]
 })
 export class FormModule { }
-  ```
+```
 
   <br/>
 
-  - Create a service that extends OntimizeEEService and overrides query(...) to return data from in-memory arrays. You can see an example in `hotel.service.ts`.
-  - Use it in `o-form` and `o-grid` with the input `service-type`. In this case, `service-type="hotels"`.
-
-For more infomation about custom services in Ontimize click [here](https://ontimizeweb.github.io/docs/v15/guide/service/).
+- Create a service that extends OntimizeEEService and overrides query(...) to return data from in-memory arrays. You can see an example in `hotel.service.ts`. For more infomation about custom services in Ontimize click [here](https://ontimizeweb.github.io/docs/v15/guide/service/).
 
 <br/>
 
-10. We filtering `spaces` by overriding the Ontimize query. We don’t push `type` through parent-keys or hidden inputs. Instead, the data service injects the current `type` into the kv right before querying.
+10. In this case, we filter ``spaces`` by overriding the Ontimize query rather than using ``parent-keys``. The data service injects the current type into kv just before the query is executed.
 
-  - `spaces-filter.service.ts`: Service that stores the current selection: `all | cabin | common`
+- `spaces-filter.service.ts`: Data-sharing service that stores the type:``{ `all | cabin | common` }``we want to use to filter the query.
 
-  - `form-detail.component.ts`
+- `hotel.service.ts` (Ontimize data service)
 
-    - onFormDataLoaded(data): Called by `o-form`; sets the header label and (if needed) trigger the first grid query once the form data is ready. We control this with o-grid inputs: `query-on-bind="true" query-on-init="false"`. For more information about it click [here](https://ontimizeweb.github.io/docs/v15/components/service/service-base/overview#binding-to-local-data)
+  - query(..., entity='spaces'): Merges cabins + commons, always filters by `hotelId`, and only filters by `type` when present and not 'all'. Read `type` from `SpacesFilterService.getType()` and inject it into `kv`.
 
-    - onFilterChange(event): Called by the toggle (onChange); call the private method `loadSpaces(event.value)`.
+  ```js
+  kv = { ...kv, type: this.spacesFilter.getType() };
+  ```
 
-    - loadSpaces(type): Calls `SpacesFilterService.setType(type)`, and then `grid.reloadData()` to re-run the service query.
+<br/>
 
-  - `form-detail.component.html`
-
-    - Toggle: <o-button-toggle-group ... (onChange)="onFilterChange($event)"> with explicit values: all, cabin, common.
-
-  - `hotel.service.ts` (Ontimize data service)
-
-    - query(..., entity='spaces'): Merges cabins + commons, always filters by `hotelId`, and only filters by `type` when present and not 'all'. Read `type` from `SpacesFilterService.getType()` and inject it into `kv`.
+11. We bind the grid’s column count to a component property and update it on window resize. The <o-grid> receives ``[cols]="gridCols"`` and ``[query-rows]="gridCols``, and the component adjusts gridCols based on window.innerWidth (e.g., 3 columns for ≥1920px, otherwise 2). We only call grid.reloadData() if the computed column count actually changes, avoiding unnecessary requests.
 
 <br/>
 
 ## LEARN MORE
 
-* **Dark and light mode** <https://ontimizeweb.github.io/docs/v15/customize/theming/#dark-and-light-primary-variants>
+- **Dark and light mode** <https://ontimizeweb.github.io/docs/v15/customize/theming/#dark-and-light-primary-variants>
 
-* **OTranslateService** <https://ontimizeweb.github.io/docs/v15/guide/otranslateservice/overview>
+- **OTranslateService** <https://ontimizeweb.github.io/docs/v15/guide/otranslateservice/overview>
 
-* **Grid component** <https://ontimizeweb.github.io/docs/v15/components/data/grid/overview>
+- **Services** <https://ontimizeweb.github.io/docs/v15/guide/service/>
 
-* **Ontimize SCSS surface classes** <https://ontimizeweb.github.io/docs/v15/customize/style-guide/#surfaces>
+- **Form component** <https://ontimizeweb.github.io/docs/v15/components/data/form/overview>
+
+- **Grid component** <https://ontimizeweb.github.io/docs/v15/components/data/grid/overview>
+
+- **Ontimize SCSS surface classes** <https://ontimizeweb.github.io/docs/v15/customize/style-guide/#surfaces>
