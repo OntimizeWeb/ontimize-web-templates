@@ -1,0 +1,25 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <div fxLayout="row" fxLayoutGap="8px" class="card-title">
+        <mat-icon color="primary">{{ titleIcon }}</mat-icon>
+        <span>{{ titleKey | oTranslate }}</span>
+      </div>
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div fxLayout="row" fxLayoutAlign="space-around">
+      <div fxLayout="column" *ngFor="let it of items">
+        <div fxLayout="row" fxLayoutGap="8px">
+          <mat-icon class="material-icons-outlined" color="primary">{{ it.topIcon }}</mat-icon>
+          <span class="text-medium">{{ it.topLabelKey | oTranslate }}</span>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start baseline" fxLayoutGap="2px">
+          <span class="number-small">{{ it.value }}</span>
+          <span class="text-small">{{ it.bottomLabelKey | oTranslate }}</span>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

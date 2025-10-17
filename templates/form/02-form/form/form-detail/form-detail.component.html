@@ -1,0 +1,246 @@
+<o-form #oForm attr="form-detail" service-type="hotels" entity="hotel" keys="id" keys-sql-types="INTEGER" columns="id;name" editable-detail="true"
+  show-header="true" header-actions="R;U;D" [label-header]="formLabel" show-header-navigation="true" (onDataLoaded)="onFormDataLoaded($event)">
+  <div fxLayout=column class="form-container bg-level-1" fxFlexFill>
+    <div fxLayout="row" class="title">
+      <span><strong>{{ 'TITLE_1' | oTranslate}}</strong></span>
+    </div>
+    <div fxLayout="row" class="first-row-cards" fxLayoutAlign="space-between" fxLayoutGap="20px">
+      <div fxLayout="column" fxFlex.lg="20%" fxFlex="15%" class="card-1">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>
+              <div fxLayout="row" fxLayoutGap="8px" class="card-title">
+                <mat-icon color="primary">people</mat-icon>
+                <span> {{ 'CARD_1_TITLE' | oTranslate }}</span>
+              </div>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="center center" class="first-row">
+              <mat-icon color="primary">home</mat-icon>
+              <span class="number-big">2/3</span>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center">
+              <span class="text-medium">{{ 'CARD_1_TEXT_1' | oTranslate}}</span>
+            </div>
+            <div fxLayout="row" class="second-row" fxLayoutAlign="space-between">
+              <div fxLayout="column">
+                <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="center center">
+                  <mat-icon color="primary">people</mat-icon>
+                  <span class="number-medium">6</span>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="center center">
+                  <span class="text-small">{{ 'CARD_1_TEXT_2' | oTranslate}}</span>
+                </div>
+              </div>
+              <div fxLayout="column">
+                <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="center center">
+                  <mat-icon color="primary">crop_free</mat-icon>
+                  <span class="number-medium">2</span>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="center center">
+                  <span class="text-small">{{ 'CARD_1_TEXT_3' | oTranslate}}</span>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div fxLayout="column" fxFlex class="card-2">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>
+              <div fxLayout="row" fxLayoutGap="8px" class="card-title">
+                <mat-icon color="primary">energy_savings_leaf</mat-icon>
+                <span> {{ 'CARD_2_TITLE' | oTranslate }}</span>
+              </div>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div fxLayout="row" fxLayoutAlign="space-between" fxLayoutGap="8px">
+              <div fxLayout="column">
+                <div fxLayout="row" fxLayoutGap="14px">
+                  <mat-icon class="material-icons-outlined" color="primary">lightbulb_2</mat-icon>
+                  <span class="text-medium-20">{{'CARD_2_TEXT_1' | oTranslate }}</span>
+                </div>
+                <div fxLayout="row" class="data-row" fxLayoutAlign="center baseline" fxLayoutGap="8px">
+                  <mat-icon class="arrow-up">arrow_upward</mat-icon>
+                  <span class="number-big">645</span>
+                  <span class="text-medium-20">{{'CARD_2_TEXT_2' | oTranslate }}</span>
+                </div>
+                <div fxLayout="row">
+                  <span class="tag-negative">{{'CARD_2_TEXT_3' | oTranslate }}</span>
+                </div>
+              </div>
+              <div fxLayout="column">
+                <div fxLayout="row" fxLayoutGap="14px">
+                  <mat-icon class="material-icons-outlined" color="primary">water_drop</mat-icon>
+                  <span class="text-medium-20">{{'CARD_2_TEXT_4' | oTranslate }}</span>
+                </div>
+                <div fxLayout="row" class="data-row" fxLayoutAlign="center baseline" fxLayoutGap="8px">
+                  <mat-icon class="arrow-down">arrow_downward</mat-icon>
+                  <span class="number-big">321</span>
+                  <span class="text-medium-20">{{'CARD_2_TEXT_5' | oTranslate }}</span>
+                </div>
+                <div fxLayout="row">
+                  <span class="tag-positive">{{'CARD_2_TEXT_6' | oTranslate }}</span>
+                </div>
+              </div>
+              <div fxLayout="column">
+                <div fxLayout="row" fxLayoutGap="14px">
+                  <mat-icon class="material-icons-outlined" color="primary">cloud</mat-icon>
+                  <span class="text-medium-20">{{'CARD_2_TEXT_7' | oTranslate }}</span>
+                </div>
+                <div fxLayout="row" class="data-row" fxLayoutAlign="center baseline" fxLayoutGap="8px">
+                  <mat-icon class="arrow-up">arrow_upward</mat-icon>
+                  <span class="number-big">435</span>
+                  <span class="text-medium-20">{{'CARD_2_TEXT_8' | oTranslate }}</span>
+                </div>
+                <div fxLayout="row">
+                  <span class="tag-negative">{{'CARD_2_TEXT_9' | oTranslate }}</span>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div fxLayout="column" fxFlex.lg="20%" fxFlex="15%" class="card-3">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>
+              <div fxLayout="row" fxLayoutGap="8px" class="card-title">
+                <mat-icon color="primary">straighten</mat-icon>
+                <span> {{ 'CARD_3_TITLE' | oTranslate }}</span>
+              </div>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div fxLayout="row" fxLayoutAlign="start baseline" fxLayoutGap="8px">
+              <div fxLayout="column">
+                <mat-icon color="primary">opacity</mat-icon>
+              </div>
+              <div fxLayout="column">
+                <div fxLayout="row" fxLayoutAlign="start baseline">
+                  <span class="number-medium">75</span>
+                  <span class="text-medium-20">{{'CARD_3_TEXT_1' | oTranslate }}</span>
+                </div>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start baseline" fxLayoutGap="8px">
+              <div fxLayout="column">
+                <mat-icon color="primary">device_thermostat</mat-icon>
+              </div>
+              <div fxLayout="column">
+                <div fxLayout="row" fxLayoutAlign="start baseline">
+                  <span class="number-medium">12</span>
+                  <span class="text-medium-20">{{'CARD_3_TEXT_2' | oTranslate }}</span>
+                </div>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start baseline" fxLayoutGap="8px">
+              <div fxLayout="column">
+                <mat-icon class="material-icons-outlined" color="primary">cloud_alert</mat-icon>
+              </div>
+              <div fxLayout="column">
+                <div fxLayout="row" fxLayoutAlign="start baseline">
+                  <span class="number-medium">445</span>
+                  <span class="text-medium-20">{{'CARD_3_TEXT_3' | oTranslate }}</span>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <div fxLayout="row" class="second-row-cards" fxLayoutAlign="space-between" fxLayoutGap="20px">
+      <custom-card fxFlex class="card-4" titleKey="CARD_4_TITLE" titleIcon="home" [items]="[
+        { topIcon: 'lightbulb_2', topLabelKey: 'CARD_4_TEXT_1', value: 645, bottomLabelKey: 'CARD_4_TEXT_2' },
+        { topIcon: 'water_drop',  topLabelKey: 'CARD_4_TEXT_3', value: 321, bottomLabelKey: 'CARD_4_TEXT_4' },
+       { topIcon: 'cloud',       topLabelKey: 'CARD_4_TEXT_5', value: 435, bottomLabelKey: 'CARD_4_TEXT_6' }
+       ]"></custom-card>
+      <custom-card fxFlex class="card-5" titleKey="CARD_5_TITLE" titleIcon="home" [items]="[
+        { topIcon: 'lightbulb_2', topLabelKey: 'CARD_5_TEXT_1', value: 645, bottomLabelKey: 'CARD_5_TEXT_2' },
+        { topIcon: 'water_drop',  topLabelKey: 'CARD_5_TEXT_3', value: 321, bottomLabelKey: 'CARD_5_TEXT_4' },
+        { topIcon: 'cloud',       topLabelKey: 'CARD_5_TEXT_5', value: 435, bottomLabelKey: 'CARD_5_TEXT_6' }
+        ]"></custom-card>
+      <custom-card fxFlex class="card-6" titleKey="CARD_6_TITLE" titleIcon="deck" [items]="[
+        { topIcon: 'lightbulb_2', topLabelKey: 'CARD_6_TEXT_1', value: 645, bottomLabelKey: 'CARD_6_TEXT_2' },
+        { topIcon: 'water_drop', topLabelKey: 'CARD_6_TEXT_3', value: 321, bottomLabelKey: 'CARD_6_TEXT_4' },
+        { topIcon: 'cloud', topLabelKey: 'CARD_6_TEXT_5', value: 435, bottomLabelKey: 'CARD_6_TEXT_6' }
+        ]"></custom-card>
+    </div>
+    <div fxLayout="row" class="grid-row" fxFlex>
+      <div fxLayout="column" fxFlexFill>
+        <span class="title"><strong>{{ 'TITLE_2' | oTranslate}}</strong></span>
+        <div fxLayout="row" class="cards-container">
+          <o-grid #grid attr="grid" service-type="hotels" entity="spaces" columns="id;type;name;capacity;status;uptake;image;schedule;hotelId"
+            quick-filter-columns="capacity;status" keys="id" parent-keys="hotelId:id" show-buttons-text="yes" insert-button="yes"
+            insert-button-floatable="no" pagination-controls="yes" gutter-size="20px" grid-item-height="190px" [cols]="gridCols"
+            [query-rows]="gridCols" query-method="query" query-on-bind="yes" query-on-init="no">
+            <o-button-toggle-group o-grid-toolbar position="end" attr="TYPE" layout="row" multiple="no" value="cabin" layout-padding
+              (onChange)="onFilterChange($event)">
+              <o-button-toggle attr="toggle1" value="all" label="ALL"></o-button-toggle>
+              <o-button-toggle attr="toggle2" value="cabin" label="CABINS"></o-button-toggle>
+              <o-button-toggle attr="toggle3" value="common" label="COMMON_AREAS"></o-button-toggle>
+            </o-button-toggle-group>
+            <o-grid-item *ngFor="let row of grid.dataArray">
+              <div class="card">
+                <mat-card>
+                  <mat-card-content fxLayoutGap="24px" fxFlexFill>
+                    <div fxLayout="column" fxFlex="40%">
+                      <img [src]="row.image" />
+                    </div>
+                    <div fxLayout="column" fxFlex class="data-column">
+                      <div fxLayout="row" fxLayoutAlign="end" *ngIf="row.type == 'cabin'">
+                        <mat-chip class="tag">
+                          <mat-icon color="primary">home</mat-icon>
+                          <span>{{ row.status | oTranslate }}</span>
+                        </mat-chip>
+                      </div>
+                      <div fxLayout="row" fxLayoutAlign="end" *ngIf="row.type == 'common'">
+                        <mat-chip color="primary" selected disableRipple>
+                          {{ 'COMMON_AREA' | oTranslate }}
+                        </mat-chip>
+                      </div>
+                      <div fxLayout="row">
+                        <span class="title"><strong>{{ row.name }}</strong></span>
+                      </div>
+                      <div fxLayout="row" fxLayoutGap="6px" *ngIf="row.capacity != null">
+                        <mat-icon color="primary">people</mat-icon>
+                        <span class="card-item-text">
+                          {{ row.capacity }} {{ row.type === 'cabin' ? ('CARD_LIST_1' | oTranslate) : ('CARD_LIST_2' | oTranslate) }}
+                        </span>
+                      </div>
+                      <div fxLayout="row" *ngIf="row.type === 'cabin' && row.status">
+                        <div [ngSwitch]="row.uptake">
+                          <div *ngSwitchCase="'low'" class="uptake-low" fxLayoutAlign="start center" fxLayoutGap="6px">
+                            <mat-icon>eco</mat-icon>
+                            <span class="card-item-text">{{ 'UPTAKE_GOOD' | oTranslate }}</span>
+                          </div>
+                          <div *ngSwitchCase="'high'" class="uptake-high" fxLayoutAlign="start center" fxLayoutGap="6px">
+                            <mat-icon>warning</mat-icon>
+                            <span class="card-item-text">{{ 'UPTAKE_BAD' | oTranslate }}</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div fxLayout="row" fxLayoutGap="6px" *ngIf="row.type === 'common' && row.schedule">
+                        <div fxLayout="column">
+                          <mat-icon color="primary">schedule</mat-icon>
+                        </div>
+                        <div fxLayout="column" class="card-item-text">
+                          <ng-container *ngFor="let tramo of (row.schedule | splitSchedule)">
+                            <span class="schedule-line">{{ tramo }}</span>
+                          </ng-container>
+                        </div>
+                      </div>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+            </o-grid-item>
+          </o-grid>
+        </div>
+      </div>
+    </div>
+  </div>
+</o-form>
