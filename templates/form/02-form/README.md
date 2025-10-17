@@ -2,7 +2,7 @@
 
 <br/>
 
-1. Download and put `form` folder in src/app/main/, `i18n` and `images` into assets/ folder and `pipes` and `services` in src/app/shared.
+1. Download and put `form` folder in src/app/main/, `i18n` and `images` into assets/ folder and `pipes`, `services` and `custom-card` in src/app/shared.
 
 <br/>
 
@@ -14,6 +14,7 @@
     |   ├───shared
     |   |   └───pipes
     |   |   └───services
+    |   |   └───custom-card
     |   |
     |   ├─── ...
     │   │
