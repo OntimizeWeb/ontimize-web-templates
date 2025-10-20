@@ -148,9 +148,6 @@ export class PacksService extends OntimizeEEService {
     super(injector);
   }
 
-  public configureService(config: any): void {
-  }
-
   public getLocation(): Observable<any> {
     const seen = new Set<string>();
     const uniqueLocations = this.packsAventura.data

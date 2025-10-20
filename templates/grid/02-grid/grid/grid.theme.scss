@@ -14,16 +14,14 @@
       font-size: mat.font-size($typography, headline-4);
     }
 
-    .filters {
-      background-color: mat.get-color-from-palette($background, level-06);
-    }
-
     .grid-container {
 
       .card-bg {
 
         .card-content {
+
           .grid-card-title {
+
             font-size: mat.font-size($typography, headline-4);
             color: mat.get-color-from-palette($background, level-1);
           }
@@ -33,13 +31,23 @@
             color: mat.get-color-from-palette($background, level-1);
           }
 
-          .card-content-last-row{
-            mat-icon{
+          .card-content-last-row {
+            mat-icon {
               color: yellow;
             }
           }
         }
       }
     }
+  }
+
+  .o-dark .full-page .grid-container .card-bg .card-content .grid-card-title {
+    font-size: mat.font-size($typography, headline-4);
+    color: mat.get-color-from-palette($background, level-1);
+  }
+
+  .o-dark .full-page .grid-container .card-bg .card-content .grid-card-text {
+    font-size: mat.font-size($typography, subtitle-1);
+    color: mat.get-color-from-palette($background, level-1);
   }
 }

@@ -28,11 +28,9 @@ export class GridComponent {
   }
 
   createFilter(values: Array<{ attr: string, value: any }>): Expression {
-    console.log(values);
     let filters: Array<Expression> = [];
 
     values.forEach(fil => {
-      console.log(fil);
       if (fil.value) {
         if (fil.attr === 'name') {
           let keyword = fil.value;

@@ -1,32 +1,32 @@
-<div class="full-page" fxLayout="column" fxLayoutAlign="start" fxFlexFill>
+<div class="full-page bg-level-1" fxLayout="column" fxLayoutAlign="start">
   <span fxLayout="row" fxLayoutAlign="center" class="title"><strong>Packs</strong></span>
   <o-form #filterForm class="form" editable-detail="yes" show-header="no">
-    <div class="filters" fxLayout="row" fxLayoutGap="48px" fxLayoutAlign="space-around">
-      <div fxLayout="column" fxFlex="25%" fxLayoutGap="16px">
+    <div class="filters" fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="space-between">
+      <div fxLayout="column" fxFlex="23%" fxLayoutGap="16px">
         <o-text-input attr="name" read-only="no" label="{{ 'FILTER_NAME' | oTranslate }}"></o-text-input>
         <o-date-input attr="dateBegin" format="YYYY-MM-DD" value-type="string" label="{{ 'BEGIN_DATE' | oTranslate }}" read-only="no"
           required="no"></o-date-input>
       </div>
-      <div fxLayout="column" fxFlex="35%" fxLayoutGap="16px">
-        <div fxLayout="row" fxLayoutGap="16px">
-          <o-currency-input #minPrice attr="price_min" (onValueChange)="onCurrencyInputChange()" label="{{ 'MIN_PRICE' | oTranslate }}" min="1"
-            fxFlex="80%"></o-currency-input>
-          <o-currency-input #maxPrice attr="price_max" (onValueChange)="onCurrencyInputChange()" label="{{ 'MAX_PRICE' | oTranslate }}" min="1"
-            fxFlex="80%"></o-currency-input>
-        </div>
-        <div fxLayout="row" fxLayoutGap="16px">
-          <o-integer-input attr="duration" label="{{ 'NUMBER_DAYS' | oTranslate }}" min="1" fxFlex="80%"></o-integer-input>
-          <o-integer-input attr="people" min="1" label="{{ 'NUMBER_TRAVELLERS' | oTranslate }}" fxFlex="80%"></o-integer-input>
-        </div>
+      <div fxLayout="column" fxFlex="23%" fxLayoutGap="16px">
+        <o-currency-input #minPrice attr="price_min" (onValueChange)="onCurrencyInputChange()" label="{{ 'MIN_PRICE' | oTranslate }}"
+          min="1"></o-currency-input>
+        <o-integer-input attr="duration" label="{{ 'NUMBER_DAYS' | oTranslate }}" min="1"></o-integer-input>
       </div>
-      <div fxLayout="column" fxFlex="25%" fxLayoutGap="16px">
-        <o-combo #comboCity attr="location" service-type="packs" entity="packs" label="{{ 'FILTER_CITY' | oTranslate }}" translate="yes"
-          value-column="location" columns="location" required="no" multiple="no" null-selection="yes" searchable="yes" query-method="getLocation"> </o-combo>
-        <div fxLayout="row" fxLayoutAlign="space-around">
-          <o-button attr="filter" type="FLAT" color="primary" icon="search" matTooltip="{{ 'SEARCH' | oTranslate }}"
-            label="{{ 'SEARCH' | oTranslate }}" [oFilterBuilderQuery]="filterBuilder"></o-button>
-          <o-button attr="clear" type="FLAT" color="primary" icon="delete" matTooltip="{{ 'CLEAR_FILTER' | oTranslate }}"
-            label="{{ 'CLEAR_FILTER' | oTranslate }}" [oFilterBuilderClear]="filterBuilder"></o-button>
+      <div fxLayout="column" fxFlex="23%" fxLayoutGap="16px">
+        <o-currency-input #maxPrice attr="price_max" (onValueChange)="onCurrencyInputChange()" label="{{ 'MAX_PRICE' | oTranslate }}"
+          min="1"></o-currency-input>
+        <o-integer-input attr="people" min="1" label="{{ 'NUMBER_TRAVELLERS' | oTranslate }}"></o-integer-input>
+      </div>
+      <div fxLayout="column" fxFlex="23%" fxLayoutGap="16px">
+        <o-combo #comboCity attr="location" service-type="packs" service="packs" entity="packs" label="{{ 'FILTER_CITY' | oTranslate }}"
+          translate="yes" value-column="location" columns="location" required="no" multiple="no" null-selection="yes" searchable="yes"
+          query-method="getLocation">
+        </o-combo>
+        <div fxLayout="row" fxFlex fxLayoutAlign="space-around end">
+          <o-button attr="filter" type="STROKED" icon="search" matTooltip="{{ 'SEARCH' | oTranslate }}" label="{{ 'SEARCH' | oTranslate }}"
+            [oFilterBuilderQuery]="filterBuilder"></o-button>
+          <o-button attr="clear" type="STROKED" icon="delete" matTooltip="{{ 'CLEAR_FILTER' | oTranslate }}" label="{{ 'CLEAR_FILTER' | oTranslate }}"
+            [oFilterBuilderClear]="filterBuilder"></o-button>
         </div>
       </div>
     </div>
@@ -34,30 +34,28 @@
       filters="name:name;dateBegin:dateBegin;price_min:price_min;price_max:price_max;duration:duration;people:people;location:location"
       [target]="grid" query-on-change="no" query-on-change-delay="500" [expression-builder]="createFilter"></o-filter-builder>
   </o-form>
-  <div class="grid-container" fxLayout="row">
-    <o-grid #grid attr="grid" service-type="packs" entity="packs" keys="id"
-      columns="id;name;location;price;duration;score;people;dateBegin;dateEnd;image" page-size-options="8" orderable="true" query-rows="8"
-      sort-column="dateBegin:desc" sortable-columns="name;score" quick-filter="false" insert-button="false" refresh-button="false" pageable="yes"
-      pagination-controls="true" gutter-size="4px" fixed-header="yes" grid-item-height="260px" detail-mode="none" insert-button-floatable="no"
-      paginated-query-method="getCards">
-      <o-grid-item *ngFor="let data of grid.dataArray">
-        <div class="card-bg">
-          <img [src]="data.image">
-          <div class="card-content" fxLayout="column" fxFlexFill fxLayoutGap="16px">
-            <span fxLayout="row wrap" fxLayoutAlign="center center" fxFlex="60%" class="grid-card-title">{{data.name}}</span>
-            <span fxLayout="row" fxLayoutAlign="center start" fxFlex="10%" class="grid-card-text">{{data.location | uppercase}}</span>
-            <div fxLayout="row" fxLayoutAlign="space-between" fxFlex class="card-content-last-row">
-              <div fxLayout="column">
-                <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="4px">
-                  <span class="grid-card-text">{{data.score}}</span>
-                  <mat-icon>star</mat-icon>
-                </div>
+  <o-grid #grid attr="grid" service-type="packs" entity="packs" keys="id"
+    columns="id;name;location;price;duration;score;people;dateBegin;dateEnd;image" page-size-options="8" orderable="true" query-rows="8"
+    sort-column="dateBegin:desc" sortable-columns="name;score" quick-filter="false" insert-button="false" refresh-button="false" pageable="yes"
+    pagination-controls="true" gutter-size="4px" fixed-header="yes" grid-item-height="260px" detail-mode="none" insert-button-floatable="no"
+    paginated-query-method="getCards" class="grid-container">
+    <o-grid-item *ngFor="let data of grid.dataArray">
+      <div class="card-bg">
+        <img [src]="data.image">
+        <div class="card-content" fxLayout="column" fxFlexFill fxLayoutGap="16px">
+          <span fxLayout="row wrap" fxLayoutAlign="center center" fxFlex="60%" class="grid-card-title">{{data.name}}</span>
+          <span fxLayout="row" fxLayoutAlign="center start" fxFlex="10%" class="grid-card-text">{{data.location | uppercase}}</span>
+          <div fxLayout="row" fxLayoutAlign="space-between" fxFlex class="card-content-last-row">
+            <div fxLayout="column">
+              <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="4px">
+                <span class="grid-card-text">{{data.score}}</span>
+                <mat-icon>star</mat-icon>
               </div>
-              <span fxLayout="column" class="grid-card-text">{{data.price | currency:'EUR'}}</span>
             </div>
+            <span fxLayout="column" class="grid-card-text">{{data.price | currency:'EUR'}}</span>
           </div>
         </div>
-      </o-grid-item>
-    </o-grid>
-  </div>
+      </div>
+    </o-grid-item>
+  </o-grid>
 </div>
