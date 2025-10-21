@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, HostListener, ViewChild, ViewEncapsulation } from '@angular/core';
-import { Expression, FilterExpressionUtils, OCurrencyInputComponent, OFilterBuilderComponent, OFormComponent, OGridComponent } from 'ontimize-web-ngx';
+import { Expression, FilterExpressionUtils, OGridComponent } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'grid',
@@ -10,8 +10,6 @@ import { Expression, FilterExpressionUtils, OCurrencyInputComponent, OFilterBuil
 export class GridComponent {
 
   @ViewChild('grid', { static: true }) grid: OGridComponent;
-  @ViewChild("filterForm") protected filterForm: OFormComponent;
-  @ViewChild("filterBuilder") protected filterBuilder: OFilterBuilderComponent;
   public gridCols: number;
   private screenWidth = window.innerWidth;
 
