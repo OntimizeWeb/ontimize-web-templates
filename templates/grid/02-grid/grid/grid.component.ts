@@ -84,10 +84,4 @@ export class GridComponent {
       return null;
     }
   }
-
-  clearFilter() {
-    const fieldsToClear = ['name', 'days', 'price_min', 'price_max', 'participants', 'city', 'date_begin'];
-    this.filterBuilder.clearFilter();
-    this.filterForm.clearFieldValues(fieldsToClear);
-  }
 }
