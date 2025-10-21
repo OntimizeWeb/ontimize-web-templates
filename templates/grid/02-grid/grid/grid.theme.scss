@@ -41,13 +41,16 @@
     }
   }
 
-  .o-dark .full-page .grid-container .card-bg .card-content .grid-card-title {
-    font-size: mat.font-size($typography, headline-4);
-    color: mat.get-color-from-palette($background, level-1);
-  }
-
-  .o-dark .full-page .grid-container .card-bg .card-content .grid-card-text {
-    font-size: mat.font-size($typography, subtitle-1);
-    color: mat.get-color-from-palette($background, level-1);
+  @if($is_dark){
+    .full-page .grid-container .card-bg .card-content {
+      .grid-card-title {
+        font-size: mat.font-size($typography, headline-4);
+        color: mat.get-color-from-palette($background, level-1);
+      }
+    
+      .grid-card-text {
+        font-size: mat.font-size($typography, subtitle-1);
+        color: mat.get-color-from-palette($background, level-1);
+      }
   }
 }
