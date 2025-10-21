@@ -1,4 +1,5 @@
 .full-page {
+  min-height: 0;
 
   .title {
     padding-top: 16px;
@@ -8,12 +9,11 @@
     margin: 20px 16px;
   }
 
-  .grid-container {
-    width: 100%;
-    height: 100%;
+  .o-grid {
+    min-height: 0;
 
     .o-data-toolbar {
-      padding: 0 16px;
+      padding: 8px 16px;
     }
 
     .card-bg {

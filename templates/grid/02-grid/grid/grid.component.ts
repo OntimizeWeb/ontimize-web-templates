@@ -1,4 +1,4 @@
-import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectorRef, Component, HostListener, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Expression, FilterExpressionUtils, OCurrencyInputComponent, OFilterBuilderComponent, OFormComponent, OGridComponent } from 'ontimize-web-ngx';
 
 @Component({
@@ -10,20 +10,36 @@ import { Expression, FilterExpressionUtils, OCurrencyInputComponent, OFilterBuil
 export class GridComponent {
 
   @ViewChild('grid', { static: true }) grid: OGridComponent;
-  @ViewChild("minPrice") protected minPrice: OCurrencyInputComponent;
-  @ViewChild("maxPrice") protected maxPrice: OCurrencyInputComponent;
   @ViewChild("filterForm") protected filterForm: OFormComponent;
   @ViewChild("filterBuilder") protected filterBuilder: OFilterBuilderComponent;
+  public gridCols: number;
+  private screenWidth = window.innerWidth;
 
-  onCurrencyInputChange() {
-    const minValue = this.minPrice.getValue();
-    const maxValue = this.maxPrice.getValue();
-
-    if (minValue === "" || minValue === "0.00") {
-      this.minPrice.clearValue();
+  constructor(private cdr: ChangeDetectorRef) {
+    if (this.screenWidth >= 1920) {
+      this.gridCols = 4;
+    } else {
+      this.gridCols = 2;
     }
-    if (maxValue === "" || maxValue === "0.00") {
-      this.maxPrice.clearValue();
+  }
+
+  @HostListener('window:resize', [])
+  onResize() {
+    let auxCols = this.gridCols;
+    this.screenWidth = window.innerWidth;
+
+    this.changeColsGrid();
+
+    if (auxCols !== this.gridCols) {
+      this.cdr.detectChanges();
+      this.grid.reloadData();
+    }
+  }
+  private changeColsGrid(): void {
+    if (this.screenWidth >= 1920) {
+      this.gridCols = 4;
+    } else {
+      this.gridCols = 2;
     }
   }
 

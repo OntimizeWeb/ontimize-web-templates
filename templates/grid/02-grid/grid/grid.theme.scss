@@ -7,28 +7,27 @@
   $foreground: map.get($theme, color, foreground);
   $background: map.get($theme, color, background);
   $typography: map-get($theme, typography);
- $is-dark-theme: map.get($theme, is-dark);
+
   .full-page {
 
     .title {
       font-size: mat.font-size($typography, headline-4);
     }
 
-    .grid-container {
+    .o-grid {
 
       .card-bg {
 
         .card-content {
 
           .grid-card-title {
-
             font-size: mat.font-size($typography, headline-4);
-            color: mat.get-color-from-palette($background, level-1);
+            color: #fff;
           }
 
           .grid-card-text {
             font-size: mat.font-size($typography, subtitle-1);
-            color: mat.get-color-from-palette($background, level-1);
+            color: #fff;
           }
 
           .card-content-last-row {
@@ -39,18 +38,5 @@
         }
       }
     }
-  }
-
-  @if($is_dark){
-    .full-page .grid-container .card-bg .card-content {
-      .grid-card-title {
-        font-size: mat.font-size($typography, headline-4);
-        color: mat.get-color-from-palette($background, level-1);
-      }
-    
-      .grid-card-text {
-        font-size: mat.font-size($typography, subtitle-1);
-        color: mat.get-color-from-palette($background, level-1);
-      }
   }
 }
