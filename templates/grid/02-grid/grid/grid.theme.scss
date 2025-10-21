@@ -7,7 +7,7 @@
   $foreground: map.get($theme, color, foreground);
   $background: map.get($theme, color, background);
   $typography: map-get($theme, typography);
-
+ $is-dark-theme: map.get($theme, is-dark);
   .full-page {
 
     .title {
