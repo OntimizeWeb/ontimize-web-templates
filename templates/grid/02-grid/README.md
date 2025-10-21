@@ -83,7 +83,7 @@ export class MainRoutingModule { }
 ...
 @include ontimize-style.ontimize-theme-styles(theme.$theme);
 
-+ @import '../../app/grid/grid.theme.scss';
++ @import '../../app/main/grid/grid.theme.scss';
 
 @mixin app-themes($theme) {
 ...
