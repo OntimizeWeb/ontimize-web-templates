@@ -16,11 +16,7 @@ export class GridComponent {
   private screenWidth = window.innerWidth;
 
   constructor(private cdr: ChangeDetectorRef) {
-    if (this.screenWidth >= 1920) {
-      this.gridCols = 4;
-    } else {
-      this.gridCols = 2;
-    }
+    this.changeColsGrid();
   }
 
   @HostListener('window:resize', [])
