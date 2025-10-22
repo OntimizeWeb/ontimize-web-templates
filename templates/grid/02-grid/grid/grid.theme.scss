@@ -1,0 +1,42 @@
+@use '@angular/material' as mat;
+@use 'sass:map';
+
+@mixin grid-theme($theme) {
+  $primary: map.get($theme, color, primary);
+  $accent: map.get($theme, color, accent);
+  $foreground: map.get($theme, color, foreground);
+  $background: map.get($theme, color, background);
+  $typography: map-get($theme, typography);
+
+  .full-page {
+
+    .title {
+      font-size: mat.font-size($typography, headline-4);
+    }
+
+    .o-grid {
+
+      .card-bg {
+
+        .card-content {
+
+          .grid-card-title {
+            font-size: mat.font-size($typography, headline-4);
+            color: #fff;
+          }
+
+          .grid-card-text {
+            font-size: mat.font-size($typography, subtitle-1);
+            color: #fff;
+          }
+
+          .card-content-last-row {
+            mat-icon {
+              color: yellow;
+            }
+          }
+        }
+      }
+    }
+  }
+}
