@@ -34,20 +34,39 @@
       margin-top: 30px;
     }
 
-    mat-progress-bar {
-      margin-top: 5px;
-      margin-bottom: 20px;
-      height: 12px;
-      border-radius: 20px;
-      overflow: hidden;
-      width: 200px;
-    }
-
     .data-label-primary-cards {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
       margin-right: 24px;
+    }
+
+    .multi-progress-bar {
+      display: flex;
+      height: 12px;
+      width: 100%;
+      background-color: #e0e0e0;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .segment {
+      height: 100%;
+      transition: width 0.3s ease;
+    }
+
+    .segment.high {
+      background-color: #E03133;
+    }
+
+    .segment.medium {
+      background-color: #FFC700;
+    }
+
+    .segment.low {
+      background-color: #269F00;
     }
 
     .dot {

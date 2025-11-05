@@ -31,15 +31,15 @@
       }
 
       .blue1 {
-        background-color: mat.get-color-from-palette($primary, 700);
+        background-color: mat.get-color-from-palette($primary, 100);
       }
 
       .blue2 {
-        background-color: mat.get-color-from-palette($primary, 400);
+        background-color: mat.get-color-from-palette($primary, 500);
       }
 
       .blue3 {
-        background-color: mat.get-color-from-palette($primary, 100);
+        background-color: #c5c5c5;
       }
 
       .red {
@@ -91,5 +91,4 @@
 
     }
   }
-
 }
