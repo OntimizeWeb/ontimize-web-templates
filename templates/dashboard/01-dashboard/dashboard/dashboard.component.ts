@@ -1,7 +1,7 @@
-import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectorRef, Component, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OTranslateService, Observable, OntimizeService } from 'ontimize-web-ngx';
-import { DiscreteBarChartConfiguration, DonutChartConfiguration, OChartComponent, PieChartConfiguration } from 'ontimize-web-ngx-charts';
+import { DiscreteBarChartConfiguration, PieChartConfiguration } from 'ontimize-web-ngx-charts';
 import { of } from 'rxjs';
 
 @Component({
@@ -12,23 +12,23 @@ import { of } from 'rxjs';
   encapsulation: ViewEncapsulation.None
 })
 export class DashboardComponent {
-  @ViewChild('donutChart')
-  protected donutChart: OChartComponent;
-  filteredSelectionProcesses = [];
-  filteredSelectionProcessesPriority = [];
-  filteredInterviews = [];
-  filteredCandidates = [];
-  lineData;
-  protected colorScheme: {
-    domain: string[]
-  };
-  protected donutParams: DonutChartConfiguration;
-  protected pieParams: PieChartConfiguration;
+  protected filteredSelectionProcesses = [];
+  protected filteredSelectionProcessesPriority = [];
+  protected filteredInterviews = [];
+  protected filteredCandidates = [];
+
+  protected lineData = [];
   protected donutData = [];
   protected candidatesData = [];
   protected interviewsData = [];
+  protected barData = [];
+
+  protected colorScheme: {
+    domain: string[]
+  };
+
+  protected pieParams: PieChartConfiguration;
   protected barParams: DiscreteBarChartConfiguration;
-  protected barData;
   protected candidateTypes: Observable<{}> = of({});
   protected candidatesAmounts = {
     total: 0,
@@ -69,19 +69,14 @@ export class DashboardComponent {
   }
 
   private configureCharts() {
-    let splitColor = '1464a5'.match(/.{1,2}/g).map(function (hex) { return parseInt(hex, 16); });
     this.colorScheme = {
-      domain: ['#0E5293', '#377BB3', '#b9d1e4', 'rgba(' + splitColor[0] + ', ' + splitColor[1] + ', ' + splitColor[2] + ', 0.3)']
+      domain: ['#b9d1e4', '#1464a5', '#c5c5c5', '#5b93c0', '#E3ECF4']
     };
-
-    this.donutParams = new DonutChartConfiguration();
-    this.donutParams.showTooltip = true;
 
     this.pieParams = new PieChartConfiguration();
     this.pieParams.showLabels = false;
-    this.pieParams.showTooltip = true;
-    this.pieParams.height = 130;
     this.pieParams.width = 130;
+    this.pieParams.height = 130;
 
     this.barParams = new DiscreteBarChartConfiguration();
     this.barParams.showLegend = false;
@@ -268,5 +263,4 @@ export class DashboardComponent {
   navigate() {
     this.router.navigate(['../', 'login'], { relativeTo: this.actRoute });
   }
-
 }
