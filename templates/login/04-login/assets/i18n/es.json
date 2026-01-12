@@ -1,0 +1,12 @@
+{
+  "LOGIN.USERNAME": "Usuario",
+  "LOGIN.PASSWORD": "Contraseña",
+  "LOGIN.LOGIN": "Entrar",
+  "LOGIN.TITLE": "Inicia sesión en tu cuenta",
+  "LOGIN.ERROR_REQUIRED_FIELD": "El campo es requerido",
+  "LOGIN.ERROR_MIN_LENGTH_REQUIRED": "El valor introducido tiene que tener una longitud mínima de 8 caracteres",
+  "LOGIN.ERROR_SESSION_EXPIRED": "La sesión ha caducado",
+  "LOGIN.ERROR_USER_REQUIRED": "Nombre de usuario incorrecto",
+  "LOGIN.ERROR_PASS_REQUIRED": "Contraseña incorrecta",
+  "LOGIN.ERROR_USER_PASS_INCORRECT": "Usuario o contraseña incorrecta"
+}

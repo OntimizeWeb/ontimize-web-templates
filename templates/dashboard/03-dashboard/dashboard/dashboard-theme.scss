@@ -1,0 +1,56 @@
+@use '@angular/material' as mat;
+
+@mixin dashboard-theme($theme) {
+  $primary: map-get($theme, color, primary);
+  $foreground: map-get($theme, color, foreground);
+  $background: map-get($theme, color, background);
+  $typography: map-get($theme, typography);
+
+  .home-container {
+    background-color: mat.get-color-from-palette($background, level-1);
+
+    .home-title {
+      font-size: mat.font-size($typography, headline-4);
+    }
+
+    .home-content {
+
+      .column-title {
+        .mat-icon {
+          color: mat.get-color-from-palette($foreground, text);
+        }
+      }
+
+      .column-title {
+        font-size: mat.font-size($typography, headline-5);
+      }
+
+      .row-title {
+        font-size: mat.font-size($typography, headline-6);
+      }
+
+      .label-data {
+        font-size: mat.font-size($typography, subtitle-1);
+        color: mat.get-color-from-palette($foreground, icon);
+      }
+
+      .number-data {
+        font-size: mat.font-size($typography, headline-4);
+        color: mat.get-color-from-palette($foreground, icon);
+        line-height: 26px;
+      }
+
+      .green {
+        background-color: #8CE4AE;
+      }
+
+      .blue {
+        background-color: #8CA5E4;
+      }
+
+      .pink {
+        background-color: #DC93E3;
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+.full-page {
+  min-height: 0;
+
+  .title {
+    padding-top: 16px;
+  }
+
+  .filters {
+    margin: 20px 16px;
+  }
+
+  .o-grid {
+    min-height: 0;
+    padding: 0 16px;
+
+    .o-data-toolbar {
+      padding: 8px 0px;
+    }
+
+    .card-bg {
+      position: relative;
+      height: 240px;
+      width: 370px;
+      border-radius: 10px;
+      overflow: hidden;
+
+      img {
+        position: absolute;
+        inset: 0;
+        filter: brightness(0.5);
+        object-fit: cover;
+        display: block;
+        height: 240px;
+        width: 370px;
+      }
+
+      .card-content {
+        padding: 30px 10px;
+        position: absolute;
+        z-index: 1;
+        inset: 0;
+
+        .grid-card-title {
+          text-align: center;
+        }
+
+        .card-content-last-row {
+          padding: 0 16px;
+        }
+      }
+    }
+  }
+}

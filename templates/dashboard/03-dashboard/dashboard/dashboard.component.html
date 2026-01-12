@@ -1,0 +1,373 @@
+<div class="home-container" fxFlexFill fxLayout="column" fxLayoutAlign="start" fxLayoutGap="18px">
+  <div class="home-title" fxLayout="row" fxFlex="24px" fxLayoutAlign="start center">
+    <span><strong>{{'CONTROL_PANEL' | oTranslate}}</strong></span>
+  </div>
+  <div class="home-content" fxLayout="row" fxLayoutGap="48px">
+    <div class="main-column" fxLayout="column" fxFlex="70%" fxLayoutGap="24px" fxLayoutAlign="space-between">
+      <div class="column-title" fxLayout="row" fxLayoutGap="12px" fxLayoutAlign="start center">
+        <mat-icon>dashboard</mat-icon>
+        <span><strong>{{ 'SERVICE' | oTranslate }}</strong></span>
+      </div>
+      <div fxLayout="column" fxLayoutGap="8px">
+        <div class="row-title" fxLayout="row">
+          <div fxLayout="column">
+            <mat-icon color="primary">functions</mat-icon>
+          </div>
+          <div fxLayout="column" fxLayoutAlign="center">
+            <span><strong>{{'TOTAL' | oTranslate }}</strong></span>
+          </div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="24px" fxLayoutAlign="space-between">
+          <div class="mini-card" fxLayout="column" fxFlex="32%">
+            <mat-card>
+              <mat-card-header>
+                <mat-card-title>
+                  <span>{{'EMPLOYEES' | oTranslate }}</span>
+                </mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <div fxLayout="row" fxLayoutAlign="start center">
+                  <mat-icon color="primary">groups</mat-icon>
+                  <span class="number-data" [matTooltip]="candidatesAmounts.total">{{candidatesAmounts.total | shortNumber:0}}</span>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+          <div class="mini-card" fxLayout="column" fxFlex="32%">
+            <mat-card>
+              <mat-card-header>
+                <mat-card-title>
+                  <span>{{'FILES' | oTranslate }}</span>
+                </mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <div fxLayout="row" fxLayoutAlign="start center">
+                  <mat-icon color="primary">topic</mat-icon>
+                  <span class="number-data" [matTooltip]="interviewsAmounts.total">{{interviewsAmounts.total | shortNumber:0}}</span>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+          <div class="mini-card" fxLayout="column" fxFlex="32%">
+            <mat-card>
+              <mat-card-header>
+                <mat-card-title>
+                  <span>{{'ACTIVITIES' | oTranslate }}</span>
+                </mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <div fxLayout="row" fxLayoutAlign="start center">
+                  <mat-icon color="primary">timeline</mat-icon>
+                  <span class="number-data" [matTooltip]="3598745">{{ 3598745 | shortNumber:1 }}</span>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="column" fxLayoutGap="8px">
+        <div class="row-title" fxLayout="row">
+          <div fxLayout="column">
+            <mat-icon color="primary">calendar_month</mat-icon>
+          </div>
+          <div fxLayout="column" fxLayoutAlign="center">
+            <span><strong>{{'THIS_MONTH' | oTranslate }}</strong></span>
+          </div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="24px" fxLayoutAlign="space-between">
+          <div class="mini-card" fxLayout="column" fxFlex="32%">
+            <mat-card>
+              <mat-card-header>
+                <mat-card-title>
+                  <span>{{'EMPLOYEES' | oTranslate }}</span>
+                </mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <div fxLayout="row" fxLayoutAlign="space-between">
+                  <div fxLayout="column" fxLayoutAlign="end end">
+                    <div fxLayout="row" fxLayoutAlign="start end">
+                      <mat-icon color="primary" *ngIf="showIcon">groups</mat-icon>
+                      <span class="label-data">{{ 'DISCHARGE' | oTranslate }}</span>
+                      <span class="number-data" [matTooltip]="7854">{{7854 | shortNumber:0}}</span>
+                    </div>
+                  </div>
+                  <div fxLayout="column" fxLayoutAlign="end end">
+                    <div fxLayout="row" fxLayoutAlign="start end">
+                      <span class="label-data">{{ 'LEAVE' | oTranslate }}</span>
+                      <span class="number-data" [matTooltip]="100">{{100 | shortNumber:0}}</span>
+                    </div>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+          <div class="mini-card" fxLayout="column" fxFlex="32%">
+            <mat-card>
+              <mat-card-header>
+                <mat-card-title>
+                  <span>{{'FILES' | oTranslate }}</span>
+                </mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <div fxLayout="row" fxLayoutAlign="start center">
+                  <mat-icon color="primary">add</mat-icon>
+                  <span class="number-data" [matTooltip]="5789454652">{{5789454652 | shortNumber:2}}</span>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+          <div class="mini-card" fxLayout="column" fxFlex="32%">
+            <mat-card>
+              <mat-card-header>
+                <mat-card-title>
+                  <span>{{'ACTIVITIES' | oTranslate }}</span>
+                </mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <div fxLayout="row" fxLayoutAlign="start center">
+                  <mat-icon color="primary">timeline</mat-icon>
+                  <span class="number-data" [matTooltip]="55555555456545555">{{55555555456545555 | shortNumber:3}}</span>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutGap="16px">
+        <div fxLayout="column" fxFlex>
+          <mat-card class="mat-card-big">
+            <mat-card-header>
+              <mat-card-title>
+                <mat-icon color="primary">today</mat-icon>
+                <span>{{'TODAY' | oTranslate }}</span>
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div fxLayout="row" fxLayoutAlign="space-between">
+                <div fxLayout="column">
+                  <div fxLayout="row">
+                    <span class="label-data">{{'FILES' | oTranslate}}</span>
+                  </div>
+                  <div fxLayout="row">
+                    <span class="number-data" [matTooltip]="3546852">+ {{3546852 | shortNumber:2}}</span>
+                  </div>
+                  <div fxLayout="row">
+                    <span class="label-data">{{'ACTIVITIES' | oTranslate}}</span>
+                  </div>
+                  <div fxLayout="row">
+                    <span class="number-data" [matTooltip]="5684567">{{5684567 | shortNumber:2}}</span>
+                  </div>
+                </div>
+                <div fxLayout="column">
+                  <div fxLayout="row">
+                    <span class="label-data">{{'SIGNED' | oTranslate}}</span>
+                  </div>
+                  <div fxLayout="row" class="number-with-index" fxLayoutGap="8px">
+                    <div fxLayout="column">
+                      <span class="number-data" [matTooltip]="3555665578">{{3555665578 | shortNumber:2}}</span>
+                    </div>
+                    <div fxLayout="column">
+                      <span class="percentage">({{ 0.967549 | percent: '2.1-2' }})</span>
+                    </div>
+                  </div>
+                  <div fxLayout="row nowrap">
+                    <span class="label-data">{{'WITH_DOWNLOAD' | oTranslate}}</span>
+                  </div>
+                  <div fxLayout="row" class="number-with-index" fxLayoutGap="8px">
+                    <div fxLayout="column">
+                      <span class="number-data">30</span>
+                    </div>
+                    <div fxLayout="column">
+                      <span class="percentage">({{ 0.37489 | percent: '2.1-2' }})</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div fxLayout="column" fxFlex>
+          <mat-card class="mat-card-big">
+            <mat-card-header>
+              <mat-card-title>
+                <mat-icon color="primary">edit_calendar</mat-icon>
+                <span>{{'DAILY_ESTIMATE' | oTranslate }}</span>
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div fxLayout="row" fxLayoutAlign="space-between">
+                <div fxLayout="column">
+                  <div fxLayout="row">
+                    <span class="label-data">{{'FILES' | oTranslate}}</span>
+                  </div>
+                  <div fxLayout="row">
+                    <span class="number-data" [matTooltip]="35333">+ {{35333 | shortNumber:2}}</span>
+                  </div>
+                  <div fxLayout="row">
+                    <span class="label-data">{{'ACTIVITIES' | oTranslate}}</span>
+                  </div>
+                  <div fxLayout="row">
+                    <span class="number-data" [matTooltip]="123033333">{{123033333 | shortNumber:2}}</span>
+                  </div>
+                </div>
+                <div fxLayout="column">
+                  <div fxLayout="row">
+                    <span class="label-data">{{'SIGN' | oTranslate}}</span>
+                  </div>
+                  <div fxLayout="row" class="number-with-index" fxLayoutGap="8px">
+                    <div fxLayout="column">
+                      <span class="number-data" [matTooltip]="64447">{{64447 | shortNumber:2}}</span>
+                    </div>
+                    <div fxLayout="column">
+                      <span class="percentage">({{ 0.38679 | percent: '2.1-2' }})</span>
+                    </div>
+                  </div>
+                  <div fxLayout="row nowrap">
+                    <span class="label-data">{{'WITH_DOWNLOAD' | oTranslate}}</span>
+                  </div>
+                  <div fxLayout="row" class="number-with-index" fxLayoutGap="8px">
+                    <div fxLayout="column">
+                      <span class="number-data" [matTooltip]="545685">{{ 545685 | shortNumber:2}}</span>
+                    </div>
+                    <div fxLayout="column">
+                      <span class="percentage">({{ 0.7479 | percent: '2.1-2' }})</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-column" fxLayout="column" fxFlex="calc(30% - 48px)" fxLayoutGap="16px" fxLayoutAlign="space-between">
+      <div class="column-title" fxLayout="row" fxLayoutGap="12px" fxLayoutAlign="start center">
+        <mat-icon>pending_actions</mat-icon>
+        <span><strong>{{ 'OVERTIME' | oTranslate }}</strong></span>
+      </div>
+      <div fxLayout="column" fxFlex="100" fxLayoutAlign="space-between">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>
+              <span>{{'THIS_WEEK' | oTranslate}}</span>
+            </mat-card-title>
+            <mat-card-subtitle>
+              <div class="color-underline green"></div>
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <div fxLayout="row" fxLayoutGap="32px">
+              <div fxLayout="column" fxLayoutAlign="space-between">
+                <div fxLayout="row" fxLayoutGap="4px">
+                  <div fxLayout="column">
+                    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
+                      <mat-icon color="primary">groups</mat-icon>
+                      <span class="label-data">{{'EMPLOYEES' | oTranslate}}</span>
+                    </div>
+                  </div>
+                </div>
+                <div fxLayout="row">
+                  <span class="number-data">7</span>
+                </div>
+              </div>
+              <div fxLayout="column" fxLayoutAlign="space-between">
+                <div fxLayout="row" fxLayoutGap="4px">
+                  <div fxLayout="column">
+                    <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="center center">
+                      <mat-icon color="primary">schedule</mat-icon>
+                      <span class="label-data">{{'HOURS' | oTranslate}}</span>
+                    </div>
+                  </div>
+                </div>
+                <div fxLayout="row">
+                  <span class="number-data" [matTooltip]="4597854125">+ {{4597854125 | shortNumber}}</span>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>
+              <span>{{'THIS_MONTH' | oTranslate}}</span>
+            </mat-card-title>
+            <mat-card-subtitle>
+              <div class="color-underline blue"></div>
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <div fxLayout="row" fxLayoutGap="32px">
+              <div fxLayout="column" fxLayoutAlign="space-between">
+                <div fxLayout="row" fxLayoutGap="4px">
+                  <div fxLayout="column">
+                    <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="center center">
+                      <mat-icon color="primary">groups</mat-icon>
+                      <span class="label-data">{{'EMPLOYEES' | oTranslate}}</span>
+                    </div>
+                  </div>
+                </div>
+                <div fxLayout="row">
+                  <span class="number-data">5</span>
+                </div>
+              </div>
+              <div fxLayout="column" fxLayoutAlign="space-between">
+                <div fxLayout="row" fxLayoutGap="4px">
+                  <div fxLayout="column">
+                    <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="center center">
+                      <mat-icon color="primary">schedule</mat-icon>
+                      <span class="label-data">{{'HOURS' | oTranslate}}</span>
+                    </div>
+                  </div>
+                </div>
+                <div fxLayout="row">
+                  <span class="number-data" [matTooltip]="125">+ {{125 | shortNumber}}</span>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>
+              <span>{{'LAST_MONTH' | oTranslate}}</span>
+            </mat-card-title>
+            <mat-card-subtitle>
+              <div class="color-underline pink"></div>
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <div fxLayout="row" fxLayoutGap="32px">
+              <div fxLayout="column" fxLayoutAlign="space-between">
+                <div fxLayout="row" fxLayoutGap="4px">
+                  <div fxLayout.="column">
+                    <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="center center">
+                      <mat-icon color="primary">groups</mat-icon>
+                      <span class="label-data">{{'EMPLOYEES' | oTranslate}}</span>
+                    </div>
+                  </div>
+                </div>
+                <div fxLayout="row">
+                  <span class="number-data">2</span>
+                </div>
+              </div>
+              <div fxLayout="column" fxLayoutAlign="space-between">
+                <div fxLayout="row" fxLayoutGap="4px">
+                  <div fxLayout="column">
+                    <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="center center">
+                      <mat-icon color="primary">schedule</mat-icon>
+                      <span class="label-data">{{'HOURS' | oTranslate}}</span>
+                    </div>
+                  </div>
+                </div>
+                <div fxLayout="row">
+                  <span class="number-data" [matTooltip]="15478995">+ {{15478995 | shortNumber}}</span>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

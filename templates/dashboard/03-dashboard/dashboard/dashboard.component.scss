@@ -1,0 +1,99 @@
+@use '@angular/material' as mat;
+
+.home-container {
+  padding: 16px 24px;
+  overflow-y: auto;
+
+  .home-content {
+    padding: 24px 32px 0px;
+
+    .mat-mdc-card {
+      @include mat.elevation(4);
+
+      .mat-mdc-card-content {
+        overflow: hidden;
+        white-space: nowrap;
+      }
+    }
+
+    .column-title {
+      .mat-icon {
+        font-size: 24px;
+        width: 24px;
+        height: 24px;
+        overflow: visible;
+      }
+    }
+
+    .mat-icon {
+      font-size: 32px;
+      width: 32px;
+      height: 32px;
+      overflow: visible;
+      margin-right: 12px;
+    }
+
+    .main-column {
+      .mini-card {
+
+        .mat-mdc-card {
+          height: 100%;
+
+          .mat-mdc-card-header {
+            padding-bottom: 16px;
+          }
+        }
+
+        .label-data {
+          margin-right: 8px;
+        }
+      }
+
+      .mat-card-big {
+        padding: 8px;
+        margin-top: 32px;
+
+        .mat-mdc-card-header {
+          .mat-mdc-card-title {
+            display: flex;
+            align-items: center;
+          }
+        }
+
+        .number-with-index {
+          align-items: baseline;
+        }
+
+        .label-data {
+          margin-bottom: 4px;
+          margin-top: 16px;
+        }
+
+        .percentage {
+          line-height: 16px;
+        }
+      }
+    }
+
+    .side-column {
+
+      .mat-mdc-card {
+        padding: 8px;
+
+        .mat-mdc-card-header {
+          margin-bottom: 24px;
+        }
+
+        .number-data {
+          margin-left: 16px;
+        }
+      }
+
+      .color-underline {
+        margin-left: 42px;
+        width: 96px;
+        height: 4px;
+      }
+    }
+  }
+}

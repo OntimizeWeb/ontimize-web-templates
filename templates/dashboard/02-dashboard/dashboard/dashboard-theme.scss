@@ -1,0 +1,126 @@
+@use '@angular/material' as mat;
+
+@mixin dashboard-theme($theme) {
+  $primary: map-get($theme, color, primary);
+  $foreground: map-get($theme, color, foreground);
+  $background: map-get($theme, color, background);
+  $typography: map-get($theme, typography);
+
+  .home-container {
+
+    .home-content {
+      background-color: mat.get-color-from-palette($background, level-1);
+
+      .categories-cards {
+        .column-title {
+          font-size: mat.font-size($typography, headline-5);
+          color: mat.get-color-from-palette($foreground, title);
+        }
+
+        .o-card-menu-item {
+          background: mat.get-color-from-palette($background, level-08);
+
+          .o-card-menu-item-content .o-card-menu-item-main {
+            background-color: mat.get-color-from-palette($background, level-08);
+
+            .o-card-menu-item-image-container .o-card-menu-item-icon {
+              color: mat.get-color-from-palette($foreground, icon);
+            }
+          }
+        }
+
+      }
+
+      .dashboard-alerts {
+        .column-title {
+          font-size: mat.font-size($typography, headline-5);
+          color: mat.get-color-from-palette($foreground, title);
+        }
+
+        .dashboard-cards {
+
+          .dashboard-card {
+            background-color: mat.get-color-from-palette($background, level-08);
+            border: 1px solid;
+            border-color: mat.get-color-from-palette($primary, 0.17);
+
+            .card-title {
+              font-size: mat.font-size($typography, headline-6);
+              color: mat.get-color-from-palette($foreground, button);
+            }
+
+            .card-content {
+              .card-number {
+                font-size: mat.font-size($typography, headline-2);
+                color: mat.get-color-from-palette($foreground, icon);
+              }
+            }
+
+            .card-info {
+              .info-row {
+                .info-number {
+                  font-size: mat.font-size($typography, headline-5);
+                  color: mat.get-color-from-palette($foreground, button);
+                }
+
+                .info-label {
+                  font-size: mat.font-size($typography, subtitle-1);
+                  color: mat.get-color-from-palette($foreground, button);
+                }
+
+                .dot-done {
+                  background-color: mat.get-color-from-palette($primary, 600);
+                }
+
+                .dot-pending {
+                  background-color: mat.get-color-from-palette($primary, 300);
+                }
+              }
+            }
+
+            .info-row {
+              .total-number {
+                font-size: mat.font-size($typography, headline-2);
+                color: mat.get-color-from-palette($foreground, icon);
+              }
+
+              .info-label {
+                font-size: mat.font-size($typography, subtitle-1);
+                color: mat.get-color-from-palette($foreground, button);
+              }
+            }
+          }
+
+        }
+
+        mat-expansion-panel {
+          background-color: mat.get-color-from-palette($background, level-08);
+          border: 1px solid;
+          border-color: mat.get-color-from-palette($primary, 0.17);
+
+          .date {
+            font-size: mat.font-size($typography, body-1);
+            color: mat.get-color-from-palette($foreground, text);
+          }
+
+          .title {
+            font-size: mat.font-size($typography, body-1);
+            color: mat.get-color-from-palette($primary, 700);
+          }
+
+          .content {
+            font-size: mat.font-size($typography, body-1);
+            color: mat.get-color-from-palette($foreground, button);
+          }
+
+          .color-label {
+            background-color: mat.get-color-from-palette($primary, 200);
+            font-size: mat.font-size($typography, body-1);
+          }
+        }
+
+      }
+    }
+  }
+
+}

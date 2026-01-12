@@ -1,0 +1,29 @@
+@use '@angular/material'as mat;
+@use 'sass:map';
+@mixin grid-theme($theme) {
+  $accent: map.get($theme, color, accent);
+  $foreground: map.get($theme, color, foreground);
+  $background: map.get($theme, color, background);
+  $border-color: mat.get-color-from-palette($foreground, divider);
+
+  grid-home {
+    .image-container .mat-divider {
+      border-top-color: mat.get-color-from-palette($accent);
+    }
+
+    .employee-data span .square {
+      background-color: mat.get-color-from-palette($accent);
+    }
+
+    .o-column-collapsible.collapsible {
+      .filter_style {
+        border-color: mat.get-color-from-palette($accent);
+      }
+
+      .o-container .o-container-title.mat-expansion-panel-header-title,
+      .o-container .o-row-collapsible > .o-container .o-container-title.mat-expansion-panel-header-title {
+        border-color: $border-color;
+      }
+    }
+  }
+}

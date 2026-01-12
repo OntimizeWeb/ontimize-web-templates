@@ -1,0 +1,13 @@
+{
+  "NAME": "Name",
+  "SURNAME": "Surname",
+  "EMPLOYEETYPE": "Employee type",
+  "EMAIL": "Email",
+  "OFFICE": "Office",
+  "CLEAR": "Clear",
+  "FILTER": "Filter",
+  "FILTER_BUTTON": "Filters",
+  "STARTDATE": "Start date",
+  "ADDRESS": "Address",
+  "CUSTOMERTYPEID": "Type"
+}

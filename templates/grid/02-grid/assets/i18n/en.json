@@ -1,0 +1,15 @@
+{
+  "FILTER_NAME": "Name",
+  "BEGIN_DATE": "Begin date",
+  "SEARCH": "Search",
+  "CLEAR_FILTER": "Clear",
+  "MIN_PRICE": "Min price",
+  "MAX_PRICE": "Max price",
+  "NUMBER_DAYS": "Number of days",
+  "NUMBER_TRAVELLERS": "Number of travellers",
+  "FILTER_CITY": "City",
+  "name": "name",
+  "dateBegin": "begin date",
+  "people": "travellers",
+  "score": "score"
+}

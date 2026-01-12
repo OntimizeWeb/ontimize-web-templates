@@ -1,0 +1,93 @@
+.home-container {
+  overflow: hidden;
+
+  .home-title {
+    .mat-icon {
+      font-size: 18px;
+      width: 18px;
+      height: 18px;
+      padding-left: 16px;
+    }
+  }
+
+  .home-content {
+    padding: 16px 40px;
+
+    .dashboard-alerts {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+
+      .dashboard-cards {
+        gap: 12px;
+
+        .dashboard-card {
+          padding: 16px;
+          border-radius: 4px;
+
+          .card-content {
+            .card-icon {
+              font-size: 36px;
+              height: 36px;
+              width: 36px;
+              margin-bottom: 14px;
+            }
+          }
+
+          .card-info {
+            .info-row {
+              .dot {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+              }
+            }
+          }
+
+          .info-row {
+            mat-progress-bar {
+              height: 10px;
+              width: 72px;
+              border-radius: 8px;
+            }
+          }
+        }
+      }
+
+      .notifications-panel {
+
+        mat-expansion-panel {
+          .title {
+            margin-left: 12px;
+          }
+
+          .color-label {
+            display: inline-block;
+            align-content: center;
+            text-align: center;
+            width: 112px;
+            height: 28px;
+            border-radius: 16px;
+            padding: 4px 16px;
+          }
+        }
+
+        o-button {
+          margin-bottom: 8px;
+        }
+      }
+    }
+
+    @media (max-width: 1919px) {
+      overflow: auto;
+    }
+
+    @media (min-width: 1920px) {
+      .notifications-panel {
+        overflow-y: auto;
+      }
+    }
+  }
+
+
+}

@@ -1,0 +1,43 @@
+@use '@angular/material' as mat;
+@import 'node_modules/@angular/material/theming';
+
+@mixin form-theme($theme) {
+  $primary: map-get($theme, color, primary);
+  $accent: map-get($theme, color, accent);
+  $warn: map-get($theme, color, warn);
+  $background: map-get($theme, color, background);
+  $foreground: map-get($theme, color, foreground);
+
+  .avatar-icons {
+    .mat-icon {
+      color: mat.get-color-from-palette($foreground, icon);
+    }
+  }
+
+  .info-card {
+
+    .file-number-row {
+
+      .mat-icon {
+        color: mat.get-color-from-palette($primary);
+      }
+
+      span {
+        color: mat.get-color-from-palette($foreground, secondary-text);
+      }
+    }
+
+    .respon-zone {
+      color: mat.get-color-from-palette($foreground, text);
+    }
+  }
+
+  .blue-bg {
+    background: mat.get-color-from-palette($primary);
+  }
+
+  .types-buttons {
+    border-color: mat.get-color-from-palette($foreground, divider);
+  }
+
+}
